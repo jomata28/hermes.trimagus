@@ -502,6 +502,8 @@ for g in json.load(sys.stdin):
 
 ## Quick Reference Table
 
+**⚠️ Pushing code with secrets?** See `references/push-protection.md` — GitHub's push protection scans commit content (not just config files) and blocks pushes containing API keys, tokens, or credentials found anywhere in the commit, including code examples in markdown files.
+
 | Action | gh | git + curl |
 |--------|-----|-----------|
 | Clone | `gh repo clone o/r` | `git clone https://github.com/o/r.git` |

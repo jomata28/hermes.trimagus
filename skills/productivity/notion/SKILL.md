@@ -161,6 +161,15 @@ Common property formats for database items:
   - Use `data_source_id` when querying (`POST /v1/data_sources/{id}/query`)
 - **Search results:** Databases return as `"object": "data_source"` with their `data_source_id`
 
+## ⚠️ Critical Pitfall: Notion-Version 2025-09-03 Returns 401 on Database Queries
+
+`Notion-Version: 2025-09-03` returns **`401 "API token is invalid"`** when querying databases via `/v1/databases/{id}/query`, even with a valid `ntn_` key. The same key with `Notion-Version: 2022-06-28` works perfectly.
+
+**Recommended strategy:**
+- **Database queries** (`POST /v1/databases/{id}/query`): use `Notion-Version: 2022-06-28`. Sort by `{"timestamp": "created_time", "direction": "descending"}` — do NOT use `property`-based sorts (they fail with `validation_error`).
+- **All other operations** (search, get page, get blocks, create page, update page, add content): `Notion-Version: 2025-09-03` works fine.
+- If `2025-09-03` gives `401 unauthorized` on a request, retry with `2022-06-28`.
+
 ## Notes
 
 - Page/database IDs are UUIDs (with or without dashes)

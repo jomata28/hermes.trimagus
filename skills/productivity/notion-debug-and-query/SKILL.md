@@ -43,7 +43,7 @@ If you've been provided multiple potential API keys, test them systematically:
 
 ```bash
 # Test Key 1
-KEY1="ntn_REDACTED_KEY1"
+KEY1="REDACTED"
 curl -s -X POST "https://api.notion.com/v1/search" \
   -H "Authorization: Bearer $KEY1" \
   -H "Notion-Version: 2025-09-03" \
@@ -51,7 +51,7 @@ curl -s -X POST "https://api.notion.com/v1/search" \
   -d '{"query": "", "page_size": 1}'
 
 # Test Key 2  
-KEY2="ntn_REDACTED_KEY2"
+KEY2="REDACTED"
 curl -s -X POST "https://api.notion.com/v1/search" \
   -H "Authorization: Bearer $KEY2" \
   -H "Notion-Version: 2025-09-03" \
