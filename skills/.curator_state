@@ -1,8 +1,8 @@
 {
-  "last_report_path": null,
-  "last_run_at": "2026-05-08T00:53:40.551617+00:00",
-  "last_run_duration_seconds": null,
-  "last_run_summary": "deferred first run — curator seeded, will run after one interval; use `hermes curator run --dry-run` to preview now",
+  "last_report_path": "/root/.hermes/logs/curator/20260522-012734",
+  "last_run_at": "2026-05-22T01:27:34.852405+00:00",
+  "last_run_duration_seconds": 10.856336,
+  "last_run_summary": "auto: no changes; llm: API call failed after 3 retries: HTTP 402: This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 7298. To increase, visit https://openrouter.ai/settings/credits and add more credits",
   "paused": false,
-  "run_count": 0
+  "run_count": 2
 }

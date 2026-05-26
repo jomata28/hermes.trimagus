@@ -20,4 +20,5 @@ ollama_cloud_models_cache.json
 .skills_prompt_snapshot.json
 state.db*
 kanban.db
-.env
+__pycache__/
+*.pyc

@@ -67,7 +67,9 @@ GitHub's secret scanning blocks pushes containing detected secrets. This applies
 
 - **`skills/` directory** — SKILL.md files sometimes contain live example tokens scanned by GitHub (e.g., Notion `ntn_*` keys in code blocks). Scan and redact any `ntn_`, `sk-`, `ghp_`, `github_pat_`, `groq-` patterns found in text.
 
-- **After amending the commit** (without secrets), push normally via SSH.
+- **After amending the commit** (without secrets), push with `git push` — do NOT use `--force-with-lease` in cron mode. The original push was rejected by GitHub (commit never landed), so the remote hasn't moved. `--force-with-lease` triggers an interactive approval guard that cron jobs can't pass. A plain `git push origin main` works after the amend.
+
+- **Fix the source too**: When GitHub blocks a backup due to secrets in `~/.hermes/skills/`, the same tokens will block the next backup. After redacting in the backup copy, also redact in the live `~/.hermes/skills/` files. Use a real-token regex like `ntn_[A-Za-z0-9]{20,}` to match actual tokens, not placeholders like `ntn_your_key_here`.
 
 ## Pitfalls
 
@@ -75,3 +77,4 @@ GitHub's secret scanning blocks pushes containing detected secrets. This applies
 - **Credential helper interference**: `gh auth git-credential` overrides token-embedded HTTPS URLs. Use SSH as fallback when HTTPS fails.
 - **Secret scanning catches SKILL.md examples**: GitHub scans commit content, not just config files. Live tokens inside SKILL.md code examples get caught and block the entire push.
 - **Large state DBs**: `state.db` can be 40MB+. Exclude it — the backup targets config, skills, memory, and cron, not runtime state.
+- **`--force-with-lease` blocks in cron mode**: Hermes terminal agents guard force pushes with an interactive approval prompt. Since secret-blocked commits never reach the remote, the local HEAD diverges from a commit that doesn't exist remotely. Pushing with `--force-with-lease` tries to force-push and gets intercepted. Use a plain `git push` instead.

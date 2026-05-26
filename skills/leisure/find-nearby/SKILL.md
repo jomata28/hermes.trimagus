@@ -64,6 +64,8 @@ python3 SKILL_DIR/scripts/find_nearby.py --near "90210" --type pharmacy --json
 ## Tips
 
 - If results are sparse, widen the radius (1500 → 3000m)
-- For "open now" requests: check the `hours` field in results, cross-reference with `web_search` for accuracy since OSM hours aren't always complete
+- For specialized categories (e.g. firearm ranges, niche classes, gyms, training providers), OSM amenity/type coverage may be poor. Fallback to Nominatim text searches for known phrases (`gun range Houston Texas`, `beginner handgun class Houston TX`) and then provide Google Maps search links for verification.
+- Google Search and DuckDuckGo may bot-block VPS browser sessions. When blocked, use direct known business pages, Nominatim/OSM, or constructed Google Maps search URLs instead of pretending search succeeded.
+- For "open now" requests: check the `hours` field in results, cross-reference with web/direct business pages for accuracy since OSM hours aren't always complete
 - Zip codes alone can be ambiguous globally — prompt the user for country/state if results look wrong
 - The script uses OpenStreetMap data which is community-maintained; coverage varies by region
