@@ -15,10 +15,10 @@ plugins/
 hooks/
 pastes/
 whatsapp/
+state.db*
+kanban.db
 models_dev_cache.json
 ollama_cloud_models_cache.json
 .skills_prompt_snapshot.json
-state.db*
-kanban.db
 __pycache__/
 *.pyc

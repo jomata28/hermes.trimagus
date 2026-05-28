@@ -18,17 +18,17 @@
       "schedule_display": "55 13 * * *",
       "repeat": {
         "times": null,
-        "completed": 42
+        "completed": 44
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-13T21:12:49.081621+00:00",
-      "next_run_at": "2026-05-26T13:55:00+00:00",
-      "last_run_at": "2026-05-25T13:56:05.044482+00:00",
+      "next_run_at": "2026-05-28T13:55:00+00:00",
+      "last_run_at": "2026-05-27T13:55:51.435859+00:00",
       "last_status": "error",
-      "last_error": "RuntimeError: HTTP 402: This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 7298. To increase, visit https://openrouter.ai/settings/credits and add more credits",
+      "last_error": "RuntimeError: Error code: 400 - {'error': {'message': 'z-ai/glm-4-5-air:free is not a valid model ID', 'code': 400}, 'user_id': 'user_2v95px7iuCUePfth4Hs6DCu0hdT'}",
       "deliver": "origin",
       "origin": {
         "platform": "telegram",
@@ -58,17 +58,17 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 40
+        "completed": 42
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-15T20:25:37.192710+00:00",
-      "next_run_at": "2026-05-26T07:00:00+00:00",
-      "last_run_at": "2026-05-25T07:00:49.297888+00:00",
+      "next_run_at": "2026-05-28T07:00:00+00:00",
+      "last_run_at": "2026-05-27T07:00:31.724889+00:00",
       "last_status": "error",
-      "last_error": "RuntimeError: HTTP 402: This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 7298. To increase, visit https://openrouter.ai/settings/credits and add more credits",
+      "last_error": "RuntimeError: Error code: 400 - {'error': {'message': 'z-ai/glm-4-5-air:free is not a valid model ID', 'code': 400}, 'user_id': 'user_2v95px7iuCUePfth4Hs6DCu0hdT'}",
       "deliver": "telegram",
       "origin": null,
       "last_delivery_error": null
@@ -93,17 +93,17 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 40
+        "completed": 42
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-15T21:39:46.829937+00:00",
-      "next_run_at": "2026-05-26T07:00:00+00:00",
-      "last_run_at": "2026-05-25T07:00:50.192411+00:00",
+      "next_run_at": "2026-05-28T07:00:00+00:00",
+      "last_run_at": "2026-05-27T07:00:32.153582+00:00",
       "last_status": "error",
-      "last_error": "RuntimeError: HTTP 402: This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 7298. To increase, visit https://openrouter.ai/settings/credits and add more credits",
+      "last_error": "RuntimeError: Error code: 400 - {'error': {'message': 'z-ai/glm-4-5-air:free is not a valid model ID', 'code': 400}, 'user_id': 'user_2v95px7iuCUePfth4Hs6DCu0hdT'}",
       "deliver": "telegram",
       "origin": {
         "platform": "telegram",
@@ -133,17 +133,17 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 29
+        "completed": 31
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-26T15:35:16.683709+00:00",
-      "next_run_at": "2026-05-26T07:00:00+00:00",
-      "last_run_at": "2026-05-25T07:00:49.090942+00:00",
-      "last_status": "error",
-      "last_error": "RuntimeError: HTTP 402: This request requires more credits, or fewer max_tokens. You requested up to 16000 tokens, but can only afford 10947. To increase, visit https://openrouter.ai/settings/credits and add more credits",
+      "next_run_at": "2026-05-28T07:00:00+00:00",
+      "last_run_at": "2026-05-27T07:00:26.205195+00:00",
+      "last_status": "ok",
+      "last_error": null,
       "deliver": "telegram",
       "origin": {
         "platform": "telegram",
@@ -173,17 +173,17 @@
       "schedule_display": "0 3 * * *",
       "repeat": {
         "times": null,
-        "completed": 17
+        "completed": 19
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-08T18:09:30.722153+00:00",
-      "next_run_at": "2026-05-27T03:00:00+00:00",
-      "last_run_at": "2026-05-25T03:00:35.540506+00:00",
+      "next_run_at": "2026-05-29T03:00:00+00:00",
+      "last_run_at": "2026-05-27T03:01:13.719755+00:00",
       "last_status": "error",
-      "last_error": "RuntimeError: HTTP 402: This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 7298. To increase, visit https://openrouter.ai/settings/credits and add more credits",
+      "last_error": "RuntimeError: Error code: 400 - {'error': {'message': 'z-ai/glm-4-5-air:free is not a valid model ID', 'code': 400}, 'user_id': 'user_2v95px7iuCUePfth4Hs6DCu0hdT'}",
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -210,17 +210,17 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 0
+        "completed": 2
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-25T19:56:44.909253+00:00",
-      "next_run_at": "2026-05-26T07:00:00+00:00",
-      "last_run_at": null,
-      "last_status": null,
-      "last_error": null,
+      "next_run_at": "2026-05-28T07:00:00+00:00",
+      "last_run_at": "2026-05-27T07:00:32.422676+00:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: Error code: 400 - {'error': {'message': 'z-ai/glm-4-5-air:free is not a valid model ID', 'code': 400}, 'user_id': 'user_2v95px7iuCUePfth4Hs6DCu0hdT'}",
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": {
@@ -281,5 +281,5 @@
       "workdir": null
     }
   ],
-  "updated_at": "2026-05-26T03:00:16.895182+00:00"
+  "updated_at": "2026-05-28T03:00:35.463076+00:00"
 }

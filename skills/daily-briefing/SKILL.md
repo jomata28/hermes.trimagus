@@ -13,11 +13,13 @@ Deliver actionable daily and weekly briefings by scanning THREE sources, identif
 ## Data Sources (check ALL three every time)
 
 ### 1. Google Calendar
+- **Scan ALL selected calendars, not just primary** (Personal + Houston Methodist Work + any other visible calendars)
 - Scan events for next 7 days
-- Identify time blocks for study, workouts, research, personal
+- Identify time blocks for study, workouts, research, personal, and lab/work meetings
 - **Look for gaps** where work/study blocks are missing
 - **Flag conflicts** (overlapping events, travel days, no-research days)
 - Check for upcoming deadlines/events that need prep time
+- When doing monthly reviews, list calendars first and query each calendar separately
 
 ### 2. Google Tasks (ONEPISSA 8 lists)
 - Scan ALL lists for due-today, overdue, and upcoming tasks

@@ -5,9 +5,9 @@ model:
   provider: openai-codex
 providers: {}
 fallback_providers:
-- model: qwen/qwen3.6-plus:free
+- model: qwen/qwen3.6-plus
   provider: openrouter
-- model: z-ai/glm-4-5-air:free
+- model: moonshotai/kimi-k2.6
   provider: openrouter
 credential_pool_strategies: {}
 toolsets:
