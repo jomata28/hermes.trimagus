@@ -17,7 +17,7 @@ os.makedirs(Path.home() / ".config/rclone", exist_ok=True)
 with open(Path.home() / ".config/rclone/rclone.conf", "w") as f:
     f.write(f"""[drive-hermes]
 type = drive
-token = {json.dumps({{"access_token": gtoken["token"], "token_type": "Bearer", "refresh_token": gtoken["refresh_token"], "expiry": gtoken["expiry"]}})}
+token = REDACTED
 client_id = {gtoken["client_id"]}
 client_secret = {gtoken["client_secret"]}
 """)

@@ -299,7 +299,7 @@ from my_api import MyCustomAPI
 
 model = MyCustomAPI(
     base_url="https://api.example.com/v1",
-    api_key="your-key"
+    api_key=REDACTED
 )
 
 results = evaluator.simple_evaluate(

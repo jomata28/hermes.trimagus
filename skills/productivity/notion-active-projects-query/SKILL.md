@@ -144,7 +144,7 @@ import json
 import subprocess
 
 def query_notion_active_projects(database_id):
-    notion_key = os.getenv('NOTION_API_KEY')
+    notion_key = REDACTED
     if not notion_key:
         raise ValueError("NOTION_API_KEY not found in environment")
     

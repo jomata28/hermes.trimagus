@@ -2,6 +2,7 @@
 name: divine-pharma-notion-episodes-fetch
 description: Fetches Divine Intervention Pharmacology podcast episodes from the Notion database for processing into Obsidian notes
 category: productivity
+version: 1.1.0
 ---
 
 # Fetching Divine Intervention Podcast Episodes from Notion
@@ -16,7 +17,7 @@ This skill provides a reusable approach to query the Divine Pharmacology Notion 
 ## Database Information
 
 - Database Name: `D.I. PHARM PODCASTS`
-- Database ID: `2f88c883-85ba-81ed-8d31-000b07f32c0e` (from session history)
+- Database ID: `2f88c883-85ba-81d3-a9d2-eca5f4e30d0b`
 - Properties:
   - `Title`: Title of the podcast entry (e.g., "Ep. 6 - Pharm Cases")
   - `Link`: URL to the podcast episode
@@ -26,25 +27,25 @@ This skill provides a reusable approach to query the Divine Pharmacology Notion 
 
 ### 1. Query the Notion Database for Episodes
 
-Use the notion skill to learn the curl pattern, then execute:
+**⚠️ Critical:** Use `Notion-Version: 2022-06-28` and the `/databases/` endpoint (NOT `2025-09-03` + `/data_sources/`). The newer API version returns `401 "API token is invalid"` on database queries.
 
 ```bash
-curl -s -X POST "https://api.notion.com/v1/data_sources/2f88c883-85ba-81ed-8d31-000b07f32c0e/query" \\
+curl -s -X POST "https://api.notion.com/v1/databases/2f88c883-85ba-81d3-a9d2-eca5f4e30d0b/query" \\
   -H "Authorization: Bearer $NOTION_API_KEY" \\
-  -H "Notion-Version: 2025-09-03" \\
+  -H "Notion-Version: 2022-06-28" \\
   -H "Content-Type: application/json" \\
   -d '{
     "page_size": 50,
     "sorts": [
       {
-        "property": "Created time",
+        "timestamp": "created_time",
         "direction": "descending"
       }
     ]
   }'
 ```
 
-**Note**: If sorting by "Created time" fails, try sorting by "Created time" without specifying the property name, or remove sorts to get latest entries first.
+**Note**: Sort by `{"timestamp": "created_time"}` — do NOT use `"property"` sorts (they fail with `validation_error`).
 
 ### 2. Extract Episode Information
 
@@ -85,11 +86,12 @@ Where `pharma-9am.sh` contains:
 ```bash
 #!/bin/bash
 # Fetch latest episode from Notion
-EPISODE_JSON=$(curl -s -X POST "https://api.notion.com/v1/data_sources/2f88c883-85ba-81ed-8d31-000b07f32c0e/query" \\
+# IMPORTANT: Must use /databases/ endpoint with 2022-06-28, NOT /data_sources/ with 2025-09-03
+EPISODE_JSON=$(curl -s -X POST "https://api.notion.com/v1/databases/2f88c883-85ba-81d3-a9d2-eca5f4e30d0b/query" \\
   -H "Authorization: Bearer $NOTION_API_KEY" \\
-  -H "Notion-Version: 2025-09-03" \\
+  -H "Notion-Version: 2022-06-28" \\
   -H "Content-Type: application/json" \\
-  -d '{"page_size": 1, "sorts": [{"property": "Created time", "direction": "descending"}]}')
+  -d '{"page_size": 1, "sorts": [{"timestamp": "created_time", "direction": "descending"}]}')
 
 EPISODE_URL=$(echo "$EPISODE_JSON" | jq -r '.results[0].properties.Link.url')
 EPISODE_TITLE=$(echo "$EPISODE_JSON" | jq -r '.results[0].properties.Title.title[0].text.content')
@@ -109,7 +111,9 @@ EPISODE_TITLE=$(echo "$EPISODE_JSON" | jq -r '.results[0].properties.Title.title
 
 ## Notes & Pitfalls
 
-- The Notion API uses `data_sources` endpoint (not `databases`) in version 2025-09-03
+- **API version**: Use `Notion-Version: 2022-06-28` with `/databases/` for queries. `2025-09-03` returns 401 on database queries.
+- **Sort**: Use `{"timestamp": "created_time"}` — property sorts fail with `validation_error`.
+- **Database staleness**: This Notion database is manually updated and can lag months behind the actual podcast feed at `divineinterventionpodcasts.com`. If queries return episodes from months ago, the DB hasn't been refreshed. You may need to scrape the podcast site directly for newer episodes.
 - Rate limit: ~3 requests/second - add delay if processing multiple episodes
 - Some podcast links may redirect - you may need to follow redirects to get actual audio URL
 - Consider checking if episode was already processed by tracking IDs in a local file
@@ -131,10 +135,10 @@ After running, verify:
 
 ## Related Skills
 
-- `devine-pharma-obsidian-bolt`: Defines the Obsidian vault structure and note template
-- `pharma-cron-obsidian-link`: Defines the cron schedule and delivery format
-- `whisper`: For audio transcription
+- `divine-pharma-daily-cron`: Main daily cron processor (handles full pipeline)
+- `divine-pharma-podcast-processing-pipeline`: Complete fetch→transcribe→extract pipeline
 - `obsidian`: For creating/updating Obsidian notes
+- `whisper`: For audio transcription
 
 ## Example Output
 

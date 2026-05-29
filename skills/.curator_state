@@ -1,8 +1,8 @@
 {
-  "last_report_path": "/root/.hermes/logs/curator/20260522-012734",
-  "last_run_at": "2026-05-22T01:27:34.852405+00:00",
-  "last_run_duration_seconds": 10.856336,
-  "last_run_summary": "auto: no changes; llm: API call failed after 3 retries: HTTP 402: This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 7298. To increase, visit https://openrouter.ai/settings/credits and add more credits",
+  "last_report_path": "/root/.hermes/logs/curator/20260529-015357",
+  "last_run_at": "2026-05-29T01:53:57.672825+00:00",
+  "last_run_duration_seconds": 105.424754,
+  "last_run_summary": "auto: no changes; llm: Processed all 5 agent-created candidate skills.\n\nSummary:\n- Consolidated the only clear umbrella cluster:\n  - `bitacora-vault` → `second-brain`\n  - Rationale: `second-brain` is the broader class-level Obsidian/Google Drive personal knowledg…",
   "paused": false,
-  "run_count": 2
+  "run_count": 3
 }

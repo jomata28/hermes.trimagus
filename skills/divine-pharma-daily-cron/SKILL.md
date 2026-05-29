@@ -1,7 +1,7 @@
 ---
 name: divine-pharma-daily-cron
 description: Daily Divine Intervention Pharmacology podcast processing - fetches latest episode, transcribes, extracts insights, creates Obsidian notes
-version: 1.0.0
+version: 1.1.0
 author: Hermes Agent
 category: productivity
 ---
@@ -91,6 +91,23 @@ This skill is designed to be run via Hermes cron job:
 ## Error Handling
 
 - Skips if episode already processed today
+- **Also skips if the latest Notion entry matches an episode already processed on a prior day** — check `Daily-Sessions/` for notes containing the same episode title. If found, respond with `[SILENT]` instead of re-processing.
+- **Notion database staleness**: The podcast Notion database may fall behind the actual podcast feed. If the latest Notion entry is older than the last processed episode, check the podcast site directly for newer episodes (scrape `https://divineinterventionpodcasts.com/` for recent URLs). If nothing new, `[SILENT]`.
 - Retries failed downloads up to 3 times
 - Falls back to summary-only if transcription fails
 - Preserves existing notes if processing fails mid-pipeline
+
+## ⚠️ Critical Pitfalls
+
+### Whisper on CPU is effectively unusable for full episodes
+- Even with `tiny` model and 8-minute chunks, each chunk takes ~40-50 minutes on CPU. A 52-minute episode split into 7 chunks would take 5+ hours.
+- If the cron environment has no GPU, **do not attempt Whisper** unless the episode is very short (<5 min). Fall back to structure-from-title extraction immediately.
+- If a prior successful transcript already exists for the episode (check `Transcripts/` or referenced in an existing note's frontmatter), reuse it instead of re-transcribing.
+
+### Notion DB vs. actual podcast feed drift
+- The D.I. PHARM PODCASTS Notion database (`2f88c883-85ba-81d3-a9d2-eca5f4e30d0b`) is manually updated and can lag months behind the actual podcast feed at `divineinterventionpodcasts.com`.
+- Episodes found in Notion may have been processed many times already; always cross-reference with existing notes in `Daily-Sessions/` before starting transcription.
+- The `divine-pharma-notion-episodes-fetch` skill is responsible for keeping the Notion DB in sync. If the DB is stale, run that skill first or fetch directly from the podcast site.
+
+### Existing note multiplicity
+- The same episode may have multiple notes across different dates (e.g., `2026-05-26-Episode-8-Heme-Drugs.md` and `2026-05-08-Heme-Drugs.md`). When a new Notion entry matches a previously-processed episode, check the most recent note for that title and only create a new note if the prior one was incomplete or needs a fresh pass.

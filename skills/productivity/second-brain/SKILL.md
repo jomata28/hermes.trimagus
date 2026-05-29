@@ -48,7 +48,7 @@ token_data = {
 import json as _json
 rclone_conf = f"""[drive-hermes]
 type = drive
-token = {_json.dumps(token_data)}
+token = REDACTED
 client_id = {gtoken["client_id"]}
 client_secret = {gtoken["client_secret"]}
 """
@@ -73,6 +73,10 @@ find ~/obsidian-vault -name "*.md" | head -20
 ```
 
 ## Vault Structure (Bitácora — PARA + ONEPISSA Framework)
+
+Bitácora is the user's **personal action brain** inside the broader second-brain system. NotebookLM is the research brain; Bitácora is the action/project/status brain. For detailed Bitácora operational notes, briefing formats, ONEPISSA pillar details, Google Tasks conventions, and rclone pitfalls, see `references/bitacora-vault.md`.
+
+Use this subsection when the user asks about projects, deadlines, weekly status, daily standups, weekly reviews, project files, pillar wiki pages, decisions, or Google Calendar/Tasks-backed life-OS planning.
 
 The vault moved from the original 5-domain flat structure to a PARA + ONEPISSA system:
 
@@ -145,17 +149,47 @@ Two separate rclone mounts exist on VPS:
 | **Claude (work laptop)** | Raw ingestion, wiki restructuring, knowledge synthesis, handoff summaries | Drive folder + Obsidian local |
 | **Gemini** | Ad-hoc access, supplemental research | Drive folder |
 
-## Hermes Daily Routine
+## Hermes Daily Routine and Reviews
 
-When asked to do daily standup:
+When asked to do a daily standup or morning briefing:
 
-1. Read `5-Admin and Reviews/00_log.md` for recent context
-2. Check Google Calendar for today's events
-3. Check Google Tasks for @today items
-4. Check `2-Areas/` pillars for active projects
-5. Write morning summary to `hermes/daily/YYYY-MM-DD.md`
-6. Ping user on Telegram with today's priorities
-7. Update active project tracking
+1. Read `5-Admin and Reviews/00_log.md` for recent context.
+2. Read `1-Projects/` for deadlines this week.
+3. Read `3-Resources/_decisions.md` for open bottlenecks.
+4. Check Google Calendar for today's events and this week's schedule.
+5. Check Google Tasks for @today and priority items across the ONEPISSA task lists.
+6. Check `2-Areas/` pillars for active projects.
+7. Write a morning summary to `hermes/daily/YYYY-MM-DD.md` when a persistent log is requested or expected.
+8. Ping the user on Telegram with today's priorities when the workflow is proactive/scheduled.
+9. Update active project tracking.
+
+Morning briefing format:
+
+```text
+☀️ Morning Briefing — [Day] [Date]
+📋 TODAY'S GRID
+🔥 THIS WEEK's KEY DEADLINES
+✅ GOOGLE TASKS — Priority items
+⚡ ACTIVE BOTTLENECKS
+What are we executing today?
+```
+
+For a weekly review:
+
+1. Read `5-Admin and Reviews/00_log.md` for the week's entries.
+2. Check Google Tasks for completed and overdue items.
+3. Check Calendar for next week.
+4. Summarize this week's done items, next week's key dates, overdue tasks, and focus areas.
+
+Weekly review format:
+
+```text
+📋 Weekly Review — [Date]
+📊 THIS WEEK DONE
+🔥 NEXT WEEK's KEY DATES
+⏰ OVERDUE TASKS
+🎯 FOCUS AREAS NEXT WEEK
+```
 
 ## Active Priorities (2026-05-25 snapshot)
 - **USMLE Step 1 / IFOM** — August 2026 (Intellectual, HIGHEST PRIORITY)
@@ -167,8 +201,13 @@ When asked to do daily standup:
 ## Pitfalls
 
 - **rclone mount can silently fail** if the token expires. Check with `ls ~/obsidian-vault` before operations. Remount if empty.
-- **Drive rate limits** — batch reads, don't hammer the API with rapid sequential calls
-- **Markdown conflict** — if multiple agents edit the same file simultaneously, Drive version conflicts can occur. Use separate files per agent per day
-- **VFS cache mode matters** — use `--vfs-cache-mode writes` not `full` — it's lighter and sufficient for markdown files
-- **Token refresh** — the rclone config reuses Google OAuth token. If `google-workspace` token expires, update the rclone config with fresh credentials
-- **.obsidian at root required** — if you restructure the vault, NEVER move `.obsidian/` — it's what makes Obsidian recognize the folder as a vault
+- **`search_files` may not work on the rclone FUSE mount** at `/root/obsidian-vault`; it can return 0 results. Prefer `rclone lsf drive-hermes:bitacora/<path>` for listing and direct file reads for known paths.
+- **Drive rate limits** — batch reads, don't hammer the API with rapid sequential calls.
+- **Markdown conflict** — if multiple agents edit the same file simultaneously, Drive version conflicts can occur. Use separate files per agent per day.
+- **VFS cache mode matters** — use `--vfs-cache-mode writes` not `full`; it's lighter and sufficient for markdown files.
+- **Token refresh** — the rclone config reuses Google OAuth token. If `google-workspace` token expires, update the rclone config with fresh credentials.
+- **Google token formats vary** — inspect whether token files are flat, `installed`, or `web` format before refreshing.
+- **.obsidian at root required** — if you restructure the vault, NEVER move `.obsidian/`; it's what makes Obsidian recognize the folder as a vault.
+- **Never edit `raw/` folders** — root-level `raw/` and per-pillar `Raw/` are input/junk-drawer areas.
+- **ONEPISSA replaced the old five-domain model** — don't present the older domains as active unless explicitly discussing archives.
+- **Tone** — for Bitácora/personal operating-system outputs, casual/direct and bilingual Spanish/English is natural for the user.

@@ -18,17 +18,17 @@
       "schedule_display": "55 13 * * *",
       "repeat": {
         "times": null,
-        "completed": 44
+        "completed": 45
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-13T21:12:49.081621+00:00",
-      "next_run_at": "2026-05-28T13:55:00+00:00",
-      "last_run_at": "2026-05-27T13:55:51.435859+00:00",
-      "last_status": "error",
-      "last_error": "RuntimeError: Error code: 400 - {'error': {'message': 'z-ai/glm-4-5-air:free is not a valid model ID', 'code': 400}, 'user_id': 'user_2v95px7iuCUePfth4Hs6DCu0hdT'}",
+      "next_run_at": "2026-05-29T13:55:00+00:00",
+      "last_run_at": "2026-05-28T13:55:45.803319+00:00",
+      "last_status": "ok",
+      "last_error": null,
       "deliver": "origin",
       "origin": {
         "platform": "telegram",
@@ -58,17 +58,17 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 42
+        "completed": 43
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-15T20:25:37.192710+00:00",
-      "next_run_at": "2026-05-28T07:00:00+00:00",
-      "last_run_at": "2026-05-27T07:00:31.724889+00:00",
-      "last_status": "error",
-      "last_error": "RuntimeError: Error code: 400 - {'error': {'message': 'z-ai/glm-4-5-air:free is not a valid model ID', 'code': 400}, 'user_id': 'user_2v95px7iuCUePfth4Hs6DCu0hdT'}",
+      "next_run_at": "2026-05-29T07:00:00+00:00",
+      "last_run_at": "2026-05-28T07:03:03.258580+00:00",
+      "last_status": "ok",
+      "last_error": null,
       "deliver": "telegram",
       "origin": null,
       "last_delivery_error": null
@@ -93,17 +93,17 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 42
+        "completed": 43
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-15T21:39:46.829937+00:00",
-      "next_run_at": "2026-05-28T07:00:00+00:00",
-      "last_run_at": "2026-05-27T07:00:32.153582+00:00",
-      "last_status": "error",
-      "last_error": "RuntimeError: Error code: 400 - {'error': {'message': 'z-ai/glm-4-5-air:free is not a valid model ID', 'code': 400}, 'user_id': 'user_2v95px7iuCUePfth4Hs6DCu0hdT'}",
+      "next_run_at": "2026-05-29T07:00:00+00:00",
+      "last_run_at": "2026-05-28T07:01:59.515142+00:00",
+      "last_status": "ok",
+      "last_error": null,
       "deliver": "telegram",
       "origin": {
         "platform": "telegram",
@@ -133,15 +133,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 31
+        "completed": 32
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-26T15:35:16.683709+00:00",
-      "next_run_at": "2026-05-28T07:00:00+00:00",
-      "last_run_at": "2026-05-27T07:00:26.205195+00:00",
+      "next_run_at": "2026-05-29T07:00:00+00:00",
+      "last_run_at": "2026-05-28T07:09:07.215103+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "telegram",
@@ -173,17 +173,17 @@
       "schedule_display": "0 3 * * *",
       "repeat": {
         "times": null,
-        "completed": 19
+        "completed": 20
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-08T18:09:30.722153+00:00",
-      "next_run_at": "2026-05-29T03:00:00+00:00",
-      "last_run_at": "2026-05-27T03:01:13.719755+00:00",
-      "last_status": "error",
-      "last_error": "RuntimeError: Error code: 400 - {'error': {'message': 'z-ai/glm-4-5-air:free is not a valid model ID', 'code': 400}, 'user_id': 'user_2v95px7iuCUePfth4Hs6DCu0hdT'}",
+      "next_run_at": "2026-05-30T03:00:00+00:00",
+      "last_run_at": "2026-05-28T03:02:50.988072+00:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -210,17 +210,17 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 2
+        "completed": 3
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-25T19:56:44.909253+00:00",
-      "next_run_at": "2026-05-28T07:00:00+00:00",
-      "last_run_at": "2026-05-27T07:00:32.422676+00:00",
-      "last_status": "error",
-      "last_error": "RuntimeError: Error code: 400 - {'error': {'message': 'z-ai/glm-4-5-air:free is not a valid model ID', 'code': 400}, 'user_id': 'user_2v95px7iuCUePfth4Hs6DCu0hdT'}",
+      "next_run_at": "2026-05-29T07:00:00+00:00",
+      "last_run_at": "2026-05-28T07:02:29.937758+00:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": {
@@ -281,5 +281,5 @@
       "workdir": null
     }
   ],
-  "updated_at": "2026-05-28T03:00:35.463076+00:00"
+  "updated_at": "2026-05-29T03:00:58.986610+00:00"
 }

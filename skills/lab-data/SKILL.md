@@ -76,6 +76,20 @@ Drive root/
   - Use `openpyxl` for direct edits/inspection. If the rclone mount path is missing, remount `drive-lab:` before assuming the file is gone.
 - Log: mouse-id, test-type, score/time, date, observer. For wire test, capture trial 1/2/3 and mean when available.
 
+#### Frailty Index voice-entry workflow
+When Jose dictates mouse frailty scores by voice:
+1. Interpret short IDs as full IDs using the session pattern, e.g. mouse `2154`, male, cohort `18` → `18.2154M`; female → `18.2154F`. If transcript drops a digit (`18.254` while he says mouse 2154), use the spoken mouse number.
+2. Before editing, create a workbook backup with a specific suffix, e.g. `.backup_before_2154.xlsx` or `.backup_before_2148_2149.xlsx`.
+3. In `Fraility Index`, add/update the mouse row. Leave strain/cage/weight blank unless explicitly provided.
+4. **Explicitly write `0` to every clinical frailty field `F:AG` first**, then overwrite only abnormal fields with `0.5` or `1`. This is important: normal/not-mentioned fields should not be left blank.
+5. Leave `AH` Standardized Weight and `AI` Total Weight blank unless given. Write `AJ` formula as `=IF(COUNT(F{row}:AH{row})=0,"",SUM(F{row}:AH{row})/29)`.
+6. Reload the workbook and verify: row number, mouse ID, nonzero fields, all other clinical fields are zero, manual FI (`sum(F:AG)/29`), and AJ formula.
+7. Keep Telegram confirmation concise: row, key nonzero scores, “everything else explicitly 0,” manual FI, formula verified, backup filename.
+
+Pitfalls:
+- Avoid nested Python f-strings when building shell heredocs; outer formatting can turn `{row}`/`{0}` placeholders into `0`, producing formulas like `F0:AH0`. Prefer `.format(row, row, row, row)` inside the executed Python script and verify the formula after saving.
+- Voice transcript may confuse column names: “eye discharge/swelling,” “ID discharge/scherger swelling,” etc. map to column `L`; “code/coat condition” maps to column `I`; “distended abdomen” maps to `O`; “piloerection/direction” maps to `T`.
+
 ### Stats (`Raw/stats/`)
 - R scripts (3-way ANOVA for age × sex × genotype studies)
 - GraphPad Prism exports
