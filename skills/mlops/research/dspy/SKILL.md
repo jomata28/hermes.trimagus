@@ -292,7 +292,7 @@ import dspy
 
 lm = dspy.Claude(
     model="claude-sonnet-4-5-20250929",
-    api_key=REDACTED
+    api_key="your-api-key",  # Or set ANTHROPIC_API_KEY env var
     max_tokens=1000,
     temperature=0.7
 )
@@ -304,7 +304,7 @@ dspy.settings.configure(lm=lm)
 ```python
 lm = dspy.OpenAI(
     model="gpt-4",
-    api_key=REDACTED
+    api_key="your-api-key",
     max_tokens=1000
 )
 dspy.settings.configure(lm=lm)

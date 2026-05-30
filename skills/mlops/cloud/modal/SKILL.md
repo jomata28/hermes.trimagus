@@ -238,7 +238,7 @@ modal secret create huggingface HF_TOKEN=hf_xxx
 @app.function(secrets=[modal.Secret.from_name("huggingface")])
 def download_model():
     import os
-    token = REDACTED
+    token = os.environ["HF_TOKEN"]
 ```
 
 ## Scheduling

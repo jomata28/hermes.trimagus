@@ -33,7 +33,7 @@ mkdir -p ~/.config/rclone
 cat > ~/.config/rclone/rclone.conf << 'EOF'
 [drive-hermes]
 type = drive
-token = REDACTED
+token = <JSON from above>
 client_id = <from google_token.json>
 client_secret = <from google_token.json>
 EOF
@@ -56,7 +56,7 @@ token_data = {
 
 rclone_conf = f"""[drive-hermes]
 type = drive
-token = REDACTED
+token = {json.dumps(token_data)}
 client_id = {t["client_id"]}
 client_secret = {t["client_secret"]}
 """

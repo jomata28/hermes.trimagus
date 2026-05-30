@@ -3835,7 +3835,7 @@ model.push_to_hub_gguf(
     "your-username/model-name",
     tokenizer,
     quantization_method=["q4_k_m", "q8_0", "q5_k_m"],
-    token=REDACTED
+    token="your-token",
 )
 ```
 
@@ -7741,7 +7741,7 @@ from openai import OpenAI
 import json
 openai_client = OpenAI(
     base_url = "http://127.0.0.1:8001/v1",
-    api_key = REDACTED
+    api_key = "sk-no-key-required",
 )
 completion = openai_client.chat.completions.create(
     model = "unsloth/GLM-4.6",
@@ -8231,7 +8231,7 @@ from openai import OpenAI
 import json
 openai_client = OpenAI(
     base_url = "http://127.0.0.1:8001/v1",
-    api_key = REDACTED
+    api_key = "sk-no-key-required",
 )
 completion = openai_client.chat.completions.create(
     model = "unsloth/DeepSeek-V3.1-Terminus",

@@ -390,7 +390,7 @@ result = generator("Your prompt")
 ```python
 model = outlines.models.openai(
     "gpt-4o-mini",
-    api_key=REDACTED
+    api_key="your-api-key",  # Or set OPENAI_API_KEY env var
     max_tokens=2048,
     temperature=0.7
 )

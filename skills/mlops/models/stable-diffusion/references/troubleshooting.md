@@ -418,7 +418,7 @@ huggingface-cli login
 # Or use token
 pipe = DiffusionPipeline.from_pretrained(
     "model-id",
-    token=REDACTED
+    token="hf_xxxxx"
 )
 
 # Accept model license on Hub website first

@@ -335,7 +335,7 @@ from openai import OpenAI
 # Use correct base URL format
 client = OpenAI(
     base_url="http://localhost:8080/v1",  # Include /v1
-    api_key=REDACTED
+    api_key="not-needed"
 )
 
 # Use correct model name

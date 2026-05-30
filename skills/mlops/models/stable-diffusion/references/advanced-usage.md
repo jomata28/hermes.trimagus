@@ -454,7 +454,7 @@ pipe = StableDiffusionPipeline.from_pretrained(
 # Load learned embedding
 pipe.load_textual_inversion(
     "sd-concepts-library/cat-toy",
-    token=REDACTED
+    token="<cat-toy>"
 )
 
 # Use in prompts

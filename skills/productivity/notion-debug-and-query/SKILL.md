@@ -208,7 +208,7 @@ import json
 import subprocess
 import sys
 
-notion_key = REDACTED
+notion_key = os.getenv('NOTION_API_KEY')
 if not notion_key:
     print("ERROR: NOTION_API_KEY not found")
     sys.exit(1)

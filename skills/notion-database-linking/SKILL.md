@@ -98,7 +98,7 @@ import sys
 from datetime import datetime, timedelta
 
 # Get NOTION_API_KEY from environment
-notion_key = REDACTED
+notion_key = os.getenv('NOTION_API_KEY')
 if not notion_key:
     print("ERROR: NOTION_API_KEY not found in environment")
     sys.exit(1)
