@@ -429,7 +429,7 @@ def auto_jailbreak(model=None, base_url=None, api_key=None,
     Args:
         model: Model ID (e.g. "anthropic/claude-sonnet-4"). Auto-detected if None.
         base_url: API base URL. Auto-detected if None.
-        api_key: API key. Auto-detected if None.
+        api_key: REDACTED
         canary: Custom canary query to test with. Uses default if None.
         dry_run: If True, don't write config files — just report what would work.
         verbose: Print progress.
@@ -451,7 +451,7 @@ def auto_jailbreak(model=None, base_url=None, api_key=None,
     if not base_url:
         base_url = "https://openrouter.ai/api/v1"
     if not api_key:
-        api_key = _get_api_key(base_url)
+        api_key = REDACTED
     if not api_key:
         return {"success": False, "error": "No API key found"}
 

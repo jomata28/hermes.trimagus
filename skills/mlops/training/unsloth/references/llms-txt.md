@@ -5594,7 +5594,7 @@ model.push_to_hub_gguf(
     "your-username/model-name",
     tokenizer,
     quantization_method=["q4_k_m", "q8_0", "q5_k_m"],
-    token="your-token",
+    token=REDACTED
 )
 ```
 
@@ -8727,7 +8727,7 @@ Example 3 (unknown):
 ```unknown
 from unsloth.chat_templates import get_chat_template
 
-  tokenizer = get_chat_template(
+  tokenizer = REDACTED
       tokenizer,
       chat_template = "gemma-3", # change this to the right chat_template name
   )
@@ -8954,7 +8954,7 @@ export LLAMA_CACHE="unsloth/DeepSeek-V3.1-GGUF"
 
 def preprocess_function(example):
     # Tokenize the text (keep the special tokens like <laugh> intact)
-    tokens = tokenizer(example["text"], return_tensors="pt")
+    tokens = REDACTED
     # Flatten to list of token IDs
     input_ids = tokens["input_ids"].squeeze(0)
     # The model will generate audio tokens after these text tokens.

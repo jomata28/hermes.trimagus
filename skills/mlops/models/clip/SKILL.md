@@ -183,7 +183,7 @@ with torch.no_grad():
 
 # Batch text
 texts = ["a dog", "a cat", "a bird"]
-text_tokens = clip.tokenize(texts).to(device)
+text_tokens = REDACTED
 
 with torch.no_grad():
     text_features = model.encode_text(text_tokens)

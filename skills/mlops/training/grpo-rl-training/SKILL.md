@@ -282,7 +282,7 @@ model = AutoModelForCausalLM.from_pretrained(
     device_map="auto"
 )
 
-tokenizer = AutoTokenizer.from_pretrained(model_name)
+tokenizer = REDACTED
 tokenizer.pad_token = tokenizer.eos_token
 
 # Optional: LoRA for parameter-efficient training

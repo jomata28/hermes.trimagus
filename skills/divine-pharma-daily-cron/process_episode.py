@@ -18,7 +18,7 @@ def log(msg):
 
 def get_notion_api_key():
     """Get Notion API key from environment"""
-    api_key = os.getenv("NOTION_API_KEY")
+    api_key = REDACTED
     if not api_key:
         log("ERROR: NOTION_API_KEY not set")
         sys.exit(1)
@@ -28,7 +28,7 @@ def query_notion_latest_episode():
     """Query Notion database for the most recent episode"""
     log("Querying Notion for latest episode...")
     
-    api_key = get_notion_api_key()
+    api_key = REDACTED
     database_id = "2f88c883-85ba-81ed-8d31-000b07f32c0e"
     
     url = f"https://api.notion.com/v1/data_sources/{database_id}/query"

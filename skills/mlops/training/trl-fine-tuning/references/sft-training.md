@@ -53,7 +53,7 @@ from datasets import load_dataset
 
 # Load model
 model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-0.5B")
-tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-0.5B")
+tokenizer = REDACTED
 
 # Load dataset
 dataset = load_dataset("trl-lib/Capybara", split="train")

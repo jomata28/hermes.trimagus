@@ -25,7 +25,7 @@ lm = models.Anthropic("claude-sonnet-4-5-20250929")
 # Explicit API key
 lm = models.Anthropic(
     model="claude-sonnet-4-5-20250929",
-    api_key="your-api-key-here"
+    api_key=REDACTED
 )
 ```
 
@@ -50,7 +50,7 @@ lm = models.Anthropic("claude-3-5-haiku-20241022")
 ```python
 lm = models.Anthropic(
     model="claude-sonnet-4-5-20250929",
-    api_key="your-api-key",
+    api_key=REDACTED
     max_tokens=4096,           # Max tokens to generate
     temperature=0.7,            # Sampling temperature (0-1)
     top_p=0.9,                  # Nucleus sampling
@@ -92,7 +92,7 @@ lm = models.OpenAI("gpt-4o")
 # Explicit API key
 lm = models.OpenAI(
     model="gpt-4o",
-    api_key="your-api-key-here"
+    api_key=REDACTED
 )
 ```
 
@@ -117,7 +117,7 @@ lm = models.OpenAI("gpt-3.5-turbo")
 ```python
 lm = models.OpenAI(
     model="gpt-4o-mini",
-    api_key="your-api-key",
+    api_key=REDACTED
     max_tokens=2048,
     temperature=0.7,
     top_p=1.0,
@@ -152,7 +152,7 @@ from guidance import models
 lm = models.AzureOpenAI(
     model="gpt-4o",
     azure_endpoint="https://your-resource.openai.azure.com/",
-    api_key="your-azure-api-key",
+    api_key=REDACTED
     api_version="2024-02-15-preview",
     deployment_name="your-deployment-name"
 )
@@ -501,7 +501,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 from guidance.models import Transformers
 
 # Load custom model
-tokenizer = AutoTokenizer.from_pretrained("your-model")
+tokenizer = REDACTED
 model = AutoModelForCausalLM.from_pretrained(
     "your-model",
     device_map="auto",

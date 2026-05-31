@@ -203,7 +203,7 @@ def reader():
 # Mount S3 bucket
 bucket = modal.CloudBucketMount(
     bucket_name="my-bucket",
-    secret=modal.Secret.from_name("aws-credentials")
+    secret=REDACTED
 )
 
 @app.function(volumes={"/s3": bucket})
@@ -314,7 +314,7 @@ from fastapi import Depends, HTTPException, Header
 async def verify_token(authorization: str = Header(None)):
     if not authorization or not authorization.startswith("Bearer "):
         raise HTTPException(status_code=401)
-    token = authorization.split(" ")[1]
+    token = REDACTED
     if not verify_jwt(token):
         raise HTTPException(status_code=403)
     return token

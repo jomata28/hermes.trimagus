@@ -38,8 +38,8 @@ if _SCRIPTS_DIR not in sys.path:
 from _hermes_home import display_hermes_home, get_hermes_home
 
 HERMES_HOME = get_hermes_home()
-TOKEN_PATH = HERMES_HOME / "google_token.json"
-CLIENT_SECRET_PATH = HERMES_HOME / "google_client_secret.json"
+TOKEN_PATH = REDACTED
+CLIENT_SECRET_PATH = REDACTED
 PENDING_AUTH_PATH = HERMES_HOME / "google_oauth_pending.json"
 
 SCOPES = [
@@ -326,7 +326,7 @@ def exchange_auth_code(code: str):
         sys.exit(1)
 
     creds = flow.credentials
-    token_payload = _normalize_authorized_user_payload(json.loads(creds.to_json()))
+    token_payload = REDACTED
 
     # Store only the scopes actually granted by the user, not what was requested.
     # creds.to_json() writes the requested scopes, which causes refresh to fail

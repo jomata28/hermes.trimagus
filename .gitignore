@@ -20,8 +20,6 @@ ollama_cloud_models_cache.json
 .skills_prompt_snapshot.json
 state.db*
 kanban.db
-cron/output/
+skills/.curator_backups/
 __pycache__/
 *.pyc
-*.pyo
-skills/.curator_backups/

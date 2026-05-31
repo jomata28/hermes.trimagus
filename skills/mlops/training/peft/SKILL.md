@@ -58,7 +58,7 @@ from datasets import load_dataset
 # Load base model
 model_name = "meta-llama/Llama-3.1-8B"
 model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype="auto", device_map="auto")
-tokenizer = AutoTokenizer.from_pretrained(model_name)
+tokenizer = REDACTED
 tokenizer.pad_token = tokenizer.eos_token
 
 # LoRA configuration
@@ -83,7 +83,7 @@ def tokenize(example):
     text = f"### Instruction:\n{example['instruction']}\n\n### Response:\n{example['response']}"
     return tokenizer(text, truncation=True, max_length=512, padding="max_length")
 
-tokenized = dataset.map(tokenize, remove_columns=dataset.column_names)
+tokenized = REDACTED
 
 # Training
 training_args = TrainingArguments(
