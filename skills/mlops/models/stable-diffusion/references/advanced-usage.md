@@ -27,7 +27,7 @@ text_encoder = CLIPTextModel.from_pretrained(
     "stable-diffusion-v1-5/stable-diffusion-v1-5",
     subfolder="text_encoder"
 )
-tokenizer = REDACTED
+tokenizer = CLIPTokenizer.from_pretrained(
     "stable-diffusion-v1-5/stable-diffusion-v1-5",
     subfolder="tokenizer"
 )
@@ -64,7 +64,7 @@ def custom_generate(
     width: int = 512
 ):
     # Load components
-    tokenizer = REDACTED
+    tokenizer = CLIPTokenizer.from_pretrained("openai/clip-vit-large-patch14")
     text_encoder = CLIPTextModel.from_pretrained("openai/clip-vit-large-patch14")
     unet = UNet2DConditionModel.from_pretrained("sd-model", subfolder="unet")
     vae = AutoencoderKL.from_pretrained("sd-model", subfolder="vae")
@@ -296,7 +296,7 @@ class DreamBoothDataset(Dataset):
         image = image.resize((self.size, self.size))
         image = torch.tensor(np.array(image)).permute(2, 0, 1) / 127.5 - 1.0
 
-        tokens = REDACTED
+        tokens = self.tokenizer(
             self.instance_prompt,
             padding="max_length",
             max_length=77,
@@ -321,7 +321,7 @@ def train_dreambooth(
     unet = pipe.unet
     vae = pipe.vae
     text_encoder = pipe.text_encoder
-    tokenizer = REDACTED
+    tokenizer = pipe.tokenizer
     noise_scheduler = DDPMScheduler.from_pretrained(pretrained_model, subfolder="scheduler")
 
     # Freeze VAE and text encoder

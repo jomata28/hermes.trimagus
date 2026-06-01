@@ -22,7 +22,7 @@ Use the Notion API via curl to create, read, update pages, databases (data sourc
 2. Copy the API key (starts with `ntn_` or `secret_`)
 3. Store it in `~/.hermes/.env`:
    ```
-   NOTION_API_KEY=REDACTED
+   NOTION_API_KEY=ntn_your_key_here
    ```
 4. **Important:** Share target pages/databases with your integration in Notion (click "..." → "Connect to" → your integration name)
 

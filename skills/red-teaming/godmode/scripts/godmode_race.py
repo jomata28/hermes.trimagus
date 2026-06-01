@@ -12,7 +12,7 @@ Usage in execute_code:
     result = race_models(
         query="Your query here",
         tier="standard",
-        api_key=REDACTED
+        api_key=os.getenv("OPENROUTER_API_KEY"),
     )
     print(f"Winner: {result['model']} (score: {result['score']})")
     print(result['content'])
@@ -305,7 +305,7 @@ def race_models(query, tier="standard", api_key=None, system_prompt=None,
     Args:
         query: The user's query
         tier: 'fast' (10), 'standard' (24), 'smart' (38), 'power' (49), 'ultra' (55)
-        api_key: REDACTED
+        api_key: OpenRouter API key (defaults to OPENROUTER_API_KEY env var)
         system_prompt: Optional system prompt (overrides jailbreak_system)
         max_workers: Max parallel requests (default: 10)
         timeout: Per-request timeout in seconds (default: 60)
@@ -320,7 +320,7 @@ def race_models(query, tier="standard", api_key=None, system_prompt=None,
     if OpenAI is None:
         raise ImportError("openai package required. Install with: pip install openai")
     
-    api_key = REDACTED
+    api_key = api_key or os.getenv("OPENROUTER_API_KEY")
     if not api_key:
         raise ValueError("No API key. Set OPENROUTER_API_KEY or pass api_key=")
     
@@ -445,7 +445,7 @@ def race_godmode_classic(query, api_key=None, timeout=60):
     if OpenAI is None:
         raise ImportError("openai package required. Install with: pip install openai")
     
-    api_key = REDACTED
+    api_key = api_key or os.getenv("OPENROUTER_API_KEY")
     if not api_key:
         raise ValueError("No API key. Set OPENROUTER_API_KEY or pass api_key=")
     

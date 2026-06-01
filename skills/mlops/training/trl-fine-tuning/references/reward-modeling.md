@@ -21,7 +21,7 @@ model = AutoModelForSequenceClassification.from_pretrained(
     "Qwen/Qwen2.5-0.5B-Instruct",
     num_labels=1
 )
-tokenizer = REDACTED
+tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-0.5B-Instruct")
 
 # Load preference dataset (chosen/rejected pairs)
 dataset = load_dataset("trl-lib/ultrafeedback_binarized", split="train")

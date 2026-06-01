@@ -2133,7 +2133,7 @@ For datasets that usually follow the common chatml format, the process of prepar
   ```
   from unsloth.chat_templates import get_chat_template
 
-  tokenizer = REDACTED
+  tokenizer = get_chat_template(
       tokenizer,
       chat_template = "gemma-3", # change this to the right chat_template name
   )
@@ -3835,7 +3835,7 @@ model.push_to_hub_gguf(
     "your-username/model-name",
     tokenizer,
     quantization_method=["q4_k_m", "q8_0", "q5_k_m"],
-    token=REDACTED
+    token="your-token",
 )
 ```
 
@@ -7741,7 +7741,7 @@ from openai import OpenAI
 import json
 openai_client = OpenAI(
     base_url = "http://127.0.0.1:8001/v1",
-    api_key = REDACTED
+    api_key = "sk-no-key-required",
 )
 completion = openai_client.chat.completions.create(
     model = "unsloth/GLM-4.6",
@@ -8231,7 +8231,7 @@ from openai import OpenAI
 import json
 openai_client = OpenAI(
     base_url = "http://127.0.0.1:8001/v1",
-    api_key = REDACTED
+    api_key = "sk-no-key-required",
 )
 completion = openai_client.chat.completions.create(
     model = "unsloth/DeepSeek-V3.1-Terminus",
@@ -8592,7 +8592,7 @@ Then use the tokenizer to create the entire prompt:
 
 ```python
 from transformers import AutoTokenizer
-tokenizer = REDACTED
+tokenizer = AutoTokenizer.from_pretrained("unsloth/Qwen3-Coder-480B-A35B-Instruct")
 
 messages = [
     {'role': 'user', 'content': "What's the temperature in San Francisco now? How about tomorrow?"},
@@ -15040,7 +15040,7 @@ We need to prepare inputs for the Trainer. For text-to-speech, one approach is t
 # Tokenize the text transcripts
 def preprocess_function(example):
     # Tokenize the text (keep the special tokens like <laugh> intact)
-    tokens = REDACTED
+    tokens = tokenizer(example["text"], return_tensors="pt")
     # Flatten to list of token IDs
     input_ids = tokens["input_ids"].squeeze(0)
     # The model will generate audio tokens after these text tokens.
@@ -16394,7 +16394,7 @@ For datasets that usually follow the common chatml format, the process of prepar
   ```
   from unsloth.chat_templates import get_chat_template
 
-  tokenizer = REDACTED
+  tokenizer = get_chat_template(
       tokenizer,
       chat_template = "gemma-3", # change this to the right chat_template name
   )
@@ -16465,7 +16465,7 @@ You can use our `get_chat_template` to format it. Select `chat_template` to be a
 ```python
 from unsloth.chat_templates import get_chat_template
 
-tokenizer = REDACTED
+tokenizer = get_chat_template(
     tokenizer,
     chat_template = "chatml", # Supports zephyr, chatml, mistral, llama, alpaca, vicuna, vicuna_old, unsloth
     mapping = {"role" : "from", "content" : "value", "user" : "human", "assistant" : "gpt"}, # ShareGPT style
@@ -16500,9 +16500,9 @@ unsloth_template = \
     "<div data-gb-custom-block data-tag="if">"\
         "{{ '>>> Assistant: ' }}"\
     "</div>"
-unsloth_eos_token =REDACTED
+unsloth_eos_token = "eos_token"
 
-tokenizer = REDACTED
+tokenizer = get_chat_template(
     tokenizer,
     chat_template = (unsloth_template, unsloth_eos_token,), # You must provide a template and EOS token
     mapping = {"role" : "from", "content" : "value", "user" : "human", "assistant" : "gpt"}, # ShareGPT style

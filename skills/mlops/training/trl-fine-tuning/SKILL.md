@@ -74,7 +74,7 @@ from datasets import load_dataset
 
 # Load model
 model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-0.5B")
-tokenizer = REDACTED
+tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-0.5B")
 
 # Load instruction dataset
 dataset = load_dataset("trl-lib/Capybara", split="train")
@@ -113,7 +113,7 @@ model = AutoModelForSequenceClassification.from_pretrained(
     "Qwen2.5-0.5B-SFT",
     num_labels=1  # Single reward score
 )
-tokenizer = REDACTED
+tokenizer = AutoTokenizer.from_pretrained("Qwen2.5-0.5B-SFT")
 
 # Load preference data (chosen/rejected pairs)
 dataset = load_dataset("trl-lib/ultrafeedback_binarized", split="train")
@@ -224,7 +224,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from trl import DPOTrainer
 
 model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-0.5B-Instruct")
-tokenizer = REDACTED
+tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-0.5B-Instruct")
 
 trainer = DPOTrainer(
     model=model,

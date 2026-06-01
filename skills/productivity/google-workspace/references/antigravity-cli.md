@@ -11,15 +11,15 @@ Save credentials to the rclone config:
 import json, os
 from pathlib import Path
 
-gtoken = REDACTED
+gtoken = json.loads(Path.home().joinpath(".hermes/google_token.json").read_text())
 
 os.makedirs(Path.home() / ".config/rclone", exist_ok=True)
 with open(Path.home() / ".config/rclone/rclone.conf", "w") as f:
     f.write(f"""[drive-hermes]
 type = drive
-token = REDACTED
+token = {json.dumps({{"access_token": gtoken["token"], "token_type": "Bearer", "refresh_token": gtoken["refresh_token"], "expiry": gtoken["expiry"]}})}
 client_id = {gtoken["client_id"]}
-client_secret = REDACTED
+client_secret = {gtoken["client_secret"]}
 """)
 ```
 
@@ -28,10 +28,10 @@ Or via shell:
 ```python
 python3 -c "
 import json, os
-gtoken = REDACTED
+gtoken = json.load(open(os.path.expanduser('~/.hermes/google_token.json')))
 os.makedirs(os.path.expanduser('~/.config/rclone'), exist_ok=True)
 with open(os.path.expanduser('~/.config/rclone/rclone.conf'), 'w') as f:
-    token_str = REDACTED
+    token_str = json.dumps({'access_token': gtoken['token'], 'token_type': 'Bearer', 'refresh_token': gtoken['refresh_token'], 'expiry': gtoken['expiry']})
     f.write(f'[drive-hermes]\ntype = drive\ntoken = {token_str}\nclient_id = {gtoken[\"client_id\"]}\nclient_secret = {gtoken[\"client_secret\"]}\n')
 print('rclone configured')
 "

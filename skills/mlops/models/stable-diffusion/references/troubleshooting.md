@@ -510,7 +510,7 @@ assert height % 8 == 0, "Height must be divisible by 8"
 assert width % 8 == 0, "Width must be divisible by 8"
 
 # Check prompt tokenization
-tokens = REDACTED
+tokens = pipe.tokenizer(prompt, return_tensors="pt")
 print(f"Token count: {tokens.input_ids.shape[1]}")  # Max 77 for SD
 ```
 

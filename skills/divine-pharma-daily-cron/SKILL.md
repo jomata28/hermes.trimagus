@@ -51,6 +51,7 @@ Queries the Notion database for the most recent episode by checking:
 - For long episodes on CPU, do **not** rely on a full-episode Whisper pass: `base` and even `tiny` can exceed cron runtime. Split MP3s into ~8-minute chunks with `ffmpeg -f segment -segment_time 480 -c copy`, transcribe each chunk with `whisper --model tiny --language English --output_format txt --verbose False`, then concatenate chunk text files.
 - Store noisy raw transcripts separately under `Transcripts/YYYY-MM-DD-...-Transcript.md`; keep the Daily-Sessions note cleaned/corrected for USMLE study instead of pasting noisy transcript text into the main sections.
 - See `references/transcription-runtime-notes.md` for the exact chunked-transcription fallback commands and quoting pitfalls.
+- See `references/live-site-scrape-fallback.md` for safe homepage scraping rules when Notion is stale; especially avoid navigation/category anchors like `Podcast Topics` and iterate past already-processed live-site episodes.
 
 ### 3. Pharmacological Extraction
 Uses LLM analysis to identify key pharmacological concepts from transcription:
@@ -108,6 +109,8 @@ This skill is designed to be run via Hermes cron job:
 - The D.I. PHARM PODCASTS Notion database (`2f88c883-85ba-81d3-a9d2-eca5f4e30d0b`) is manually updated and can lag months behind the actual podcast feed at `divineinterventionpodcasts.com`.
 - Episodes found in Notion may have been processed many times already; always cross-reference with existing notes in `Daily-Sessions/` before starting transcription.
 - The `divine-pharma-notion-episodes-fetch` skill is responsible for keeping the Notion DB in sync. If the DB is stale, run that skill first or fetch directly from the podcast site.
+- When scraping the live site fallback, do **not** treat navigation/category anchors as episodes. Filter homepage anchors to real post titles/URLs (for example labels matching `DIP Ep \d+`, `Divine Intervention Episode`, `Episode \d+`, or explicit USMLE episode titles), exclude `/podcast-categories/`, `/wp-content/` audio-only links, author pages, `#respond`, and generic labels like `Podcast Topics`, `Tutoring`, `Episode Notes`, or dates. A prior cron run accidentally created `Podcast Topics` from a nav link; delete/avoid that artifact and continue to the newest unprocessed real episode.
+- The latest live-site post may also already be processed (example: `DIP Ep 657: OMBRS 3-The OSHA Silica Standard` existed from the previous day). Iterate through real episode posts newest-to-oldest and choose the first whose title/link is not already present in `Daily-Sessions/`.
 
 ### Existing note multiplicity
 - The same episode may have multiple notes across different dates (e.g., `2026-05-26-Episode-8-Heme-Drugs.md` and `2026-05-08-Heme-Drugs.md`). When a new Notion entry matches a previously-processed episode, check the most recent note for that title and only create a new note if the prior one was incomplete or needs a fresh pass.

@@ -304,7 +304,7 @@ dspy.settings.configure(lm=lm)
 ```python
 lm = dspy.OpenAI(
     model="gpt-4",
-    api_key=REDACTED
+    api_key="your-api-key",
     max_tokens=1000
 )
 dspy.settings.configure(lm=lm)
@@ -445,8 +445,8 @@ def exact_match(example, pred, trace=None):
 
 def f1_score(example, pred, trace=None):
     """F1 score for text overlap."""
-    pred_tokens = REDACTED
-    gold_tokens = REDACTED
+    pred_tokens = set(pred.answer.lower().split())
+    gold_tokens = set(example.answer.lower().split())
 
     if not pred_tokens:
         return 0.0

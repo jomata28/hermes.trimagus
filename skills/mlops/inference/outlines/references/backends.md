@@ -133,7 +133,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 import outlines
 
 # Load model manually
-tokenizer = REDACTED
+tokenizer = AutoTokenizer.from_pretrained("your-model")
 model_hf = AutoModelForCausalLM.from_pretrained(
     "your-model",
     device_map="auto",

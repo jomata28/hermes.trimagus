@@ -80,10 +80,10 @@ from gguf import GGUFWriter
 def convert_with_custom_vocab(model_path, output_path):
     # Load and modify tokenizer
     from transformers import AutoTokenizer
-    tokenizer = REDACTED
+    tokenizer = AutoTokenizer.from_pretrained(model_path)
 
     # Add special tokens if needed
-    special_tokens = REDACTED
+    special_tokens = {"additional_special_tokens": ["<|custom|>"]}
     tokenizer.add_special_tokens(special_tokens)
     tokenizer.save_pretrained(model_path)
 
@@ -392,7 +392,7 @@ def benchmark(model_path, prompt, n_tokens=100, n_runs=5):
         times.append(elapsed)
 
     avg_time = sum(times) / len(times)
-    tokens_per_sec = REDACTED
+    tokens_per_sec = n_tokens / avg_time
 
     print(f"Model: {model_path}")
     print(f"Avg time: {avg_time:.2f}s")
