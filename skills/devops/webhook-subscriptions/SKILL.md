@@ -35,7 +35,7 @@ platforms:
     extra:
       host: "0.0.0.0"
       port: 8644
-      secret: "generate-a-strong-secret-here"
+      secret: REDACTED
 ```
 
 ### Option 3: Environment variables

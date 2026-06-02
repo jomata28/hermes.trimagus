@@ -381,7 +381,7 @@ hooks_auto_accept: false
 personalities: {}
 security:
   allow_private_urls: false
-  redact_secrets: false
+  redact_secrets: REDACTED
   tirith_enabled: true
   tirith_path: tirith
   tirith_timeout: 5

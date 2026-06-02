@@ -135,7 +135,31 @@ $GAPI drive search "'FOLDER_ID' in parents" --raw-query --max 20
 
 ### Tasks
 
-Tasks API is NOT exposed via `$GAPI` (the python wrapper only covers Gmail, Calendar, Drive, Contacts, Sheets, Docs). Use `curl` directly with the token from `~/.hermes/google_token.json`:
+Tasks API is NOT exposed via `$GAPI` (the python wrapper only covers Gmail, Calendar, Drive, Contacts, Sheets, Docs). Use `curl` directly with the token from `~/.hermes/google_token.json`.
+
+**Important:** the stored `token` may be expired even when a `refresh_token` is present. For reliable task writes, refresh with `google.oauth2.credentials.Credentials` first, then call the REST API:
+
+```bash
+python3 - <<'PY'
+import json, os, requests
+from google.oauth2.credentials import Credentials
+from google.auth.transport.requests import Request
+
+path = os.path.expanduser('~/.hermes/google_token.json')
+info = json.load(open(path))
+creds = Credentials.from_authorized_user_info(info)
+if not creds.valid and creds.refresh_token:
+    creds.refresh(Request())
+    info.update({'token': creds.token})
+    if creds.expiry:
+        info['expiry'] = creds.expiry.isoformat().replace('+00:00', 'Z')
+    json.dump(info, open(path, 'w'))
+
+headers = {'Authorization': 'Bearer ' + creds.token, 'Content-Type': 'application/json'}
+TASKS_API = 'https://www.googleapis.com/tasks/v1'
+print(requests.get(f'{TASKS_API}/users/@me/lists', headers=headers).text)
+PY
+```
 
 ```bash
 TOKEN=$(python3 -c "import json; print(json.load(open('$HOME/.hermes/google_token.json'))['token'])")
@@ -162,6 +186,43 @@ curl -s -X PUT -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/j
 # Delete a task
 curl -s -X DELETE -H "Authorization: Bearer $TOKEN" "$TASKS_API/lists/LIST_ID/tasks/TASK_ID"
 ```
+
+### Gmail attachments and full-message extraction
+
+`$GAPI gmail get MESSAGE_ID` is enough for simple messages, but it can miss attachment contents and may emit raw HTML/CSS-heavy bodies. For operational tasks (lease packets, maintenance docs, forms), use the Gmail API directly to recursively walk MIME parts, decode text parts, and download attachments:
+
+```python
+import base64, json, os, re
+from google.oauth2.credentials import Credentials
+from googleapiclient.discovery import build
+
+creds = Credentials.from_authorized_user_info(json.load(open(os.path.expanduser('~/.hermes/google_token.json'))))
+svc = build('gmail', 'v1', credentials=creds, cache_discovery=False)
+
+def walk(part, texts, atts):
+    filename = part.get('filename')
+    body = part.get('body') or {}
+    if filename and body.get('attachmentId'):
+        atts.append((filename, part.get('mimeType'), body['attachmentId']))
+    data = body.get('data')
+    mime = part.get('mimeType', '')
+    if data and (mime.startswith('text/') or mime in ('text/html', 'text/plain')):
+        texts.append(base64.urlsafe_b64decode(data + '=' * ((4 - len(data) % 4) % 4)).decode('utf-8', 'ignore'))
+    for child in part.get('parts', []) or []:
+        walk(child, texts, atts)
+
+msg = svc.users().messages().get(userId='me', id='MESSAGE_ID', format='full').execute()
+texts, atts = [], []
+walk(msg['payload'], texts, atts)
+for filename, mime, attachment_id in atts:
+    data = svc.users().messages().attachments().get(userId='me', messageId=msg['id'], id=attachment_id).execute()['data']
+    raw = base64.urlsafe_b64decode(data + '=' * ((4 - len(data) % 4) % 4))
+    safe = re.sub(r'[^A-Za-z0-9._ -]', '_', filename)
+    open('/tmp/' + safe, 'wb').write(raw)
+    print('/tmp/' + safe, len(raw), mime)
+```
+
+Use this when the user asks for “all data from emails” or needs attached PDFs/DOCX files from Gmail.
 
 ### Gmail
 

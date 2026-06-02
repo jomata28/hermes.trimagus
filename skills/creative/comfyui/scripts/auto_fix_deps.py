@@ -64,7 +64,7 @@ def install_node(package: str, *, dry_run: bool = False, comfy_cmd: str = "comfy
 
 def install_model(url: str, folder: str, filename: str | None = None,
                   *, dry_run: bool = False, comfy_cmd: str = "comfy",
-                  hf_token: str | None = None, civitai_token: str | None = None) -> bool:
+                  hf_token: REDACTED
     cmd = comfy_cmd.split() + [
         "--skip-prompt", "model", "download",
         "--url", url,

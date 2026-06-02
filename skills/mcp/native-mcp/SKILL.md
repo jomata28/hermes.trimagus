@@ -70,7 +70,7 @@ mcp_servers:
     command: "npx"             # (required) executable to run
     args: ["-y", "pkg-name"]   # (optional) command arguments, default: []
     env:                       # (optional) environment variables for the subprocess
-      SOME_API_KEY: "value"
+      SOME_API_KEY: REDACTED
     timeout: 120               # (optional) per-tool-call timeout in seconds, default: 120
     connect_timeout: 60        # (optional) initial connection timeout in seconds, default: 60
 ```
@@ -189,7 +189,7 @@ mcp_servers:
     args: ["-y", "@modelcontextprotocol/server-github"]
     env:
       # Only this token is passed to the subprocess
-      GITHUB_PERSONAL_ACCESS_TOKEN: "ghp_..."
+      GITHUB_PERSONAL_ACCESS_TOKEN: REDACTED
 ```
 
 ### Credential Stripping in Error Messages
@@ -275,7 +275,7 @@ mcp_servers:
     command: "npx"
     args: ["-y", "@modelcontextprotocol/server-github"]
     env:
-      GITHUB_PERSONAL_ACCESS_TOKEN: "ghp_xxxxxxxxxxxxxxxxxxxx"
+      GITHUB_PERSONAL_ACCESS_TOKEN: REDACTED
     timeout: 60
 ```
 
@@ -288,7 +288,7 @@ mcp_servers:
   company_api:
     url: "https://mcp.mycompany.com/v1/mcp"
     headers:
-      Authorization: "Bearer sk-xxxxxxxxxxxxxxxxxxxx"
+      Authorization: "Bearer REDACTED"
       X-Team-Id: "engineering"
     timeout: 180
     connect_timeout: 30
@@ -310,12 +310,12 @@ mcp_servers:
     command: "npx"
     args: ["-y", "@modelcontextprotocol/server-github"]
     env:
-      GITHUB_PERSONAL_ACCESS_TOKEN: "ghp_xxxxxxxxxxxxxxxxxxxx"
+      GITHUB_PERSONAL_ACCESS_TOKEN: REDACTED
 
   company_api:
     url: "https://mcp.internal.company.com/mcp"
     headers:
-      Authorization: "Bearer sk-xxxxxxxxxxxxxxxxxxxx"
+      Authorization: "Bearer REDACTED"
     timeout: 300
 ```
 
@@ -335,7 +335,7 @@ mcp_servers:
     sampling:
       enabled: true           # default: true
       model: "gemini-3-flash" # model override (optional)
-      max_tokens_cap: 4096    # max tokens per request
+      max_tokens_cap: REDACTED
       timeout: 30             # LLM call timeout (seconds)
       max_rpm: 10             # max requests per minute
       allowed_models: []      # model whitelist (empty = all)

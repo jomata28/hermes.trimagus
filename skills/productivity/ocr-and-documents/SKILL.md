@@ -83,6 +83,23 @@ for page in doc:
 
 ---
 
+## OCR fallback with Poppler + Tesseract (lightweight scanned PDFs)
+
+Before installing heavy OCR stacks, check whether Poppler and Tesseract already exist. This works well for simple scanned forms and apartment/administrative PDFs:
+
+```bash
+which pdftoppm && which tesseract
+pdfinfo scanned.pdf | head
+mkdir -p /tmp/pdf_pages
+pdftoppm -png -r 150 scanned.pdf /tmp/pdf_pages/page
+for f in /tmp/pdf_pages/page-*.png; do
+  echo "### $f"
+  tesseract "$f" stdout 2>/dev/null
+done
+```
+
+Use this when `pdftotext` returns empty output or pymupdf cannot extract text because the PDF is image-only. It avoids marker-pdf's multi-GB install and is usually enough for checklists, forms, notices, and scanned office documents.
+
 ## marker-pdf (high-quality OCR)
 
 ```bash
