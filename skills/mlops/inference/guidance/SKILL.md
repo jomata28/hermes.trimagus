@@ -2,7 +2,7 @@
 name: guidance
 description: Control LLM output with regex and grammars, guarantee valid JSON/XML/code generation, enforce structured formats, and build multi-step workflows with Guidance - Microsoft Research's constrained generation framework
 version: 1.0.0
-author: Orchestra Research
+author: REDACTED
 license: MIT
 dependencies: [guidance, transformers]
 metadata:
@@ -272,7 +272,7 @@ from guidance import models
 
 lm = models.Anthropic(
     model="claude-sonnet-4-5-20250929",
-    api_key="your-api-key"  # Or set ANTHROPIC_API_KEY env var
+    api_key=REDACTED
 )
 ```
 
@@ -281,7 +281,7 @@ lm = models.Anthropic(
 ```python
 lm = models.OpenAI(
     model="gpt-4o-mini",
-    api_key="your-api-key"  # Or set OPENAI_API_KEY env var
+    api_key=REDACTED
 )
 ```
 

@@ -53,7 +53,7 @@ from datasets import load_dataset
 
 # Load model
 model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-0.5B")
-tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-0.5B")
+tokenizer = REDACTED
 
 # Load dataset
 dataset = load_dataset("trl-lib/Capybara", split="train")
@@ -72,7 +72,7 @@ trainer = SFTTrainer(
     model=model,
     args=config,
     train_dataset=dataset,
-    tokenizer=tokenizer
+    tokenizer=REDACTED
 )
 trainer.train()
 ```
@@ -86,7 +86,7 @@ trainer = SFTTrainer(
     model=model,
     args=config,
     train_dataset=dataset,  # Messages format
-    tokenizer=tokenizer
+    tokenizer=REDACTED
     # Chat template applied automatically
 )
 ```

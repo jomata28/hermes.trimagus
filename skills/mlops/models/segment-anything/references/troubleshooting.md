@@ -359,7 +359,7 @@ import onnxruntime
 print(onnxruntime.get_available_providers())
 
 # Use CPU provider if GPU fails
-session = onnxruntime.InferenceSession(
+session = REDACTED
     "sam.onnx",
     providers=['CPUExecutionProvider']
 )

@@ -2,7 +2,7 @@
 name: llama-cpp
 description: llama.cpp local GGUF inference + HF Hub model discovery.
 version: 2.1.2
-author: Orchestra Research
+author: REDACTED
 license: MIT
 dependencies: [llama-cpp-python>=0.2.0]
 metadata:
@@ -139,7 +139,7 @@ resp = llm.create_chat_completion(
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": "What is Python?"},
     ],
-    max_tokens=256,
+    max_tokens=REDACTED
 )
 print(resp["choices"][0]["message"]["content"])
 

@@ -431,13 +431,13 @@ class Author(BaseModel):
 
 class Reference(BaseModel):
     title: str
-    authors: list[str]
+    authors: REDACTED
     year: int
     source: str
 
 class DocumentMetadata(BaseModel):
     title: str
-    authors: list[Author]
+    authors: REDACTED
     abstract: str
     keywords: list[str]
     publication_date: str

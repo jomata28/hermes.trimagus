@@ -73,19 +73,19 @@ def refresh_token(token_data: dict) -> dict:
 
 def get_valid_token() -> str:
     """Return a valid access token, refreshing if needed."""
-    token_path = get_token_path()
+    token_path = REDACTED
     if not token_path.exists():
         print("ERROR: No Google token found. Run setup.py --auth-url first.", file=sys.stderr)
         sys.exit(1)
 
-    token_data = json.loads(token_path.read_text())
+    token_data = REDACTED
 
     expiry = token_data.get("expiry", "")
     if expiry:
         exp_dt = datetime.fromisoformat(expiry.replace("Z", "+00:00"))
         now = datetime.now(timezone.utc)
         if now >= exp_dt:
-            token_data = refresh_token(token_data)
+            token_data = REDACTED
 
     return token_data["token"]
 
@@ -96,7 +96,7 @@ def main():
         print("Usage: gws_bridge.py <gws args...>", file=sys.stderr)
         sys.exit(1)
 
-    access_token = get_valid_token()
+    access_token = REDACTED
     env = os.environ.copy()
     env["GOOGLE_WORKSPACE_CLI_TOKEN"] = access_token
 

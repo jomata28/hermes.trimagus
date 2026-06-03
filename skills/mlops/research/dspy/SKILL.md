@@ -2,7 +2,7 @@
 name: dspy
 description: "DSPy: declarative LM programs, auto-optimize prompts, RAG."
 version: 1.0.0
-author: Orchestra Research
+author: REDACTED
 license: MIT
 dependencies: [dspy, openai, anthropic]
 metadata:
@@ -292,8 +292,8 @@ import dspy
 
 lm = dspy.Claude(
     model="claude-sonnet-4-5-20250929",
-    api_key="your-api-key",  # Or set ANTHROPIC_API_KEY env var
-    max_tokens=1000,
+    api_key=REDACTED
+    max_tokens=REDACTED
     temperature=0.7
 )
 dspy.settings.configure(lm=lm)
@@ -304,8 +304,8 @@ dspy.settings.configure(lm=lm)
 ```python
 lm = dspy.OpenAI(
     model="gpt-4",
-    api_key="your-api-key",
-    max_tokens=1000
+    api_key=REDACTED
+    max_tokens=REDACTED
 )
 dspy.settings.configure(lm=lm)
 ```
@@ -445,8 +445,8 @@ def exact_match(example, pred, trace=None):
 
 def f1_score(example, pred, trace=None):
     """F1 score for text overlap."""
-    pred_tokens = set(pred.answer.lower().split())
-    gold_tokens = set(example.answer.lower().split())
+    pred_tokens = REDACTED
+    gold_tokens = REDACTED
 
     if not pred_tokens:
         return 0.0

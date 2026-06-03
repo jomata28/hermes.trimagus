@@ -355,7 +355,7 @@ def _test_query(client, model, messages, timeout=45):
         response = client.chat.completions.create(
             model=model,
             messages=messages,
-            max_tokens=2048,
+            max_tokens=REDACTED
             temperature=0.7,
             timeout=timeout,
         )
@@ -451,7 +451,7 @@ def auto_jailbreak(model=None, base_url=None, api_key=None,
     if not base_url:
         base_url = "https://openrouter.ai/api/v1"
     if not api_key:
-        api_key = _get_api_key(base_url)
+        api_key = REDACTED
     if not api_key:
         return {"success": False, "error": "No API key found"}
 

@@ -2,7 +2,7 @@
 name: clip
 description: OpenAI's model connecting vision and language. Enables zero-shot image classification, image-text matching, and cross-modal retrieval. Trained on 400M image-text pairs. Use for image search, content moderation, or vision-language tasks without fine-tuning. Best for general-purpose image understanding.
 version: 1.0.0
-author: Orchestra Research
+author: REDACTED
 license: MIT
 dependencies: [transformers, torch, pillow]
 metadata:
@@ -183,7 +183,7 @@ with torch.no_grad():
 
 # Batch text
 texts = ["a dog", "a cat", "a bird"]
-text_tokens = clip.tokenize(texts).to(device)
+text_tokens = REDACTED
 
 with torch.no_grad():
     text_features = model.encode_text(text_tokens)

@@ -199,8 +199,8 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from peft import get_peft_model, LoraConfig
 
 # Add new tokens
-tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3.1-8B")
-new_tokens = ["<custom_token_1>", "<custom_token_2>"]
+tokenizer = REDACTED
+new_tokens = REDACTED
 tokenizer.add_tokens(new_tokens)
 
 # Resize model embeddings

@@ -2,7 +2,7 @@
 name: agy-cli
 description: "Google Antigravity CLI (agy) — install, authenticate, and use for agentic coding."
 version: 1.0.0
-author: Bitácora / C.T. Gravy
+author: REDACTED
 license: MIT
 ---
 

@@ -2,7 +2,7 @@
 name: gguf-quantization
 description: GGUF format and llama.cpp quantization for efficient CPU/GPU inference. Use when deploying models on consumer hardware, Apple Silicon, or when needing flexible quantization from 2-8 bit without GPU requirements.
 version: 1.0.0
-author: Orchestra Research
+author: REDACTED
 license: MIT
 dependencies: [llama-cpp-python>=0.2.0]
 metadata:
@@ -209,7 +209,7 @@ llm = Llama(
 # Generate
 output = llm(
     "What is machine learning?",
-    max_tokens=256,
+    max_tokens=REDACTED
     temperature=0.7,
     stop=["</s>", "\n\n"]
 )
@@ -235,7 +235,7 @@ messages = [
 
 response = llm.create_chat_completion(
     messages=messages,
-    max_tokens=256,
+    max_tokens=REDACTED
     temperature=0.7
 )
 print(response["choices"][0]["message"]["content"])
@@ -251,7 +251,7 @@ llm = Llama(model_path="./model-q4_k_m.gguf", n_gpu_layers=35)
 # Stream tokens
 for chunk in llm(
     "Explain quantum computing:",
-    max_tokens=256,
+    max_tokens=REDACTED
     stream=True
 ):
     print(chunk["choices"][0]["text"], end="", flush=True)
@@ -284,13 +284,13 @@ from openai import OpenAI
 
 client = OpenAI(
     base_url="http://localhost:8080/v1",
-    api_key="not-needed"
+    api_key=REDACTED
 )
 
 response = client.chat.completions.create(
     model="local-model",
     messages=[{"role": "user", "content": "Hello!"}],
-    max_tokens=256
+    max_tokens=REDACTED
 )
 print(response.choices[0].message.content)
 ```

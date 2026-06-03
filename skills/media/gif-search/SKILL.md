@@ -2,7 +2,7 @@
 name: gif-search
 description: "Search/download GIFs from Tenor via curl + jq."
 version: 1.1.0
-author: Hermes Agent
+author: REDACTED
 license: MIT
 prerequisites:
   env_vars: [TENOR_API_KEY]
@@ -25,7 +25,7 @@ Useful for finding reaction GIFs, creating visual content, and sending GIFs in c
 Set your Tenor API key in your environment (add to `~/.hermes/.env`):
 
 ```bash
-TENOR_API_KEY=your_key_here
+TENOR_API_KEY=REDACTED
 ```
 
 Get a free API key at https://developers.google.com/tenor/guides/quickstart — the Google Cloud Console Tenor API key is free and has generous rate limits.

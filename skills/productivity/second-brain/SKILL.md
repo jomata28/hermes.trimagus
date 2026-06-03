@@ -2,7 +2,7 @@
 name: second-brain
 description: "Manage a second-brain knowledge base (Obsidian) backed by Google Drive, with multi-agent access (Hermes, Claude, Gemini)."
 version: 1.0.0
-author: Nous Research
+author: REDACTED
 license: MIT
 metadata:
   hermes:
@@ -36,9 +36,9 @@ Reuse the token from `google-workspace` skill at `~/.hermes/google_token.json`:
 import json
 from pathlib import Path
 
-gtoken = json.loads(Path.home().joinpath(".hermes/google_token.json").read_text())
+gtoken = REDACTED
 
-token_data = {
+token_data = REDACTED
     "access_token": gtoken["token"],
     "token_type": "Bearer",
     "refresh_token": gtoken["refresh_token"],
@@ -48,9 +48,9 @@ token_data = {
 import json as _json
 rclone_conf = f"""[drive-hermes]
 type = drive
-token = {_json.dumps(token_data)}
+token = REDACTED
 client_id = {gtoken["client_id"]}
-client_secret = {gtoken["client_secret"]}
+client_secret = REDACTED
 """
 
 import os

@@ -1618,7 +1618,7 @@ plugins:
 Example 4 (unknown):
 ```unknown
 @article{wijmans2024cut,
-  author       = {Erik Wijmans and
+  author       = REDACTED
                   Brody Huval and
                   Alexander Hertzberg and
                   Vladlen Koltun and
@@ -3098,7 +3098,7 @@ Example 4 (unknown):
 ```unknown
 @software{axolotl,
   title = {Axolotl: Open Source LLM Post-Training},
-  author = {{Axolotl maintainers and contributors}},
+  author = REDACTED
   url = {https://github.com/axolotl-ai-cloud/axolotl},
   license = {Apache-2.0},
   year = {2023}

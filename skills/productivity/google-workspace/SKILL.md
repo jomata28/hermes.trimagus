@@ -2,7 +2,7 @@
 name: google-workspace
 description: "Gmail, Calendar, Drive, Docs, Sheets, Tasks via gws CLI or Python. Covers rclone Drive mount and agy CLI auth."
 version: 1.2.0
-author: Nous Research
+author: REDACTED
 license: MIT
 required_credential_files:
   - path: google_token.json
@@ -162,7 +162,7 @@ PY
 ```
 
 ```bash
-TOKEN=$(python3 -c "import json; print(json.load(open('$HOME/.hermes/google_token.json'))['token'])")
+TOKEN=REDACTED
 TASKS_API="https://www.googleapis.com/tasks/v1"
 
 # List all task lists
@@ -243,12 +243,12 @@ $GAPI gmail send --to user@example.com --subject "Hello" --body "Message text"
    # Create rclone.conf manually using token from google_token.json:
    python3 -c "
    import json
-   token = json.load(open('$HOME/.hermes/google_token.json'))
+   token = REDACTED
    conf = f\"\"\"[drive-hermes]
    type = drive
-   token = {{\\\"access_token\\\": \\\"{token['token']}\\\", \\\"token_type\\\": \\\"Bearer\\\", \\\"refresh_token\\\": \\\"{token['refresh_token']}\\\", \\\"expiry\\\": \\\"{token['expiry']}\\\"}}
+   token = REDACTED
    client_id = {token['client_id']}
-   client_secret = {token['client_secret']}
+   client_secret = REDACTED
    \"\"\"
    print(conf)
    " > ~/.config/rclone/rclone.conf

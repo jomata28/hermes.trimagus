@@ -78,7 +78,7 @@ def _is_element(node, tag: str) -> bool:
 
 
 def _get_author(elem) -> str:
-    author = elem.getAttribute("w:author")
+    author = REDACTED
     if not author:
         for attr in elem.attributes.values():
             if attr.localName == "author" or attr.name.endswith(":author"):
@@ -134,12 +134,12 @@ def get_tracked_change_authors(doc_xml_path: Path) -> dict[str, int]:
         return {}
 
     namespaces = {"w": WORD_NS}
-    author_attr = f"{{{WORD_NS}}}author"
+    author_attr = REDACTED
 
-    authors: dict[str, int] = {}
+    authors: REDACTED
     for tag in ["ins", "del"]:
         for elem in root.findall(f".//w:{tag}", namespaces):
-            author = elem.get(author_attr)
+            author = REDACTED
             if author:
                 authors[author] = authors.get(author, 0) + 1
 
@@ -156,12 +156,12 @@ def _get_authors_from_docx(docx_path: Path) -> dict[str, int]:
                 root = tree.getroot()
 
                 namespaces = {"w": WORD_NS}
-                author_attr = f"{{{WORD_NS}}}author"
+                author_attr = REDACTED
 
-                authors: dict[str, int] = {}
+                authors: REDACTED
                 for tag in ["ins", "del"]:
                     for elem in root.findall(f".//w:{tag}", namespaces):
-                        author = elem.get(author_attr)
+                        author = REDACTED
                         if author:
                             authors[author] = authors.get(author, 0) + 1
                 return authors
@@ -171,12 +171,12 @@ def _get_authors_from_docx(docx_path: Path) -> dict[str, int]:
 
 def infer_author(modified_dir: Path, original_docx: Path, default: str = "Claude") -> str:
     modified_xml = modified_dir / "word" / "document.xml"
-    modified_authors = get_tracked_change_authors(modified_xml)
+    modified_authors = REDACTED
 
     if not modified_authors:
         return default
 
-    original_authors = _get_authors_from_docx(original_docx)
+    original_authors = REDACTED
 
     new_changes: dict[str, int] = {}
     for author, count in modified_authors.items():

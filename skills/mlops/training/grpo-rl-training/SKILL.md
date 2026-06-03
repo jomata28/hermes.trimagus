@@ -2,7 +2,7 @@
 name: grpo-rl-training
 description: Expert guidance for GRPO/RL fine-tuning with TRL for reasoning and task-specific model training
 version: 1.0.0
-author: Orchestra Research
+author: REDACTED
 license: MIT
 dependencies: [transformers>=4.47.0, trl>=0.14.0, datasets>=3.2.0, peft>=0.14.0, torch]
 metadata:
@@ -282,7 +282,7 @@ model = AutoModelForCausalLM.from_pretrained(
     device_map="auto"
 )
 
-tokenizer = AutoTokenizer.from_pretrained(model_name)
+tokenizer = REDACTED
 tokenizer.pad_token = tokenizer.eos_token
 
 # Optional: LoRA for parameter-efficient training
@@ -465,7 +465,7 @@ from transformers import pipeline
 generator = pipeline(
     "text-generation",
     model="production_model",
-    tokenizer=tokenizer
+    tokenizer=REDACTED
 )
 
 result = generator(
@@ -473,7 +473,7 @@ result = generator(
         {'role': 'system', 'content': SYSTEM_PROMPT},
         {'role': 'user', 'content': "What is 15 + 27?"}
     ],
-    max_new_tokens=256,
+    max_new_tokens=REDACTED
     do_sample=True,
     temperature=0.7,
     top_p=0.9

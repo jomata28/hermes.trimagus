@@ -14,24 +14,24 @@
 
 # --- Auth detection ---
 
-GH_AUTH_METHOD="none"
-GITHUB_TOKEN="${GITHUB_TOKEN:-}"
+GH_AUTH_METHOD=REDACTED
+GITHUB_TOKEN=REDACTED
 GH_USER=""
 
 if command -v gh &>/dev/null && gh auth status &>/dev/null 2>&1; then
-    GH_AUTH_METHOD="gh"
+    GH_AUTH_METHOD=REDACTED
     GH_USER=$(gh api user --jq '.login' 2>/dev/null)
 elif [ -n "$GITHUB_TOKEN" ]; then
-    GH_AUTH_METHOD="curl"
+    GH_AUTH_METHOD=REDACTED
 elif [ -f "$HOME/.hermes/.env" ] && grep -q "^GITHUB_TOKEN=" "$HOME/.hermes/.env" 2>/dev/null; then
-    GITHUB_TOKEN=$(grep "^GITHUB_TOKEN=" "$HOME/.hermes/.env" | head -1 | cut -d= -f2 | tr -d '\n\r')
+    GITHUB_TOKEN=REDACTED
     if [ -n "$GITHUB_TOKEN" ]; then
-        GH_AUTH_METHOD="curl"
+        GH_AUTH_METHOD=REDACTED
     fi
 elif [ -f "$HOME/.git-credentials" ] && grep -q "github.com" "$HOME/.git-credentials" 2>/dev/null; then
-    GITHUB_TOKEN=$(grep "github.com" "$HOME/.git-credentials" | head -1 | sed 's|https://[^:]*:\([^@]*\)@.*|\1|')
+    GITHUB_TOKEN=REDACTED
     if [ -n "$GITHUB_TOKEN" ]; then
-        GH_AUTH_METHOD="curl"
+        GH_AUTH_METHOD=REDACTED
     fi
 fi
 

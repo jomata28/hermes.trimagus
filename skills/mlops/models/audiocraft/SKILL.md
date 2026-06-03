@@ -2,7 +2,7 @@
 name: audiocraft-audio-generation
 description: PyTorch library for audio generation including text-to-music (MusicGen) and text-to-sound (AudioGen). Use when you need to generate music from text descriptions, create sound effects, or perform melody-conditioned music generation.
 version: 1.0.0
-author: Orchestra Research
+author: REDACTED
 license: MIT
 dependencies: [audiocraft, torch>=2.0.0, transformers>=4.30.0]
 metadata:
@@ -100,7 +100,7 @@ audio_values = model.generate(
     **inputs,
     do_sample=True,
     guidance_scale=3,
-    max_new_tokens=256
+    max_new_tokens=REDACTED
 )
 
 # Save

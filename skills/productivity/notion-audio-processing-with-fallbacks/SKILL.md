@@ -2,7 +2,7 @@
 name: notion-audio-processing-with-fallbacks
 description: Robust approach to querying Notion databases for podcast episodes and processing audio with fallback mechanisms for transcription
 version: 1.0.0
-author: Hermes Agent
+author: REDACTED
 category: productivity
 ---
 
@@ -38,7 +38,7 @@ Use this skill when you need to:
 
 ```bash
 # Query Notion database and sort by creation time (newest first)
-NOTION_API_KEY=your_token_here
+NOTION_API_KEY=REDACTED
 DATABASE_ID=your_database_id_here
 
 curl -s -X POST "https://api.notion.com/v1/databases/$DATABASE_ID/query" \

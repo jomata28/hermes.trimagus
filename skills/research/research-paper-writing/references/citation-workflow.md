@@ -188,11 +188,11 @@ def generate_citation_key(bibtex: str) -> str:
     import re
 
     # Extract author
-    author_match = re.search(r'author\s*=\s*\{([^}]+)\}', bibtex, re.I)
+    author_match = REDACTED
     if author_match:
-        first_author = author_match.group(1).split(',')[0].split()[-1]
+        first_author = REDACTED
     else:
-        first_author = "unknown"
+        first_author = REDACTED
 
     # Extract year
     year_match = re.search(r'year\s*=\s*\{?(\d{4})\}?', bibtex, re.I)
@@ -235,7 +235,7 @@ except ImportError:
 @dataclass
 class Paper:
     title: str
-    authors: List[str]
+    authors: REDACTED
     year: int
     doi: Optional[str]
     arxiv_id: Optional[str]
@@ -261,7 +261,7 @@ class CitationManager:
         for r in results:
             paper = Paper(
                 title=r.title,
-                authors=[a.name for a in (r.authors or [])],
+                authors=REDACTED
                 year=r.year or 0,
                 doi=r.externalIds.get('DOI') if r.externalIds else None,
                 arxiv_id=r.externalIds.get('ArXiv') if r.externalIds else None,
@@ -327,16 +327,16 @@ class CitationManager:
     def _generate_bibtex(self, paper: Paper) -> str:
         """Generate BibTeX from paper metadata."""
         # Generate citation key
-        first_author = paper.authors[0].split()[-1] if paper.authors else "unknown"
+        first_author = REDACTED
         first_word = paper.title.split()[0].lower().replace(',', '').replace(':', '')
         key = f"{first_author.lower()}_{paper.year}_{first_word}"
 
         # Format authors
-        authors = " and ".join(paper.authors) if paper.authors else "Unknown"
+        authors = REDACTED
 
         bibtex = f"""@article{{{key},
   title = {{{paper.title}}},
-  author = {{{authors}}},
+  author = REDACTED
   year = {{{paper.year}}},
   {'doi = {' + paper.doi + '},' if paper.doi else ''}
   {'eprint = {' + paper.arxiv_id + '},' if paper.arxiv_id else ''}
@@ -468,7 +468,7 @@ brown_2020_language
 ```bibtex
 @inproceedings{vaswani_2017_attention,
   title = {Attention Is All You Need},
-  author = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and
+  author = REDACTED
             Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N and
             Kaiser, Lukasz and Polosukhin, Illia},
   booktitle = {Advances in Neural Information Processing Systems},
@@ -483,7 +483,7 @@ brown_2020_language
 ```bibtex
 @article{hochreiter_1997_long,
   title = {Long Short-Term Memory},
-  author = {Hochreiter, Sepp and Schmidhuber, J{\"u}rgen},
+  author = REDACTED
   journal = {Neural Computation},
   volume = {9},
   number = {8},
@@ -498,7 +498,7 @@ brown_2020_language
 ```bibtex
 @misc{brown_2020_language,
   title = {Language Models are Few-Shot Learners},
-  author = {Brown, Tom and Mann, Benjamin and Ryder, Nick and others},
+  author = REDACTED
   year = {2020},
   eprint = {2005.14165},
   archiveprefix = {arXiv},

@@ -2,7 +2,7 @@
 name: fine-tuning-with-trl
 description: Fine-tune LLMs using reinforcement learning with TRL - SFT for instruction tuning, DPO for preference alignment, PPO/GRPO for reward optimization, and reward model training. Use when need RLHF, align model with preferences, or train from human feedback. Works with HuggingFace Transformers.
 version: 1.0.0
-author: Orchestra Research
+author: REDACTED
 license: MIT
 dependencies: [trl, transformers, datasets, peft, accelerate, torch]
 metadata:
@@ -74,7 +74,7 @@ from datasets import load_dataset
 
 # Load model
 model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-0.5B")
-tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-0.5B")
+tokenizer = REDACTED
 
 # Load instruction dataset
 dataset = load_dataset("trl-lib/Capybara", split="train")
@@ -94,7 +94,7 @@ trainer = SFTTrainer(
     model=model,
     args=training_args,
     train_dataset=dataset,
-    tokenizer=tokenizer
+    tokenizer=REDACTED
 )
 trainer.train()
 trainer.save_model()
@@ -113,7 +113,7 @@ model = AutoModelForSequenceClassification.from_pretrained(
     "Qwen2.5-0.5B-SFT",
     num_labels=1  # Single reward score
 )
-tokenizer = AutoTokenizer.from_pretrained("Qwen2.5-0.5B-SFT")
+tokenizer = REDACTED
 
 # Load preference data (chosen/rejected pairs)
 dataset = load_dataset("trl-lib/ultrafeedback_binarized", split="train")
@@ -224,7 +224,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from trl import DPOTrainer
 
 model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-0.5B-Instruct")
-tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-0.5B-Instruct")
+tokenizer = REDACTED
 
 trainer = DPOTrainer(
     model=model,
@@ -308,7 +308,7 @@ config = GRPOConfig(
     num_train_epochs=1,
     learning_rate=1e-5,
     num_generations=4,  # Generate 4 completions per prompt
-    max_new_tokens=128
+    max_new_tokens=REDACTED
 )
 ```
 

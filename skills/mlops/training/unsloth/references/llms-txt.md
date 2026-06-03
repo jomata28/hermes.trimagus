@@ -989,14 +989,14 @@ model_input = [
 
 sampling_param = SamplingParams(
     temperature=0.0,
-    max_tokens=8192,
+    max_tokens=REDACTED
     # ngram logit processor args
     extra_args=dict(
         ngram_size=30,
         window_size=90,
-        whitelist_token_ids={128821, 128822},  # whitelist: <td>, </td>
+        whitelist_token_ids=REDACTED
     ),
-    skip_special_tokens=False,
+    skip_special_tokens=REDACTED
 )
 
 ---
@@ -2656,7 +2656,7 @@ Example 3 (python):
 ```python
 tokenizer.apply_chat_template(
     text, 
-    tokenize = False, 
+    tokenize = REDACTED
     add_generation_prompt = False,
     reasoning_effort = "medium",
 )
@@ -5594,7 +5594,7 @@ model.push_to_hub_gguf(
     "your-username/model-name",
     tokenizer,
     quantization_method=["q4_k_m", "q8_0", "q5_k_m"],
-    token="your-token",
+    token=REDACTED
 )
 ```
 
@@ -5993,7 +5993,7 @@ trainer = SFTTrainer(
         greater_is_better = False,           # the lower the eval loss, the better
     ),
     model = model,
-    tokenizer = tokenizer,
+    tokenizer = REDACTED
     train_dataset = new_dataset["train"],
     eval_dataset = new_dataset["test"],
 )
@@ -7554,7 +7554,7 @@ from transformers import TextStreamer
 
 text = tokenizer.apply_chat_template(
     [{"role": "user", "content": prompt}],
-    tokenize=False,
+    tokenize=REDACTED
     add_generation_prompt=True,
     reasoning_effort="low",
 )
@@ -7562,7 +7562,7 @@ text = tokenizer.apply_chat_template(
 _ = model.generate(
     **tokenizer(text, return_tensors="pt").to("cuda"),
     temperature=1.0,
-    max_new_tokens=1024,
+    max_new_tokens=REDACTED
     streamer=TextStreamer(tokenizer, skip_prompt=False)
 python
   model.save_pretrained_merged("finetuned_model", tokenizer, save_method="mxfp4")
@@ -7916,7 +7916,7 @@ trainer = SFTTrainer(
         greater_is_better = False,           # the lower the eval loss, the better
     ),
     model = model,
-    tokenizer = tokenizer,
+    tokenizer = REDACTED
     train_dataset = new_dataset["train"],
     eval_dataset = new_dataset["test"],
 )
@@ -7958,7 +7958,7 @@ import locale
 locale.getpreferredencoding = lambda: "UTF-8"
 
 @misc{unsloth_2025_qwen3_30b_a3b,
-  author       = {Unsloth AI and Han-Chen, Daniel and Han-Chen, Michael},
+  author       = REDACTED
   title        = {Qwen3-30B-A3B-GGUF:Q8\_K\_XL},
   year         = {2025},
   publisher    = {Hugging Face},
@@ -7966,7 +7966,7 @@ locale.getpreferredencoding = lambda: "UTF-8"
 }
 
 @misc{unsloth,
-  author       = {Unsloth AI and Han-Chen, Daniel and Han-Chen, Michael},
+  author       = REDACTED
   title        = {Unsloth},
   year         = {2025},
   publisher    = {Github},
@@ -8346,7 +8346,7 @@ Example 1 (python):
 ```python
 tokenizer.apply_chat_template(
     text, 
-    tokenize = False, 
+    tokenize = REDACTED
     add_generation_prompt = False,
     reasoning_effort = "medium",
 )
@@ -8727,7 +8727,7 @@ Example 3 (unknown):
 ```unknown
 from unsloth.chat_templates import get_chat_template
 
-  tokenizer = get_chat_template(
+  tokenizer = REDACTED
       tokenizer,
       chat_template = "gemma-3", # change this to the right chat_template name
   )
@@ -8954,7 +8954,7 @@ export LLAMA_CACHE="unsloth/DeepSeek-V3.1-GGUF"
 
 def preprocess_function(example):
     # Tokenize the text (keep the special tokens like <laugh> intact)
-    tokens = tokenizer(example["text"], return_tensors="pt")
+    tokens = REDACTED
     # Flatten to list of token IDs
     input_ids = tokens["input_ids"].squeeze(0)
     # The model will generate audio tokens after these text tokens.
@@ -10172,7 +10172,7 @@ Example 4 (python):
 ```python
 text = tokenizer.apply_chat_template(
     messages,
-    tokenize=False,
+    tokenize=REDACTED
     add_generation_prompt=True,
     enable_thinking=True  # Default is True
 )
@@ -11644,7 +11644,7 @@ dpo_trainer = DPOTrainer(
     beta = 0.1,
     train_dataset = YOUR_DATASET_HERE,
     # eval_dataset = YOUR_DATASET_HERE,
-    tokenizer = tokenizer,
+    tokenizer = REDACTED
     max_length = 1024,
     max_prompt_length = 512,
 )

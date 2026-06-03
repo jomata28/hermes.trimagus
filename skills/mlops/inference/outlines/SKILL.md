@@ -2,7 +2,7 @@
 name: outlines
 description: "Outlines: structured JSON/regex/Pydantic LLM generation."
 version: 1.0.0
-author: Orchestra Research
+author: REDACTED
 license: MIT
 dependencies: [outlines, transformers, vllm, pydantic]
 metadata:
@@ -224,7 +224,7 @@ generator = outlines.generate.json(model, YourModel)
 # Basic OpenAI support
 model = outlines.models.openai(
     "gpt-4o-mini",
-    api_key="your-api-key"
+    api_key=REDACTED
 )
 
 # Note: Some features limited with API models
@@ -242,7 +242,7 @@ from pydantic import BaseModel, Field
 
 class Article(BaseModel):
     title: str = Field(description="Article title")
-    author: str = Field(description="Author name")
+    author: REDACTED
     word_count: int = Field(description="Number of words", gt=0)
     tags: list[str] = Field(description="List of tags")
 
@@ -590,7 +590,7 @@ from typing import Optional
 # ✅ Good: Optional fields for incomplete data
 class Article(BaseModel):
     title: str  # Required
-    author: Optional[str] = None  # Optional
+    author: REDACTED
     date: Optional[str] = None  # Optional
     tags: list[str] = []  # Default empty list
 

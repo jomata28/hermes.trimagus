@@ -123,7 +123,7 @@ Example 2 (python):
 ```python
 prompt_strategies.input_output.RawInputOutputStrategy(
     *args,
-    eos_token=None,
+    eos_token=REDACTED
     **kwargs,
 )
 ```
@@ -2740,7 +2740,7 @@ prompt_strategies.chat_template.ChatTemplateStrategy(
     roles_to_train=None,
     train_on_eos=None,
     train_on_eot=None,
-    eot_tokens=None,
+    eot_tokens=REDACTED
     split_thinking=False,
 )
 ```
@@ -3957,7 +3957,7 @@ Example 1 (python):
 utils.trainer.add_pose_position_ids(
     sample,
     max_context_len=32768,
-    split_on_token_ids=None,
+    split_on_token_ids=REDACTED
     chunks=2,
 )
 ```
@@ -4932,8 +4932,8 @@ utils.collators.batching.BatchSamplerDataCollatorForSeq2Seq(
     padding=True,
     max_length=None,
     pad_to_multiple_of=None,
-    label_pad_token_id=-100,
-    position_pad_token_id=0,
+    label_pad_token_id=REDACTED
+    position_pad_token_id=REDACTED
     return_tensors='pt',
 )
 ```
@@ -4946,8 +4946,8 @@ utils.collators.batching.DataCollatorForSeq2Seq(
     padding=True,
     max_length=None,
     pad_to_multiple_of=None,
-    label_pad_token_id=-100,
-    position_pad_token_id=0,
+    label_pad_token_id=REDACTED
+    position_pad_token_id=REDACTED
     return_tensors='pt',
 )
 ```
@@ -4969,8 +4969,8 @@ utils.collators.batching.V2BatchSamplerDataCollatorForSeq2Seq(
     padding=True,
     max_length=None,
     pad_to_multiple_of=None,
-    label_pad_token_id=-100,
-    position_pad_token_id=0,
+    label_pad_token_id=REDACTED
+    position_pad_token_id=REDACTED
     return_tensors='pt',
     squash_position_ids=False,
 )

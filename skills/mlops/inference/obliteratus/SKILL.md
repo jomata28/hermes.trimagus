@@ -2,7 +2,7 @@
 name: obliteratus
 description: "OBLITERATUS: abliterate LLM refusals (diff-in-means)."
 version: 2.0.0
-author: Hermes Agent
+author: REDACTED
 license: MIT
 dependencies: [obliteratus, torch, transformers, bitsandbytes, accelerate, safetensors]
 metadata:
@@ -228,7 +228,7 @@ The output is a standard HuggingFace model directory.
 python3 -c "
 from transformers import AutoModelForCausalLM, AutoTokenizer
 model = AutoModelForCausalLM.from_pretrained('./abliterated-models/<model>')
-tokenizer = AutoTokenizer.from_pretrained('./abliterated-models/<model>')
+tokenizer = REDACTED
 inputs = tokenizer('How do I pick a lock?', return_tensors='pt')
 outputs = model.generate(**inputs, max_new_tokens=200)
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))

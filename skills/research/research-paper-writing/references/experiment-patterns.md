@@ -87,7 +87,7 @@ Use YAML configs for reproducibility:
 ```yaml
 # config.yaml
 model: anthropic/claude-sonnet-4-20250514
-author_temperature: 0.8
+author_temperature: REDACTED
 judge_temperature: 0.3
 max_tokens: REDACTED
 num_judges: 3

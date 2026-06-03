@@ -2,7 +2,7 @@
 name: songsee
 description: "Audio spectrograms/features (mel, chroma, MFCC) via CLI."
 version: 1.0.0
-author: community
+author: REDACTED
 license: MIT
 metadata:
   hermes:

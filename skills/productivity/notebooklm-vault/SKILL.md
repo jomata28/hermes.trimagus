@@ -2,7 +2,7 @@
 name: notebooklm-vault
 description: "NotebookLM: query, add to, generate from, and download NotebookLM artifacts. Sourced from the user's Bitácora vault."
 version: 1.0.0
-author: Bitácora / C.T. Gravy
+author: REDACTED
 license: MIT
 ---
 

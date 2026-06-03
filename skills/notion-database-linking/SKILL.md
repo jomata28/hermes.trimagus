@@ -2,7 +2,7 @@
 name: notion-database-linking
 description: Systematically link disconnected Notion databases that have relation fields but lack actual data connections. Use when databases are structured to be related but entries aren't actually linked, causing fragmentation in tracking systems.
 version: 1.0.0
-author: Hermes Agent + Community
+author: REDACTED
 license: MIT
 prerequisites:
   env_vars: [NOTION_API_KEY]

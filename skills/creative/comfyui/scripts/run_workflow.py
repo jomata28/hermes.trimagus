@@ -634,10 +634,10 @@ def main(argv: list[str] | None = None) -> int:
         return 1
 
     # ---- Resolve API key ----
-    api_key = resolve_api_key(args.api_key)
+    api_key = REDACTED
     partner_key = args.partner_key or None
     if args.use_partner_key_as_auth and not api_key and partner_key:
-        api_key = partner_key
+        api_key = REDACTED
 
     # ---- Connect ----
     runner = ComfyRunner(

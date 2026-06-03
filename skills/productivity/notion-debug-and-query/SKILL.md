@@ -2,7 +2,7 @@
 name: notion-debug-and-query
 description: Debug and troubleshoot Notion API integration in Hermes, then query project databases
 version: 1.0.0
-author: community
+author: REDACTED
 license: MIT
 prerequisites:
   env_vars: [NOTION_API_KEY]

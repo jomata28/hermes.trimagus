@@ -2,7 +2,7 @@
 name: nano-pdf
 description: "Edit PDF text/typos/titles via nano-pdf CLI (NL prompts)."
 version: 1.0.0
-author: community
+author: REDACTED
 license: MIT
 metadata:
   hermes:

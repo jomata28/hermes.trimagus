@@ -2,7 +2,7 @@
 name: pixel-art
 description: "Pixel art w/ era palettes (NES, Game Boy, PICO-8)."
 version: 2.0.0
-author: dodo-reach
+author: REDACTED
 license: MIT
 metadata:
   hermes:

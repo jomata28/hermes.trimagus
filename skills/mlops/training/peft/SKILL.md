@@ -2,7 +2,7 @@
 name: peft-fine-tuning
 description: Parameter-efficient fine-tuning for LLMs using LoRA, QLoRA, and 25+ methods. Use when fine-tuning large models (7B-70B) with limited GPU memory, when you need to train <1% of parameters with minimal accuracy loss, or for multi-adapter serving. HuggingFace's official library integrated with transformers ecosystem.
 version: 1.0.0
-author: Orchestra Research
+author: REDACTED
 license: MIT
 dependencies: [peft>=0.13.0, transformers>=4.45.0, torch>=2.0.0, bitsandbytes>=0.43.0]
 metadata:
@@ -58,7 +58,7 @@ from datasets import load_dataset
 # Load base model
 model_name = "meta-llama/Llama-3.1-8B"
 model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype="auto", device_map="auto")
-tokenizer = AutoTokenizer.from_pretrained(model_name)
+tokenizer = REDACTED
 tokenizer.pad_token = tokenizer.eos_token
 
 # LoRA configuration
@@ -83,7 +83,7 @@ def tokenize(example):
     text = f"### Instruction:\n{example['instruction']}\n\n### Response:\n{example['response']}"
     return tokenizer(text, truncation=True, max_length=512, padding="max_length")
 
-tokenized = dataset.map(tokenize, remove_columns=dataset.column_names)
+tokenized = REDACTED
 
 # Training
 training_args = TrainingArguments(
@@ -279,7 +279,7 @@ from peft import PrefixTuningConfig
 
 prefix_config = PrefixTuningConfig(
     task_type="CAUSAL_LM",
-    num_virtual_tokens=20,      # Prepended tokens
+    num_virtual_tokens=REDACTED
     prefix_projection=True       # Use MLP projection
 )
 model = get_peft_model(model, prefix_config)

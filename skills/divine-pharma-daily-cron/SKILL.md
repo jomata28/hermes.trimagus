@@ -2,7 +2,7 @@
 name: divine-pharma-daily-cron
 description: Daily Divine Intervention Pharmacology podcast processing - fetches latest episode, transcribes, extracts insights, creates Obsidian notes
 version: 1.1.0
-author: Hermes Agent
+author: REDACTED
 category: productivity
 ---
 
@@ -43,6 +43,7 @@ Queries the Notion database for the most recent episode by checking:
 - Alternative approach: Fetch all records (page_size=100) and sort by created_time descending in code
 - Checks properties: `Link` (URL), `Title` (episode title), `Related Topic` (categorization)
 - Working query: POST to `/v1/databases/{database_id}/query` with Notion-Version: 2022-06-28
+- If Notion returns only stale/already-processed pharmacology entries, use the live-site fallback rather than re-processing Notion rows.
 
 ### 2. Audio Processing
 - Falls back to basic note structure if transcription fails due to resource constraints
@@ -52,6 +53,7 @@ Queries the Notion database for the most recent episode by checking:
 - Store noisy raw transcripts separately under `Transcripts/YYYY-MM-DD-...-Transcript.md`; keep the Daily-Sessions note cleaned/corrected for USMLE study instead of pasting noisy transcript text into the main sections.
 - See `references/transcription-runtime-notes.md` for the exact chunked-transcription fallback commands and quoting pitfalls.
 - See `references/live-site-scrape-fallback.md` for safe homepage scraping rules when Notion is stale; especially avoid navigation/category anchors like `Podcast Topics` and iterate past already-processed live-site episodes.
+- See `references/processed-episode-matching.md` for strict processed-vs-preview matching rules; avoid treating `Evening Review Preview`/`Processing Log` mentions as evidence that an episode has already been processed.
 
 ### 3. Pharmacological Extraction
 Uses LLM analysis to identify key pharmacological concepts from transcription:
@@ -77,9 +79,11 @@ Formats content using the Daily-Session template:
 
 ### 5. Delivery
 - Creates/updates note in `Daily-Sessions/YYYY-MM-DD-Topic.md`
-- Sends Telegram message with:
+- For Hermes scheduled jobs where the user/system says delivery is automatic, **do not call `send_message` or any Telegram tool yourself**. Put the notification/report directly in the final response; the cron runner delivers it.
+- Only send Telegram directly when the invocation explicitly requires direct delivery and no automatic delivery instruction is present.
+- Notification/report should include:
   - Episode title and topic
-  - Key takeaway summary
+  - Key takeaway summary or fallback/transcription status
   - Obsidian URI: `obsidian://open?vault=Divine-Pharmacology&file=Daily-Sessions/{{date}}.md`
 
 ## Usage
@@ -93,6 +97,7 @@ This skill is designed to be run via Hermes cron job:
 
 - Skips if episode already processed today
 - **Also skips if the latest Notion entry matches an episode already processed on a prior day** — check `Daily-Sessions/` for notes containing the same episode title. If found, respond with `[SILENT]` instead of re-processing.
+- For live-site fallback episodes, mark both a stable synthetic processed ID (for example `live:<sha256(page_url)[:16]>`) and the page URL in `~/.divine_pharma_processed`; this helps avoid duplicate processing even when titles/slugs vary.
 - **Notion database staleness**: The podcast Notion database may fall behind the actual podcast feed. If the latest Notion entry is older than the last processed episode, check the podcast site directly for newer episodes (scrape `https://divineinterventionpodcasts.com/` for recent URLs). If nothing new, `[SILENT]`.
 - Retries failed downloads up to 3 times
 - Falls back to summary-only if transcription fails
@@ -114,3 +119,4 @@ This skill is designed to be run via Hermes cron job:
 
 ### Existing note multiplicity
 - The same episode may have multiple notes across different dates (e.g., `2026-05-26-Episode-8-Heme-Drugs.md` and `2026-05-08-Heme-Drugs.md`). When a new Notion entry matches a previously-processed episode, check the most recent note for that title and only create a new note if the prior one was incomplete or needs a fresh pass.
+- **Do not treat preview/log mentions as processed evidence.** Prior daily notes often include lines like `Tomorrow’s first unprocessed candidate appears to be DIP Ep 654...` or processing logs listing skipped candidates. When checking whether a live-site candidate is already processed, only count strong evidence: frontmatter `podcast_title`/`podcast`/`episode_url`/`link`, the main `#` title, `Source: [Episode page](exact URL)`, or exact episode URL in the primary episode metadata. Ignore `Evening Review Preview`, `Processing Log`, and generic body mentions unless corroborated by metadata. A prior run almost skipped `DIP Ep 654` because it appeared only as a tomorrow-preview in the `DIP Ep 655` note.

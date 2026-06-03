@@ -12,7 +12,7 @@ Usage in execute_code:
     result = race_models(
         query="Your query here",
         tier="standard",
-        api_key=os.getenv("OPENROUTER_API_KEY"),
+        api_key=REDACTED
     )
     print(f"Winner: {result['model']} (score: {result['score']})")
     print(result['content'])
@@ -286,7 +286,7 @@ def _query_model(client, model, messages, timeout=60):
         response = client.chat.completions.create(
             model=model,
             messages=messages,
-            max_tokens=4096,
+            max_tokens=REDACTED
             temperature=0.7,
             timeout=timeout,
         )
@@ -320,7 +320,7 @@ def race_models(query, tier="standard", api_key=None, system_prompt=None,
     if OpenAI is None:
         raise ImportError("openai package required. Install with: pip install openai")
     
-    api_key = api_key or os.getenv("OPENROUTER_API_KEY")
+    api_key = REDACTED
     if not api_key:
         raise ValueError("No API key. Set OPENROUTER_API_KEY or pass api_key=")
     
@@ -445,7 +445,7 @@ def race_godmode_classic(query, api_key=None, timeout=60):
     if OpenAI is None:
         raise ImportError("openai package required. Install with: pip install openai")
     
-    api_key = api_key or os.getenv("OPENROUTER_API_KEY")
+    api_key = REDACTED
     if not api_key:
         raise ValueError("No API key. Set OPENROUTER_API_KEY or pass api_key=")
     
