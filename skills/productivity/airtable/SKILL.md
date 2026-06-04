@@ -2,7 +2,7 @@
 name: airtable
 description: Airtable REST API via curl. Records CRUD, filters, upserts.
 version: 1.1.0
-author: REDACTED
+author: community
 license: MIT
 prerequisites:
   env_vars: [AIRTABLE_API_KEY]

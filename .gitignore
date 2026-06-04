@@ -1,10 +1,11 @@
-# Hermes backup ignores
+# Hermes backup exclusions
 cache/
 sessions/
 sandboxes/
 images/
 image_cache/
 audio_cache/
+logs/
 *.db-shm
 *.db-wal
 *.pid
@@ -16,12 +17,11 @@ plugins/
 hooks/
 pastes/
 whatsapp/
-cron/output/
+state.db*
+kanban.db
 models_dev_cache.json
 ollama_cloud_models_cache.json
 .skills_prompt_snapshot.json
-state.db*
-kanban.db
 __pycache__/
 *.pyc
 .curator_backups/

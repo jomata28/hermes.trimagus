@@ -227,7 +227,7 @@ A: There is an error parsing string arguments to a dict. Please check your datas
 
 Example 1 (yaml):
 ```yaml
-special_tokens:
+special_tokens:REDACTED
   # str. If you're not sure, set to same as `eos_token`.
   pad_token: REDACTED
 ```
@@ -1618,7 +1618,7 @@ plugins:
 Example 4 (unknown):
 ```unknown
 @article{wijmans2024cut,
-  author       = REDACTED
+  author       = {Erik Wijmans and
                   Brody Huval and
                   Alexander Hertzberg and
                   Vladlen Koltun and
@@ -3098,7 +3098,7 @@ Example 4 (unknown):
 ```unknown
 @software{axolotl,
   title = {Axolotl: Open Source LLM Post-Training},
-  author = REDACTED
+  author = {{Axolotl maintainers and contributors}},
   url = {https://github.com/axolotl-ai-cloud/axolotl},
   license = {Apache-2.0},
   year = {2023}

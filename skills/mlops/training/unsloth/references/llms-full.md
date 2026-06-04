@@ -16292,7 +16292,7 @@ If you are citing the usage of our model uploads, use the below Bibtex. This is 
 
 ```
 @misc{unsloth_2025_qwen3_30b_a3b,
-  author       = REDACTED
+  author       = {Unsloth AI and Han-Chen, Daniel and Han-Chen, Michael},
   title        = {Qwen3-30B-A3B-GGUF:Q8\_K\_XL},
   year         = {2025},
   publisher    = {Hugging Face},
@@ -16304,7 +16304,7 @@ To cite the usage of our Github package or our work in general:
 
 ```
 @misc{unsloth,
-  author       = REDACTED
+  author       = {Unsloth AI and Han-Chen, Daniel and Han-Chen, Michael},
   title        = {Unsloth},
   year         = {2025},
   publisher    = {Github},

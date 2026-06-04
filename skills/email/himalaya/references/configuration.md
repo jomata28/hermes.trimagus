@@ -194,11 +194,11 @@ backend.db-path = "~/.mail/.notmuch"
 ```toml
 backend.auth.type = "oauth2"
 backend.auth.client-id = "your-client-id"
-backend.auth.client-secret.cmd = "pass show oauth/client-secret"
-backend.auth.access-token.cmd = "pass show oauth/access-token"
-backend.auth.refresh-token.cmd = "pass show oauth/refresh-token"
+backend.auth.client-secret.cmd = REDACTED
+backend.auth.access-token.cmd = REDACTED
+backend.auth.refresh-token.cmd = REDACTED
 backend.auth.auth-url = "https://provider.com/oauth/authorize"
-backend.auth.token-url = "https://provider.com/oauth/token"
+backend.auth.token-url = REDACTED
 ```
 
 ## Additional Options

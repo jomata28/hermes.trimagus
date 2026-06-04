@@ -2,7 +2,7 @@
 name: writing-plans
 description: "Write implementation plans: bite-sized tasks, paths, code."
 version: 1.1.0
-author: REDACTED
+author: Hermes Agent (adapted from obra/superpowers)
 license: MIT
 metadata:
   hermes:

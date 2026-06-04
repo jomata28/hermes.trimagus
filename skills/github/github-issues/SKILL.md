@@ -2,7 +2,7 @@
 name: github-issues
 description: "Create, triage, label, assign GitHub issues via gh or REST."
 version: 1.1.0
-author: REDACTED
+author: Hermes Agent
 license: MIT
 metadata:
   hermes:
@@ -23,9 +23,9 @@ Create, search, triage, and manage GitHub issues. Each section shows `gh` first,
 
 ```bash
 if command -v gh &>/dev/null && gh auth status &>/dev/null; then
-  AUTH=REDACTED
+  AUTH="gh"
 else
-  AUTH=REDACTED
+  AUTH="git"
   if [ -z "$GITHUB_TOKEN" ]; then
     if [ -f ~/.hermes/.env ] && grep -q "^GITHUB_TOKEN=" ~/.hermes/.env; then
       GITHUB_TOKEN=REDACTED

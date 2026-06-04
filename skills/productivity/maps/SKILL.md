@@ -2,7 +2,7 @@
 name: maps
 description: "Geocode, POIs, routes, timezones via OpenStreetMap/OSRM."
 version: 1.2.0
-author: REDACTED
+author: Mibayy
 license: MIT
 metadata:
   hermes:

@@ -2,7 +2,7 @@
 name: openhue
 description: "Control Philips Hue lights, scenes, rooms via OpenHue CLI."
 version: 1.0.0
-author: REDACTED
+author: community
 license: MIT
 metadata:
   hermes:

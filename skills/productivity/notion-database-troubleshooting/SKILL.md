@@ -2,7 +2,7 @@
 name: notion-database-troubleshooting
 description: Systematic approach to troubleshooting Notion database access issues
 version: 1.0.0
-author: REDACTED
+author: Hermes Agent
 category: productivity
 ---
 

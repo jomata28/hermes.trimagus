@@ -2,7 +2,7 @@
 name: arxiv
 description: "Search arXiv papers by keyword, author, category, or ID."
 version: 1.0.0
-author: REDACTED
+author: Hermes Agent
 license: MIT
 metadata:
   hermes:
@@ -44,7 +44,7 @@ for i, entry in enumerate(root.findall('a:entry', ns)):
     title = entry.find('a:title', ns).text.strip().replace('\n', ' ')
     arxiv_id = entry.find('a:id', ns).text.strip().split('/abs/')[-1]
     published = entry.find('a:published', ns).text[:10]
-    authors = REDACTED
+    authors = ', '.join(a.find('a:name', ns).text for a in entry.findall('a:author', ns))
     summary = entry.find('a:summary', ns).text.strip()[:200]
     cats = ', '.join(c.get('term') for c in entry.findall('a:category', ns))
     print(f'{i+1}. [{arxiv_id}] {title}')
@@ -123,7 +123,7 @@ root = ET.parse(sys.stdin).getroot()
 entry = root.find('a:entry', ns)
 if entry is None: sys.exit('Paper not found')
 title = entry.find('a:title', ns).text.strip().replace('\n', ' ')
-authors = REDACTED
+authors = ' and '.join(a.find('a:name', ns).text for a in entry.findall('a:author', ns))
 year = entry.find('a:published', ns).text[:4]
 raw_id = entry.find('a:id', ns).text.strip().split('/abs/')[-1]
 cat = entry.find('arxiv:primary_category', ns)

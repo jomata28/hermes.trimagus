@@ -248,7 +248,7 @@ import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
-session = REDACTED
+session = requests.Session()
 retries = Retry(total=3, backoff_factor=1)
 session.mount('http://', HTTPAdapter(max_retries=retries))
 ```

@@ -2,7 +2,7 @@
 name: second-brain
 description: "Manage a second-brain knowledge base (Obsidian) backed by Google Drive, with multi-agent access (Hermes, Claude, Gemini)."
 version: 1.0.0
-author: REDACTED
+author: Nous Research
 license: MIT
 metadata:
   hermes:

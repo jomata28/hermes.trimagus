@@ -2,7 +2,7 @@
 name: weights-and-biases
 description: "W&B: log ML experiments, sweeps, model registry, dashboards."
 version: 1.0.0
-author: REDACTED
+author: Orchestra Research
 license: MIT
 dependencies: [wandb]
 metadata:

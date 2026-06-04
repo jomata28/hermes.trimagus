@@ -26,7 +26,7 @@ def pack(
     output_file: str,
     original_file: str | None = None,
     validate: bool = True,
-    infer_author_func=REDACTED
+    infer_author_func=None,
 ) -> tuple[None, str]:
     input_dir = Path(input_directory)
     output_path = Path(output_file)
@@ -70,16 +70,16 @@ def _run_validation(
     unpacked_dir: Path,
     original_file: Path,
     suffix: str,
-    infer_author_func=REDACTED
+    infer_author_func=None,
 ) -> tuple[bool, str | None]:
     output_lines = []
     validators = []
 
     if suffix == ".docx":
-        author = REDACTED
+        author = "Claude"
         if infer_author_func:
             try:
-                author = REDACTED
+                author = infer_author_func(unpacked_dir, original_file)
             except ValueError as e:
                 print(f"Warning: {e} Using default author 'Claude'.", file=sys.stderr)
 

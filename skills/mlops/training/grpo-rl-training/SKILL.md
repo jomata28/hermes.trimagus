@@ -2,7 +2,7 @@
 name: grpo-rl-training
 description: Expert guidance for GRPO/RL fine-tuning with TRL for reasoning and task-specific model training
 version: 1.0.0
-author: REDACTED
+author: Orchestra Research
 license: MIT
 dependencies: [transformers>=4.47.0, trl>=0.14.0, datasets>=3.2.0, peft>=0.14.0, torch]
 metadata:
@@ -283,7 +283,7 @@ model = AutoModelForCausalLM.from_pretrained(
 )
 
 tokenizer = REDACTED
-tokenizer.pad_token = tokenizer.eos_token
+tokenizer.pad_token = REDACTED
 
 # Optional: LoRA for parameter-efficient training
 peft_config = LoraConfig(

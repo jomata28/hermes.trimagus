@@ -68,7 +68,7 @@ from typing import Optional
 
 class Article(BaseModel):
     title: str  # Required
-    author: REDACTED
+    author: Optional[str] = None  # Optional
     published_date: Optional[str] = None  # Optional
     tags: list[str] = []  # Default empty list
     view_count: int = 0  # Default value
@@ -275,7 +275,7 @@ elif post.content.type == "image":
 ```python
 class Article(BaseModel):
     title: str
-    authors: REDACTED
+    authors: list[str]  # List of strings
     tags: list[str]
     sections: list[dict[str, str]]  # List of dicts
     related_ids: list[int]

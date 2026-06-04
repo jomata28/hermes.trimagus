@@ -2,7 +2,7 @@
 name: outlines
 description: "Outlines: structured JSON/regex/Pydantic LLM generation."
 version: 1.0.0
-author: REDACTED
+author: Orchestra Research
 license: MIT
 dependencies: [outlines, transformers, vllm, pydantic]
 metadata:
@@ -242,7 +242,7 @@ from pydantic import BaseModel, Field
 
 class Article(BaseModel):
     title: str = Field(description="Article title")
-    author: REDACTED
+    author: str = Field(description="Author name")
     word_count: int = Field(description="Number of words", gt=0)
     tags: list[str] = Field(description="List of tags")
 
@@ -590,7 +590,7 @@ from typing import Optional
 # ✅ Good: Optional fields for incomplete data
 class Article(BaseModel):
     title: str  # Required
-    author: REDACTED
+    author: Optional[str] = None  # Optional
     date: Optional[str] = None  # Optional
     tags: list[str] = []  # Default empty list
 

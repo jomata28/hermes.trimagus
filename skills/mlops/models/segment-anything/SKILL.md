@@ -2,7 +2,7 @@
 name: segment-anything-model
 description: Foundation model for image segmentation with zero-shot transfer. Use when you need to segment any object in images using points, boxes, or masks as prompts, or automatically generate all object masks in an image.
 version: 1.0.0
-author: REDACTED
+author: Orchestra Research
 license: MIT
 dependencies: [segment-anything, transformers>=4.30.0, torch>=1.7.0]
 metadata:
@@ -342,7 +342,7 @@ python scripts/export_onnx_model.py \
 import onnxruntime
 
 # Load ONNX model
-ort_session = REDACTED
+ort_session = onnxruntime.InferenceSession("sam_onnx.onnx")
 
 # Run inference (image embeddings computed separately)
 masks = ort_session.run(

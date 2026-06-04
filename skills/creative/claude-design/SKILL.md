@@ -2,7 +2,7 @@
 name: claude-design
 description: Design one-off HTML artifacts (landing, deck, prototype).
 version: 1.0.0
-author: REDACTED
+author: BadTechBandit
 license: MIT
 metadata:
   hermes:

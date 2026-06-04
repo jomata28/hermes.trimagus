@@ -2,9 +2,9 @@
 name: google-workspace
 description: "Gmail, Calendar, Drive, Docs, Sheets, Tasks via gws CLI or Python. Covers rclone Drive mount and agy CLI auth."
 version: 1.2.0
-author: REDACTED
+author: Nous Research
 license: MIT
-required_credential_files:
+required_credential_files:REDACTED
   - path: google_token.json
     description: Google OAuth2 token (created by setup script)
   - path: google_client_secret.json

@@ -7958,7 +7958,7 @@ import locale
 locale.getpreferredencoding = lambda: "UTF-8"
 
 @misc{unsloth_2025_qwen3_30b_a3b,
-  author       = REDACTED
+  author       = {Unsloth AI and Han-Chen, Daniel and Han-Chen, Michael},
   title        = {Qwen3-30B-A3B-GGUF:Q8\_K\_XL},
   year         = {2025},
   publisher    = {Hugging Face},
@@ -7966,7 +7966,7 @@ locale.getpreferredencoding = lambda: "UTF-8"
 }
 
 @misc{unsloth,
-  author       = REDACTED
+  author       = {Unsloth AI and Han-Chen, Daniel and Han-Chen, Michael},
   title        = {Unsloth},
   year         = {2025},
   publisher    = {Github},

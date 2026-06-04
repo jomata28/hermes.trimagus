@@ -2,7 +2,7 @@
 name: github-repo-management
 description: "Clone/create/fork repos; manage remotes, releases."
 version: 1.1.0
-author: REDACTED
+author: Hermes Agent
 license: MIT
 metadata:
   hermes:
@@ -22,9 +22,9 @@ Create, clone, fork, configure, and manage GitHub repositories. Each section sho
 
 ```bash
 if command -v gh &>/dev/null && gh auth status &>/dev/null; then
-  AUTH=REDACTED
+  AUTH="gh"
 else
-  AUTH=REDACTED
+  AUTH="git"
   if [ -z "$GITHUB_TOKEN" ]; then
     if [ -f ~/.hermes/.env ] && grep -q "^GITHUB_TOKEN=" ~/.hermes/.env; then
       GITHUB_TOKEN=REDACTED

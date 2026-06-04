@@ -2,7 +2,7 @@
 name: unsloth
 description: "Unsloth: 2-5x faster LoRA/QLoRA fine-tuning, less VRAM."
 version: 1.0.0
-author: REDACTED
+author: Orchestra Research
 license: MIT
 dependencies: [unsloth, torch, transformers, trl, datasets, peft]
 metadata:

@@ -40,7 +40,7 @@ from _hermes_home import display_hermes_home, get_hermes_home
 HERMES_HOME = get_hermes_home()
 TOKEN_PATH = REDACTED
 CLIENT_SECRET_PATH = REDACTED
-PENDING_AUTH_PATH = REDACTED
+PENDING_AUTH_PATH = HERMES_HOME / "google_oauth_pending.json"
 
 SCOPES = [
     "https://www.googleapis.com/auth/gmail.readonly",
@@ -289,7 +289,7 @@ def exchange_auth_code(code: str):
         print("ERROR: No client secret stored. Run --client-secret first.")
         sys.exit(1)
 
-    pending_auth = REDACTED
+    pending_auth = _load_pending_auth()
     raw_callback = code
     code, returned_state = _extract_code_and_state(code)
     if returned_state and returned_state != pending_auth["state"]:

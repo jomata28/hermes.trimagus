@@ -96,7 +96,7 @@ class ComfyRunner:
         partner_key: str | None = None,
     ):
         self.host = host.rstrip("/")
-        self.api_key = api_key
+        self.api_key = REDACTED
         self.partner_key = partner_key
         self.is_cloud = is_cloud_host(self.host)
         self.client_id = client_id or new_client_id()

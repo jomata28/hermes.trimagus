@@ -12,7 +12,7 @@ Backup the ~/.hermes directory to a git repository, typically for disaster recov
 
 ## Steps
 
-1. **Check repo existence locally** — If the backup repo exists, `cd` into it and `git pull` to sync. If not, clone first.
+1. **Check repo existence locally** — If the backup repo exists, `cd` into it and `git pull` to sync. If not, clone first. Prefer an explicit directory check like `[ -d /root/backups/<repo>/.git ] || [ -d /tmp/<repo>/.git ]`; `search_files` with `target=files` can miss an existing repo directory and lead to a false "not found" before `git clone` fails.
 
 2. **Copy key files** from `~/.hermes/`:
    - `config.yaml` — Hermes configuration (redact secret-like values in the backup copy before commit)
@@ -66,6 +66,8 @@ GitHub's secret scanning blocks pushes containing detected secrets. This applies
   ```
 
 - **`skills/` directory** — SKILL.md files sometimes contain live example tokens scanned by GitHub (e.g., Notion `ntn_*` keys in code blocks). Scan and redact any `ntn_`, `sk-`, `ghp_`, `github_pat_`, `groq-` patterns found in text.
+
+- **Do a final literal-token sweep after line-based redaction** — Key-name redaction is not enough. `.env` or skill files can contain raw token literals on lines whose variable name is not obviously secret-like, or inside examples. Before committing, run a second pass over all text files replacing patterns like `github_pat_[A-Za-z0-9_]{20,}`, `ghp_[A-Za-z0-9]{20,}`, `ntn_[A-Za-z0-9]{20,}`, `sk-[A-Za-z0-9_-]{20,}`, `AKIA[0-9A-Z]{16}`, and `AIza[0-9A-Za-z_-]{20,}` with `REDACTED`, then re-scan and require zero findings.
 
 - **After amending the commit** (without secrets), push with `git push` — do NOT use `--force-with-lease` in cron mode. The original push was rejected by GitHub (commit never landed), so the remote hasn't moved. `--force-with-lease` triggers an interactive approval guard that cron jobs can't pass. A plain `git push origin main` works after the amend.
 

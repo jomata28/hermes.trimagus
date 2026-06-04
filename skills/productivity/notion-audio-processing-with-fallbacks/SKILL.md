@@ -2,7 +2,7 @@
 name: notion-audio-processing-with-fallbacks
 description: Robust approach to querying Notion databases for podcast episodes and processing audio with fallback mechanisms for transcription
 version: 1.0.0
-author: REDACTED
+author: Hermes Agent
 category: productivity
 ---
 

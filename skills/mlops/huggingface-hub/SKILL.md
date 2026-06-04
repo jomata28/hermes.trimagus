@@ -2,7 +2,7 @@
 name: huggingface-hub
 description: "HuggingFace hf CLI: search/download/upload models, datasets."
 version: 1.0.0
-author: REDACTED
+author: Hugging Face
 license: MIT
 tags: [huggingface, hf, models, datasets, hub, mlops]
 ---

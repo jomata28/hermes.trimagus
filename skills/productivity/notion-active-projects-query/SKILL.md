@@ -2,7 +2,7 @@
 name: notion-active-projects-query
 description: Query Notion for active projects with systematic troubleshooting and property extraction patterns
 version: 1.0.0
-author: REDACTED
+author: community
 license: MIT
 tags: [Notion, API, Projects, Query, Troubleshooting]
 prerequisites:

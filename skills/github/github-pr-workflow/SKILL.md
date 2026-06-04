@@ -2,7 +2,7 @@
 name: github-pr-workflow
 description: "GitHub PR lifecycle: branch, commit, open, CI, merge."
 version: 1.1.0
-author: REDACTED
+author: Hermes Agent
 license: MIT
 metadata:
   hermes:
@@ -24,9 +24,9 @@ Complete guide for managing the PR lifecycle. Each section shows the `gh` way fi
 ```bash
 # Determine which method to use throughout this workflow
 if command -v gh &>/dev/null && gh auth status &>/dev/null; then
-  AUTH=REDACTED
+  AUTH="gh"
 else
-  AUTH=REDACTED
+  AUTH="git"
   # Ensure we have a token for API calls
   if [ -z "$GITHUB_TOKEN" ]; then
     if [ -f ~/.hermes/.env ] && grep -q "^GITHUB_TOKEN=" ~/.hermes/.env; then

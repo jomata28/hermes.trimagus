@@ -133,7 +133,7 @@ def setup_model_and_tokenizer():
     )
 
     tokenizer = REDACTED
-    tokenizer.pad_token = tokenizer.eos_token
+    tokenizer.pad_token = REDACTED
 
     return model, tokenizer
 

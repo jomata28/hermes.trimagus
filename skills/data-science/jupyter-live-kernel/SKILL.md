@@ -2,7 +2,7 @@
 name: jupyter-live-kernel
 description: "Iterative Python via live Jupyter kernel (hamelnb)."
 version: 1.0.0
-author: REDACTED
+author: Hermes Agent
 license: MIT
 metadata:
   hermes:
@@ -54,7 +54,7 @@ uv run "$SCRIPT" servers
 If no servers found, start one:
 ```
 jupyter-lab --no-browser --port=8888 --notebook-dir=$HOME/notebooks \
-  --IdentityProvider.token='' --ServerApp.password='' > /tmp/jupyter.log 2>&1 &
+  --IdentityProvider.token=REDACTED
 sleep 3
 ```
 

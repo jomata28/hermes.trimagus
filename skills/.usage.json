@@ -38,44 +38,57 @@
     "use_count": 1,
     "view_count": 1
   },
+  "browser-harness-linux-setup": {
+    "archived_at": null,
+    "created_at": "2026-06-03T22:42:43.472524+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_used_at": "2026-06-03T22:42:43.479596+00:00",
+    "last_viewed_at": "2026-06-03T22:42:43.472548+00:00",
+    "patch_count": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 1,
+    "view_count": 1
+  },
   "daily-briefing": {
     "archived_at": null,
     "created_at": "2026-05-25T21:26:45.898522+00:00",
     "created_by": null,
-    "last_patched_at": "2026-05-26T12:51:18.476222+00:00",
-    "last_used_at": "2026-06-02T20:04:08.164059+00:00",
-    "last_viewed_at": "2026-06-02T20:04:08.155459+00:00",
-    "patch_count": 4,
+    "last_patched_at": "2026-06-03T15:56:29.766525+00:00",
+    "last_used_at": "2026-06-03T15:51:28.102999+00:00",
+    "last_viewed_at": "2026-06-03T15:51:28.098081+00:00",
+    "patch_count": 5,
     "pinned": false,
     "state": "active",
-    "use_count": 3,
-    "view_count": 3
+    "use_count": 4,
+    "view_count": 4
   },
   "daily-consciousness-practice": {
     "archived_at": null,
     "created_at": "2026-05-26T13:55:18.349510+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-06-02T13:55:25.215776+00:00",
-    "last_viewed_at": "2026-06-02T13:55:25.211423+00:00",
+    "last_used_at": "2026-06-03T13:55:32.779651+00:00",
+    "last_viewed_at": "2026-06-03T13:55:32.774647+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 7,
-    "view_count": 7
+    "use_count": 8,
+    "view_count": 8
   },
   "divine-pharma-daily-cron": {
     "archived_at": null,
     "created_at": "2026-05-08T07:00:58.625760+00:00",
     "created_by": null,
-    "last_patched_at": "2026-06-02T07:04:56.816699+00:00",
-    "last_used_at": "2026-06-02T07:01:08.406775+00:00",
-    "last_viewed_at": "2026-06-02T07:01:08.399046+00:00",
-    "patch_count": 13,
+    "last_patched_at": "2026-06-03T07:05:03.036228+00:00",
+    "last_used_at": "2026-06-03T07:04:28.966679+00:00",
+    "last_viewed_at": "2026-06-03T07:04:28.963263+00:00",
+    "patch_count": 16,
     "pinned": false,
     "state": "active",
-    "use_count": 41,
-    "view_count": 15
+    "use_count": 43,
+    "view_count": 16
   },
   "divine-pharma-notion-episodes-fetch": {
     "archived_at": null,
@@ -95,12 +108,12 @@
     "created_at": "2026-05-08T07:00:58.663545+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-06-02T07:00:45.898195+00:00",
+    "last_used_at": "2026-06-03T07:00:34.334675+00:00",
     "last_viewed_at": null,
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 12,
+    "use_count": 13,
     "view_count": 0
   },
   "find-nearby": {
@@ -120,14 +133,14 @@
     "archived_at": null,
     "created_at": "2026-05-09T03:05:55.721566+00:00",
     "created_by": "agent",
-    "last_patched_at": "2026-06-02T03:03:10.180854+00:00",
-    "last_used_at": "2026-06-03T03:01:02.928134+00:00",
-    "last_viewed_at": "2026-06-03T03:01:02.921760+00:00",
-    "patch_count": 9,
+    "last_patched_at": "2026-06-03T03:03:49.827747+00:00",
+    "last_used_at": "2026-06-04T03:00:15.427879+00:00",
+    "last_viewed_at": "2026-06-04T03:00:15.357420+00:00",
+    "patch_count": 11,
     "pinned": false,
     "state": "active",
-    "use_count": 12,
-    "view_count": 12
+    "use_count": 14,
+    "view_count": 14
   },
   "lab-data": {
     "archived_at": null,
@@ -141,6 +154,32 @@
     "state": "active",
     "use_count": 5,
     "view_count": 5
+  },
+  "notebooklm-vault": {
+    "archived_at": null,
+    "created_at": "2026-06-03T21:14:12.707734+00:00",
+    "created_by": null,
+    "last_patched_at": "2026-06-03T21:35:03.851975+00:00",
+    "last_used_at": "2026-06-03T21:34:44.860521+00:00",
+    "last_viewed_at": "2026-06-03T21:34:44.856909+00:00",
+    "patch_count": 6,
+    "pinned": false,
+    "state": "active",
+    "use_count": 4,
+    "view_count": 4
+  },
+  "platform-tool-verification": {
+    "archived_at": null,
+    "created_at": "2026-06-03T22:42:43.428483+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_used_at": "2026-06-03T22:42:43.440494+00:00",
+    "last_viewed_at": "2026-06-03T22:42:43.428517+00:00",
+    "patch_count": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 1,
+    "view_count": 1
   },
   "second-brain": {
     "archived_at": null,

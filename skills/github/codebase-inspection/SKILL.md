@@ -2,7 +2,7 @@
 name: codebase-inspection
 description: "Inspect codebases w/ pygount: LOC, languages, ratios."
 version: 1.0.0
-author: REDACTED
+author: Hermes Agent
 license: MIT
 metadata:
   hermes:

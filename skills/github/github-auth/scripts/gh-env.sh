@@ -14,24 +14,24 @@
 
 # --- Auth detection ---
 
-GH_AUTH_METHOD=REDACTED
+GH_AUTH_METHOD="none"
 GITHUB_TOKEN=REDACTED
 GH_USER=""
 
 if command -v gh &>/dev/null && gh auth status &>/dev/null 2>&1; then
-    GH_AUTH_METHOD=REDACTED
+    GH_AUTH_METHOD="gh"
     GH_USER=$(gh api user --jq '.login' 2>/dev/null)
 elif [ -n "$GITHUB_TOKEN" ]; then
-    GH_AUTH_METHOD=REDACTED
+    GH_AUTH_METHOD="curl"
 elif [ -f "$HOME/.hermes/.env" ] && grep -q "^GITHUB_TOKEN=" "$HOME/.hermes/.env" 2>/dev/null; then
     GITHUB_TOKEN=REDACTED
     if [ -n "$GITHUB_TOKEN" ]; then
-        GH_AUTH_METHOD=REDACTED
+        GH_AUTH_METHOD="curl"
     fi
 elif [ -f "$HOME/.git-credentials" ] && grep -q "github.com" "$HOME/.git-credentials" 2>/dev/null; then
     GITHUB_TOKEN=REDACTED
     if [ -n "$GITHUB_TOKEN" ]; then
-        GH_AUTH_METHOD=REDACTED
+        GH_AUTH_METHOD="curl"
     fi
 fi
 

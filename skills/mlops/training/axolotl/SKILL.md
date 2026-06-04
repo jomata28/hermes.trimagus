@@ -2,7 +2,7 @@
 name: axolotl
 description: "Axolotl: YAML LLM fine-tuning (LoRA, DPO, GRPO)."
 version: 1.0.0
-author: REDACTED
+author: Orchestra Research
 license: MIT
 dependencies: [axolotl, torch, transformers, datasets, peft, accelerate, deepspeed]
 metadata:

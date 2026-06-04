@@ -2,7 +2,7 @@
 name: notion
 description: "Notion API via curl: pages, databases, blocks, search."
 version: 1.0.0
-author: REDACTED
+author: community
 license: MIT
 metadata:
   hermes:
