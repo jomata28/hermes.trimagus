@@ -59,7 +59,7 @@ from datasets import load_dataset
 model_name = "meta-llama/Llama-3.1-8B"
 model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype="auto", device_map="auto")
 tokenizer = REDACTED
-tokenizer.pad_token = REDACTED
+tokenizer.pad_token = tokenizer.eos_token
 
 # LoRA configuration
 lora_config = LoraConfig(

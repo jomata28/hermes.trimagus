@@ -4,10 +4,11 @@ description: "4-phase root cause debugging: understand bugs before fixing."
 version: 1.1.0
 author: Hermes Agent (adapted from obra/superpowers)
 license: MIT
+platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [debugging, troubleshooting, problem-solving, root-cause, investigation]
-    related_skills: [test-driven-development, writing-plans, subagent-driven-development]
+    related_skills: [test-driven-development, plan, subagent-driven-development]
 ---
 
 # Systematic Debugging
@@ -354,6 +355,16 @@ When fixing bugs:
 2. Debug systematically to find root cause
 3. Fix the root cause (GREEN)
 4. The test proves the fix and prevents regression
+
+## Debugger Tooling Subsections
+
+### Python debugpy / pdb
+
+Use Python debugger tooling when print/log inspection is too slow or the bug needs live stack, variable, or breakpoint inspection. Prefer a small reproducible command, then attach `debugpy` or use `pdb` in a pseudo-terminal when interaction is required. Verify the fix by rerunning the original failing command or test.
+
+### Node.js inspector
+
+Use Node `--inspect` and Chrome DevTools Protocol style tooling when debugging JavaScript/TypeScript runtime behavior, async flows, or browser-adjacent Node processes. Start the process with an inspect port, confirm the port is listening, attach, and capture evidence before changing code.
 
 ## Real-World Impact
 

@@ -4,6 +4,7 @@ description: "Iterative Python via live Jupyter kernel (hamelnb)."
 version: 1.0.0
 author: Hermes Agent
 license: MIT
+platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [jupyter, notebook, repl, data-science, exploration, iterative]
@@ -54,7 +55,7 @@ uv run "$SCRIPT" servers
 If no servers found, start one:
 ```
 jupyter-lab --no-browser --port=8888 --notebook-dir=$HOME/notebooks \
-  --IdentityProvider.token=REDACTED
+  --IdentityProvider.token='' --ServerApp.password='' > /tmp/jupyter.log 2>&1 &
 sleep 3
 ```
 

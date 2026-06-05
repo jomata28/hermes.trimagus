@@ -9,7 +9,7 @@ fallback_providers:
   provider: openrouter
 - model: moonshotai/kimi-k2.6
   provider: openrouter
-credential_pool_strategies: REDACTED
+credential_pool_strategies: {}
 toolsets:
 - hermes-cli
 agent:
@@ -373,7 +373,9 @@ approvals:
 command_allowlist:
 - recursive delete
 - script execution via -e/-c flag
+- stop/restart system service
 - delete in root path
+- hermes update (restarts gateway, kills running agents)
 - script execution via heredoc
 - shell command via -c/-lc flag
 quick_commands: {}

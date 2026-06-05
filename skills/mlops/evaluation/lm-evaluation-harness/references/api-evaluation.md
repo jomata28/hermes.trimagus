@@ -268,7 +268,7 @@ class MyCustomAPI(TemplateAPI):
 
     def __init__(self, base_url, api_key, **kwargs):
         super().__init__(base_url=base_url, **kwargs)
-        self.api_key = REDACTED
+        self.api_key = api_key
 
     def _create_payload(self, messages, gen_kwargs):
         """Create API request payload."""

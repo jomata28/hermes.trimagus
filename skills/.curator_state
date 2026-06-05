@@ -1,8 +1,9 @@
 {
-  "last_report_path": "/root/.hermes/logs/curator/20260529-015357",
-  "last_run_at": "2026-05-29T01:53:57.672825+00:00",
-  "last_run_duration_seconds": 105.424754,
-  "last_run_summary": "auto: no changes; llm: Processed all 5 agent-created candidate skills.\n\nSummary:\n- Consolidated the only clear umbrella cluster:\n  - `bitacora-vault` → `second-brain`\n  - Rationale: `second-brain` is the broader class-level Obsidian/Google Drive personal knowledg…",
+  "last_report_path": "/root/.hermes/logs/curator/20260605-024948",
+  "last_run_at": "2026-06-05T02:49:48.758464+00:00",
+  "last_run_duration_seconds": 452.471665,
+  "last_run_summary": "auto: no changes; llm: Completed the umbrella-building consolidation pass.\n\nSummary of actions:\n- Created 7 new umbrella skills:\n  - `apple-automation`\n  - `github-workflows`\n  - `notion-workflows`\n  - `kanban-workflows`\n  - `ai-coding-agents`\n  - `creative-web-a…\narchived 41 skill(s):\n  • node-inspect-debugger → systematic-debugging\n  • python-debugpy → systematic-debugging\n  • agy-cli — pruned (stale)\n  • apple-notes — pruned (stale)\n  • apple-reminders — pruned (stale)\n  • architecture-diagram — pruned (stale)\n  • arxiv — pruned (stale)\n  • ascii-art — pruned (stale)\n  • ascii-video — pruned (stale)\n  • blogwatcher — pruned (stale)\n  … and 31 more\nfull report: hermes curator status\nkeep an umbrella stable: hermes curator pin systematic-debugging",
+  "last_run_summary_shown_at": null,
   "paused": false,
-  "run_count": 3
+  "run_count": 4
 }

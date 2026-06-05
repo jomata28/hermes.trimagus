@@ -65,6 +65,8 @@ python3 SKILL_DIR/scripts/find_nearby.py --near "90210" --type pharmacy --json
 
 - If results are sparse, widen the radius (1500 → 3000m)
 - For specialized categories (e.g. firearm ranges, niche classes, gyms, training providers), OSM amenity/type coverage may be poor. Fallback to Nominatim text searches for known phrases (`gun range Houston Texas`, `beginner handgun class Houston TX`) and then provide Google Maps search links for verification.
+- For government-service searches (DMV/licensing offices, permit counters, visa offices, etc.), treat it as **place + procedure**: identify the official agency page/payment source, required documents, appointment flow, and then the nearest active office. Do not just return a nearby address.
+- For CDMX driver's license questions near Coapa/Tlalpan, see `references/cdmx-driving-license.md` for the verified checklist, payment link, and Coyoacán module lead.
 - Google Search and DuckDuckGo may bot-block VPS browser sessions. When blocked, use direct known business pages, Nominatim/OSM, or constructed Google Maps search URLs instead of pretending search succeeded.
 - For "open now" requests: check the `hours` field in results, cross-reference with web/direct business pages for accuracy since OSM hours aren't always complete
 - Zip codes alone can be ambiguous globally — prompt the user for country/state if results look wrong

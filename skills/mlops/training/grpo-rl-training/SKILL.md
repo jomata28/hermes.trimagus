@@ -283,7 +283,7 @@ model = AutoModelForCausalLM.from_pretrained(
 )
 
 tokenizer = REDACTED
-tokenizer.pad_token = REDACTED
+tokenizer.pad_token = tokenizer.eos_token
 
 # Optional: LoRA for parameter-efficient training
 peft_config = LoraConfig(

@@ -279,7 +279,7 @@ class DreamBoothDataset(Dataset):
     def __init__(self, instance_images_path, instance_prompt, tokenizer, size=512):
         self.instance_images_path = instance_images_path
         self.instance_prompt = instance_prompt
-        self.tokenizer = REDACTED
+        self.tokenizer = tokenizer
         self.size = size
 
         self.instance_images = [

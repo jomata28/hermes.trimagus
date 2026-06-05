@@ -17,11 +17,12 @@ plugins/
 hooks/
 pastes/
 whatsapp/
-state.db*
-kanban.db
 models_dev_cache.json
 ollama_cloud_models_cache.json
 .skills_prompt_snapshot.json
-__pycache__/
-*.pyc
-.curator_backups/
+state.db*
+kanban.db
+cron/output/
+skills/.curator_backups/
+**/__pycache__/
+**/*.pyc

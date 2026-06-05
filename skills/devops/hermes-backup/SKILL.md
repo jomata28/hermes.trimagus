@@ -84,6 +84,7 @@ GitHub's secret scanning blocks pushes containing detected secrets. This applies
 
 - `references/2026-06-01-push-protection-and-cron-guard.md` — cron backup run notes: terminal security guard workaround, `.env`/`config.yaml` redaction, and tracking-ref verification after explicit-URL push.
 - `references/2026-06-02-token-missing-ssh-remote-success.md` — cron backup run notes: `GITHUB_TOKEN` absent, existing SSH remote authenticated successfully, and verification with `git ls-remote`.
+- `references/2026-06-04-cron-backup-run.md` — successful cron backup to `jomata28/hermes.trimagus`: Python selective copy/redaction, SQLite memory backup to both `memory.db` and `memory_store.db`, SSH fallback despite token wording, and local/remote verification.
 
 ## Pitfalls
 

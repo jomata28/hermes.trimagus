@@ -4,7 +4,7 @@ description: "Gmail, Calendar, Drive, Docs, Sheets, Tasks via gws CLI or Python.
 version: 1.2.0
 author: Nous Research
 license: MIT
-required_credential_files:REDACTED
+required_credential_files:
   - path: google_token.json
     description: Google OAuth2 token (created by setup script)
   - path: google_client_secret.json

@@ -108,7 +108,7 @@ class InferenceService:
     def startup(self):
         """Called once when container starts"""
         self.model = load_model()
-        self.tokenizer = REDACTED
+        self.tokenizer = load_tokenizer()
 
     @modal.exit()
     def shutdown(self):
