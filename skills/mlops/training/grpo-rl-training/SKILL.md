@@ -282,7 +282,7 @@ model = AutoModelForCausalLM.from_pretrained(
     device_map="auto"
 )
 
-tokenizer = REDACTED
+tokenizer = AutoTokenizer.from_pretrained(model_name)
 tokenizer.pad_token = tokenizer.eos_token
 
 # Optional: LoRA for parameter-efficient training
@@ -465,7 +465,7 @@ from transformers import pipeline
 generator = pipeline(
     "text-generation",
     model="production_model",
-    tokenizer=REDACTED
+    tokenizer=tokenizer
 )
 
 result = generator(
@@ -473,7 +473,7 @@ result = generator(
         {'role': 'system', 'content': SYSTEM_PROMPT},
         {'role': 'user', 'content': "What is 15 + 27?"}
     ],
-    max_new_tokens=REDACTED
+    max_new_tokens=256,
     do_sample=True,
     temperature=0.7,
     top_p=0.9

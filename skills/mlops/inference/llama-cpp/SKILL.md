@@ -140,7 +140,7 @@ resp = llm.create_chat_completion(
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": "What is Python?"},
     ],
-    max_tokens=REDACTED
+    max_tokens=256,
 )
 print(resp["choices"][0]["message"]["content"])
 

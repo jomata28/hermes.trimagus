@@ -179,7 +179,7 @@ llm = LLM(
 sampling = SamplingParams(
     temperature=0.7,
     top_p=0.95,
-    max_tokens=REDACTED
+    max_tokens=512,
     stop=["</s>", "\n\n"]
 )
 ```

@@ -1717,7 +1717,7 @@ model = FastLanguageModel.get_peft_model(
 trainer = SFTTrainer(
     model = model,
     train_dataset = dataset,
-    tokenizer = REDACTED
+    tokenizer = tokenizer,
     args = SFTConfig(
         max_seq_length = max_seq_length,
         per_device_train_batch_size = 2,
@@ -2133,7 +2133,7 @@ For datasets that usually follow the common chatml format, the process of prepar
   ```
   from unsloth.chat_templates import get_chat_template
 
-  tokenizer = REDACTED
+  tokenizer = get_chat_template(
       tokenizer,
       chat_template = "gemma-3", # change this to the right chat_template name
   )
@@ -2456,7 +2456,7 @@ input_text = tokenizer.apply_chat_template(messages, add_generation_prompt = Tru
 inputs = tokenizer(
     image,
     input_text,
-    add_special_tokens = REDACTED
+    add_special_tokens = False,
     return_tensors = "pt",
 ).to("cuda")
 
@@ -3835,7 +3835,7 @@ model.push_to_hub_gguf(
     "your-username/model-name",
     tokenizer,
     quantization_method=["q4_k_m", "q8_0", "q5_k_m"],
-    token=REDACTED
+    token="your-token",
 )
 ```
 
@@ -4517,7 +4517,7 @@ dpo_trainer = DPOTrainer(
     beta = 0.1,
     train_dataset = YOUR_DATASET_HERE,
     # eval_dataset = YOUR_DATASET_HERE,
-    tokenizer = REDACTED
+    tokenizer = tokenizer,
     max_length = 1024,
     max_prompt_length = 512,
 )
@@ -4598,14 +4598,14 @@ model_input = [
 
 sampling_param = SamplingParams(
     temperature=0.0,
-    max_tokens=REDACTED
+    max_tokens=8192,
     # ngram logit processor args
     extra_args=dict(
         ngram_size=30,
         window_size=90,
-        whitelist_token_ids=REDACTED
+        whitelist_token_ids={128821, 128822},  # whitelist: <td>, </td>
     ),
-    skip_special_tokens=REDACTED
+    skip_special_tokens=False,
 )
 # Generate output
 model_outputs = llm.generate(model_input, sampling_param)
@@ -5639,7 +5639,7 @@ from transformers import TextStreamer
 
 text = tokenizer.apply_chat_template(
     [{"role": "user", "content": prompt}],
-    tokenize=REDACTED
+    tokenize=False,
     add_generation_prompt=True,
     reasoning_effort="low",
 )
@@ -5647,7 +5647,7 @@ text = tokenizer.apply_chat_template(
 _ = model.generate(
     **tokenizer(text, return_tensors="pt").to("cuda"),
     temperature=1.0,
-    max_new_tokens=REDACTED
+    max_new_tokens=1024,
     streamer=TextStreamer(tokenizer, skip_prompt=False)
 ```
 
@@ -6722,7 +6722,7 @@ Example:
 ```python
 tokenizer.apply_chat_template(
     text, 
-    tokenize = REDACTED
+    tokenize = False, 
     add_generation_prompt = False,
     reasoning_effort = "medium",
 )
@@ -6967,7 +6967,7 @@ Example:
 ```python
 tokenizer.apply_chat_template(
     text, 
-    tokenize = REDACTED
+    tokenize = False, 
     add_generation_prompt = False,
     reasoning_effort = "medium",
 )
@@ -7010,7 +7010,7 @@ In this example, we train for 60 steps to speed up the process. For a full train
 from trl import SFTConfig, SFTTrainer
 trainer = SFTTrainer(
     model = model,
-    tokenizer = REDACTED
+    tokenizer = tokenizer,
     train_dataset = dataset,
     args = SFTConfig(
         per_device_train_batch_size = 1,
@@ -7741,7 +7741,7 @@ from openai import OpenAI
 import json
 openai_client = OpenAI(
     base_url = "http://127.0.0.1:8001/v1",
-    api_key = REDACTED
+    api_key = "sk-no-key-required",
 )
 completion = openai_client.chat.completions.create(
     model = "unsloth/GLM-4.6",
@@ -8231,7 +8231,7 @@ from openai import OpenAI
 import json
 openai_client = OpenAI(
     base_url = "http://127.0.0.1:8001/v1",
-    api_key = REDACTED
+    api_key = "sk-no-key-required",
 )
 completion = openai_client.chat.completions.create(
     model = "unsloth/DeepSeek-V3.1-Terminus",
@@ -8592,7 +8592,7 @@ Then use the tokenizer to create the entire prompt:
 
 ```python
 from transformers import AutoTokenizer
-tokenizer = REDACTED
+tokenizer = AutoTokenizer.from_pretrained("unsloth/Qwen3-Coder-480B-A35B-Instruct")
 
 messages = [
     {'role': 'user', 'content': "What's the temperature in San Francisco now? How about tomorrow?"},
@@ -9242,7 +9242,7 @@ By default, Qwen3 has thinking enabled. When you call `tokenizer.apply_chat_temp
 ```python
 text = tokenizer.apply_chat_template(
     messages,
-    tokenize=REDACTED
+    tokenize=False,
     add_generation_prompt=True,
     enable_thinking=True  # Default is True
 )
@@ -9259,7 +9259,7 @@ Enabling non-thinking will make Qwen3 will skip all the thinking steps and behav
 ```python
 text = tokenizer.apply_chat_template(
     messages,
-    tokenize=REDACTED
+    tokenize=False,
     add_generation_prompt=True,
     enable_thinking=False  # Disables thinking mode
 )
@@ -15040,7 +15040,7 @@ We need to prepare inputs for the Trainer. For text-to-speech, one approach is t
 # Tokenize the text transcripts
 def preprocess_function(example):
     # Tokenize the text (keep the special tokens like <laugh> intact)
-    tokens = REDACTED
+    tokens = tokenizer(example["text"], return_tensors="pt")
     # Flatten to list of token IDs
     input_ids = tokens["input_ids"].squeeze(0)
     # The model will generate audio tokens after these text tokens.
@@ -15475,7 +15475,7 @@ input_text = tokenizer.apply_chat_template(messages, add_generation_prompt = Tru
 inputs = tokenizer(
     image,
     input_text,
-    add_special_tokens = REDACTED
+    add_special_tokens = False,
     return_tensors = "pt",
 ).to("cuda")
 
@@ -16009,7 +16009,7 @@ trainer = SFTTrainer(
         greater_is_better = False,           # the lower the eval loss, the better
     ),
     model = model,
-    tokenizer = REDACTED
+    tokenizer = tokenizer,
     train_dataset = new_dataset["train"],
     eval_dataset = new_dataset["test"],
 )
@@ -16192,7 +16192,7 @@ trainer = SFTTrainer(
         greater_is_better = False,           # the lower the eval loss, the better
     ),
     model = model,
-    tokenizer = REDACTED
+    tokenizer = tokenizer,
     train_dataset = new_dataset["train"],
     eval_dataset = new_dataset["test"],
 )
@@ -16394,7 +16394,7 @@ For datasets that usually follow the common chatml format, the process of prepar
   ```
   from unsloth.chat_templates import get_chat_template
 
-  tokenizer = REDACTED
+  tokenizer = get_chat_template(
       tokenizer,
       chat_template = "gemma-3", # change this to the right chat_template name
   )
@@ -16465,11 +16465,11 @@ You can use our `get_chat_template` to format it. Select `chat_template` to be a
 ```python
 from unsloth.chat_templates import get_chat_template
 
-tokenizer = REDACTED
+tokenizer = get_chat_template(
     tokenizer,
     chat_template = "chatml", # Supports zephyr, chatml, mistral, llama, alpaca, vicuna, vicuna_old, unsloth
     mapping = {"role" : "from", "content" : "value", "user" : "human", "assistant" : "gpt"}, # ShareGPT style
-    map_eos_token = REDACTED
+    map_eos_token = True, # Maps <|im_end|> to </s> instead
 )
 
 def formatting_prompts_func(examples):
@@ -16500,13 +16500,13 @@ unsloth_template = \
     "<div data-gb-custom-block data-tag="if">"\
         "{{ '>>> Assistant: ' }}"\
     "</div>"
-unsloth_eos_token = REDACTED
+unsloth_eos_token = "eos_token"
 
-tokenizer = REDACTED
+tokenizer = get_chat_template(
     tokenizer,
     chat_template = (unsloth_template, unsloth_eos_token,), # You must provide a template and EOS token
     mapping = {"role" : "from", "content" : "value", "user" : "human", "assistant" : "gpt"}, # ShareGPT style
-    map_eos_token = REDACTED
+    map_eos_token = True, # Maps <|im_end|> to </s> instead
 )
 ```
 

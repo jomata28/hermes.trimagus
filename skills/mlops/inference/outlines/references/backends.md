@@ -133,7 +133,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 import outlines
 
 # Load model manually
-tokenizer = REDACTED
+tokenizer = AutoTokenizer.from_pretrained("your-model")
 model_hf = AutoModelForCausalLM.from_pretrained(
     "your-model",
     device_map="auto",
@@ -143,7 +143,7 @@ model_hf = AutoModelForCausalLM.from_pretrained(
 # Use with Outlines
 model = outlines.models.transformers(
     model=model_hf,
-    tokenizer=REDACTED
+    tokenizer=tokenizer
 )
 ```
 
@@ -345,7 +345,7 @@ model = outlines.models.vllm(
     gpu_memory_utilization=0.9,
     max_model_len=8192,
     max_num_seqs=256,           # Max concurrent sequences
-    max_num_batched_tokens=REDACTED
+    max_num_batched_tokens=8192, # Max tokens per batch
     dtype="float16",
     trust_remote_code=True,
     enforce_eager=False,        # Use CUDA graphs (faster)
@@ -390,8 +390,8 @@ result = generator("Your prompt")
 ```python
 model = outlines.models.openai(
     "gpt-4o-mini",
-    api_key=REDACTED
-    max_tokens=REDACTED
+    api_key="your-api-key",  # Or set OPENAI_API_KEY env var
+    max_tokens=2048,
     temperature=0.7
 )
 ```

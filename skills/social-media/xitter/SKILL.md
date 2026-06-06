@@ -104,11 +104,11 @@ Or create a dedicated file:
 ```bash
 mkdir -p ~/.config/x-cli
 cat > ~/.config/x-cli/.env <<'EOF'
-X_API_KEY=REDACTED
-X_API_SECRET=REDACTED
-X_BEARER_TOKEN=REDACTED
-X_ACCESS_TOKEN=REDACTED
-X_ACCESS_TOKEN_SECRET=REDACTED
+X_API_KEY=your_consumer_key
+X_API_SECRET=your_secret_key
+X_BEARER_TOKEN=your_bearer_token
+X_ACCESS_TOKEN=your_access_token
+X_ACCESS_TOKEN_SECRET=your_access_token_secret
 EOF
 chmod 600 ~/.config/x-cli/.env
 ```

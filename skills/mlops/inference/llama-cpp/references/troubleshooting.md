@@ -82,7 +82,7 @@ python convert_hf_to_gguf.py ./model --outfile model.gguf
 # Ensure tokenizer matches model
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-tokenizer = REDACTED
+tokenizer = AutoTokenizer.from_pretrained("./model")
 model = AutoModelForCausalLM.from_pretrained("./model")
 
 print(f"Tokenizer vocab size: {len(tokenizer)}")
@@ -335,7 +335,7 @@ from openai import OpenAI
 # Use correct base URL format
 client = OpenAI(
     base_url="http://localhost:8080/v1",  # Include /v1
-    api_key=REDACTED
+    api_key="not-needed"
 )
 
 # Use correct model name

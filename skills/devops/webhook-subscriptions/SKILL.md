@@ -35,7 +35,7 @@ platforms:
     extra:
       host: "0.0.0.0"
       port: 8644
-      secret: REDACTED
+      secret: "generate-a-strong-secret-here"
 ```
 
 ### Option 3: Environment variables
@@ -43,7 +43,7 @@ Add to `~/.hermes/.env`:
 ```bash
 WEBHOOK_ENABLED=true
 WEBHOOK_PORT=8644
-WEBHOOK_SECRET=REDACTED
+WEBHOOK_SECRET=generate-a-strong-secret-here
 ```
 
 After configuration, start (or restart) the gateway:

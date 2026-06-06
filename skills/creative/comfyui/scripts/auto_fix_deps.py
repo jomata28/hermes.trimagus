@@ -64,7 +64,7 @@ def install_node(package: str, *, dry_run: bool = False, comfy_cmd: str = "comfy
 
 def install_model(url: str, folder: str, filename: str | None = None,
                   *, dry_run: bool = False, comfy_cmd: str = "comfy",
-                  hf_token: REDACTED
+                  hf_token: str | None = None, civitai_token: str | None = None) -> bool:
     cmd = comfy_cmd.split() + [
         "--skip-prompt", "model", "download",
         "--url", url,
@@ -95,7 +95,7 @@ def main(argv: list[str] | None = None) -> int:
                    help="Don't suggest restarting the server after node install")
     args = p.parse_args(argv)
 
-    api_key = REDACTED
+    api_key = resolve_api_key(args.api_key)
 
     wf_path = Path(args.workflow).expanduser()
     if not wf_path.exists():
@@ -175,7 +175,7 @@ def main(argv: list[str] | None = None) -> int:
         ok = install_model(
             url, entry["folder"], filename,
             dry_run=args.dry_run, comfy_cmd=comfy_cmd,
-            hf_token=REDACTED
+            hf_token=args.hf_token, civitai_token=args.civitai_token,
         )
         (actions if ok else failures).append({
             "kind": "model", "filename": filename, "folder": entry["folder"],
@@ -202,7 +202,7 @@ def main(argv: list[str] | None = None) -> int:
         ok = install_model(
             url, "embeddings", target_filename,
             dry_run=args.dry_run, comfy_cmd=comfy_cmd,
-            hf_token=REDACTED
+            hf_token=args.hf_token, civitai_token=args.civitai_token,
         )
         (actions if ok else failures).append({
             "kind": "embedding", "name": emb_name, "url": url, "ok": ok,

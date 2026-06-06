@@ -132,7 +132,7 @@ def setup_model_and_tokenizer():
         device_map="auto"
     )
 
-    tokenizer = REDACTED
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
     tokenizer.pad_token = tokenizer.eos_token
 
     return model, tokenizer

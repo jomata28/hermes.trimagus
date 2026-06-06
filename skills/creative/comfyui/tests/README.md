@@ -10,11 +10,11 @@ without any setup; cloud integration tests need a Comfy Cloud API key.
 python3 -m pytest tests/ -c tests/pytest.ini -o addopts="-p no:xdist"
 
 # Including cloud integration tests
-COMFY_CLOUD_API_KEY=REDACTED
+COMFY_CLOUD_API_KEY="comfyui-..." python3 -m pytest tests/ \
   -c tests/pytest.ini -o addopts="-p no:xdist"
 
 # Just cloud tests
-COMFY_CLOUD_API_KEY=REDACTED
+COMFY_CLOUD_API_KEY="comfyui-..." python3 -m pytest tests/test_cloud_integration.py \
   -c tests/pytest.ini -o addopts="-p no:xdist" -v
 ```
 

@@ -19,7 +19,7 @@ python3 -c "
 import json
 with open('/root/.hermes/google_token.json') as f:
     t = json.load(f)
-token_data = REDACTED
+token_data = {
     'access_token': t['token'],
     'token_type': 'Bearer',
     'refresh_token': t['refresh_token'],
@@ -33,9 +33,9 @@ mkdir -p ~/.config/rclone
 cat > ~/.config/rclone/rclone.conf << 'EOF'
 [drive-hermes]
 type = drive
-token = REDACTED
+token = <JSON from above>
 client_id = <from google_token.json>
-client_secret = REDACTED
+client_secret = <from google_token.json>
 EOF
 ```
 
@@ -47,7 +47,7 @@ import json, os
 with open("/root/.hermes/google_token.json") as f:
     t = json.load(f)
 
-token_data = REDACTED
+token_data = {
     "access_token": t["token"],
     "token_type": "Bearer",
     "refresh_token": t["refresh_token"],
@@ -56,9 +56,9 @@ token_data = REDACTED
 
 rclone_conf = f"""[drive-hermes]
 type = drive
-token = REDACTED
+token = {json.dumps(token_data)}
 client_id = {t["client_id"]}
-client_secret = REDACTED
+client_secret = {t["client_secret"]}
 """
 
 os.makedirs(os.path.expanduser("~/.config/rclone"), exist_ok=True)

@@ -272,7 +272,7 @@ from guidance import models
 
 lm = models.Anthropic(
     model="claude-sonnet-4-5-20250929",
-    api_key=REDACTED
+    api_key="your-api-key"  # Or set ANTHROPIC_API_KEY env var
 )
 ```
 
@@ -281,7 +281,7 @@ lm = models.Anthropic(
 ```python
 lm = models.OpenAI(
     model="gpt-4o-mini",
-    api_key=REDACTED
+    api_key="your-api-key"  # Or set OPENAI_API_KEY env var
 )
 ```
 

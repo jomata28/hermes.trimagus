@@ -162,7 +162,7 @@ PY
 ```
 
 ```bash
-TOKEN=REDACTED
+TOKEN=$(python3 -c "import json; print(json.load(open('$HOME/.hermes/google_token.json'))['token'])")
 TASKS_API="https://www.googleapis.com/tasks/v1"
 
 # List all task lists
@@ -243,12 +243,12 @@ $GAPI gmail send --to user@example.com --subject "Hello" --body "Message text"
    # Create rclone.conf manually using token from google_token.json:
    python3 -c "
    import json
-   token = REDACTED
+   token = json.load(open('$HOME/.hermes/google_token.json'))
    conf = f\"\"\"[drive-hermes]
    type = drive
-   token = REDACTED
+   token = {{\\\"access_token\\\": \\\"{token['token']}\\\", \\\"token_type\\\": \\\"Bearer\\\", \\\"refresh_token\\\": \\\"{token['refresh_token']}\\\", \\\"expiry\\\": \\\"{token['expiry']}\\\"}}
    client_id = {token['client_id']}
-   client_secret = REDACTED
+   client_secret = {token['client_secret']}
    \"\"\"
    print(conf)
    " > ~/.config/rclone/rclone.conf
