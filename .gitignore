@@ -1,10 +1,12 @@
-# Hermes backup exclusions
+# Hermes backup excludes
 cache/
 sessions/
 sandboxes/
 images/
 image_cache/
 audio_cache/
+logs/
+cron/output/
 *.db-shm
 *.db-wal
 *.pid
@@ -21,4 +23,6 @@ ollama_cloud_models_cache.json
 .skills_prompt_snapshot.json
 state.db*
 kanban.db
-cron/output/
+__pycache__/
+*.pyc
+.curator_backups/
