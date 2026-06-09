@@ -55,6 +55,7 @@ Queries the Notion database for the most recent episode by checking:
 - See `references/live-site-scrape-fallback.md` for safe homepage scraping rules when Notion is stale; especially avoid navigation/category anchors like `Podcast Topics` and iterate past already-processed live-site episodes.
 - See `references/processed-episode-matching.md` for strict processed-vs-preview matching rules; avoid treating `Evening Review Preview`/`Processing Log` mentions as evidence that an episode has already been processed.
 - See `references/cron-fallback-implementation-notes.md` for stdlib-only HTML parsing when `bs4` is unavailable, plus the long-episode/no-GPU fallback checklist and verification steps.
+- Reusable helper: `scripts/process_latest_episode.py` implements the current stdlib-first cron flow (Notion query → live-site fallback → strong processed matching → MP3 download/ffprobe → no-GPU fallback note/transcript handoff → JSON status). If it prints `{"status": "silent"}`, the cron response should be exactly `[SILENT]`.
 
 ### 3. Pharmacological Extraction
 Uses LLM analysis to identify key pharmacological concepts from transcription:

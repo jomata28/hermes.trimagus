@@ -1,4 +1,4 @@
-# Hermes backup excludes
+# Hermes backup exclusions
 cache/
 sessions/
 sandboxes/
@@ -23,6 +23,6 @@ ollama_cloud_models_cache.json
 .skills_prompt_snapshot.json
 state.db*
 kanban.db
-__pycache__/
+skills/.curator_backups/
+**/__pycache__/
 *.pyc
-.curator_backups/
