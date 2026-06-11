@@ -79,8 +79,9 @@ Drive root/
 #### Frailty Index voice-entry workflow
 When Jose dictates mouse frailty scores by voice:
 1. Interpret short IDs as full IDs using the session pattern, e.g. mouse `2154`, male, cohort `18` → `18.2154M`; female → `18.2154F`. If transcript drops a digit (`18.254` while he says mouse 2154), use the spoken mouse number.
-2. Before editing, create a workbook backup with a specific suffix, e.g. `.backup_before_2154.xlsx` or `.backup_before_2148_2149.xlsx`.
-3. In `Fraility Index`, add/update the mouse row. Leave strain/cage/weight blank unless explicitly provided.
+2. If the Drive workbook is temporarily unavailable or credentials need reconnecting, **do not lose the dictation**: write each parsed mouse as JSONL under `/root/lab-pending/frailty_index_pending_<date>.jsonl` with `mouse_id`, parsed scores, notes/ambiguities, and `status: pending_drive_reconnect`; then tell Jose it was queued locally and not yet written to Excel. After reconnecting `drive-lab`, replay the pending queue into the workbook and verify normally.
+3. Before editing, create a workbook backup with a specific suffix, e.g. `.backup_before_2154.xlsx` or `.backup_before_2148_2149.xlsx`.
+4. In `Fraility Index`, add/update the mouse row. Leave strain/cage/weight blank unless explicitly provided.
 4. **Explicitly write `0` to every clinical frailty field `F:AG` first**, then overwrite only abnormal fields with `0.5` or `1`. This is important: normal/not-mentioned fields should not be left blank.
 5. Leave `AH` Standardized Weight and `AI` Total Weight blank unless given. Write `AJ` formula as `=IF(COUNT(F{row}:AH{row})=0,"",SUM(F{row}:AH{row})/29)`.
 6. Reload the workbook and verify: row number, mouse ID, nonzero fields, all other clinical fields are zero, manual FI (`sum(F:AG)/29`), and AJ formula.
