@@ -198,6 +198,13 @@ Weekly review format:
 - **Monterrey wedding trip** — May 30 (Social)
 - **5 gating decisions (D1-D6)** — must close before Sept 1, 2026
 
+## Absorbed Vault Workflows
+
+This umbrella now also covers the generic Obsidian filesystem workflow and the Cieslik Lab vault workflow that previously lived as separate narrow skills.
+
+- **Obsidian filesystem operations:** read/search/create/edit Markdown notes, preserve wikilinks/frontmatter, and resolve the vault path from `OBSIDIAN_VAULT_PATH` or the documented rclone mount before using file tools. Full source package: `references/obsidian-package/`.
+- **Cieslik Lab vault:** use the separate `/root/obsidian-lab/` / `drive-hermes:cieslik-lab` mount for lab records, mouse logs, echo data, surgery/frailty notes, and Google Sheets sync. Never mix personal Bitácora data with lab data. Full source package: `references/lab-data-package/`.
+
 ## Pitfalls
 
 - **rclone mount can silently fail** if the token expires. Check with `ls ~/obsidian-vault` before operations. Remount if empty.
