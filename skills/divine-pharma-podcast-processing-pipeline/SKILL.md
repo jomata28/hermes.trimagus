@@ -377,6 +377,8 @@ chmod +x /usr/local/bin/divine-pharma-daily.sh
 
 ## Notes & Pitfalls
 
+Reference: see `references/live-site-placeholder-completion.md` for the live-site fallback and the rule to complete existing placeholder notes/audio before returning `[SILENT]`.
+
 - **Audio Source**: Divine Intervention podcast may require scraping the webpage for actual MP3 URL - inspect network tab when playing episode
 - **URL Handling**: Notion API may return URLs with trailing whitespace that breaks wget/curl. Always trim whitespace: `EPISODE_URL=$(echo "$EPISODE_URL" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')`
 - **Audio Download Strategy**: 
@@ -386,11 +388,12 @@ chmod +x /usr/local/bin/divine-pharma-daily.sh
      - `https?://[^\"']*\\.mp3` (within quotes)
      - Check `<audio>` and `<source>` tags
   3. Use wget with `--show-progress` for large files
-- **Transcription Quality & Timing**: Whisper base model can timeout on longer episodes (>20 min). Consider:
-  - Using `--model tiny` for faster processing (lower accuracy)
-  - Processing in chunks for very long episodes
-  - Increasing timeout based on file size (roughly 1 minute per 10MB for base model)
-  - In constrained environments, transcription may fail - have fallback to placeholder notes
+- **Transcription Quality & Timing**: Whisper base model can timeout on longer episodes (>20 min), but do not skip transcription solely because no GPU is present. In this environment, `faster_whisper` base on CPU/int8 successfully transcribed a 23-minute, 21MB episode in ~390 seconds. Consider:
+  - Using `faster_whisper` with `WhisperModel("base", device="cpu", compute_type="int8")` as the default CPU path
+  - Setting foreground command timeouts to at least 600 seconds for ~20-25 minute episodes
+  - Using `--model tiny` or chunks only when base CPU exceeds the cron window
+  - If a previous cron run created a placeholder note/transcript and downloaded audio, treat the next run as an opportunity to complete the transcript and replace the placeholder rather than reporting nothing
+  - If transcription truly fails, create a clearly marked placeholder note and leave the audio path for follow-up
 - **Insight Extraction**: The grep-based extraction is simplistic - for production use consider:
   - Fine-tuning a model on pharmacology text
   - Using few-shot prompting with examples
@@ -401,6 +404,7 @@ chmod +x /usr/local/bin/divine-pharma-daily.sh
 - **Timing**: 7:00 AM CST = 13:00 UTC (adjust cron if server is in different timezone)
 - **Dependencies**: Ensure whisper, wget, curl, jq are installed
 - **Notion API Sorting**: The sort property "Created time" may not be valid in version 2025-09-03; if you get a validation error, try removing the sorts parameter or using the correct property ID from the database schema
+- **Database staleness / live-site fallback**: The Notion database can lag behind the live Divine Intervention site or contain only already processed entries. If no unprocessed Notion rows are found, scrape `https://divineinterventionpodcasts.com/` or `/category/podcast/` for the latest `DIP Ep ...` post, extract its MP3, and process it with a `live:<hash>` processed ID. Before returning `[SILENT]`, check whether the latest live-site episode already has downloaded audio or a placeholder note in `/root/Divine-Pharmacology`; if so, complete the transcript and replace the placeholder note instead of doing nothing.
 - **Whisper Availability**: The whisper command may not be installed; faster_whisper via Python (pip install faster-whisper) is a reliable alternative
 - **Audio URL Extraction**: MP3 URLs are often embedded in <audio> tags or <source> elements on the podcast webpage; use regex patterns like 'https?://[^\\s\"\\'>]*\\.mp3' to extract them. For Divine Intervention specifically, look in wp-content/uploads directory.
 - **Temporary Directory Cleanup**: Due to recursive delete protection in some environments, avoid using `rm -rf` on paths that could be ambiguous. Instead:

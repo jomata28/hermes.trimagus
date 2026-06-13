@@ -9,7 +9,7 @@ fallback_providers:
   provider: openrouter
 - model: moonshotai/kimi-k2.6
   provider: openrouter
-credential_pool_strategies: {}
+credential_pool_strategies: REDACTED_IN_BACKUP
 toolsets:
 - hermes-cli
 agent:
@@ -86,9 +86,9 @@ terminal:
   container_disk: 51200
   container_persistent: true
   docker_volumes: []
-  docker_mouREDACTED_IN_BACKUP: false
+  docker_mount_cwd_to_workspace: false
   docker_run_as_host_user: false
-  persisteREDACTED_IN_BACKUP: true
+  persistent_shell: true
   lifetime_seconds: 300
 browser:
   inactivity_timeout: 120
@@ -119,11 +119,11 @@ tool_loop_guardrails:
   warn_after:
     exact_failure: 2
     same_tool_failure: 3
-    idempoteREDACTED_IN_BACKUP: 2
+    idempotent_no_progress: 2
   hard_stop_after:
     exact_failure: 5
     same_tool_failure: 8
-    idempoteREDACTED_IN_BACKUP: 5
+    idempotent_no_progress: 5
 compression:
   enabled: true
   threshold: 0.5
@@ -152,8 +152,7 @@ auxiliary:
     provider: auto
     model: ''
     base_url: ''
-    api_key: REDACTED_IN_BACKUP
-
+    api_key: 'REDACTED_IN_BACKUP'
     timeout: 120
     extra_body: {}
     download_timeout: 30
@@ -161,24 +160,21 @@ auxiliary:
     provider: auto
     model: ''
     base_url: ''
-    api_key: REDACTED_IN_BACKUP
-
+    api_key: 'REDACTED_IN_BACKUP'
     timeout: 360
     extra_body: {}
   compression:
     provider: auto
     model: ''
     base_url: ''
-    api_key: REDACTED_IN_BACKUP
-
+    api_key: 'REDACTED_IN_BACKUP'
     timeout: 120
     extra_body: {}
   session_search:
     provider: auto
     model: ''
     base_url: ''
-    api_key: REDACTED_IN_BACKUP
-
+    api_key: 'REDACTED_IN_BACKUP'
     timeout: 30
     extra_body: {}
     max_concurrency: 3
@@ -186,40 +182,35 @@ auxiliary:
     provider: auto
     model: ''
     base_url: ''
-    api_key: REDACTED_IN_BACKUP
-
+    api_key: 'REDACTED_IN_BACKUP'
     timeout: 30
     extra_body: {}
   approval:
     provider: auto
     model: ''
     base_url: ''
-    api_key: REDACTED_IN_BACKUP
-
+    api_key: 'REDACTED_IN_BACKUP'
     timeout: 30
     extra_body: {}
   mcp:
     provider: auto
     model: ''
     base_url: ''
-    api_key: REDACTED_IN_BACKUP
-
+    api_key: 'REDACTED_IN_BACKUP'
     timeout: 30
     extra_body: {}
   title_generation:
     provider: auto
     model: ''
     base_url: ''
-    api_key: REDACTED_IN_BACKUP
-
+    api_key: 'REDACTED_IN_BACKUP'
     timeout: 30
     extra_body: {}
   curator:
     provider: auto
     model: ''
     base_url: ''
-    api_key: REDACTED_IN_BACKUP
-
+    api_key: 'REDACTED_IN_BACKUP'
     timeout: 600
     extra_body: {}
 display:
@@ -239,7 +230,7 @@ display:
   user_message_preview:
     first_lines: 2
     last_lines: 2
-  interim_assistaREDACTED_IN_BACKUP: true
+  interim_assistant_messages: true
   tool_progress_command: false
   tool_progress_overrides: {}
   tool_preview_length: 0
@@ -320,16 +311,15 @@ delegation:
   model: ''
   provider: ''
   base_url: ''
-  api_key: REDACTED_IN_BACKUP
-
+  api_key: 'REDACTED_IN_BACKUP'
   inherit_mcp_toolsets: true
   max_iterations: 50
   child_timeout_seconds: 600
   reasoning_effort: ''
-  max_concurreREDACTED_IN_BACKUP: 3
+  max_concurrent_children: 3
   max_spawn_depth: 1
   orchestrator_enabled: true
-  subageREDACTED_IN_BACKUP: false
+  subagent_auto_approve: false
   default_toolsets:
   - terminal
   - file
@@ -342,7 +332,7 @@ skills:
   template_vars: true
   inline_shell: false
   inline_shell_timeout: 10
-  guard_ageREDACTED_IN_BACKUP: false
+  guard_agent_created: false
   archive_after_days: 90
   creation_nudge_interval: 15
   stale_after_days: 30
@@ -394,7 +384,7 @@ hooks_auto_accept: false
 personalities: {}
 security:
   allow_private_urls: false
-  redact_secrets: false
+  redact_secrets: REDACTED_IN_BACKUP
   tirith_enabled: true
   tirith_path: tirith
   tirith_timeout: 5
@@ -440,7 +430,6 @@ _config_version: 23
 TELEGRAM_HOME_CHANNEL: '1585113960'
 github:
   token: REDACTED_IN_BACKUP
-
 group_sessions_per_user: true
 known_plugin_toolsets:
   cli:

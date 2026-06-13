@@ -25,3 +25,6 @@ state.db*
 kanban.db
 __pycache__/
 *.pyc
+
+# Hermes backup exclusions
+skills/.curator_backups/
