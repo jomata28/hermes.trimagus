@@ -29,8 +29,9 @@ Back up the durable Hermes state needed for recovery without dumping noisy cache
 3. **Copy selected live files into the repo working tree.** Do not copy sessions, logs, caches, image/audio artifacts, sandboxes, WhatsApp state, or Hermes source checkouts unless explicitly requested.
 4. **Use SQLite online backup for memory DBs.** Current Hermes commonly uses `~/.hermes/memory_store.db`; legacy prompts may say `memory.db`. Back up `memory_store.db` and, when useful for compatibility, refresh `memory.db` from it.
 5. **Redact credential values in repository copies only.** Replace values in `.env` and `config.yaml` for secret-like keys (`api_key`, `token`, `secret`, `password`, `credential`, `client_secret`, etc.) with `REDACTED_IN_BACKUP`. Never edit the live `~/.hermes` credential files just to satisfy backup push protection.
-6. **Commit with a timestamp message.** Example: `Backup Hermes 2026-06-12 03:02:14 UTC`.
-7. **Push and verify.** Run `git push`, then verify `git ls-remote origin refs/heads/main` matches `git rev-parse HEAD`; also show `git log -1 --oneline --decorate`.
+6. **Scan the full backup working tree for recognizable token patterns before committing.** Skills, references, or copied notes can contain example/live-looking tokens even when `.env` and `config.yaml` are redacted. Run a pre-commit scan for common high-risk prefixes such as `ghp_`, `github_pat_`, `sk-`, and `xox[baprs]-`; if found, replace only the repository copy with `REDACTED_TOKEN_IN_BACKUP`, then scan again. Do not print matched token values in logs.
+7. **Commit with a timestamp message.** Example: `Backup Hermes 2026-06-12 03:02:14 UTC`.
+8. **Push and verify.** Run `git push`, then verify `git ls-remote origin refs/heads/main` matches `git rev-parse HEAD`; also show `git log -1 --oneline --decorate`.
 
 ## Auth and push protection pitfalls
 

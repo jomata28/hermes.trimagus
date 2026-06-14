@@ -69,26 +69,26 @@
     "created_at": "2026-05-26T13:55:18.349510+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-06-12T13:55:49.283434+00:00",
-    "last_viewed_at": "2026-06-12T13:55:49.279930+00:00",
+    "last_used_at": "2026-06-13T13:55:58.194516+00:00",
+    "last_viewed_at": "2026-06-13T13:55:58.187939+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 17,
-    "view_count": 17
+    "use_count": 18,
+    "view_count": 18
   },
   "divine-pharma-daily-cron": {
     "archived_at": null,
     "created_at": "2026-05-08T07:00:58.625760+00:00",
     "created_by": null,
     "last_patched_at": "2026-06-08T07:07:06.973823+00:00",
-    "last_used_at": "2026-06-12T07:00:48.977990+00:00",
-    "last_viewed_at": "2026-06-12T07:00:48.972624+00:00",
+    "last_used_at": "2026-06-13T07:01:02.482648+00:00",
+    "last_viewed_at": "2026-06-13T07:01:02.476112+00:00",
     "patch_count": 19,
     "pinned": false,
     "state": "active",
-    "use_count": 86,
-    "view_count": 42
+    "use_count": 90,
+    "view_count": 44
   },
   "divine-pharma-notion-episodes-fetch": {
     "archived_at": null,
@@ -108,12 +108,12 @@
     "created_at": "2026-05-08T07:00:58.663545+00:00",
     "created_by": null,
     "last_patched_at": "2026-06-12T07:13:07.258896+00:00",
-    "last_used_at": "2026-06-12T07:00:43.191772+00:00",
+    "last_used_at": "2026-06-13T07:00:52.107933+00:00",
     "last_viewed_at": "2026-06-08T07:01:01.089113+00:00",
     "patch_count": 4,
     "pinned": false,
     "state": "active",
-    "use_count": 23,
+    "use_count": 24,
     "view_count": 2
   },
   "find-nearby": {
@@ -159,14 +159,14 @@
     "archived_at": null,
     "created_at": "2026-06-12T03:04:17.583148+00:00",
     "created_by": "agent",
-    "last_patched_at": "2026-06-12T03:04:32.170606+00:00",
-    "last_used_at": "2026-06-13T03:00:52.292072+00:00",
-    "last_viewed_at": "2026-06-13T03:00:52.287394+00:00",
-    "patch_count": 1,
+    "last_patched_at": "2026-06-13T03:03:10.974536+00:00",
+    "last_used_at": "2026-06-14T03:01:04.846738+00:00",
+    "last_viewed_at": "2026-06-14T03:01:04.838010+00:00",
+    "patch_count": 2,
     "pinned": false,
     "state": "active",
-    "use_count": 1,
-    "view_count": 1
+    "use_count": 2,
+    "view_count": 2
   },
   "himalaya": {
     "archived_at": null,
@@ -232,6 +232,19 @@
     "state": "active",
     "use_count": 0,
     "view_count": 0
+  },
+  "media-content-workflows": {
+    "archived_at": null,
+    "created_at": "2026-06-14T00:44:10.601629+00:00",
+    "created_by": null,
+    "last_patched_at": "2026-06-14T00:48:32.788660+00:00",
+    "last_used_at": "2026-06-14T00:44:10.623086+00:00",
+    "last_viewed_at": "2026-06-14T00:44:10.602072+00:00",
+    "patch_count": 2,
+    "pinned": false,
+    "state": "active",
+    "use_count": 1,
+    "view_count": 1
   },
   "multi-domain-knowledge-system": {
     "archived_at": null,
@@ -329,26 +342,26 @@
     "created_at": "2026-06-11T18:56:44.606366+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-06-11T18:56:44.613522+00:00",
-    "last_viewed_at": "2026-06-11T18:56:44.606553+00:00",
+    "last_used_at": "2026-06-14T00:44:10.636022+00:00",
+    "last_viewed_at": "2026-06-14T00:44:10.618527+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 1,
-    "view_count": 1
+    "use_count": 2,
+    "view_count": 2
   },
   "second-brain": {
     "archived_at": null,
     "created_at": "2026-05-25T18:52:00.893193+00:00",
     "created_by": "agent",
     "last_patched_at": "2026-06-12T02:54:52.088746+00:00",
-    "last_used_at": "2026-06-10T21:38:38.955751+00:00",
-    "last_viewed_at": "2026-06-10T21:38:38.949880+00:00",
+    "last_used_at": "2026-06-14T00:46:57.302560+00:00",
+    "last_viewed_at": "2026-06-14T00:46:57.298845+00:00",
     "patch_count": 7,
     "pinned": false,
     "state": "active",
-    "use_count": 5,
-    "view_count": 5
+    "use_count": 6,
+    "view_count": 6
   },
   "social-platform-interactions": {
     "archived_at": null,
@@ -401,5 +414,18 @@
     "state": "active",
     "use_count": 19,
     "view_count": 18
+  },
+  "writing-plans": {
+    "archived_at": null,
+    "created_at": "2026-06-14T00:44:10.608252+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_used_at": "2026-06-14T00:44:10.629361+00:00",
+    "last_viewed_at": "2026-06-14T00:44:10.608264+00:00",
+    "patch_count": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 1,
+    "view_count": 1
   }
 }

@@ -31,6 +31,12 @@ Use Tenor/API-backed search and download tooling. Verify selected GIF URLs and d
 
 Fetch transcripts when possible, then produce summaries, threads, blog posts, or study notes. If transcripts are unavailable, report the blocker and try alternate transcript sources before giving up.
 
+### YouTube-to-business planning
+
+When the user asks to turn a YouTube video into a business, do not wait for a perfect transcript if YouTube blocks transcript/download tooling. Verify what you can (for example, YouTube oEmbed metadata/title/author, thumbnail, public page data), state the transcript limitation plainly, then synthesize an actionable business plan from: verified metadata, any accessible video context, market/category scan, and the user's existing assets. Prefer a concrete offer, ICP, pricing, MVP stack, sales motion, risks, and 30-day execution plan over a generic summary. If the plan is durable for the user's operating system, save it as a project note in the vault/project workspace and return the path.
+
+Reference: `references/youtube-to-business-plan.md` contains a reusable structure and fallback pattern.
+
 ## Audio Features and Spectrograms
 
 Use audio feature tooling for mel, chroma, MFCC, spectrograms, or visual assets. Verify the output image/audio file exists and has nonzero size.
