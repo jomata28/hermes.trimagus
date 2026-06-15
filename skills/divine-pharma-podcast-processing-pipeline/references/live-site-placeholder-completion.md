@@ -7,8 +7,9 @@ Use this when the Notion database has no unprocessed rows but the live Divine In
 1. Query Notion first using the database workflow.
 2. If Notion has no unprocessed episode, scrape `https://divineinterventionpodcasts.com/` or `https://divineinterventionpodcasts.com/category/podcast/` for recent `h1/h2.entry-title a` posts.
 3. Skip promotional posts/classes; choose the latest podcast episode (`DIP Ep ...`, `OMBRS ...`, etc.).
-4. Use a deterministic processed ID such as `live:<short-hash>` or the episode URL itself.
-5. If the processed ID is already logged, do **not** immediately return `[SILENT]`:
+4. Use a deterministic processed ID such as `live:<short-hash>` or the episode URL itself. Normalize the URL first (strip trailing slash, strip query/fragment) so the same live page does not get a second hash.
+5. Before processing a live-site item whose live ID is not logged, also search existing notes/transcripts/audio by episode number, title slug, audio URL, and page URL. If a completed note already exists under another processed ID/hash, append the new normalized live ID as an alias if useful, remove any duplicate temp artifacts, and return `[SILENT]`.
+6. If the processed ID is already logged, do **not** immediately return `[SILENT]`:
    - Check `/root/Divine-Pharmacology/Audio/`, `Transcripts/`, and `Daily-Sessions/` for that episode.
    - If audio exists but transcript/note is a placeholder, continue the pipeline and replace the placeholder with a completed transcript/note.
 6. Only return `[SILENT]` when there is no new episode **and** no incomplete placeholder/artifact to finish.

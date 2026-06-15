@@ -9,7 +9,7 @@ fallback_providers:
   provider: openrouter
 - model: moonshotai/kimi-k2.6
   provider: openrouter
-credential_pool_strategies: {}
+credential_pool_strategies: REDACTED_IN_BACKUP
 toolsets:
 - hermes-cli
 agent:

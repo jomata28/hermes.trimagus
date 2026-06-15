@@ -64,10 +64,12 @@ python3 SKILL_DIR/scripts/find_nearby.py --near "90210" --type pharmacy --json
 ## Tips
 
 - If results are sparse, widen the radius (1500 → 3000m)
+- For event-day plans (festivals, sports fan zones, religious services, concerts), combine **official event pages** + nearby search: verify date-specific hours/location/security rules from the organizer or a reputable local guide, then use this skill for nearby food/bars/cafes/parking. Give the user a practical itinerary with arrival-time recommendation, not just a list of places.
+- When a user wants to combine two destinations, geocode both, estimate rough distance/time, and include direct Google Maps directions links when helpful. If one item has fixed times (e.g. Mass, kickoff, gate open), anchor the plan around that schedule and call out conflicts clearly.
 - For specialized categories (e.g. firearm ranges, niche classes, gyms, training providers), OSM amenity/type coverage may be poor. Fallback to Nominatim text searches for known phrases (`gun range Houston Texas`, `beginner handgun class Houston TX`) and then provide Google Maps search links for verification.
 - For government-service searches (DMV/licensing offices, permit counters, visa offices, etc.), treat it as **place + procedure**: identify the official agency page/payment source, required documents, appointment flow, and then the nearest active office. Do not just return a nearby address.
 - For CDMX driver's license questions near Coapa/Tlalpan, see `references/cdmx-driving-license.md` for the verified checklist, payment link, and Coyoacán module lead.
-- Google Search and DuckDuckGo may bot-block VPS browser sessions. When blocked, use direct known business pages, Nominatim/OSM, or constructed Google Maps search URLs instead of pretending search succeeded.
+- Google Search and DuckDuckGo may bot-block VPS browser sessions. When blocked, use direct known business pages, Nominatim/OSM, or constructed Google Maps search URLs instead of pretending search succeeded. DuckDuckGo HTML search plus direct page fetches can work well for current event pages when browser search times out.
 - For "open now" requests: check the `hours` field in results, cross-reference with web/direct business pages for accuracy since OSM hours aren't always complete
 - Zip codes alone can be ambiguous globally — prompt the user for country/state if results look wrong
 - The script uses OpenStreetMap data which is community-maintained; coverage varies by region

@@ -137,6 +137,8 @@ $GAPI drive search "'FOLDER_ID' in parents" --raw-query --max 20
 
 Tasks API is NOT exposed via `$GAPI` (the python wrapper only covers Gmail, Calendar, Drive, Contacts, Sheets, Docs). Use `curl` directly with the token from `~/.hermes/google_token.json`.
 
+**Task recollection + triage workflow:** when the user asks to “recollect tasks,” “triage tasks,” or “add to work plan,” actively gather active Google Tasks from *all* task lists, then summarize by urgency/domain. Add new work/lab items to the closest PARA/ONEPISSA list (usually `02 Negocio` for research/work/lab) with notes preserving uncertain voice-transcription wording. Do **not** delete, complete, reorder, or heavily reorganize tasks unless the user explicitly asks; report that you only added/triaged.
+
 **Important:** the stored `token` may be expired even when a `refresh_token` is present. For reliable task writes, refresh with `google.oauth2.credentials.Credentials` first, then call the REST API:
 
 ```bash
