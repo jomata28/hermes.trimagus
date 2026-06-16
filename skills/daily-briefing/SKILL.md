@@ -18,6 +18,7 @@ Deliver actionable daily and weekly briefings by scanning THREE sources, identif
 - Identify time blocks for study, workouts, research, personal, and lab/work meetings
 - **Look for gaps** where work/study blocks are missing
 - **Flag conflicts** (overlapping events, travel days, no-research days)
+- On travel days, specifically check for recurring routine events (commute, workout, sleep/study blocks) that overlap auto-created flight/hotel/airport events. Do not silently assume they are okay; surface them as cleanup candidates and ask before deleting/changing calendar events.
 - Check for upcoming deadlines/events that need prep time
 - When doing monthly reviews, list calendars first and query each calendar separately
 
@@ -74,6 +75,17 @@ Deliver actionable daily and weekly briefings by scanning THREE sources, identif
 - **Tasks are commitments**: Don't let tasks sit without due dates — assign them to the next realistic window.
 - **Sync both ways**: When vault changes, update calendar/tasks. When calendar/tasks change, update vault project files.
 - **Time awareness**: VPS runs UTC. User is CT (UTC-5/UTC-6). Always convert times.
+
+## Travel Logistics / Flight Schedule Lookup
+
+When the user asks for flight times tied to an active itinerary, first cross-check the user's Google Calendar for existing flight events. For airline route schedule questions, use third-party flight-status pages only as freshness/context and label them accordingly; distinguish scheduled/published times from recent actual departure/arrival times. In the final answer, keep it short and practical: airline, flight number, origin/destination airports, departure/arrival times, frequency if known, and a reminder to confirm on the airline site before buying/changing tickets.
+
+## Common Pitfalls
+
+1. Reporting a search-result time as if it were the airline's guaranteed current schedule.
+2. Mixing actual recent departure times with published schedule times without labeling them.
+3. Ignoring the user's own calendar when the itinerary is already present there.
+4. Forgetting that recurring routine events can overlap travel events and pollute weekly reviews.
 
 ## Output Format
 Keep it tight. Use sections:
