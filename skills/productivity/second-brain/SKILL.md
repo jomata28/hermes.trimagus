@@ -203,7 +203,8 @@ Weekly review format:
 This umbrella now also covers the generic Obsidian filesystem workflow and the Cieslik Lab vault workflow that previously lived as separate narrow skills.
 
 - **Obsidian filesystem operations:** read/search/create/edit Markdown notes, preserve wikilinks/frontmatter, and resolve the vault path from `OBSIDIAN_VAULT_PATH` or the documented rclone mount before using file tools. Full source package: `references/obsidian-package/`.
-- **Cieslik Lab vault:** use the separate `/root/obsidian-lab/` / `drive-hermes:cieslik-lab` mount for lab records, mouse logs, echo data, surgery/frailty notes, and Google Sheets sync. Never mix personal Bitácora data with lab data. Full source package: `references/lab-data-package/`.
+- **Cieslik Lab vault:** use the separate `/root/obsidian-lab/` / `drive-hermes:cieslik-lab` mount for lab records, mouse logs, echo data, surgery/frailty notes, and Google Sheets sync. Never mix personal Bitácora data with lab data. Full source package: `references/obsidian-package/`.
+- **Mouse frailty workbook updates:** when Jose sends frailty-index voice notes, follow `references/lab-data-package/references/frailty-workbook-update-workflow.md`. Key pitfall: append after the last non-empty Mouse ID row, not the first blank row, because the sheet has blank separators between cohort blocks. Back up the workbook first and verify by re-downloading the uploaded file.
 
 ## Pitfalls
 
