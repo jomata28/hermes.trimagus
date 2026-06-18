@@ -264,7 +264,7 @@ Test outputs match expected quality:
 
 ```python
 # Compare quantized vs non-quantized responses
-# Verify task-specific performance unchanged
+# Verify taREDACTED_TOKEN_IN_BACKUP performance unchanged
 ```
 
 ## When to use vs alternatives
