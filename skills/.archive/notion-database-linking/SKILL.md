@@ -33,7 +33,7 @@ hermes config show | grep -A2 -B2 NOTION
 cat ~/.hermes/.env | grep NOTION_API_KEY
 
 # Extract the raw value
-grep '^NOTION_API_KEY=' ~/.hermes/.env | cut -d'=' -f2
+grep '^NOTION_API_KEY=REDACTED_IN_BACKUP
 ```
 
 ### 2. Identify the Databases to Link

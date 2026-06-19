@@ -43,13 +43,13 @@ For local inference, choose a model file and quantization that fits memory. Veri
 
 For experiments, initialize the project/entity, log config/metrics/artifacts, and preserve run URLs/IDs. For sweeps, start with a minimal config and verify the agent reports metrics before scaling.
 
-## Demoted Source Packages
+## Demoted Source Details
 
-Full source packages preserved for detailed commands, reference pages, and templates:
+Former tool-specific skills were absorbed into non-root support directories so exact commands remain available without fragmenting the LLMOps trigger surface:
 
-- `references/huggingface-hub-package/`
-- `references/llama-cpp-package/`
-- `references/weights-and-biases-package/`
+- `references/huggingface-hub-details/overview.md` — `hf` CLI discovery/download/upload and repo management.
+- `references/llama-cpp-details/overview.md` plus `references/` — local GGUF inference, server mode, optimization, troubleshooting, and Hub discovery.
+- `references/weights-and-biases-details/overview.md` plus `references/` — runs, sweeps, integrations, artifacts, and registry notes.
 
 Use these for exact syntax and deeper troubleshooting while this umbrella remains the class-level trigger.
 

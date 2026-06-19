@@ -64,7 +64,7 @@ def install_node(package: str, *, dry_run: bool = False, comfy_cmd: str = "comfy
 
 def install_model(url: str, folder: str, filename: str | None = None,
                   *, dry_run: bool = False, comfy_cmd: str = "comfy",
-                  hf_token: str | None = None, civitai_token: str | None = None) -> bool:
+                  hf_token: str | None =REDACTED_IN_BACKUP
     cmd = comfy_cmd.split() + [
         "--skip-prompt", "model", "download",
         "--url", url,
@@ -84,18 +84,18 @@ def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description="Run check_deps and install whatever is missing")
     p.add_argument("workflow")
     p.add_argument("--host", default=DEFAULT_LOCAL_HOST)
-    p.add_argument("--api-key", help=f"or set ${ENV_API_KEY}")
+    p.add_argument("--api-key", help=REDACTED_IN_BACKUP
     p.add_argument("--models-from-file",
                    help="JSON file mapping {model_filename: download_url} for models that need install")
-    p.add_argument("--hf-token", help="HuggingFace token for downloads")
-    p.add_argument("--civitai-token", help="CivitAI token for downloads")
+    p.add_argument("--hf-token", help=REDACTED_IN_BACKUP
+    p.add_argument("--civitai-token", help=REDACTED_IN_BACKUP
     p.add_argument("--dry-run", action="store_true",
                    help="Show what would be installed without doing it")
     p.add_argument("--no-restart", action="store_true",
                    help="Don't suggest restarting the server after node install")
     args = p.parse_args(argv)
 
-    api_key = resolve_api_key(args.api_key)
+    api_key =REDACTED_IN_BACKUP
 
     wf_path = Path(args.workflow).expanduser()
     if not wf_path.exists():
@@ -175,7 +175,7 @@ def main(argv: list[str] | None = None) -> int:
         ok = install_model(
             url, entry["folder"], filename,
             dry_run=args.dry_run, comfy_cmd=comfy_cmd,
-            hf_token=args.hf_token, civitai_token=args.civitai_token,
+            hf_token=REDACTED_IN_BACKUP
         )
         (actions if ok else failures).append({
             "kind": "model", "filename": filename, "folder": entry["folder"],
@@ -202,7 +202,7 @@ def main(argv: list[str] | None = None) -> int:
         ok = install_model(
             url, "embeddings", target_filename,
             dry_run=args.dry_run, comfy_cmd=comfy_cmd,
-            hf_token=args.hf_token, civitai_token=args.civitai_token,
+            hf_token=REDACTED_IN_BACKUP
         )
         (actions if ok else failures).append({
             "kind": "embedding", "name": emb_name, "url": url, "ok": ok,

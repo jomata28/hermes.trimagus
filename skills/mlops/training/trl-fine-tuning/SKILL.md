@@ -74,7 +74,7 @@ from datasets import load_dataset
 
 # Load model
 model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-0.5B")
-tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-0.5B")
+tokenizer =REDACTED_IN_BACKUP
 
 # Load instruction dataset
 dataset = load_dataset("trl-lib/Capybara", split="train")
@@ -94,7 +94,7 @@ trainer = SFTTrainer(
     model=model,
     args=training_args,
     train_dataset=dataset,
-    tokenizer=tokenizer
+    tokenizer=REDACTED_IN_BACKUP
 )
 trainer.train()
 trainer.save_model()
@@ -113,7 +113,7 @@ model = AutoModelForSequenceClassification.from_pretrained(
     "Qwen2.5-0.5B-SFT",
     num_labels=1  # Single reward score
 )
-tokenizer = AutoTokenizer.from_pretrained("Qwen2.5-0.5B-SFT")
+tokenizer =REDACTED_IN_BACKUP
 
 # Load preference data (chosen/rejected pairs)
 dataset = load_dataset("trl-lib/ultrafeedback_binarized", split="train")
@@ -224,7 +224,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from trl import DPOTrainer
 
 model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-0.5B-Instruct")
-tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-0.5B-Instruct")
+tokenizer =REDACTED_IN_BACKUP
 
 trainer = DPOTrainer(
     model=model,
@@ -308,7 +308,7 @@ config = GRPOConfig(
     num_train_epochs=1,
     learning_rate=1e-5,
     num_generations=4,  # Generate 4 completions per prompt
-    max_new_tokens=128
+    max_new_tokens=REDACTED_IN_BACKUP
 )
 ```
 

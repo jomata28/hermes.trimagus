@@ -80,11 +80,11 @@ quant_path = "llama-2-70b-awq"
 
 # Load model
 model = AutoAWQForCausalLM.from_pretrained(model_path)
-tokenizer = AutoTokenizer.from_pretrained(model_path)
+tokenizer =REDACTED_IN_BACKUP
 
 # Quantize
 quant_config = {"zero_point": True, "q_group_size": 128, "w_bit": 4}
-model.quantize(tokenizer, quant_config=quant_config)
+model.quantize(tokenizer, quant_config=REDACTED_IN_BACKUP
 
 # Save
 model.save_quantized(quant_path)
@@ -129,7 +129,7 @@ model_name = "meta-llama/Llama-2-13b-hf"
 quantized_name = "llama-2-13b-gptq"
 
 # Load model
-tokenizer = AutoTokenizer.from_pretrained(model_name)
+tokenizer =REDACTED_IN_BACKUP
 model = AutoGPTQForCausalLM.from_pretrained(model_name, quantize_config)
 
 # Prepare calibration data

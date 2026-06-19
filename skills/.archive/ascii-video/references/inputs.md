@@ -298,7 +298,7 @@ For narrated videos (testimonials, quotes, storytelling), generate speech audio 
 ```python
 import requests, time, os
 
-def generate_tts(text, voice_id, api_key, output_path, model="eleven_multilingual_v2"):
+def generate_tts(text, voice_id, api_key, output_path, model=REDACTED_IN_BACKUP
     """Generate TTS audio via ElevenLabs API. Streams response to disk."""
     # Skip if already generated (idempotent re-runs)
     if os.path.exists(output_path) and os.path.getsize(output_path) > 1000:

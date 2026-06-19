@@ -14,7 +14,7 @@ Use this skill when the user wants to connect Apify, inspect scraper runs/datase
 1. **Authenticate with an API token**
    - Prefer an environment variable for commands:
      ```bash
-     export APIFY_TOKEN='apify_api_...'
+     export APIFY_TOKEN=REDACTED_IN_BACKUP
      ```
    - Do not persist or echo the raw token in notes, skills, or final summaries.
    - Verify token:
@@ -26,10 +26,10 @@ Use this skill when the user wants to connect Apify, inspect scraper runs/datase
 2. **Inventory available Apify assets**
    ```bash
    BASE=https://api.apify.com/v2
-   curl -s -H "Authorization: Bearer $APIFY_TOKEN" "$BASE/actors?limit=50&desc=1" | jq '.data.items[] | {id,name,title,modifiedAt}'
-   curl -s -H "Authorization: Bearer $APIFY_TOKEN" "$BASE/actor-tasks?limit=50&desc=1" | jq '.data.items[] | {id,name,actId,modifiedAt}'
-   curl -s -H "Authorization: Bearer $APIFY_TOKEN" "$BASE/actor-runs?limit=50&desc=1" | jq '.data.items[] | {id,actId,status,defaultDatasetId,startedAt,finishedAt}'
-   curl -s -H "Authorization: Bearer $APIFY_TOKEN" "$BASE/datasets?limit=50&desc=1" | jq '.data.items[] | {id,name,itemCount,createdAt,modifiedAt}'
+   curl -s -H "Authorization: Bearer $APIFY_TOKEN" "$BASE/actors?limit=REDACTED_IN_BACKUP
+   curl -s -H "Authorization: Bearer $APIFY_TOKEN" "$BASE/actor-tasks?limit=REDACTED_IN_BACKUP
+   curl -s -H "Authorization: Bearer $APIFY_TOKEN" "$BASE/actor-runs?limit=REDACTED_IN_BACKUP
+   curl -s -H "Authorization: Bearer $APIFY_TOKEN" "$BASE/datasets?limit=REDACTED_IN_BACKUP
    ```
 
 3. **Inspect a dataset**

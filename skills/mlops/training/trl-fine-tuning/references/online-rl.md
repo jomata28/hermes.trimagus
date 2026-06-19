@@ -49,7 +49,7 @@ def reward_func(completions, **kwargs):
 config = GRPOConfig(
     output_dir="model-grpo",
     num_generations=4,  # Completions per prompt
-    max_new_tokens=128
+    max_new_tokens=REDACTED_IN_BACKUP
 )
 
 trainer = GRPOTrainer(

@@ -28,7 +28,7 @@ Talk to Notion two ways. Same integration token works for both — pick by what'
 2. Copy the API key (starts with `ntn_` or `secret_`)
 3. Store in `~/.hermes/.env`:
    ```
-   NOTION_API_KEY=ntn_your_key_here
+   NOTION_API_KEY=REDACTED_IN_BACKUP
    ```
 4. **Share target pages/databases with the integration** in Notion: page menu `...` → `Connect to` → your integration name. Without this, the API returns 404 for that page even though it exists.
 
@@ -46,7 +46,7 @@ ntn --version    # verify
 
 **Skip `ntn login` — use the integration token instead.** This works headlessly, no browser needed:
 ```bash
-export NOTION_API_TOKEN=$NOTION_API_KEY      # ntn reads NOTION_API_TOKEN
+export NOTION_API_TOKEN=REDACTED_IN_BACKUP
 export NOTION_KEYRING=0                       # don't try to use the OS keychain
 ```
 
@@ -385,7 +385,7 @@ ntn workers list
 ntn workers exec <capability-key> -d '{"name": "world"}'
 ntn workers sync trigger <key>            # run a sync now
 ntn workers sync pause <key>
-ntn workers env set GITHUB_WEBHOOK_SECRET=...
+ntn workers env set GITHUB_WEBHOOK_SECRET=REDACTED_IN_BACKUP
 ntn workers runs list                     # recent invocations
 ntn workers runs logs <run-id>
 ntn workers webhooks list

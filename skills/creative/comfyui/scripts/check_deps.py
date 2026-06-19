@@ -265,11 +265,11 @@ def suggest_git_url(node_class: str) -> str | None:
 
 
 def check_deps(
-    workflow: dict, host: str, *, api_key: str | None = None,
+    workflow: dict, host: str, *, api_key: str | None =REDACTED_IN_BACKUP
 ) -> dict:
     headers: dict[str, str] = {}
     if api_key:
-        headers["X-API-Key"] = api_key
+        headers["X-API-Key"] =REDACTED_IN_BACKUP
 
     is_cloud = is_cloud_host(host)
     base = host.rstrip("/")
@@ -388,7 +388,7 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("workflow", help="Path to workflow API JSON file")
     p.add_argument("--host", default=DEFAULT_LOCAL_HOST, help="ComfyUI server URL")
     p.add_argument("--port", type=int, help="Server port (overrides --host port)")
-    p.add_argument("--api-key", help=f"API key for cloud (or set ${ENV_API_KEY} env var)")
+    p.add_argument("--api-key", help=REDACTED_IN_BACKUP
     p.add_argument("--strict", action="store_true",
                    help="Exit non-zero if node check is skipped (e.g. on cloud free tier)")
     args = p.parse_args(argv)
@@ -401,7 +401,7 @@ def main(argv: list[str] | None = None) -> int:
         new_netloc = f"{parsed.hostname}:{args.port}"
         host = urlunparse(parsed._replace(netloc=new_netloc))
 
-    api_key = resolve_api_key(args.api_key)
+    api_key =REDACTED_IN_BACKUP
 
     wf_path = Path(args.workflow).expanduser()
     if not wf_path.exists():

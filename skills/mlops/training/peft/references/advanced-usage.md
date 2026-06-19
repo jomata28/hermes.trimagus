@@ -199,8 +199,8 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from peft import get_peft_model, LoraConfig
 
 # Add new tokens
-tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3.1-8B")
-new_tokens = ["<custom_token_1>", "<custom_token_2>"]
+tokenizer =REDACTED_IN_BACKUP
+new_tokens =REDACTED_IN_BACKUP
 tokenizer.add_tokens(new_tokens)
 
 # Resize model embeddings
@@ -455,7 +455,7 @@ def format_chat(example):
         {"role": "user", "content": example["instruction"]},
         {"role": "assistant", "content": example["response"]}
     ]
-    return tokenizer.apply_chat_template(messages, tokenize=False)
+    return tokenizer.apply_chat_template(messages, tokenize=REDACTED_IN_BACKUP
 
 trainer = SFTTrainer(
     model=model,

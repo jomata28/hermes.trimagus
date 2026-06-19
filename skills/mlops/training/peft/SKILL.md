@@ -20,7 +20,7 @@ Fine-tune LLMs by training <1% of parameters using LoRA, QLoRA, and 25+ adapter 
 **Use PEFT/LoRA when:**
 - Fine-tuning 7B-70B models on consumer GPUs (RTX 4090, A100)
 - Need to train <1% parameters (6MB adapters vs 14GB full model)
-- Want fast iteration with multiple taREDACTED_TOKEN_IN_BACKUP adapters
+- Want fast iteration with multiple task-specific adapters
 - Deploying multiple fine-tuned variants from one base model
 
 **Use QLoRA (PEFT + quantization) when:**
@@ -58,8 +58,8 @@ from datasets import load_dataset
 # Load base model
 model_name = "meta-llama/Llama-3.1-8B"
 model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype="auto", device_map="auto")
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-tokenizer.pad_token = tokenizer.eos_token
+tokenizer =REDACTED_IN_BACKUP
+tokenizer.pad_token =REDACTED_IN_BACKUP
 
 # LoRA configuration
 lora_config = LoraConfig(
@@ -81,9 +81,9 @@ dataset = load_dataset("databricks/databricks-dolly-15k", split="train")
 
 def tokenize(example):
     text = f"### Instruction:\n{example['instruction']}\n\n### Response:\n{example['response']}"
-    return tokenizer(text, truncation=True, max_length=512, padding="max_length")
+    return tokenizer(text, truncation=REDACTED_IN_BACKUP
 
-tokenized = dataset.map(tokenize, remove_columns=dataset.column_names)
+tokenized =REDACTED_IN_BACKUP
 
 # Training
 training_args = TrainingArguments(
@@ -279,7 +279,7 @@ from peft import PrefixTuningConfig
 
 prefix_config = PrefixTuningConfig(
     task_type="CAUSAL_LM",
-    num_virtual_tokens=20,      # Prepended tokens
+    num_virtual_tokens=REDACTED_IN_BACKUP
     prefix_projection=True       # Use MLP projection
 )
 model = get_peft_model(model, prefix_config)

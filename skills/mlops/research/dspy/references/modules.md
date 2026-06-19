@@ -416,7 +416,7 @@ loaded_qa.load("models/qa_v1.json")
 1. **Start with Predict**, add reasoning only if needed
 2. **Use batch processing** for multiple inputs
 3. **Cache predictions** for repeated queries
-4. **Profile token usage** with `track_usage=True`
+4. **Profile token usage** with `track_usage=REDACTED_IN_BACKUP
 5. **Optimize after prototyping** with teleprompters
 
 ## Common Patterns

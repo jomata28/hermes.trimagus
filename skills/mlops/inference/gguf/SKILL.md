@@ -209,7 +209,7 @@ llm = Llama(
 # Generate
 output = llm(
     "What is machine learning?",
-    max_tokens=256,
+    max_tokens=REDACTED_IN_BACKUP
     temperature=0.7,
     stop=["</s>", "\n\n"]
 )
@@ -235,7 +235,7 @@ messages = [
 
 response = llm.create_chat_completion(
     messages=messages,
-    max_tokens=256,
+    max_tokens=REDACTED_IN_BACKUP
     temperature=0.7
 )
 print(response["choices"][0]["message"]["content"])
@@ -251,7 +251,7 @@ llm = Llama(model_path="./model-q4_k_m.gguf", n_gpu_layers=35)
 # Stream tokens
 for chunk in llm(
     "Explain quantum computing:",
-    max_tokens=256,
+    max_tokens=REDACTED_IN_BACKUP
     stream=True
 ):
     print(chunk["choices"][0]["text"], end="", flush=True)
@@ -284,13 +284,13 @@ from openai import OpenAI
 
 client = OpenAI(
     base_url="http://localhost:8080/v1",
-    api_key="not-needed"
+    api_key=REDACTED_IN_BACKUP
 )
 
 response = client.chat.completions.create(
     model="local-model",
     messages=[{"role": "user", "content": "Hello!"}],
-    max_tokens=256
+    max_tokens=REDACTED_IN_BACKUP
 )
 print(response.choices[0].message.content)
 ```

@@ -79,7 +79,7 @@ After entering credentials once, they're saved and reused for all future operati
 
 ```bash
 # Cache in memory for 8 hours (28800 seconds) instead of saving to disk
-git config --global credential.helper 'cache --timeout=28800'
+git config --global credential.helper 'cache --timeout=REDACTED_IN_BACKUP
 ```
 
 **Alternative: set the token directly in the remote URL (per-repo)**
@@ -194,7 +194,7 @@ When `gh` is not available, you can still access the full GitHub API using `curl
 
 ```bash
 # Option 1: Export as env var (preferred — keeps it out of commands)
-export GITHUB_TOKEN="<token>"
+export GITHUB_TOKEN=REDACTED_IN_BACKUP
 
 # Then use in curl calls:
 curl -s -H "Authorization: token $GITHUB_TOKEN" \
@@ -220,11 +220,11 @@ if command -v gh &>/dev/null && gh auth status &>/dev/null; then
   echo "AUTH_METHOD=gh"
 elif [ -n "$GITHUB_TOKEN" ]; then
   echo "AUTH_METHOD=curl"
-elif [ -f ~/.hermes/.env ] && grep -q "^GITHUB_TOKEN=" ~/.hermes/.env; then
-  export GITHUB_TOKEN=$(grep "^GITHUB_TOKEN=" ~/.hermes/.env | head -1 | cut -d= -f2 | tr -d '\n\r')
+elif [ -f ~/.hermes/.env ] && grep -q "^GITHUB_TOKEN=REDACTED_IN_BACKUP
+  export GITHUB_TOKEN=REDACTED_IN_BACKUP
   echo "AUTH_METHOD=curl"
 elif grep -q "github.com" ~/.git-credentials 2>/dev/null; then
-  export GITHUB_TOKEN=$(grep "github.com" ~/.git-credentials | head -1 | sed 's|https://[^:]*:\([^@]*\)@.*|\1|')
+  export GITHUB_TOKEN=REDACTED_IN_BACKUP
   echo "AUTH_METHOD=curl"
 else
   echo "AUTH_METHOD=none"

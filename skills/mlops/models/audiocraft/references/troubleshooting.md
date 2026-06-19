@@ -189,7 +189,7 @@ model.set_generation_params(
 # Try MultiBand Diffusion
 from audiocraft.models import MultiBandDiffusion
 mbd = MultiBandDiffusion.get_mbd_musicgen()
-tokens = model.generate_tokens(["prompt"])
+tokens =REDACTED_IN_BACKUP
 wav = mbd.tokens_to_wav(tokens)
 ```
 
@@ -416,14 +416,14 @@ audio_values = model.generate(
     **inputs,
     do_sample=True,           # Enable sampling
     guidance_scale=3.0,       # CFG (not cfg_coef)
-    max_new_tokens=256,       # Token limit (not duration)
+    max_new_tokens=REDACTED_IN_BACKUP
     temperature=1.0
 )
 
 # Calculate tokens from duration
 # ~50 tokens per second
 duration_seconds = 10
-max_tokens = duration_seconds * 50
+max_tokens =REDACTED_IN_BACKUP
 audio_values = model.generate(**inputs, max_new_tokens=max_tokens)
 ```
 

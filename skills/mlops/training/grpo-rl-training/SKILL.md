@@ -1,6 +1,6 @@
 ---
 name: grpo-rl-training
-description: Expert guidance for GRPO/RL fine-tuning with TRL for reasoning and taREDACTED_TOKEN_IN_BACKUP model training
+description: Expert guidance for GRPO/RL fine-tuning with TRL for reasoning and task-specific model training
 version: 1.0.0
 author: Orchestra Research
 license: MIT
@@ -282,8 +282,8 @@ model = AutoModelForCausalLM.from_pretrained(
     device_map="auto"
 )
 
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-tokenizer.pad_token = tokenizer.eos_token
+tokenizer =REDACTED_IN_BACKUP
+tokenizer.pad_token =REDACTED_IN_BACKUP
 
 # Optional: LoRA for parameter-efficient training
 peft_config = LoraConfig(
@@ -322,7 +322,7 @@ trainer.save_model("final_model")
 ```python
 from unsloth import FastLanguageModel
 
-model, tokenizer = FastLanguageModel.from_pretrained(
+model, tokenizer =REDACTED_IN_BACKUP
     model_name="google/gemma-3-1b-it",
     max_seq_length=1024,
     load_in_4bit=True,
@@ -465,7 +465,7 @@ from transformers import pipeline
 generator = pipeline(
     "text-generation",
     model="production_model",
-    tokenizer=tokenizer
+    tokenizer=REDACTED_IN_BACKUP
 )
 
 result = generator(
@@ -473,7 +473,7 @@ result = generator(
         {'role': 'system', 'content': SYSTEM_PROMPT},
         {'role': 'user', 'content': "What is 15 + 27?"}
     ],
-    max_new_tokens=256,
+    max_new_tokens=REDACTED_IN_BACKUP
     do_sample=True,
     temperature=0.7,
     top_p=0.9
@@ -558,7 +558,7 @@ When this skill is loaded:
 1. **Read this entire file** before implementing GRPO training
 2. **Start with the simplest reward function** (e.g., length-based) to validate setup
 3. **Use the templates** in `templates/` directory as starting points
-4. **Reference examples** in `examples/` for taREDACTED_TOKEN_IN_BACKUP implementations
+4. **Reference examples** in `examples/` for task-specific implementations
 5. **Follow the workflow** sequentially (don't skip steps)
 6. **Debug incrementally** - add one reward function at a time
 

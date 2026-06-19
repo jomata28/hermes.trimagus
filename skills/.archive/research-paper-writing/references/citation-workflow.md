@@ -246,7 +246,7 @@ class Paper:
 class CitationManager:
     """Manage citations with verification."""
 
-    def __init__(self, api_key: Optional[str] = None):
+    def __init__(self, api_key: Optional[str] =REDACTED_IN_BACKUP
         self.sch = SemanticScholar(api_key=api_key) if SemanticScholar else None
         self.verified_papers: Dict[str, Paper] = {}
 

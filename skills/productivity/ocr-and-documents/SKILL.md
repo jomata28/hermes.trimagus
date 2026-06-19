@@ -181,7 +181,7 @@ No extra dependencies needed — pymupdf covers split, merge, search, and text e
 
 This umbrella also covers lightweight PDF editing that previously lived in `nano-pdf`.
 
-Use `nano-pdf` when the user asks for text/typo/title edits in a PDF and the task is better expressed as natural-language page edits than as extraction/OCR. Install with `uv tool install nano-pdf` or run via `uvx nano-pdf` when available, then verify the edited PDF visually or by extracting the affected page text. Full source package: `references/nano-pdf-package/`.
+Use `nano-pdf` when the user asks for text/typo/title edits in a PDF and the task is better expressed as natural-language page edits than as extraction/OCR. Install with `uv tool install nano-pdf` or run via `uvx nano-pdf` when available, then verify the edited PDF visually or by extracting the affected page text. Detailed former package: `references/nano-pdf-details/overview.md`.
 
 ## Notes
 

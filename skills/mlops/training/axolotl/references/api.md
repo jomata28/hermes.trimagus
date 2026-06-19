@@ -123,7 +123,7 @@ Example 2 (python):
 ```python
 prompt_strategies.input_output.RawInputOutputStrategy(
     *args,
-    eos_token=None,
+    eos_token=REDACTED_IN_BACKUP
     **kwargs,
 )
 ```
@@ -874,7 +874,7 @@ Compute perplexity in a fixed length sliding window across the sequence.
 
 Example 1 (python):
 ```python
-utils.callbacks.perplexity.Perplexity(tokenizer, max_seq_len, stride=512)
+utils.callbacks.perplexity.Perplexity(tokenizer, max_seq_len, stride=REDACTED_IN_BACKUP
 ```
 
 Example 2 (python):
@@ -2740,7 +2740,7 @@ prompt_strategies.chat_template.ChatTemplateStrategy(
     roles_to_train=None,
     train_on_eos=None,
     train_on_eot=None,
-    eot_tokens=None,
+    eot_tokens=REDACTED_IN_BACKUP
     split_thinking=False,
 )
 ```
@@ -3012,7 +3012,7 @@ Helper function for loading a model, tokenizer, and processor specified in the g
 
 Example 1 (python):
 ```python
-cli.utils.load.load_model_and_tokenizer(cfg, inference=False)
+cli.utils.load.load_model_and_tokenizer(cfg, inference=REDACTED_IN_BACKUP
 ```
 
 ---
@@ -3957,7 +3957,7 @@ Example 1 (python):
 utils.trainer.add_pose_position_ids(
     sample,
     max_context_len=32768,
-    split_on_token_ids=None,
+    split_on_token_ids=REDACTED_IN_BACKUP
     chunks=2,
 )
 ```
@@ -4932,8 +4932,8 @@ utils.collators.batching.BatchSamplerDataCollatorForSeq2Seq(
     padding=True,
     max_length=None,
     pad_to_multiple_of=None,
-    label_pad_token_id=-100,
-    position_pad_token_id=0,
+    label_pad_token_id=REDACTED_IN_BACKUP
+    position_pad_token_id=REDACTED_IN_BACKUP
     return_tensors='pt',
 )
 ```
@@ -4946,8 +4946,8 @@ utils.collators.batching.DataCollatorForSeq2Seq(
     padding=True,
     max_length=None,
     pad_to_multiple_of=None,
-    label_pad_token_id=-100,
-    position_pad_token_id=0,
+    label_pad_token_id=REDACTED_IN_BACKUP
+    position_pad_token_id=REDACTED_IN_BACKUP
     return_tensors='pt',
 )
 ```
@@ -4969,8 +4969,8 @@ utils.collators.batching.V2BatchSamplerDataCollatorForSeq2Seq(
     padding=True,
     max_length=None,
     pad_to_multiple_of=None,
-    label_pad_token_id=-100,
-    position_pad_token_id=0,
+    label_pad_token_id=REDACTED_IN_BACKUP
+    position_pad_token_id=REDACTED_IN_BACKUP
     return_tensors='pt',
     squash_position_ids=False,
 )
@@ -5232,7 +5232,7 @@ Callbacks added after the trainer is created, usually b/c these need access to t
 
 Example 1 (python):
 ```python
-core.builders.base.TrainerBuilderBase(cfg, model, tokenizer, processor=None)
+core.builders.base.TrainerBuilderBase(cfg, model, tokenizer, processor=REDACTED_IN_BACKUP
 ```
 
 Example 2 (python):
@@ -5259,7 +5259,7 @@ Trainer factory class for TRL-based RLHF trainers (e.g. DPO)
 
 Example 1 (python):
 ```python
-core.builders.rl.HFRLTrainerBuilder(cfg, model, tokenizer, processor=None)
+core.builders.rl.HFRLTrainerBuilder(cfg, model, tokenizer, processor=REDACTED_IN_BACKUP
 ```
 
 ---
@@ -5340,7 +5340,7 @@ Prepare training and evaluation datasets based on configuration.
 
 Example 1 (python):
 ```python
-utils.data.sft.prepare_datasets(cfg, tokenizer, processor=None)
+utils.data.sft.prepare_datasets(cfg, tokenizer, processor=REDACTED_IN_BACKUP
 ```
 
 ---

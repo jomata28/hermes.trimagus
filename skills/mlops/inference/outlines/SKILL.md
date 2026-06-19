@@ -224,7 +224,7 @@ generator = outlines.generate.json(model, YourModel)
 # Basic OpenAI support
 model = outlines.models.openai(
     "gpt-4o-mini",
-    api_key="your-api-key"
+    api_key=REDACTED_IN_BACKUP
 )
 
 # Note: Some features limited with API models

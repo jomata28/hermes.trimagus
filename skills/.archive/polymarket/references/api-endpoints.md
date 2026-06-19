@@ -92,7 +92,7 @@ Index 0 = Yes outcome, Index 1 = No outcome.
 ### Current Price
 
 ```
-GET /price?token_id=TOKEN_ID&side=buy
+GET /price?token_id=REDACTED_IN_BACKUP
 ```
 
 Response: `{"price": "0.650"}`
@@ -102,7 +102,7 @@ The `side` parameter: `buy` or `sell`.
 ### Midpoint Price
 
 ```
-GET /midpoint?token_id=TOKEN_ID
+GET /midpoint?token_id=REDACTED_IN_BACKUP
 ```
 
 Response: `{"mid": "0.645"}`
@@ -110,7 +110,7 @@ Response: `{"mid": "0.645"}`
 ### Spread
 
 ```
-GET /spread?token_id=TOKEN_ID
+GET /spread?token_id=REDACTED_IN_BACKUP
 ```
 
 Response: `{"spread": "0.02"}`
@@ -118,7 +118,7 @@ Response: `{"spread": "0.02"}`
 ### Orderbook
 
 ```
-GET /book?token_id=TOKEN_ID
+GET /book?token_id=REDACTED_IN_BACKUP
 ```
 
 Response:

@@ -38,7 +38,7 @@ def refresh_token(token_data: dict) -> dict:
     required_keys = ["client_id", "client_secret", "refresh_token", "token_uri"]
     missing = [k for k in required_keys if k not in token_data]
     if missing:
-        print(f"ERROR: google_token.json is missing required fields: {', '.join(missing)}", file=sys.stderr)
+        print(f"ERROR: google_token.json is missing required fields: {', '.join(missing)}", file=REDACTED_IN_BACKUP
         print("Please re-authenticate by running the Google Workspace setup script.", file=sys.stderr)
         sys.exit(1)
 
@@ -55,37 +55,37 @@ def refresh_token(token_data: dict) -> dict:
             result = json.loads(resp.read())
     except urllib.error.HTTPError as e:
         body = e.read().decode("utf-8", errors="replace")
-        print(f"ERROR: Token refresh failed (HTTP {e.code}): {body}", file=sys.stderr)
+        print(f"ERROR: Token refresh failed (HTTP {e.code}): {body}", file=REDACTED_IN_BACKUP
         print("Re-run setup.py to re-authenticate.", file=sys.stderr)
         sys.exit(1)
 
-    token_data["token"] = result["access_token"]
-    token_data["expiry"] = datetime.fromtimestamp(
+    token_data["token"] =REDACTED_IN_BACKUP
+    token_data["expiry"] =REDACTED_IN_BACKUP
         datetime.now(timezone.utc).timestamp() + result["expires_in"],
         tz=timezone.utc,
     ).isoformat()
 
     get_token_path().write_text(
-        json.dumps(_normalize_authorized_user_payload(token_data), indent=2)
+        json.dumps(_normalize_authorized_user_payload(token_data), indent=REDACTED_IN_BACKUP
     )
     return token_data
 
 
 def get_valid_token() -> str:
     """Return a valid access token, refreshing if needed."""
-    token_path = get_token_path()
+    token_path =REDACTED_IN_BACKUP
     if not token_path.exists():
-        print("ERROR: No Google token found. Run setup.py --auth-url first.", file=sys.stderr)
+        print("ERROR: No Google token found. Run setup.py --auth-url first.", file=REDACTED_IN_BACKUP
         sys.exit(1)
 
-    token_data = json.loads(token_path.read_text())
+    token_data =REDACTED_IN_BACKUP
 
     expiry = token_data.get("expiry", "")
     if expiry:
         exp_dt = datetime.fromisoformat(expiry.replace("Z", "+00:00"))
         now = datetime.now(timezone.utc)
         if now >= exp_dt:
-            token_data = refresh_token(token_data)
+            token_data =REDACTED_IN_BACKUP
 
     return token_data["token"]
 
@@ -96,9 +96,9 @@ def main():
         print("Usage: gws_bridge.py <gws args...>", file=sys.stderr)
         sys.exit(1)
 
-    access_token = get_valid_token()
+    access_token =REDACTED_IN_BACKUP
     env = os.environ.copy()
-    env["GOOGLE_WORKSPACE_CLI_TOKEN"] = access_token
+    env["GOOGLE_WORKSPACE_CLI_TOKEN"] =REDACTED_IN_BACKUP
 
     result = subprocess.run(["gws"] + sys.argv[1:], env=env)
     sys.exit(result.returncode)

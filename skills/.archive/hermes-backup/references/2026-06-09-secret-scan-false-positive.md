@@ -25,7 +25,7 @@ Use two different checks:
    - `AKIA[0-9A-Z]{16}`
    - `AIza[0-9A-Za-z_-]{20,}`
 
-2. **Secret-shaped key assignment scan only for `config.yaml` and `.env`** — parse each non-comment line as `key: value` or `key=value`; only flag when the key itself matches a secret-shaped name and the value is non-empty and not exactly `REDACTED`.
+2. **Secret-shaped key assignment scan only for `config.yaml` and `.env`** — parse each non-comment line as `key: value` or `key=REDACTED_IN_BACKUP
 
 Do **not** run broad secret-key assignment scans over `skills/`; skill docs and code examples commonly include placeholder names like `api_key`, and those false positives block clean cron runs.
 

@@ -80,10 +80,10 @@ from gguf import GGUFWriter
 def convert_with_custom_vocab(model_path, output_path):
     # Load and modify tokenizer
     from transformers import AutoTokenizer
-    tokenizer = AutoTokenizer.from_pretrained(model_path)
+    tokenizer =REDACTED_IN_BACKUP
 
     # Add special tokens if needed
-    special_tokens = {"additional_special_tokens": ["<|custom|>"]}
+    special_tokens =REDACTED_IN_BACKUP
     tokenizer.add_special_tokens(special_tokens)
     tokenizer.save_pretrained(model_path)
 
@@ -220,7 +220,7 @@ def chat(user_message):
 
     response = llm.create_chat_completion(
         messages=conversation,
-        max_tokens=256
+        max_tokens=REDACTED_IN_BACKUP
     )
 
     assistant_message = response["choices"][0]["message"]["content"]
@@ -268,7 +268,7 @@ llm = Llama(model_path="model-q4_k_m.gguf", n_gpu_layers=35)
 output = llm(
     "Output a JSON object with name and age:",
     grammar=json_grammar,
-    max_tokens=100
+    max_tokens=REDACTED_IN_BACKUP
 )
 print(output["choices"][0]["text"])
 ```
@@ -286,7 +286,7 @@ explanation ::= [a-zA-Z0-9 .,!?]+
 output = llm(
     "Q: What is 2+2? A) 3 B) 4 C) 5 D) 6",
     grammar=answer_grammar,
-    max_tokens=100
+    max_tokens=REDACTED_IN_BACKUP
 )
 ```
 
@@ -372,7 +372,7 @@ print(f"Similarity: {sim:.4f}")
 import time
 from llama_cpp import Llama
 
-def benchmark(model_path, prompt, n_tokens=100, n_runs=5):
+def benchmark(model_path, prompt, n_tokens=REDACTED_IN_BACKUP
     llm = Llama(
         model_path=model_path,
         n_gpu_layers=35,
@@ -381,7 +381,7 @@ def benchmark(model_path, prompt, n_tokens=100, n_runs=5):
     )
 
     # Warmup
-    llm(prompt, max_tokens=10)
+    llm(prompt, max_tokens=REDACTED_IN_BACKUP
 
     # Benchmark
     times = []
@@ -392,7 +392,7 @@ def benchmark(model_path, prompt, n_tokens=100, n_runs=5):
         times.append(elapsed)
 
     avg_time = sum(times) / len(times)
-    tokens_per_sec = n_tokens / avg_time
+    tokens_per_sec =REDACTED_IN_BACKUP
 
     print(f"Model: {model_path}")
     print(f"Avg time: {avg_time:.2f}s")
@@ -430,7 +430,7 @@ def find_optimal_config(model_path, target_vram_gb=8):
 
                 # Quick benchmark
                 start = time.time()
-                llm("Hello", max_tokens=50)
+                llm("Hello", max_tokens=REDACTED_IN_BACKUP
                 speed = 50 / (time.time() - start)
 
                 if speed > best_speed:

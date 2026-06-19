@@ -36,9 +36,9 @@ Reuse the token from `google-workspace` skill at `~/.hermes/google_token.json`:
 import json
 from pathlib import Path
 
-gtoken = json.loads(Path.home().joinpath(".hermes/google_token.json").read_text())
+gtoken =REDACTED_IN_BACKUP
 
-token_data = {
+token_data =REDACTED_IN_BACKUP
     "access_token": gtoken["token"],
     "token_type": "Bearer",
     "refresh_token": gtoken["refresh_token"],
@@ -48,9 +48,9 @@ token_data = {
 import json as _json
 rclone_conf = f"""[drive-hermes]
 type = drive
-token = {_json.dumps(token_data)}
+token =REDACTED_IN_BACKUP
 client_id = {gtoken["client_id"]}
-client_secret = {gtoken["client_secret"]}
+client_secret =REDACTED_IN_BACKUP
 """
 
 import os
@@ -202,8 +202,8 @@ Weekly review format:
 
 This umbrella now also covers the generic Obsidian filesystem workflow and the Cieslik Lab vault workflow that previously lived as separate narrow skills.
 
-- **Obsidian filesystem operations:** read/search/create/edit Markdown notes, preserve wikilinks/frontmatter, and resolve the vault path from `OBSIDIAN_VAULT_PATH` or the documented rclone mount before using file tools. Full source package: `references/obsidian-package/`.
-- **Cieslik Lab vault:** use the separate `/root/obsidian-lab/` / `drive-hermes:cieslik-lab` mount for lab records, mouse logs, echo data, surgery/frailty notes, and Google Sheets sync. Never mix personal Bitácora data with lab data. Full source package: `references/obsidian-package/`.
+- **Obsidian filesystem operations:** read/search/create/edit Markdown notes, preserve wikilinks/frontmatter, and resolve the vault path from `OBSIDIAN_VAULT_PATH` or the documented rclone mount before using file tools. Detailed former package: `references/obsidian-details/overview.md`.
+- **Cieslik Lab vault:** use the separate `/root/obsidian-lab/` / `drive-hermes:cieslik-lab` mount for lab records, mouse logs, echo data, surgery/frailty notes, and Google Sheets sync. Never mix personal Bitácora data with lab data. Full source package remains under `references/lab-data-package/`.
 - **Mouse frailty workbook updates:** when Jose sends frailty-index voice notes, follow `references/lab-data-package/references/frailty-workbook-update-workflow.md`. Key pitfall: append after the last non-empty Mouse ID row, not the first blank row, because the sheet has blank separators between cohort blocks. Back up the workbook first and verify by re-downloading the uploaded file.
 
 ## Pitfalls

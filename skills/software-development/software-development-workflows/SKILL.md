@@ -69,16 +69,16 @@ Before handoff, inspect diffs, run formatting/lint/tests/security checks appropr
 
 For web apps, use browser tooling to exercise primary flows, edge cases, and error states. Capture screenshots/logs/steps for bugs. See `references/dogfood/` if present for issue taxonomy and report templates.
 
-## Demoted Source Packages
+## Demoted Source Details
 
-Full source packages preserved for detailed recipes and original wording:
+Full source packages were absorbed into non-root support directories so they remain discoverable without registering as separate micro-skills:
 
-- `references/plan-package/`
-- `references/spike-package/`
-- `references/systematic-debugging-package/`
-- `references/test-driven-development-package/`
-- `references/requesting-code-review-package/`
-- `references/dogfood-package/`
+- `references/plan-details/overview.md` — plan-mode rules and plan writing conventions.
+- `references/spike-details/overview.md` — disposable experiment workflow and promotion criteria.
+- `references/systematic-debugging-details/overview.md` — evidence-first root-cause workflow.
+- `references/test-driven-development-details/overview.md` — RED/GREEN/REFACTOR details.
+- `references/requesting-code-review-details/overview.md` — pre-commit review and security scan workflow.
+- `references/dogfood-details/overview.md` plus `references/dogfood-details/references/` and `templates/` — exploratory QA issue taxonomy and report template.
 
 Use these as supporting references; the class-level selector above should remain the primary trigger surface.
 

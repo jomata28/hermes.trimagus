@@ -44,12 +44,12 @@ Use explicit heuristics or classifiers for refusal phrases, hedging, policy redi
 
 For open weights, use small reproducible runs before full checkpoints: load model/tokenizer, collect contrasting activation sets, estimate refusal directions, apply projection/removal, and evaluate both refusal reduction and capability degradation.
 
-## Demoted Source Packages
+## Demoted Source Details
 
-Full source packages are preserved for detailed templates, scripts, and reference material:
+Former technique-named skills were absorbed into non-root support directories so they remain reference material without competing as standalone triggers:
 
-- `references/godmode-package/`
-- `references/obliteratus-package/`
+- `references/godmode-details/overview.md` plus `references/`, `templates/`, and `scripts/` — prompt/API jailbreak templates, Parseltongue/GODMODE scripts, and refusal detection notes.
+- `references/obliteratus-details/overview.md` plus `references/` and `templates/` — diff-in-means refusal-direction abliteration methods, analysis modules, and batch config templates.
 
 ## Common Pitfalls
 

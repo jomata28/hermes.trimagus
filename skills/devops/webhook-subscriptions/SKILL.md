@@ -35,15 +35,15 @@ platforms:
     extra:
       host: "0.0.0.0"
       port: 8644
-      secret: "generate-a-strong-secret-here"
+      secret: REDACTED_IN_BACKUP
 ```
 
 ### Option 3: Environment variables
 Add to `~/.hermes/.env`:
 ```bash
-WEBHOOK_ENABLED=true
-WEBHOOK_PORT=8644
-WEBHOOK_SECRET=generate-a-strong-secret-here
+WEBHOOK_ENABLED=REDACTED_IN_BACKUP
+WEBHOOK_PORT=REDACTED_IN_BACKUP
+WEBHOOK_SECRET=REDACTED_IN_BACKUP
 ```
 
 After configuration, start (or restart) the gateway:
@@ -117,7 +117,7 @@ hermes webhook subscribe github-issues \
 Then in GitHub repo Settings → Webhooks → Add webhook:
 - Payload URL: the returned webhook_url
 - Content type: application/json
-- Secret: the returned secret
+- Secret: REDACTED_IN_BACKUP
 - Events: "Issues"
 
 ### GitHub: PR reviews

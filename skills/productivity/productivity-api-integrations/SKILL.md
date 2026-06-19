@@ -50,13 +50,13 @@ Use this umbrella for API-backed productivity and data services. The common clas
 - Geocode before route/POI queries; verify coordinates and bounding boxes to avoid wrong-city results.
 - Report assumptions such as travel mode, radius, and timezone.
 
-## Demoted Source Packages
+## Demoted Source Details
 
-Full source packages preserved for detailed service-specific commands and examples:
+Service-specific skills are absorbed as support material rather than separate triggers:
 
-- `references/airtable-package/`
-- `references/apify-package/`
-- `references/maps-package/`
+- `references/airtable-details/overview.md` — Airtable REST CRUD, formulas, upserts, and pagination examples.
+- `references/apify-package/` — Apify actor/run/dataset diagnostics and export notes.
+- `references/maps-details/overview.md` plus `scripts/maps_client.py` — geocoding, POI, routes, and timezone helpers.
 
 Use these for exact endpoint/CLI examples while keeping this umbrella as the discoverable entry point.
 

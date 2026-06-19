@@ -179,7 +179,7 @@ llm = LLM(
 sampling = SamplingParams(
     temperature=0.7,
     top_p=0.95,
-    max_tokens=512,
+    max_tokens=REDACTED_IN_BACKUP
     stop=["</s>", "\n\n"]
 )
 ```
@@ -264,7 +264,7 @@ Test outputs match expected quality:
 
 ```python
 # Compare quantized vs non-quantized responses
-# Verify taREDACTED_TOKEN_IN_BACKUP performance unchanged
+# Verify task-specific performance unchanged
 ```
 
 ## When to use vs alternatives

@@ -1,12 +1,12 @@
 # SFT Training Guide
 
-Complete guide to Supervised Fine-Tuning (SFT) with TRL for instruction tuning and taREDACTED_TOKEN_IN_BACKUP fine-tuning.
+Complete guide to Supervised Fine-Tuning (SFT) with TRL for instruction tuning and task-specific fine-tuning.
 
 ## Overview
 
 SFT trains models on input-output pairs to minimize cross-entropy loss. Use for:
 - Instruction following
-- TaREDACTED_TOKEN_IN_BACKUP fine-tuning
+- Task-specific fine-tuning
 - Chatbot training
 - Domain adaptation
 
@@ -53,7 +53,7 @@ from datasets import load_dataset
 
 # Load model
 model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-0.5B")
-tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-0.5B")
+tokenizer =REDACTED_IN_BACKUP
 
 # Load dataset
 dataset = load_dataset("trl-lib/Capybara", split="train")
@@ -72,7 +72,7 @@ trainer = SFTTrainer(
     model=model,
     args=config,
     train_dataset=dataset,
-    tokenizer=tokenizer
+    tokenizer=REDACTED_IN_BACKUP
 )
 trainer.train()
 ```
@@ -86,7 +86,7 @@ trainer = SFTTrainer(
     model=model,
     args=config,
     train_dataset=dataset,  # Messages format
-    tokenizer=tokenizer
+    tokenizer=REDACTED_IN_BACKUP
     # Chat template applied automatically
 )
 ```

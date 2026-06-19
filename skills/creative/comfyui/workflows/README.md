@@ -32,7 +32,7 @@ python3 ../scripts/run_workflow.py \
   --output-dir ./out
 
 # Cloud (set API key once)
-export COMFY_CLOUD_API_KEY="comfyui-..."
+export COMFY_CLOUD_API_KEY=REDACTED_IN_BACKUP
 python3 ../scripts/run_workflow.py \
   --workflow flux_dev_txt2img.json \
   --args '{"prompt": "a fox in a misty forest"}' \

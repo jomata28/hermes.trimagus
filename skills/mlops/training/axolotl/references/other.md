@@ -197,7 +197,7 @@ Q: EOT token __ is encoded as multiple tokens.
 
 A: This is because the EOT token is encoded as multiple tokens which can cause unexpected behavior. Please add it under tokens: or (recommended) override unused added_tokens via added_tokens_overrides:.
 
-Q: Conflict between train_on_eos and train_on_eot. eos_token is in eot_tokens and train_on_eos != train_on_eot
+Q: Conflict between train_on_eos and train_on_eot. eos_token is in eot_tokens and train_on_eos !=REDACTED_IN_BACKUP
 
 A: This is because the EOS token is in the eot_tokens: while mismatch between train_on_eos: and train_on_eot:. This will cause one to override the other. Please ensure that train_on_eos: and train_on_eot: are the same or remove the EOS token from eot_tokens:.
 
@@ -229,7 +229,7 @@ Example 1 (yaml):
 ```yaml
 special_tokens:
   # str. If you're not sure, set to same as `eos_token`.
-  pad_token: "..."
+  pad_token: REDACTED_IN_BACKUP
 ```
 
 Example 2 (yaml):
@@ -559,7 +559,7 @@ Example 1 (yaml):
 base_model: google/gemma-2-2b
 model_type: AutoModelForSequenceClassification
 num_labels: 1
-tokenizer_type: AutoTokenizer
+tokenizer_type: REDACTED_IN_BACKUP
 
 reward_model: true
 chat_template: gemma
@@ -1499,7 +1499,7 @@ And, configure the nested diffusion block (defaults shown):
 
 Any models that support 4D attention masks should work out of the box. If not, please create an issue or open a PR!
 
-During training, tokens are randomly masked: - Sample timestep t uniformly from [0, 1] - Calculate masking probability: p = (1 - eps) * t + eps - Randomly mask tokens with probability p
+During training, tokens are randomly masked: - Sample timestep t uniformly from [0, 1] - Calculate masking probability: p =REDACTED_IN_BACKUP
 
 Loss is computed only on masked tokens with (optional) importance weighting:
 
@@ -1652,7 +1652,7 @@ resume_from_checkpoint: str | None
 auto_resume_from_checkpoints: bool | None
 # Resize the model embeddings when new tokens are added to multiples of 32. This is
 # reported to improve training speed on some models
-resize_token_embeddings_to_32x: bool | None
+resize_token_embeddings_to_32x: REDACTED_IN_BACKUP
 mean_resizing_embeddings: bool | None = False
 
 # Whether to shrink the embeddings to len(tokenizer). By default, we won't shrink.
@@ -2288,7 +2288,7 @@ remove_unused_columns: bool | None
 push_dataset_to_hub: str | None
 # Whether to use hf `use_auth_token` for loading datasets. Useful for fetching private
 # datasets. Required to be true when used in combination with `push_dataset_to_hub`
-hf_use_auth_token: bool | None
+hf_use_auth_token: REDACTED_IN_BACKUP
 
 device: Any | None
 # Passed through to transformers when loading the model when launched without
@@ -2313,7 +2313,7 @@ ddp_find_unused_parameters: bool | None
 # 0. Default is 0
 eval_table_size: int | None
 # Total number of tokens generated for predictions sent to wandb. Default is 128
-eval_max_new_tokens: int | None
+eval_max_new_tokens: REDACTED_IN_BACKUP
 # Whether to run causal language model evaluation for metrics in
 # `eval_causal_lm_metrics`
 do_causal_lm_eval: bool | None
@@ -2407,7 +2407,7 @@ multipack_real_batches: bool | None
 batch_flattening: Literal['auto'] | bool | None
 
 use_pose: bool | None
-pose_split_on_token_ids: list[int] | None
+pose_split_on_token_ids: REDACTED_IN_BACKUP
 pose_max_context_len: int | None
 pose_num_chunks: int | None
 
@@ -2554,20 +2554,20 @@ tensor_parallel_size: int | None
 
 # Add or change special tokens. If you add tokens here, you don't need to add them to
 # the `tokens` list.
-special_tokens: SpecialTokensConfig | None
+special_tokens: REDACTED_IN_BACKUP
   # For SpecialTokensConfig:
-  bos_token: str | None
-  eos_token: str | None
-  pad_token: str | None
-  unk_token: str | None
-  additional_special_tokens: list[str] | None
+  bos_token: REDACTED_IN_BACKUP
+  eos_token: REDACTED_IN_BACKUP
+  pad_token: REDACTED_IN_BACKUP
+  unk_token: REDACTED_IN_BACKUP
+  additional_special_tokens: REDACTED_IN_BACKUP
 
 # Add extra tokens to the tokenizer
-tokens: list[str] | None
+tokens: REDACTED_IN_BACKUP
 # Mapping token_id to new_token_string to override reserved added_tokens in the
 # tokenizer. Only works for tokens that are not part of the base vocab (aka are
 # added_tokens). Can be checked if they exist in tokenizer.json added_tokens.
-added_tokens_overrides: dict[int, str] | None
+added_tokens_overrides: REDACTED_IN_BACKUP
 
 # Whether to use torch.compile and which backend to use. setting to `auto` will enable
 # torch compile when torch>=2.6.0
@@ -2626,7 +2626,7 @@ profiler_steps: int | None
 profiler_steps_start: int | None = 0
 # bool of whether to report tokens per second at the end of training. This is not
 # supported with pre-training datasets.
-include_tokens_per_second: bool | None
+include_tokens_per_second: REDACTED_IN_BACKUP
 # bool of whether to report tokens per second per-gpu during training by measuring
 # throughput of non-padding tokens.
 include_tkps: bool | None = True
@@ -2685,20 +2685,20 @@ chat_template_kwargs: dict[str, Any] | None
 # boundaries between conversation turns. For example: ['/INST', '</s>',
 # '[/SYSTEM_PROMPT]']. If not specified, defaults to just the model's eos_token. This is
 # useful for templates that use multiple delimiter tokens.
-eot_tokens: list[str] | None
+eot_tokens: REDACTED_IN_BACKUP
 # Changes the default system message. Currently only supports chatml.
 default_system_message: str | None
 
 # Token index or indices to adjust embedding weights to the mean of the other tokens.
 # This is useful when the model has untrained embeddings.
-fix_untrained_tokens: int | list[int] | None
+fix_untrained_tokens: REDACTED_IN_BACKUP
 
 is_preprocess: bool | None
 preprocess_iterable: bool | None
 
 # Total number of tokens - internal use
-total_num_tokens: int | None
-total_supervised_tokens: int | None
+total_num_tokens: REDACTED_IN_BACKUP
+total_supervised_tokens: REDACTED_IN_BACKUP
 # You can set these packing optimizations AFTER starting a training at least once. The
 # trainer will provide recommended values for these values.
 sample_packing_eff_est: float | None
@@ -2728,20 +2728,20 @@ base_model_config: str | None
 cls_model_config: str | None
 # Optional tokenizer configuration path in case you want to use a different tokenizer
 # than the one defined in the base model
-tokenizer_config: str | None
+tokenizer_config: REDACTED_IN_BACKUP
 # use_fast option for tokenizer loading from_pretrained, default to True
-tokenizer_use_fast: bool | None
+tokenizer_use_fast: REDACTED_IN_BACKUP
 # Whether to use the legacy tokenizer setting, defaults to True
-tokenizer_legacy: bool | None
+tokenizer_legacy: REDACTED_IN_BACKUP
 # Whether to use mistral-common tokenizer. If set to True, it will use the mistral-
 # common tokenizer.
-tokenizer_use_mistral_common: bool | None
+tokenizer_use_mistral_common: REDACTED_IN_BACKUP
 # Corresponding tokenizer for the model AutoTokenizer is a good choice
-tokenizer_type: str | None
+tokenizer_type: REDACTED_IN_BACKUP
 # transformers processor class
 processor_type: str | None
 # Whether to save jinja files for tokenizer, transformers default is True
-tokenizer_save_jinja_files: bool | None = True
+tokenizer_save_jinja_files: bool | None =REDACTED_IN_BACKUP
 # Trust remote code for untrusted source
 trust_remote_code: bool | None
 
@@ -2816,7 +2816,7 @@ peft_init_lora_weights: bool | str | None
 # mapping an embedding layer name to its trainable token indices. See
 # https://huggingface.co/docs/peft/v0.17.0/en/developer_guides/lora#efficiently-train-
 # tokens-alongside-lora
-peft_trainable_token_indices: list[int] | dict[str, list[int]] | None
+peft_trainable_token_indices: REDACTED_IN_BACKUP
 
 # load qlora model in sharded format for FSDP using answer.ai technique.
 qlora_sharded_model_loading: bool | None = False
@@ -2961,7 +2961,7 @@ hf_mlflow_log_artifacts: bool | None
 # Enable or disable Comet integration.
 use_comet: bool | None
 # API key for Comet. Recommended to set via `comet login`.
-comet_api_key: str | None
+comet_api_key: REDACTED_IN_BACKUP
 # Workspace name in Comet. Defaults to the user's default workspace.
 comet_workspace: str | None
 # Project name in Comet. Defaults to Uncategorized.
@@ -2996,7 +2996,7 @@ gradio_title: str | None
 gradio_share: bool | None
 gradio_server_name: str | None
 gradio_server_port: int | None
-gradio_max_new_tokens: int | None
+gradio_max_new_tokens: REDACTED_IN_BACKUP
 gradio_temperature: float | None
 
 use_ray: bool = False

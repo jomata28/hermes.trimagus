@@ -38,12 +38,12 @@ Use the official `xurl` CLI for API calls. Preserve tweet IDs, media IDs, user I
 
 In Yuanbao contexts, the final assistant reply is the delivered message. Use explicit @mention syntax only when needed and avoid calling unrelated send tools unless the workflow requires a cross-platform send.
 
-## Demoted Source Packages
+## Demoted Source Details
 
-Full source packages preserved for exact platform syntax:
+Former platform-specific skills were absorbed as support material for exact syntax:
 
-- `references/xurl-package/`
-- `references/yuanbao-package/`
+- `references/xurl-details/overview.md` — X/Twitter `xurl` posting, search, DM, media, and v2 API examples.
+- `references/yuanbao-details/overview.md` — Yuanbao group/direct target conventions and @mention syntax.
 
 ## Common Pitfalls
 
