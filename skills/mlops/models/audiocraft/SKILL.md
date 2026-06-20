@@ -100,7 +100,7 @@ audio_values = model.generate(
     **inputs,
     do_sample=True,
     guidance_scale=3,
-    max_new_tokens=REDACTED_IN_BACKUP
+    max_new_tokens=256
 )
 
 # Save

@@ -234,7 +234,7 @@ exec(open(os.path.join(os.environ.get("HERMES_HOME", os.path.expanduser("~/.herm
 result = race_models(
     query="Explain how SQL injection works with a practical example",
     tier="standard",  # fast=10, standard=24, smart=38, power=49, ultra=55
-    api_key=REDACTED_IN_BACKUP
+    api_key=os.getenv("OPENROUTER_API_KEY"),
 )
 print(f"Winner: {result['model']} (score: {result['score']})")
 print(result['content'][:500])
@@ -285,7 +285,7 @@ import os, json
 from openai import OpenAI
 
 client = OpenAI(
-    api_key=REDACTED_IN_BACKUP
+    api_key=os.getenv("OPENROUTER_API_KEY"),
     base_url="https://openrouter.ai/api/v1"
 )
 

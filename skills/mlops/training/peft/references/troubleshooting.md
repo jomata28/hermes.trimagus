@@ -428,11 +428,11 @@ print_memory()  # After
 import time
 import torch
 
-def benchmark_generation(model, tokenizer, prompt, n_runs=REDACTED_IN_BACKUP
+def benchmark_generation(model, tokenizer, prompt, n_runs=5):
     inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
 
     # Warmup
-    model.generate(**inputs, max_new_tokens=REDACTED_IN_BACKUP
+    model.generate(**inputs, max_new_tokens=10)
     torch.cuda.synchronize()
 
     # Benchmark
@@ -443,7 +443,7 @@ def benchmark_generation(model, tokenizer, prompt, n_runs=REDACTED_IN_BACKUP
         torch.cuda.synchronize()
         times.append(time.perf_counter() - start)
 
-    tokens =REDACTED_IN_BACKUP
+    tokens = outputs.shape[1] - inputs.input_ids.shape[1]
     avg_time = sum(times) / len(times)
     print(f"Speed: {tokens/avg_time:.2f} tokens/sec")
 

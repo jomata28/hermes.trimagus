@@ -50,7 +50,7 @@ PASS=$(openssl rand -base64 18 | tr -d '=+/ ' | cut -c1-14)
 mkdir -p /root/.notebooklm
 printf '%s' "$PASS" > /root/.notebooklm/vnc_password.txt
 x11vnc -storepasswd "$PASS" /root/.notebooklm/x11vnc.pass >/dev/null
-printf 'VNC_PASSWORD=REDACTED_IN_BACKUP
+printf 'VNC_PASSWORD=%s\n' "$PASS"
 ```
 
 Start the stack using a script (the terminal tool rejects direct foreground commands with `&` backgrounding):

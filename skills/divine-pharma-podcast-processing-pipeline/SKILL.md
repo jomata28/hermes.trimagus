@@ -398,7 +398,7 @@ Reference: see `references/live-site-placeholder-completion.md` for the live-sit
   - Fine-tuning a model on pharmacology text
   - Using few-shot prompting with examples
   - Implementing rule-based extraction for known patterns (drug names, mechanisms)
-- **Duplicate Processing**: Tracking processed episodes by ID prevents re-processing same episode
+- **Duplicate Processing**: Tracking processed episodes by ID prevents re-processing same episode. For live-site fallback, also de-duplicate by normalized episode title/number and existing note filenames/frontmatter because the same episode URL can hash to different `live:<hash>` IDs depending on URL normalization (date URL vs canonical URL, trailing slash, query string). If a matching existing note is a placeholder, complete/replace that note instead of creating a new dated duplicate.
 - **Error Handling**: Production script should include more robust error checking and logging, including timeout handling for transcription
 - **Vault Location**: Adjust Obsidian vault path to match actual setup (in this environment: `/root/Divine-Pharmacology`)
 - **Timing**: 7:00 AM CST = 13:00 UTC (adjust cron if server is in different timezone)

@@ -232,7 +232,7 @@ from openai import OpenAI
 
 client = OpenAI(
     base_url="http://localhost:8000/v1",
-    api_key=REDACTED_IN_BACKUP
+    api_key="EMPTY",
     timeout=300.0  # 5 minute timeout
 )
 ```

@@ -410,7 +410,7 @@ class TestRedirectHeaderStripping:
         orig.prepare(method="GET", url="https://cloud.comfy.org/bar", headers={})
         resp.request = orig
         s.rebuild_auth(prep, resp)
-        assert prep.headers.get("X-API-Key") =REDACTED_IN_BACKUP
+        assert prep.headers.get("X-API-Key") == "keep"
 
     def test_strips_cookie_cross_host(self):
         import requests

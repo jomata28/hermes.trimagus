@@ -33,7 +33,7 @@ The lm-evaluation-harness supports evaluating API-based models through a unified
 ### Setup
 
 ```bash
-export OPENAI_API_KEY=REDACTED_IN_BACKUP
+export OPENAI_API_KEY=sk-...
 ```
 
 ### Completion Models (Legacy)
@@ -100,8 +100,8 @@ OpenAI charges per token. Estimate costs before running:
 ```python
 # Rough estimate
 num_samples = 1000
-avg_tokens_per_sample =REDACTED_IN_BACKUP
-cost_per_1k_tokens =REDACTED_IN_BACKUP
+avg_tokens_per_sample = 500  # input + output
+cost_per_1k_tokens = 0.01  # GPT-3.5 Turbo
 
 total_cost = (num_samples * avg_tokens_per_sample / 1000) * cost_per_1k_tokens
 print(f"Estimated cost: ${total_cost:.2f}")
@@ -118,7 +118,7 @@ print(f"Estimated cost: ${total_cost:.2f}")
 ### Setup
 
 ```bash
-export ANTHROPIC_API_KEY=REDACTED_IN_BACKUP
+export ANTHROPIC_API_KEY=sk-ant-...
 ```
 
 ### Completion Models (Legacy)
@@ -268,7 +268,7 @@ class MyCustomAPI(TemplateAPI):
 
     def __init__(self, base_url, api_key, **kwargs):
         super().__init__(base_url=base_url, **kwargs)
-        self.api_key =REDACTED_IN_BACKUP
+        self.api_key = api_key
 
     def _create_payload(self, messages, gen_kwargs):
         """Create API request payload."""
@@ -299,7 +299,7 @@ from my_api import MyCustomAPI
 
 model = MyCustomAPI(
     base_url="https://api.example.com/v1",
-    api_key=REDACTED_IN_BACKUP
+    api_key="your-key"
 )
 
 results = evaluator.simple_evaluate(
@@ -477,8 +477,8 @@ lm_eval --model local-completions \
 lm_eval --model openai-chat-completions \
   --model_args \
     model=gpt-4-turbo,\
-    tokenizer=REDACTED_IN_BACKUP
-    tokenizer_backend=REDACTED_IN_BACKUP
+    tokenizer=gpt2,\
+    tokenizer_backend=huggingface
 ```
 
 ## References

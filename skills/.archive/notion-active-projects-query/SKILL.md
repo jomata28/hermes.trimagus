@@ -27,7 +27,7 @@ This skill provides a reliable method to query your Notion workspace for active 
 
 ```bash
 # Check the actual .env file (Hermes config may show masked values)
-grep '^NOTION_API_KEY=REDACTED_IN_BACKUP
+grep '^NOTION_API_KEY=' ~/.hermes/.env | cut -d'=' -f2
 
 # Test the key with a simple API call
 curl -s -X POST "https://api.notion.com/v1/users/me" \

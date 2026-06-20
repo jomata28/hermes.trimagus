@@ -314,7 +314,7 @@ wav_standard = model.generate(descriptions)
 # Generate tokens and use MBD decoder
 with torch.no_grad():
     # Get tokens
-    gen_tokens =REDACTED_IN_BACKUP
+    gen_tokens = model.generate_tokens(descriptions)
 
     # Decode with MBD
     wav_mbd = mbd.tokens_to_wav(gen_tokens)

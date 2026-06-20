@@ -53,6 +53,18 @@ Use when no template or reference presentation is available.
 
 ---
 
+## Creating Google Slides deliverables
+
+When the user asks for a "Google Slides presentation" and provides slide content, prefer this workflow:
+
+1. Create a local `.pptx` first, unless they specifically require direct editing of an existing Google Slides file.
+2. Upload/convert the `.pptx` to native Google Slides using the Drive API (`mimeType: application/vnd.google-apps.presentation`; see the `google-workspace` skill).
+3. Export the converted Google Slides file back to PDF and render it to images for visual QA. QA the converted version, not only the local `.pptx`, because Google conversion can change wrapping and spacing.
+4. If fixes are needed after upload, regenerate and upload a corrected version; trash the earlier draft so the user sees only the final link.
+5. If source paper figures/images were requested but not provided/retrievable during the session, do not fabricate them. Use clean, labeled placeholders/callouts that name the intended figure panels, and tell the user where those figures should be inserted.
+
+---
+
 ## Design Ideas
 
 **Don't create boring slides.** Plain bullets on a white background won't impress anyone. Consider ideas from this list for each slide.
@@ -142,6 +154,12 @@ Choose colors that match your topic — don't default to generic blue. Use these
 - **NEVER use accent lines under titles** — these are a hallmark of AI-generated slides; use whitespace or background color instead
 
 ---
+
+## Journal club / paper-presentation decks
+
+When a user provides a paper PDF for a journal club, prioritize **readable presenter text plus authentic paper figures** over decorative/AI-looking diagrams. A good default is: left column with large, speakable bullets (about 15–18 pt), right side with cropped figure panels from the PDF, and short captions naming the figure/panel. If the requested slide count makes text + figures cramped, choose one extra slide and explain that it preserves legibility. Crop out paper body captions and excess whitespace; keep panel labels and axis/legend text when useful. Always render/export the deck and visually QA for crop cutoffs, tiny unreadable text, and captions leaking into figure crops.
+
+Reference: `references/journal-club-pdf-figures.md` covers the PDF-to-crops-to-Google-Slides workflow used for paper decks.
 
 ## QA (Required)
 

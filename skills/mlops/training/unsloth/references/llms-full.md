@@ -1092,7 +1092,7 @@ Then install [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud
 [**`unsloth/unsloth`**](https://hub.docker.com/r/unsloth/unsloth) is Unsloth's only Docker image. For Blackwell and 50-series GPUs, use this same image - no separate one needed.
 
 ```bash
-docker run -d -e JUPYTER_PASSWORD=REDACTED_IN_BACKUP
+docker run -d -e JUPYTER_PASSWORD="mypassword" \
   -p 8888:8888 -p 2222:22 \
   -v $(pwd)/work:/workspace/work \
   --gpus all \
@@ -1254,7 +1254,7 @@ Install Docker via [Linux](https://docs.docker.com/engine/install/) or [Desktop]
 [**`unsloth/unsloth`**](https://hub.docker.com/r/unsloth/unsloth) is Unsloth's only Docker image.
 
 ```bash
-docker run -d -e JUPYTER_PASSWORD=REDACTED_IN_BACKUP
+docker run -d -e JUPYTER_PASSWORD="mypassword" \
   -p 8888:8888 -p 2222:22 \
   -v $(pwd)/work:/workspace/work \
   --gpus all \
@@ -1687,7 +1687,7 @@ fourbit_models = [
 
 ] # More models at https://huggingface.co/unsloth
 
-model, tokenizer =REDACTED_IN_BACKUP
+model, tokenizer = FastModel.from_pretrained(
     model_name = "unsloth/gpt-oss-20b",
     max_seq_length = 2048, # Choose any for long context!
     load_in_4bit = True,  # 4-bit quantization. False = 16-bit LoRA.
@@ -1717,7 +1717,7 @@ model = FastLanguageModel.get_peft_model(
 trainer = SFTTrainer(
     model = model,
     train_dataset = dataset,
-    tokenizer =REDACTED_IN_BACKUP
+    tokenizer = tokenizer,
     args = SFTConfig(
         max_seq_length = max_seq_length,
         per_device_train_batch_size = 2,
@@ -1879,7 +1879,7 @@ Now let's run the model after we completed the training process! You can edit th
 
 <figure><img src="https://3215535692-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxhOjnexMCB3dmuQFQ2Zq%2Fuploads%2F6DXSlsHkN8cZiiAxAV0Z%2Fimage.png?alt=media&#x26;token=846307de-7386-4bbe-894e-7d9e572244fe" alt=""><figcaption></figcaption></figure>
 
-Reminder Unsloth itself provides **2x faster inference** natively as well, so always do not forget to call `FastLanguageModel.for_inference(model)`. If you want the model to output longer responses, set `max_new_tokens =REDACTED_IN_BACKUP
+Reminder Unsloth itself provides **2x faster inference** natively as well, so always do not forget to call `FastLanguageModel.for_inference(model)`. If you want the model to output longer responses, set `max_new_tokens = 128` to some larger number like 256 or 1024. Notice you will have to wait longer for the result as well!
 
 ### Saving the model
 
@@ -2133,7 +2133,7 @@ For datasets that usually follow the common chatml format, the process of prepar
   ```
   from unsloth.chat_templates import get_chat_template
 
-  tokenizer =REDACTED_IN_BACKUP
+  tokenizer = get_chat_template(
       tokenizer,
       chat_template = "gemma-3", # change this to the right chat_template name
   )
@@ -2456,7 +2456,7 @@ input_text = tokenizer.apply_chat_template(messages, add_generation_prompt = Tru
 inputs = tokenizer(
     image,
     input_text,
-    add_special_tokens =REDACTED_IN_BACKUP
+    add_special_tokens = False,
     return_tensors = "pt",
 ).to("cuda")
 
@@ -3103,7 +3103,7 @@ Now let's run the model after we completed the training process! You can edit th
 
 <figure><img src="https://3215535692-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxhOjnexMCB3dmuQFQ2Zq%2Fuploads%2F6DXSlsHkN8cZiiAxAV0Z%2Fimage.png?alt=media&#x26;token=846307de-7386-4bbe-894e-7d9e572244fe" alt=""><figcaption></figcaption></figure>
 
-Reminder Unsloth itself provides **2x faster inference** natively as well, so always do not forget to call `FastLanguageModel.for_inference(model)`. If you want the model to output longer responses, set `max_new_tokens =REDACTED_IN_BACKUP
+Reminder Unsloth itself provides **2x faster inference** natively as well, so always do not forget to call `FastLanguageModel.for_inference(model)`. If you want the model to output longer responses, set `max_new_tokens = 128` to some larger number like 256 or 1024. Notice you will have to wait longer for the result as well!
 
 ## 12. Saving the model
 
@@ -3545,7 +3545,7 @@ But with Unsloth, you can still finetune and get the benefits of fast inference 
 ```
 pip install unsloth vllm
 from unsloth import FastLanguageModel
-model, tokenizer =REDACTED_IN_BACKUP
+model, tokenizer = FastLanguageModel.from_pretrained(
     model_name = "unsloth/Llama-3.2-3B-Instruct",
     fast_inference = True,
 )
@@ -3812,7 +3812,7 @@ You can save the model with 16-bit precision using the following command:
 
 ```python
 # Save to 16-bit precision
-model.save_pretrained_merged("model", tokenizer, save_method=REDACTED_IN_BACKUP
+model.save_pretrained_merged("model", tokenizer, save_method="merged_16bit")
 ```
 
 #### **Pushing to Hugging Face Hub**
@@ -3822,7 +3822,7 @@ To share your model, we’ll push it to the Hugging Face Hub using the `push_to_
 ```python
 # Push to Hugging Face Hub (requires a token)
 model.push_to_hub_merged(
-    "your-username/model-name", tokenizer, save_method=REDACTED_IN_BACKUP
+    "your-username/model-name", tokenizer, save_method="merged_16bit", token="your-token"
 )
 ```
 
@@ -3835,7 +3835,7 @@ model.push_to_hub_gguf(
     "your-username/model-name",
     tokenizer,
     quantization_method=["q4_k_m", "q8_0", "q5_k_m"],
-    token=REDACTED_IN_BACKUP
+    token="your-token",
 )
 ```
 
@@ -3889,7 +3889,7 @@ Detailed guides on doing GRPO with Unsloth for Batching, Generation & Training P
   * `"grpo"`: normalizes over sequence length (length bias; not recommended).
   * `"dr_grpo"`: normalizes by a **global constant** (introduced in Dr. GRPO; removes length bias). Constant ≈ `max_completion_length`.
   * `"dapo"` **(default)**: normalizes by **active tokens in the global accumulated batch** (introduced in DAPO; removes length bias).
-  * `"bnpo"`: normalizes by **active tokens in the local batch** only (results can vary with local batch size; equals GRPO when `per_device_train_batch_size =REDACTED_IN_BACKUP
+  * `"bnpo"`: normalizes by **active tokens in the local batch** only (results can vary with local batch size; equals GRPO when `per_device_train_batch_size == 1`).
 * **`mask_truncated_completions`** *(bool, default False)*:\
   When `True`, truncated completions are excluded from loss (recommended by DAPO for stability).\
   **Note**: There are some KL issues with this flag, so we recommend to disable it.
@@ -4112,7 +4112,7 @@ os.environ["UNSLOTH_VLLM_STANDBY"] = "1"
 
 from unsloth import FastLanguageModel
 import torch
-model, tokenizer =REDACTED_IN_BACKUP
+model, tokenizer = FastLanguageModel.from_pretrained(
     model_name = "unsloth/Qwen3-8B-Base",
     max_seq_length = 2048, # Can increase for longer reasoning traces
     load_in_4bit = False, # False for LoRA 16bit
@@ -4477,7 +4477,7 @@ import torch
 from transformers import TrainingArguments
 from trl import DPOTrainer
 
-model, tokenizer =REDACTED_IN_BACKUP
+model, tokenizer = FastLanguageModel.from_pretrained(
     model_name = "unsloth/zephyr-sft-bnb-4bit",
     max_seq_length = max_seq_length,
     dtype = None,
@@ -4517,7 +4517,7 @@ dpo_trainer = DPOTrainer(
     beta = 0.1,
     train_dataset = YOUR_DATASET_HERE,
     # eval_dataset = YOUR_DATASET_HERE,
-    tokenizer =REDACTED_IN_BACKUP
+    tokenizer = tokenizer,
     max_length = 1024,
     max_prompt_length = 512,
 )
@@ -4548,7 +4548,7 @@ To run the model in [vLLM](#vllm-run-deepseek-ocr-tutorial) or [Unsloth](#unslot
 DeepSeek recommends these settings:
 
 * <mark style="background-color:blue;">**Temperature = 0.0**</mark>
-* `max_tokens =REDACTED_IN_BACKUP
+* `max_tokens = 8192`
 * `ngram_size = 30`
 * `window_size = 90`
 
@@ -4598,14 +4598,14 @@ model_input = [
 
 sampling_param = SamplingParams(
     temperature=0.0,
-    max_tokens=REDACTED_IN_BACKUP
+    max_tokens=8192,
     # ngram logit processor args
     extra_args=dict(
         ngram_size=30,
         window_size=90,
-        whitelist_token_ids=REDACTED_IN_BACKUP
+        whitelist_token_ids={128821, 128822},  # whitelist: <td>, </td>
     ),
-    skip_special_tokens=REDACTED_IN_BACKUP
+    skip_special_tokens=False,
 )
 # Generate output
 model_outputs = llm.generate(model_input, sampling_param)
@@ -4633,7 +4633,7 @@ os.environ["UNSLOTH_WARN_UNINITIALIZED"] = '0'
 
 from huggingface_hub import snapshot_download
 snapshot_download("unsloth/DeepSeek-OCR", local_dir = "deepseek_ocr")
-model, tokenizer =REDACTED_IN_BACKUP
+model, tokenizer = FastVisionModel.from_pretrained(
     "./deepseek_ocr",
     load_in_4bit = False, # Use 4bit to reduce memory use. False for 16bit LoRA.
     auto_model = AutoModel,
@@ -4818,7 +4818,7 @@ Then install [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud
 [**`unsloth/unsloth`**](https://hub.docker.com/r/unsloth/unsloth) is Unsloth's only Docker image. For [Blackwell](https://docs.unsloth.ai/basics/fine-tuning-llms-with-blackwell-rtx-50-series-and-unsloth) and 50-series GPUs, use this same image - no separate image needed. If using DGX Spark, you'll need to follow our [DGX guide](https://docs.unsloth.ai/basics/fine-tuning-llms-with-nvidia-dgx-spark-and-unsloth).
 
 ```bash
-docker run -d -e JUPYTER_PASSWORD=REDACTED_IN_BACKUP
+docker run -d -e JUPYTER_PASSWORD="mypassword" \
   -p 8888:8888 -p 2222:22 \
   -v $(pwd)/work:/workspace/work \
   --gpus all \
@@ -4951,7 +4951,7 @@ You can only use `fast_inference` for VLMs supported by vLLM. Some models, like 
 
 ```python
 os.environ['UNSLOTH_VLLM_STANDBY'] = '1' # To enable memory efficient GRPO with vLLM
-model, tokenizer =REDACTED_IN_BACKUP
+model, tokenizer = FastVisionModel.from_pretrained(
     model_name = "Qwen/Qwen2.5-VL-7B-Instruct",
     max_seq_length = 16384, #Must be this large to fit image in context
     load_in_4bit = True, # False for LoRA 16bit
@@ -5332,7 +5332,7 @@ import torch
 max_seq_length = 768        # Increase if your task needs longer outputs
 lora_rank      = 4          # Higher rank → better but more VRAM/compute
 
-model, tokenizer =REDACTED_IN_BACKUP
+model, tokenizer = FastLanguageModel.from_pretrained(
     model_name        = "unsloth/gpt-oss-20b",  # or unsloth/gpt-oss-20b-BF16 on H100
     max_seq_length    = max_seq_length,
     load_in_4bit      = True,                    # False for 16‑bit
@@ -5639,15 +5639,15 @@ from transformers import TextStreamer
 
 text = tokenizer.apply_chat_template(
     [{"role": "user", "content": prompt}],
-    tokenize=REDACTED_IN_BACKUP
+    tokenize=False,
     add_generation_prompt=True,
     reasoning_effort="low",
 )
 
 _ = model.generate(
-    **tokenizer(text, return_tensors=REDACTED_IN_BACKUP
+    **tokenizer(text, return_tensors="pt").to("cuda"),
     temperature=1.0,
-    max_new_tokens=REDACTED_IN_BACKUP
+    max_new_tokens=1024,
     streamer=TextStreamer(tokenizer, skip_prompt=False)
 ```
 
@@ -5660,16 +5660,16 @@ _ = model.generate(
 * **Merge & save 4‑bit (MXFP4)**
 
   ```python
-  model.save_pretrained_merged("finetuned_model", tokenizer, save_method=REDACTED_IN_BACKUP
+  model.save_pretrained_merged("finetuned_model", tokenizer, save_method="mxfp4")
   # or push
-  model.push_to_hub_merged("<org_or_user>/<repo>", tokenizer, token=REDACTED_IN_BACKUP
+  model.push_to_hub_merged("<org_or_user>/<repo>", tokenizer, token="<hf_token>", save_method="mxfp4")
   ```
 * **Merge & save 16‑bit**
 
   ```python
-  model.save_pretrained_merged("finetuned_model", tokenizer, save_method=REDACTED_IN_BACKUP
+  model.save_pretrained_merged("finetuned_model", tokenizer, save_method="merged_16bit")
   # or push
-  model.push_to_hub_merged("<org_or_user>/<repo>", tokenizer, token=REDACTED_IN_BACKUP
+  model.push_to_hub_merged("<org_or_user>/<repo>", tokenizer, token="<hf_token>", save_method="merged_16bit")
   ```
 
 {% endstep %}
@@ -6598,7 +6598,7 @@ model.save_pretrained_merged(save_directory, tokenizer)
 If you prefer to merge the model and push to the hugging-face hub directly instead,  you could do so using:
 
 ```python
-model.push_to_hub_merged(repo_name, tokenizer=REDACTED_IN_BACKUP
+model.push_to_hub_merged(repo_name, tokenizer=tokenizer, token=hf_token)
 ```
 
 ### 💡Making efficient gpt-oss fine-tuning work
@@ -6722,7 +6722,7 @@ Example:
 ```python
 tokenizer.apply_chat_template(
     text, 
-    tokenize =REDACTED_IN_BACKUP
+    tokenize = False, 
     add_generation_prompt = False,
     reasoning_effort = "medium",
 )
@@ -6798,13 +6798,13 @@ New: Saving or merging QLoRA fine-tuned models to GGUF is now supported for use 
 After fine-tuning your gpt-oss model, you can merge it into **MXFP4** format with:
 
 ```python
-model.save_pretrained_merged(save_directory, tokenizer, save_method=REDACTED_IN_BACKUP
+model.save_pretrained_merged(save_directory, tokenizer, save_method="mxfp4)
 ```
 
 If you prefer to merge the model and push to the hugging-face hub directly:
 
 ```python
-model.push_to_hub_merged(repo_name, tokenizer=REDACTED_IN_BACKUP
+model.push_to_hub_merged(repo_name, tokenizer=tokenizer, token= hf_token, save_method="mxfp4")
 ```
 
 ### :sparkles: Saving to Llama.cpp
@@ -6895,7 +6895,7 @@ fourbit_models = [
     "unsloth/gpt-oss-120b",
 ] # More models at https://huggingface.co/unsloth
 
-model, tokenizer =REDACTED_IN_BACKUP
+model, tokenizer = FastLanguageModel.from_pretrained(
     model_name = "unsloth/gpt-oss-20b",
     dtype = dtype, # None for auto detection
     max_seq_length = max_seq_length, # Choose any for long context!
@@ -6967,7 +6967,7 @@ Example:
 ```python
 tokenizer.apply_chat_template(
     text, 
-    tokenize =REDACTED_IN_BACKUP
+    tokenize = False, 
     add_generation_prompt = False,
     reasoning_effort = "medium",
 )
@@ -7010,7 +7010,7 @@ In this example, we train for 60 steps to speed up the process. For a full train
 from trl import SFTConfig, SFTTrainer
 trainer = SFTTrainer(
     model = model,
-    tokenizer =REDACTED_IN_BACKUP
+    tokenizer = tokenizer,
     train_dataset = dataset,
     args = SFTConfig(
         per_device_train_batch_size = 1,
@@ -7083,7 +7083,7 @@ model.save_pretrained_merged(save_directory, tokenizer)
 If you prefer to merge the model and push to the hugging-face hub directly:
 
 ```python
-model.push_to_hub_merged(repo_name, tokenizer=REDACTED_IN_BACKUP
+model.push_to_hub_merged(repo_name, tokenizer=tokenizer, token= hf_token)
 ```
 
 ### :sparkles: Saving to Llama.cpp
@@ -7180,7 +7180,7 @@ If we plot log perplexity (higher is worse), and do long context inference after
 
 <figure><img src="https://3215535692-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxhOjnexMCB3dmuQFQ2Zq%2Fuploads%2FCXEsbOaU3BU093p0Sdep%2Fimage.png?alt=media&#x26;token=55fdd195-58cb-463d-8395-352686fdbef0" alt=""><figcaption></figcaption></figure>
 
-The paper also shows that the [Attention Is Off By One method](https://www.evanmiller.org/attention-is-off-by-one.html) does partially work, except one must also add a few extra sink tokens to get lower perplexities. **The paper shows that adding a single sink token that is learnable does remarkably well!&#x20;**<mark style=REDACTED_IN_BACKUP
+The paper also shows that the [Attention Is Off By One method](https://www.evanmiller.org/attention-is-off-by-one.html) does partially work, except one must also add a few extra sink tokens to get lower perplexities. **The paper shows that adding a single sink token that is learnable does remarkably well!&#x20;**<mark style="background-color:$success;">**And that's what OpenAI did for GPT-OSS!**</mark>
 
 <figure><img src="https://3215535692-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxhOjnexMCB3dmuQFQ2Zq%2Fuploads%2Fn8nNMnWizldULEdsJGeJ%2Fimage.png?alt=media&#x26;token=432545a5-78cd-408e-83ba-30fa580cf116" alt=""><figcaption></figcaption></figure>
 
@@ -7253,13 +7253,13 @@ We also confirmed through OpenAI's official GPT-OSS implementation on whether we
 mask = torch.triu(Q.new_full((n_tokens, n_tokens), -float("inf")), diagonal=1)
 if sliding_window > 0:
     mask += torch.tril(
-        mask.new_full((n_tokens, n_tokens), -float("inf")), diagonal=REDACTED_IN_BACKUP
+        mask.new_full((n_tokens, n_tokens), -float("inf")), diagonal=-sliding_window
     )
 ```
 
 <figure><img src="https://3215535692-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxhOjnexMCB3dmuQFQ2Zq%2Fuploads%2FhJfh5FvQ8CACGgHmliqM%2Fimage.png?alt=media&#x26;token=0f971585-617a-4187-8ae0-1b2ff89e90fc" alt=""><figcaption></figcaption></figure>
 
-And we see only the last 3 tokens (not 3+1) are attended to! This means instead of using `<=REDACTED_IN_BACKUP
+And we see only the last 3 tokens (not 3+1) are attended to! This means instead of using `<= SLIDING_WINDOW`, use `< SLIDING_WINDOW` (ie use less than, not the equals).
 
 ```python
 def sliding_window_causal(b, h, q_idx, kv_idx):
@@ -7320,13 +7320,13 @@ The **MXFP4** native merge format offers significant performance improvements co
 After fine-tuning your gpt-oss model, you can merge it into **MXFP4** format with:
 
 ```python
-model.save_pretrained_merged(save_directory, tokenizer, save_method=REDACTED_IN_BACKUP
+model.save_pretrained_merged(save_directory, tokenizer, save_method="mxfp4")
 ```
 
 If you prefer to merge the model and push to the hugging-face hub, use:
 
 ```python
-model.push_to_hub_merged(repo_name, tokenizer=REDACTED_IN_BACKUP
+model.push_to_hub_merged(repo_name, tokenizer=tokenizer, token=hf_token, save_method="mxfp4")
 ```
 
 To run inference on the merged model, you can use vLLM and Llama.cpp among others. OpenAI recommends these [inference settings](https://docs.unsloth.ai/models/gpt-oss-how-to-run-and-fine-tune/..#recommended-settings) for both models: `temperature=1.0`, `top_p=1.0`, `top_k=0`
@@ -7418,7 +7418,7 @@ To run inference on the merged model, you can use vLLM and Llama.cpp among other
 We also added support for directly fine-tuning of gpt-oss models by implementing patches that allow loading the native MXFP4 quantized format. This makes it possible to load the 'openai/gpt-oss' model with less than 24GB of VRAM, and QLoRA fine-tune it. Simply load the model using:
 
 ```python
-model, tokenizer =REDACTED_IN_BACKUP
+model, tokenizer = FastLanguageModel.from_pretrained(
     # model_name = "unsloth/gpt-oss-20b-BF16", 
     model_name = "unsloth/gpt-oss-20b",
     dtype = dtype, # None for auto detection
@@ -7462,7 +7462,7 @@ OpenAI's sink token implementation is [provided here](https://github.com/openai/
 ```python
 def sdpa(Q, K, V, S, sm_scale, sliding_window=0):
     # sliding_window == 0 means no sliding window
-    n_tokens, n_heads, q_mult, d_head =REDACTED_IN_BACKUP
+    n_tokens, n_heads, q_mult, d_head = Q.shape
     assert K.shape == (n_tokens, n_heads, d_head)
     assert V.shape == (n_tokens, n_heads, d_head)
     K = K[:, :, None, :].expand(-1, -1, q_mult, -1)
@@ -7471,7 +7471,7 @@ def sdpa(Q, K, V, S, sm_scale, sliding_window=0):
     mask = torch.triu(Q.new_full((n_tokens, n_tokens), -float("inf")), diagonal=1)
     if sliding_window > 0:
         mask += torch.tril(
-            mask.new_full((n_tokens, n_tokens), -float("inf")), diagonal=REDACTED_IN_BACKUP
+            mask.new_full((n_tokens, n_tokens), -float("inf")), diagonal=-sliding_window
         )
     QK = torch.einsum("qhmd,khmd->hmqk", Q, K) * sm_scale
     QK += mask[None, None, :, :]
@@ -7741,7 +7741,7 @@ from openai import OpenAI
 import json
 openai_client = OpenAI(
     base_url = "http://127.0.0.1:8001/v1",
-    api_key =REDACTED_IN_BACKUP
+    api_key = "sk-no-key-required",
 )
 completion = openai_client.chat.completions.create(
     model = "unsloth/GLM-4.6",
@@ -7929,7 +7929,7 @@ We also show you how to train a model using data stored in a Google Sheet.
 !pip install --upgrade unsloth
 from unsloth import FastLanguageModel
 import torch
-model, tokenizer =REDACTED_IN_BACKUP
+model, tokenizer = FastLanguageModel.from_pretrained(
     model_name = "unsloth/granite-4.0-h-micro",
     max_seq_length = 2048,   # Context length - can be longer, but uses more memory
     load_in_4bit = True,     # 4bit uses much less memory
@@ -8008,7 +8008,7 @@ You do not need to force `<think>\n` , but you can still add it in! With the giv
 <｜begin▁of▁sentence｜>{system prompt}<｜User｜>{query}<｜Assistant｜></think>
 ```
 
-A BOS is forcibly added, and an EOS separates each interaction. To counteract double BOS tokens during inference, you should only call `tokenizer.encode(..., add_special_tokens =REDACTED_IN_BACKUP
+A BOS is forcibly added, and an EOS separates each interaction. To counteract double BOS tokens during inference, you should only call `tokenizer.encode(..., add_special_tokens = False)` since the chat template auto adds a BOS token as well. For llama.cpp / GGUF inference, you should skip the BOS since it’ll auto add it.
 
 #### :notebook\_with\_decorative\_cover: Non-Thinking Mode (use `thinking = False`or `enable_thinking = False` and is by default)
 
@@ -8231,7 +8231,7 @@ from openai import OpenAI
 import json
 openai_client = OpenAI(
     base_url = "http://127.0.0.1:8001/v1",
-    api_key =REDACTED_IN_BACKUP
+    api_key = "sk-no-key-required",
 )
 completion = openai_client.chat.completions.create(
     model = "unsloth/DeepSeek-V3.1-Terminus",
@@ -8592,7 +8592,7 @@ Then use the tokenizer to create the entire prompt:
 
 ```python
 from transformers import AutoTokenizer
-tokenizer =REDACTED_IN_BACKUP
+tokenizer = AutoTokenizer.from_pretrained("unsloth/Qwen3-Coder-480B-A35B-Instruct")
 
 messages = [
     {'role': 'user', 'content': "What's the temperature in San Francisco now? How about tomorrow?"},
@@ -9242,7 +9242,7 @@ By default, Qwen3 has thinking enabled. When you call `tokenizer.apply_chat_temp
 ```python
 text = tokenizer.apply_chat_template(
     messages,
-    tokenize=REDACTED_IN_BACKUP
+    tokenize=False,
     add_generation_prompt=True,
     enable_thinking=True  # Default is True
 )
@@ -9259,7 +9259,7 @@ Enabling non-thinking will make Qwen3 will skip all the thinking steps and behav
 ```python
 text = tokenizer.apply_chat_template(
     messages,
-    tokenize=REDACTED_IN_BACKUP
+    tokenize=False,
     add_generation_prompt=True,
     enable_thinking=False  # Disables thinking mode
 )
@@ -9425,7 +9425,7 @@ If you're fine-tuning the MOE models, please use `FastModel` and not `FastLangua
 ```python
 from unsloth import FastModel
 import torch
-model, tokenizer =REDACTED_IN_BACKUP
+model, tokenizer = FastModel.from_pretrained(
     model_name = "unsloth/Qwen3-30B-A3B",
     max_seq_length = 2048, # Choose any for long context!
     load_in_4bit = True,  # 4 bit quantization to reduce memory
@@ -9908,7 +9908,7 @@ If you're fine-tuning the MOE models, please use `FastModel` and not `FastLangua
 ```python
 from unsloth import FastModel
 import torch
-model, tokenizer =REDACTED_IN_BACKUP
+model, tokenizer = FastModel.from_pretrained(
     model_name = "unsloth/Qwen3-30B-A3B-Instruct-2507",
     max_seq_length = 2048, # Choose any for long context!
     load_in_4bit = True,  # 4 bit quantization to reduce memory
@@ -9978,7 +9978,7 @@ R1-0528 uses the same chat template as the original R1 model. You do not need to
 <｜begin▁of▁sentence｜><｜User｜>What is 1+1?<｜Assistant｜>It's 2.<｜end▁of▁sentence｜><｜User｜>Explain more!<｜Assistant｜>
 ```
 
-A BOS is forcibly added, and an EOS separates each interaction. To counteract double BOS tokens during inference, you should only call `tokenizer.encode(..., add_special_tokens =REDACTED_IN_BACKUP
+A BOS is forcibly added, and an EOS separates each interaction. To counteract double BOS tokens during inference, you should only call `tokenizer.encode(..., add_special_tokens = False)` since the chat template auto adds a BOS token as well.\
 For llama.cpp / GGUF inference, you should skip the BOS since it’ll auto add it:
 
 ```
@@ -11545,7 +11545,7 @@ Magistral slightly exceeds the memory limits of a 16GB VRAM, so fine-tuning it f
 !pip install --upgrade unsloth
 from unsloth import FastLanguageModel
 import torch
-model, tokenizer =REDACTED_IN_BACKUP
+model, tokenizer = FastLanguageModel.from_pretrained(
     model_name = "unsloth/Magistral-Small-2509-unsloth-bnb-4bit",
     max_seq_length = 2048,   # Context length - can be longer, but uses more memory
     load_in_4bit = True,     # 4bit uses much less memory
@@ -11952,7 +11952,7 @@ wget https://huggingface.co/unsloth/Kimi-K2-Instruct/raw/main/chat_template.jinj
 ./llama.cpp ... --chat-template-file /dir/to/chat_template.jinja
 ```
 
-The Kimi K2 tokenizer was interesting to play around with - <mark style=REDACTED_IN_BACKUP
+The Kimi K2 tokenizer was interesting to play around with - <mark style="background-color:green;">**it's mostly similar in action to GPT-4o's tokenizer**</mark>! We first see in the [tokenization\_kimi.py](https://huggingface.co/moonshotai/Kimi-K2-Instruct/blob/main/tokenization_kimi.py) file the following regular expression (regex) that Kimi K2 uses:
 
 ```python
 pat_str = "|".join(
@@ -13460,7 +13460,7 @@ All distilled versions and the main 671B R1 model use the same chat template:
 
 `<｜begin▁of▁sentence｜><｜User｜>What is 1+1?<｜Assistant｜>It's 2.<｜end▁of▁sentence｜><｜User｜>Explain more!<｜Assistant｜>`
 
-A BOS is forcibly added, and an EOS separates each interaction. To counteract double BOS tokens during inference, you should only call *tokenizer.encode(..., add\_special\_tokens =REDACTED_IN_BACKUP
+A BOS is forcibly added, and an EOS separates each interaction. To counteract double BOS tokens during inference, you should only call *tokenizer.encode(..., add\_special\_tokens = False)* since the chat template auto adds a BOS token as well.\
 For llama.cpp / GGUF inference, you should skip the BOS since it’ll auto add it.
 
 `<｜User｜>What is 1+1?<｜Assistant｜>`
@@ -14355,16 +14355,16 @@ Saving models to 16bit for GGUF so you can use it for Ollama, Jan AI, Open WebUI
 To save to GGUF, use the below to save locally:
 
 ```python
-model.save_pretrained_gguf("directory", tokenizer, quantization_method =REDACTED_IN_BACKUP
-model.save_pretrained_gguf("directory", tokenizer, quantization_method =REDACTED_IN_BACKUP
-model.save_pretrained_gguf("directory", tokenizer, quantization_method =REDACTED_IN_BACKUP
+model.save_pretrained_gguf("directory", tokenizer, quantization_method = "q4_k_m")
+model.save_pretrained_gguf("directory", tokenizer, quantization_method = "q8_0")
+model.save_pretrained_gguf("directory", tokenizer, quantization_method = "f16")
 ```
 
 To push to Hugging Face hub:
 
 ```python
-model.push_to_hub_gguf("hf_username/directory", tokenizer, quantization_method =REDACTED_IN_BACKUP
-model.push_to_hub_gguf("hf_username/directory", tokenizer, quantization_method =REDACTED_IN_BACKUP
+model.push_to_hub_gguf("hf_username/directory", tokenizer, quantization_method = "q4_k_m")
+model.push_to_hub_gguf("hf_username/directory", tokenizer, quantization_method = "q8_0")
 ```
 
 All supported quantization options for `quantization_method` are listed below:
@@ -14408,7 +14408,7 @@ ALLOWED_QUANTS = \
 First save your model to 16bit:
 
 ```python
-model.save_pretrained_merged("merged_model", tokenizer, save_method =REDACTED_IN_BACKUP
+model.save_pretrained_merged("merged_model", tokenizer, save_method = "merged_16bit",)
 ```
 
 Then use the terminal and do:
@@ -14455,7 +14455,7 @@ The default is `model.save_pretrained(..., maximum_memory_usage = 0.75)`. Reduce
 First save your model to 16bit via:
 
 ```python
-model.save_pretrained_merged("merged_model", tokenizer, save_method =REDACTED_IN_BACKUP
+model.save_pretrained_merged("merged_model", tokenizer, save_method = "merged_16bit",)
 ```
 
 Compile llama.cpp from source like below:
@@ -14574,15 +14574,15 @@ Saving models to 16bit for vLLM deployment and serving
 To save to 16bit for vLLM, use:
 
 ```python
-model.save_pretrained_merged("model", tokenizer, save_method =REDACTED_IN_BACKUP
-model.push_to_hub_merged("hf/model", tokenizer, save_method =REDACTED_IN_BACKUP
+model.save_pretrained_merged("model", tokenizer, save_method = "merged_16bit")
+model.push_to_hub_merged("hf/model", tokenizer, save_method = "merged_16bit", token = "")
 ```
 
 To merge to 4bit to load on HuggingFace, first call `merged_4bit`. Then use `merged_4bit_forced` if you are certain you want to merge to 4bit. I highly discourage you, unless you know what you are going to do with the 4bit model (ie for DPO training for eg or for HuggingFace's online inference engine)
 
 ```python
-model.save_pretrained_merged("model", tokenizer, save_method =REDACTED_IN_BACKUP
-model.push_to_hub_merged("hf/model", tokenizer, save_method =REDACTED_IN_BACKUP
+model.save_pretrained_merged("model", tokenizer, save_method = "merged_4bit")
+model.push_to_hub_merged("hf/model", tokenizer, save_method = "merged_4bit", token = "")
 ```
 
 To save just the LoRA adapters, either use:
@@ -14595,8 +14595,8 @@ tokenizer.save_pretrained("tokenizer")
 Or just use our builtin function to do that:
 
 ```python
-model.save_pretrained_merged("model", tokenizer, save_method =REDACTED_IN_BACKUP
-model.push_to_hub_merged("hf/model", tokenizer, save_method =REDACTED_IN_BACKUP
+model.save_pretrained_merged("model", tokenizer, save_method = "lora")
+model.push_to_hub_merged("hf/model", tokenizer, save_method = "lora", token = "")
 ```
 
 ### :computer:Installing vLLM
@@ -14643,8 +14643,8 @@ Saving models to 16bit for SGLang for deployment and serving
 To save to 16bit for SGLang, use:
 
 ```python
-model.save_pretrained_merged("model", tokenizer, save_method =REDACTED_IN_BACKUP
-model.push_to_hub_merged("hf/model", tokenizer, save_method =REDACTED_IN_BACKUP
+model.save_pretrained_merged("model", tokenizer, save_method = "merged_16bit")
+model.push_to_hub_merged("hf/model", tokenizer, save_method = "merged_16bit", token = "")
 ```
 
 To save just the LoRA adapters, either use:
@@ -14657,8 +14657,8 @@ tokenizer.save_pretrained("tokenizer")
 Or just use our builtin function to do that:
 
 ```python
-model.save_pretrained_merged("model", tokenizer, save_method =REDACTED_IN_BACKUP
-model.push_to_hub_merged("hf/model", tokenizer, save_method =REDACTED_IN_BACKUP
+model.save_pretrained_merged("model", tokenizer, save_method = "lora")
+model.push_to_hub_merged("hf/model", tokenizer, save_method = "lora", token = "")
 ```
 
 ### :computer:Installing SGLang
@@ -14716,7 +14716,7 @@ Unsloth supports natively 2x faster inference. For our inference only notebook, 
 All QLoRA, LoRA and non LoRA inference paths are 2x faster. This requires no change of code or any new dependencies.
 
 <pre class="language-python"><code class="lang-python"><strong>from unsloth import FastLanguageModel
-</strong>model, tokenizer =REDACTED_IN_BACKUP
+</strong>model, tokenizer = FastLanguageModel.from_pretrained(
     model_name = "lora_model", # YOUR MODEL YOU USED FOR TRAINING
     max_seq_length = max_seq_length,
     dtype = dtype,
@@ -14896,7 +14896,7 @@ We've uploaded TTS models (original and quantized variants) to our [Hugging Face
 | [Spark-TTS (0.5B)](https://colab.research.google.com/github/unslothai/notebooks/blob/main/nb/Spark_TTS_\(0_5B\).ipynb)   | [Llasa-TTS (1B)](https://colab.research.google.com/github/unslothai/notebooks/blob/main/nb/Llasa_TTS_\(1B\).ipynb)     | [Oute-TTS (1B)](https://colab.research.google.com/github/unslothai/notebooks/blob/main/nb/Oute_TTS_\(1B\).ipynb)                 |
 
 {% hint style="success" %}
-If you notice that the output duration reaches a maximum of 10 seconds, increase`max_new_tokens =REDACTED_IN_BACKUP
+If you notice that the output duration reaches a maximum of 10 seconds, increase`max_new_tokens = 125` from its default value of 125. Since 125 tokens corresponds to 10 seconds of audio, you'll need to set a higher value for longer outputs.
 {% endhint %}
 
 ### Choosing and Loading a TTS Model
@@ -14923,7 +14923,7 @@ Because voice models are usually small in size, you can train the models using L
 from unsloth import FastModel
 
 model_name = "unsloth/orpheus-3b-0.1-pretrained"
-model, tokenizer =REDACTED_IN_BACKUP
+model, tokenizer = FastModel.from_pretrained(
     model_name,
     load_in_4bit=False  # use 4-bit precision (QLoRA)
 )
@@ -15016,7 +15016,7 @@ import torch
 dtype = None # None for auto detection. Float16 for Tesla T4, V100, Bfloat16 for Ampere+
 load_in_4bit = False # Use 4bit quantization to reduce memory usage. Can be False.
 
-model, tokenizer =REDACTED_IN_BACKUP
+model, tokenizer = FastLanguageModel.from_pretrained(
     model_name = "unsloth/orpheus-3b-0.1-ft",
     max_seq_length= 2048, # Choose any for long context!
     dtype = dtype,
@@ -15040,7 +15040,7 @@ We need to prepare inputs for the Trainer. For text-to-speech, one approach is t
 # Tokenize the text transcripts
 def preprocess_function(example):
     # Tokenize the text (keep the special tokens like <laugh> intact)
-    tokens =REDACTED_IN_BACKUP
+    tokens = tokenizer(example["text"], return_tensors="pt")
     # Flatten to list of token IDs
     input_ids = tokens["input_ids"].squeeze(0)
     # The model will generate audio tokens after these text tokens.
@@ -15183,7 +15183,7 @@ To ensure a fair and controlled evaluation, we do not to use our own calibration
 
 <figure><img src="https://3215535692-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxhOjnexMCB3dmuQFQ2Zq%2Fuploads%2FGqqARO9UA0qpIzNcfixv%2FMMLU%20differences.png?alt=media&#x26;token=59c47844-a2e6-49a3-a523-1e28f2208e6d" alt="" width="375"><figcaption><p>MMLU implementation issues</p></figcaption></figure>
 
-* Llama 3.1 (8B) Instruct has a MMLU 5 shot accuracy of 67.8% using a naive MMLU implementation. We find however Llama **tokenizes "A" and "\_A" (A with a space in front) as different token ids**. If we consider both spaced and non spaced tokens, we get 68.2% <mark style=REDACTED_IN_BACKUP
+* Llama 3.1 (8B) Instruct has a MMLU 5 shot accuracy of 67.8% using a naive MMLU implementation. We find however Llama **tokenizes "A" and "\_A" (A with a space in front) as different token ids**. If we consider both spaced and non spaced tokens, we get 68.2% <mark style="background-color:green;">(+0.4%)</mark>
 * Interestingly Llama 3 as per Eleuther AI's [LLM Harness](https://github.com/EleutherAI/lm-evaluation-harness/blob/main/lm_eval/tasks/llama3/instruct/mmlu/_continuation_template_yaml) also appends <mark style="background-color:purple;">**"The best answer is"**</mark> to the question, following Llama 3's original MMLU benchmarks.
 * There are many other subtle issues, and so to benchmark everything in a controlled environment, we designed our own MMLU implementation from scratch by investigating [github.com/hendrycks/test](https://github.com/hendrycks/test) directly, and verified our results across multiple models and comparing to reported numbers.
 
@@ -15475,7 +15475,7 @@ input_text = tokenizer.apply_chat_template(messages, add_generation_prompt = Tru
 inputs = tokenizer(
     image,
     input_text,
-    add_special_tokens =REDACTED_IN_BACKUP
+    add_special_tokens = False,
     return_tensors = "pt",
 ).to("cuda")
 
@@ -15909,7 +15909,7 @@ However, we know that the process can be complex and requires manual setup. We�
 
 ```python
 from unsloth import FastLanguageModel
-model, tokenizer =REDACTED_IN_BACKUP
+model, tokenizer = FastLanguageModel.from_pretrained(
     "unsloth/Llama-3.3-70B-Instruct",
     load_in_4bit = True,
     device_map = "balanced",
@@ -16009,7 +16009,7 @@ trainer = SFTTrainer(
         greater_is_better = False,           # the lower the eval loss, the better
     ),
     model = model,
-    tokenizer =REDACTED_IN_BACKUP
+    tokenizer = tokenizer,
     train_dataset = new_dataset["train"],
     eval_dataset = new_dataset["test"],
 )
@@ -16069,7 +16069,7 @@ The default is `model.save_pretrained(..., maximum_memory_usage = 0.75)`. Reduce
 First save your model to 16bit via:
 
 ```python
-model.save_pretrained_merged("merged_model", tokenizer, save_method =REDACTED_IN_BACKUP
+model.save_pretrained_merged("merged_model", tokenizer, save_method = "merged_16bit",)
 ```
 
 Compile llama.cpp from source like below:
@@ -16192,7 +16192,7 @@ trainer = SFTTrainer(
         greater_is_better = False,           # the lower the eval loss, the better
     ),
     model = model,
-    tokenizer =REDACTED_IN_BACKUP
+    tokenizer = tokenizer,
     train_dataset = new_dataset["train"],
     eval_dataset = new_dataset["test"],
 )
@@ -16394,7 +16394,7 @@ For datasets that usually follow the common chatml format, the process of prepar
   ```
   from unsloth.chat_templates import get_chat_template
 
-  tokenizer =REDACTED_IN_BACKUP
+  tokenizer = get_chat_template(
       tokenizer,
       chat_template = "gemma-3", # change this to the right chat_template name
   )
@@ -16465,11 +16465,11 @@ You can use our `get_chat_template` to format it. Select `chat_template` to be a
 ```python
 from unsloth.chat_templates import get_chat_template
 
-tokenizer =REDACTED_IN_BACKUP
+tokenizer = get_chat_template(
     tokenizer,
     chat_template = "chatml", # Supports zephyr, chatml, mistral, llama, alpaca, vicuna, vicuna_old, unsloth
     mapping = {"role" : "from", "content" : "value", "user" : "human", "assistant" : "gpt"}, # ShareGPT style
-    map_eos_token =REDACTED_IN_BACKUP
+    map_eos_token = True, # Maps <|im_end|> to </s> instead
 )
 
 def formatting_prompts_func(examples):
@@ -16500,13 +16500,13 @@ unsloth_template = \
     "<div data-gb-custom-block data-tag="if">"\
         "{{ '>>> Assistant: ' }}"\
     "</div>"
-unsloth_eos_token =REDACTED_IN_BACKUP
+unsloth_eos_token = "eos_token"
 
-tokenizer =REDACTED_IN_BACKUP
+tokenizer = get_chat_template(
     tokenizer,
     chat_template = (unsloth_template, unsloth_eos_token,), # You must provide a template and EOS token
     mapping = {"role" : "from", "content" : "value", "user" : "human", "assistant" : "gpt"}, # ShareGPT style
-    map_eos_token =REDACTED_IN_BACKUP
+    map_eos_token = True, # Maps <|im_end|> to </s> instead
 )
 ```
 
@@ -16562,7 +16562,7 @@ QAT in Unsloth can additionally be combined with LoRA fine-tuning to enable the 
 
 ```python
 from unsloth import FastLanguageModel
-model, tokenizer =REDACTED_IN_BACKUP
+model, tokenizer = FastLanguageModel.from_pretrained(
     model_name = "unsloth/Qwen3-4B-Instruct-2507",
     max_seq_length = 2048,
     load_in_16bit = True,
@@ -16685,7 +16685,7 @@ Advanced flags which might be useful if you see breaking finetunes, or you want 
 Another possibility is maybe the model uploads we uploaded are corrupted, but unlikely. Try the following:
 
 ```python
-model, tokenizer =REDACTED_IN_BACKUP
+model, tokenizer = FastVisionModel.from_pretrained(
     "Qwen/Qwen2-VL-7B-Instruct",
     use_exact_model_name = True,
 )
@@ -16715,7 +16715,7 @@ If you saved a LoRA adapter through Unsloth, you can also continue training usin
 
 ```python
 from unsloth import FastLanguageModel
-model, tokenizer =REDACTED_IN_BACKUP
+model, tokenizer = FastLanguageModel.from_pretrained(
     model_name = "LORA_MODEL_NAME",
     max_seq_length = max_seq_length,
     dtype = dtype,

@@ -132,8 +132,8 @@ def setup_model_and_tokenizer():
         device_map="auto"
     )
 
-    tokenizer =REDACTED_IN_BACKUP
-    tokenizer.pad_token =REDACTED_IN_BACKUP
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+    tokenizer.pad_token = tokenizer.eos_token
 
     return model, tokenizer
 
@@ -162,7 +162,7 @@ def main():
 
     # Setup model
     print("Loading model...")
-    model, tokenizer =REDACTED_IN_BACKUP
+    model, tokenizer = setup_model_and_tokenizer()
 
     # Training configuration
     training_args = GRPOConfig(

@@ -28,10 +28,10 @@ if command -v gh &>/dev/null && gh auth status &>/dev/null; then
 else
   AUTH="git"
   if [ -z "$GITHUB_TOKEN" ]; then
-    if [ -f ~/.hermes/.env ] && grep -q "^GITHUB_TOKEN=REDACTED_IN_BACKUP
-      GITHUB_TOKEN=REDACTED_IN_BACKUP
+    if [ -f ~/.hermes/.env ] && grep -q "^GITHUB_TOKEN=" ~/.hermes/.env; then
+      GITHUB_TOKEN=$(grep "^GITHUB_TOKEN=" ~/.hermes/.env | head -1 | cut -d= -f2 | tr -d '\n\r')
     elif grep -q "github.com" ~/.git-credentials 2>/dev/null; then
-      GITHUB_TOKEN=REDACTED_IN_BACKUP
+      GITHUB_TOKEN=$(grep "github.com" ~/.git-credentials 2>/dev/null | head -1 | sed 's|https://[^:]*:\([^@]*\)@.*|\1|')
     fi
   fi
 fi
@@ -89,7 +89,7 @@ git diff main...HEAD | grep -n "print(\|console\.log\|TODO\|FIXME\|HACK\|XXX\|de
 git diff main...HEAD --stat | sort -t'|' -k2 -rn | head -10
 
 # Secrets or credential patterns
-git diff main...HEAD | grep -in "password\|secret\|api_key\|token.*=REDACTED_IN_BACKUP
+git diff main...HEAD | grep -in "password\|secret\|api_key\|token.*=\|private_key"
 
 # Merge conflict markers
 git diff main...HEAD | grep -n "<<<<<<\|>>>>>>\|======="

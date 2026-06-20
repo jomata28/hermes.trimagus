@@ -27,7 +27,7 @@ text_encoder = CLIPTextModel.from_pretrained(
     "stable-diffusion-v1-5/stable-diffusion-v1-5",
     subfolder="text_encoder"
 )
-tokenizer =REDACTED_IN_BACKUP
+tokenizer = CLIPTokenizer.from_pretrained(
     "stable-diffusion-v1-5/stable-diffusion-v1-5",
     subfolder="tokenizer"
 )
@@ -41,7 +41,7 @@ pipe = StableDiffusionPipeline(
     unet=unet,
     vae=vae,
     text_encoder=text_encoder,
-    tokenizer=REDACTED_IN_BACKUP
+    tokenizer=tokenizer,
     scheduler=scheduler,
     safety_checker=None,
     feature_extractor=None,
@@ -64,7 +64,7 @@ def custom_generate(
     width: int = 512
 ):
     # Load components
-    tokenizer =REDACTED_IN_BACKUP
+    tokenizer = CLIPTokenizer.from_pretrained("openai/clip-vit-large-patch14")
     text_encoder = CLIPTextModel.from_pretrained("openai/clip-vit-large-patch14")
     unet = UNet2DConditionModel.from_pretrained("sd-model", subfolder="unet")
     vae = AutoencoderKL.from_pretrained("sd-model", subfolder="vae")
@@ -276,10 +276,10 @@ from PIL import Image
 import os
 
 class DreamBoothDataset(Dataset):
-    def __init__(self, instance_images_path, instance_prompt, tokenizer, size=REDACTED_IN_BACKUP
+    def __init__(self, instance_images_path, instance_prompt, tokenizer, size=512):
         self.instance_images_path = instance_images_path
         self.instance_prompt = instance_prompt
-        self.tokenizer =REDACTED_IN_BACKUP
+        self.tokenizer = tokenizer
         self.size = size
 
         self.instance_images = [
@@ -296,7 +296,7 @@ class DreamBoothDataset(Dataset):
         image = image.resize((self.size, self.size))
         image = torch.tensor(np.array(image)).permute(2, 0, 1) / 127.5 - 1.0
 
-        tokens =REDACTED_IN_BACKUP
+        tokens = self.tokenizer(
             self.instance_prompt,
             padding="max_length",
             max_length=77,
@@ -321,7 +321,7 @@ def train_dreambooth(
     unet = pipe.unet
     vae = pipe.vae
     text_encoder = pipe.text_encoder
-    tokenizer =REDACTED_IN_BACKUP
+    tokenizer = pipe.tokenizer
     noise_scheduler = DDPMScheduler.from_pretrained(pretrained_model, subfolder="scheduler")
 
     # Freeze VAE and text encoder
@@ -454,7 +454,7 @@ pipe = StableDiffusionPipeline.from_pretrained(
 # Load learned embedding
 pipe.load_textual_inversion(
     "sd-concepts-library/cat-toy",
-    token=REDACTED_IN_BACKUP
+    token="<cat-toy>"
 )
 
 # Use in prompts

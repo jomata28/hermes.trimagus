@@ -283,8 +283,8 @@ def contains_answer(example, pred, trace=None):
 ```python
 def f1_score(example, pred, trace=None):
     """F1 score between prediction and gold."""
-    pred_tokens =REDACTED_IN_BACKUP
-    gold_tokens =REDACTED_IN_BACKUP
+    pred_tokens = set(pred.answer.lower().split())
+    gold_tokens = set(example.answer.lower().split())
 
     if not pred_tokens:
         return 0.0

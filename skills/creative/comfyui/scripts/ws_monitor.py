@@ -111,7 +111,7 @@ def parse_binary_frame(data: bytes) -> dict | None:
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description="Real-time ComfyUI WebSocket monitor")
     p.add_argument("--host", default=DEFAULT_LOCAL_HOST, help="ComfyUI server URL")
-    p.add_argument("--api-key", help=REDACTED_IN_BACKUP
+    p.add_argument("--api-key", help=f"API key for cloud (or set ${ENV_API_KEY} env var)")
     p.add_argument("--client-id", default=None, help="Client ID (default: random UUID)")
     p.add_argument("--prompt-id", default=None,
                    help="Filter to a specific prompt_id (default: all jobs)")
@@ -131,7 +131,7 @@ def main(argv: list[str] | None = None) -> int:
         }))
         return 1
 
-    api_key =REDACTED_IN_BACKUP
+    api_key = resolve_api_key(args.api_key)
     cloud = is_cloud_host(args.host)
     client_id = args.client_id or new_client_id()
 

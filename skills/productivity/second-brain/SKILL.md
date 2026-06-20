@@ -36,9 +36,9 @@ Reuse the token from `google-workspace` skill at `~/.hermes/google_token.json`:
 import json
 from pathlib import Path
 
-gtoken =REDACTED_IN_BACKUP
+gtoken = json.loads(Path.home().joinpath(".hermes/google_token.json").read_text())
 
-token_data =REDACTED_IN_BACKUP
+token_data = {
     "access_token": gtoken["token"],
     "token_type": "Bearer",
     "refresh_token": gtoken["refresh_token"],
@@ -48,9 +48,9 @@ token_data =REDACTED_IN_BACKUP
 import json as _json
 rclone_conf = f"""[drive-hermes]
 type = drive
-token =REDACTED_IN_BACKUP
+token = {_json.dumps(token_data)}
 client_id = {gtoken["client_id"]}
-client_secret =REDACTED_IN_BACKUP
+client_secret = {gtoken["client_secret"]}
 """
 
 import os

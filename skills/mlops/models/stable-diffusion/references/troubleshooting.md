@@ -418,7 +418,7 @@ huggingface-cli login
 # Or use token
 pipe = DiffusionPipeline.from_pretrained(
     "model-id",
-    token=REDACTED_IN_BACKUP
+    token="hf_xxxxx"
 )
 
 # Accept model license on Hub website first
@@ -510,7 +510,7 @@ assert height % 8 == 0, "Height must be divisible by 8"
 assert width % 8 == 0, "Width must be divisible by 8"
 
 # Check prompt tokenization
-tokens =REDACTED_IN_BACKUP
+tokens = pipe.tokenizer(prompt, return_tensors="pt")
 print(f"Token count: {tokens.input_ids.shape[1]}")  # Max 77 for SD
 ```
 

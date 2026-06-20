@@ -140,12 +140,12 @@ resp = llm.create_chat_completion(
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": "What is Python?"},
     ],
-    max_tokens=REDACTED_IN_BACKUP
+    max_tokens=256,
 )
 print(resp["choices"][0]["message"]["content"])
 
 # Streaming
-for chunk in llm("Explain quantum computing:", max_tokens=REDACTED_IN_BACKUP
+for chunk in llm("Explain quantum computing:", max_tokens=256, stream=True):
     print(chunk["choices"][0]["text"], end="", flush=True)
 ```
 

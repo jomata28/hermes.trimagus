@@ -118,14 +118,14 @@ def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description="Fetch workflow execution diagnostics")
     p.add_argument("prompt_id", nargs="?", help="prompt_id to look up")
     p.add_argument("--host", default=DEFAULT_LOCAL_HOST)
-    p.add_argument("--api-key", help=REDACTED_IN_BACKUP
+    p.add_argument("--api-key", help=f"or set ${ENV_API_KEY}")
     p.add_argument("--raw", action="store_true",
                    help="Print the full history entry instead of the digest")
     p.add_argument("--tail-queue", action="store_true",
                    help="Show currently running/pending jobs instead")
     args = p.parse_args(argv)
 
-    api_key =REDACTED_IN_BACKUP
+    api_key = resolve_api_key(args.api_key)
     headers = {"X-API-Key": api_key} if api_key else {}
     is_cloud = is_cloud_host(args.host)
 

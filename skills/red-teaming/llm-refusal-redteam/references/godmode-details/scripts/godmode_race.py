@@ -12,7 +12,7 @@ Usage in execute_code:
     result = race_models(
         query="Your query here",
         tier="standard",
-        api_key=REDACTED_IN_BACKUP
+        api_key=os.getenv("OPENROUTER_API_KEY"),
     )
     print(f"Winner: {result['model']} (score: {result['score']})")
     print(result['content'])
@@ -286,7 +286,7 @@ def _query_model(client, model, messages, timeout=60):
         response = client.chat.completions.create(
             model=model,
             messages=messages,
-            max_tokens=REDACTED_IN_BACKUP
+            max_tokens=4096,
             temperature=0.7,
             timeout=timeout,
         )
@@ -305,7 +305,7 @@ def race_models(query, tier="standard", api_key=None, system_prompt=None,
     Args:
         query: The user's query
         tier: 'fast' (10), 'standard' (24), 'smart' (38), 'power' (49), 'ultra' (55)
-        api_key: REDACTED_IN_BACKUP
+        api_key: OpenRouter API key (defaults to OPENROUTER_API_KEY env var)
         system_prompt: Optional system prompt (overrides jailbreak_system)
         max_workers: Max parallel requests (default: 10)
         timeout: Per-request timeout in seconds (default: 60)
@@ -320,9 +320,9 @@ def race_models(query, tier="standard", api_key=None, system_prompt=None,
     if OpenAI is None:
         raise ImportError("openai package required. Install with: pip install openai")
     
-    api_key =REDACTED_IN_BACKUP
+    api_key = api_key or os.getenv("OPENROUTER_API_KEY")
     if not api_key:
-        raise ValueError("No API key. Set OPENROUTER_API_KEY or pass api_key=REDACTED_IN_BACKUP
+        raise ValueError("No API key. Set OPENROUTER_API_KEY or pass api_key=")
     
     client = OpenAI(api_key=api_key, base_url="https://openrouter.ai/api/v1")
     
@@ -397,7 +397,7 @@ def race_models(query, tier="standard", api_key=None, system_prompt=None,
     }
 
 
-def race_godmode_classic(query, api_key=REDACTED_IN_BACKUP
+def race_godmode_classic(query, api_key=None, timeout=60):
     """Race the 5 GODMODE CLASSIC combos — each with its own model + jailbreak template.
     
     Each combo uses a different model paired with its best-performing jailbreak prompt.
@@ -445,9 +445,9 @@ def race_godmode_classic(query, api_key=REDACTED_IN_BACKUP
     if OpenAI is None:
         raise ImportError("openai package required. Install with: pip install openai")
     
-    api_key =REDACTED_IN_BACKUP
+    api_key = api_key or os.getenv("OPENROUTER_API_KEY")
     if not api_key:
-        raise ValueError("No API key. Set OPENROUTER_API_KEY or pass api_key=REDACTED_IN_BACKUP
+        raise ValueError("No API key. Set OPENROUTER_API_KEY or pass api_key=")
     
     client = OpenAI(api_key=api_key, base_url="https://openrouter.ai/api/v1")
     

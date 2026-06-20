@@ -39,8 +39,8 @@ if _SCRIPTS_DIR not in sys.path:
 from _hermes_home import get_hermes_home
 
 HERMES_HOME = get_hermes_home()
-TOKEN_PATH =REDACTED_IN_BACKUP
-CLIENT_SECRET_PATH =REDACTED_IN_BACKUP
+TOKEN_PATH = HERMES_HOME / "google_token.json"
+CLIENT_SECRET_PATH = HERMES_HOME / "google_client_secret.json"
 
 SCOPES = [
     "https://www.googleapis.com/auth/gmail.readonly",
@@ -88,7 +88,7 @@ def _gws_binary() -> str | None:
 
 def _gws_env() -> dict[str, str]:
     env = os.environ.copy()
-    env["GOOGLE_WORKSPACE_CLI_CREDENTIALS_FILE"] =REDACTED_IN_BACKUP
+    env["GOOGLE_WORKSPACE_CLI_CREDENTIALS_FILE"] = str(TOKEN_PATH)
     return env
 
 
@@ -191,7 +191,7 @@ def get_credentials():
             )
         )
     if not creds.valid:
-        print("Token is invalid. Re-run setup.", file=REDACTED_IN_BACKUP
+        print("Token is invalid. Re-run setup.", file=sys.stderr)
         sys.exit(1)
     return creds
 
@@ -199,7 +199,7 @@ def get_credentials():
 def build_service(api, version):
     from googleapiclient.discovery import build
 
-    return build(api, version, credentials=REDACTED_IN_BACKUP
+    return build(api, version, credentials=get_credentials())
 
 
 # =========================================================================

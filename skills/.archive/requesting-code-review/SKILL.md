@@ -53,7 +53,7 @@ Scan added lines only. Any match is a security concern fed into Step 5.
 
 ```bash
 # Hardcoded secrets
-git diff --cached | grep "^+" | grep -iE "(api_key|secret|password|token|passwd)\s*=REDACTED_IN_BACKUP
+git diff --cached | grep "^+" | grep -iE "(api_key|secret|password|token|passwd)\s*=\s*['\"][^'\"]{6,}['\"]"
 
 # Shell injection
 git diff --cached | grep "^+" | grep -E "os\.system\(|subprocess.*shell=True"

@@ -61,6 +61,8 @@ Use codebase inspection/LOC tooling when repository scale, languages, generated-
 2. Opening or merging PRs with unverified tests.
 3. Treating `gh` output from another directory as the target repository.
 4. Losing issue/PR thread context by using platform names without IDs.
+5. Assuming GitHub API repo permissions imply git push will work over HTTPS. Fine-grained PATs or credential-helper state can show `viewerPermission: ADMIN` / `permissions.push: true` via API while `git push` still returns 403. Verify with an actual `git push --dry-run`; if HTTPS auth fails and SSH is already configured (`ssh -T git@github.com` succeeds), switch the remote to `git@github.com:owner/repo.git` for the push, then restore the canonical remote if needed.
+6. Pushing raw backup/config files that contain secrets. GitHub Push Protection can reject commits for tokens in `.env`, `config.yaml`, or copied notes. For backup repos, redact secret-like values in the repository copy only, amend/recreate the local commit, run a token-pattern scan, then push and verify the remote SHA.
 
 ## Verification Checklist
 

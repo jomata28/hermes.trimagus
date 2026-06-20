@@ -108,7 +108,7 @@ class InferenceService:
     def startup(self):
         """Called once when container starts"""
         self.model = load_model()
-        self.tokenizer =REDACTED_IN_BACKUP
+        self.tokenizer = load_tokenizer()
 
     @modal.exit()
     def shutdown(self):
@@ -203,7 +203,7 @@ def reader():
 # Mount S3 bucket
 bucket = modal.CloudBucketMount(
     bucket_name="my-bucket",
-    secret=REDACTED_IN_BACKUP
+    secret=modal.Secret.from_name("aws-credentials")
 )
 
 @app.function(volumes={"/s3": bucket})
@@ -311,16 +311,16 @@ async def stream_response(prompt: str):
 ```python
 from fastapi import Depends, HTTPException, Header
 
-async def verify_token(authorization: str =REDACTED_IN_BACKUP
+async def verify_token(authorization: str = Header(None)):
     if not authorization or not authorization.startswith("Bearer "):
         raise HTTPException(status_code=401)
-    token =REDACTED_IN_BACKUP
+    token = authorization.split(" ")[1]
     if not verify_jwt(token):
         raise HTTPException(status_code=403)
     return token
 
 @web_app.post("/predict")
-async def predict(data: dict, token: str =REDACTED_IN_BACKUP
+async def predict(data: dict, token: str = Depends(verify_token)):
     return model.predict(data)
 ```
 

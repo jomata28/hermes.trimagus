@@ -533,7 +533,7 @@ Git commits track what happened, but not the **exploration tree** — the decisi
   "parent": "exp_001",
   "timestamp": "2025-05-10T14:30:00Z",
   "hypothesis": "Adding scope constraints will fix convergence failure from exp_001",
-  "plan": "Re-run autoreason with max_tokens=REDACTED_IN_BACKUP
+  "plan": "Re-run autoreason with max_tokens=2000 and fixed structure template",
   "config": {"model": "haiku", "strategy": "autoreason", "max_tokens": 2000},
   "status": "completed",
   "result_path": "results/exp_003/",

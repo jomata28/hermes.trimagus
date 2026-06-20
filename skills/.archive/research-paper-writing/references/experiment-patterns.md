@@ -89,7 +89,7 @@ Use YAML configs for reproducibility:
 model: anthropic/claude-sonnet-4-20250514
 author_temperature: 0.8
 judge_temperature: 0.3
-max_tokens: REDACTED_IN_BACKUP
+max_tokens: 4096
 num_judges: 3
 max_passes: 15
 convergence_k: 2

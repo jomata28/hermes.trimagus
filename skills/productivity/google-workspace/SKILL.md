@@ -133,6 +133,52 @@ $GAPI drive search "quarterly report" --max 10
 $GAPI drive search "'FOLDER_ID' in parents" --raw-query --max 20
 ```
 
+#### Upload/convert Office files into native Google formats
+
+When the user asks for a **Google Slides/Docs/Sheets** deliverable, a reliable workflow is to create the Office file locally, upload it to Drive with a native Google `mimeType`, then export it back to PDF/Office for verification.
+
+```python
+import json, os, io
+from google.oauth2.credentials import Credentials
+from google.auth.transport.requests import Request
+from googleapiclient.discovery import build
+from googleapiclient.http import MediaFileUpload, MediaIoBaseDownload
+
+TOKEN = os.path.expanduser('~/.hermes/google_token.json')
+info = json.load(open(TOKEN))
+creds = Credentials.from_authorized_user_info(info)
+if not creds.valid and creds.refresh_token:
+    creds.refresh(Request())
+    info.update({'token': creds.token})
+    if creds.expiry:
+        info['expiry'] = creds.expiry.isoformat().replace('+00:00', 'Z')
+    json.dump(info, open(TOKEN, 'w'))
+
+drive = build('drive', 'v3', credentials=creds, cache_discovery=False)
+metadata = {
+    'name': 'Deck title',
+    'mimeType': 'application/vnd.google-apps.presentation',  # Docs: .document, Sheets: .spreadsheet
+}
+media = MediaFileUpload(
+    '/tmp/deck.pptx',
+    mimetype='application/vnd.openxmlformats-officedocument.presentationml.presentation',
+    resumable=True,
+)
+file = drive.files().create(body=metadata, media_body=media,
+                            fields='id,name,webViewLink,mimeType').execute()
+print(file['webViewLink'])
+
+# Optional: export converted Google Slides as PDF for visual QA
+request = drive.files().export_media(fileId=file['id'], mimeType='application/pdf')
+fh = io.FileIO('/tmp/deck_export.pdf', 'wb')
+downloader = MediaIoBaseDownload(fh, request)
+done = False
+while not done:
+    _, done = downloader.next_chunk()
+```
+
+For decks, render the exported PDF with `pdftoppm` and inspect the images before giving the link to the user. If a draft Google file was uploaded and then replaced by a corrected version, trash the old draft to avoid confusing duplicates.
+
 ### Tasks
 
 Tasks API is NOT exposed via `$GAPI` (the python wrapper only covers Gmail, Calendar, Drive, Contacts, Sheets, Docs). Use `curl` directly with the token from `~/.hermes/google_token.json`.
@@ -164,7 +210,7 @@ PY
 ```
 
 ```bash
-TOKEN=REDACTED_IN_BACKUP
+TOKEN=$(python3 -c "import json; print(json.load(open('$HOME/.hermes/google_token.json'))['token'])")
 TASKS_API="https://www.googleapis.com/tasks/v1"
 
 # List all task lists
@@ -245,12 +291,12 @@ $GAPI gmail send --to user@example.com --subject "Hello" --body "Message text"
    # Create rclone.conf manually using token from google_token.json:
    python3 -c "
    import json
-   token =REDACTED_IN_BACKUP
+   token = json.load(open('$HOME/.hermes/google_token.json'))
    conf = f\"\"\"[drive-hermes]
    type = drive
-   token =REDACTED_IN_BACKUP
+   token = {{\\\"access_token\\\": \\\"{token['token']}\\\", \\\"token_type\\\": \\\"Bearer\\\", \\\"refresh_token\\\": \\\"{token['refresh_token']}\\\", \\\"expiry\\\": \\\"{token['expiry']}\\\"}}
    client_id = {token['client_id']}
-   client_secret =REDACTED_IN_BACKUP
+   client_secret = {token['client_secret']}
    \"\"\"
    print(conf)
    " > ~/.config/rclone/rclone.conf

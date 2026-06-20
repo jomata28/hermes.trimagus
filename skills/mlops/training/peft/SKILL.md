@@ -58,8 +58,8 @@ from datasets import load_dataset
 # Load base model
 model_name = "meta-llama/Llama-3.1-8B"
 model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype="auto", device_map="auto")
-tokenizer =REDACTED_IN_BACKUP
-tokenizer.pad_token =REDACTED_IN_BACKUP
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+tokenizer.pad_token = tokenizer.eos_token
 
 # LoRA configuration
 lora_config = LoraConfig(
@@ -81,9 +81,9 @@ dataset = load_dataset("databricks/databricks-dolly-15k", split="train")
 
 def tokenize(example):
     text = f"### Instruction:\n{example['instruction']}\n\n### Response:\n{example['response']}"
-    return tokenizer(text, truncation=REDACTED_IN_BACKUP
+    return tokenizer(text, truncation=True, max_length=512, padding="max_length")
 
-tokenized =REDACTED_IN_BACKUP
+tokenized = dataset.map(tokenize, remove_columns=dataset.column_names)
 
 # Training
 training_args = TrainingArguments(
@@ -279,7 +279,7 @@ from peft import PrefixTuningConfig
 
 prefix_config = PrefixTuningConfig(
     task_type="CAUSAL_LM",
-    num_virtual_tokens=REDACTED_IN_BACKUP
+    num_virtual_tokens=20,      # Prepended tokens
     prefix_projection=True       # Use MLP projection
 )
 model = get_peft_model(model, prefix_config)

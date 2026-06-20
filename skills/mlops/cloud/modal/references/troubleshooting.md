@@ -15,8 +15,8 @@ modal token new
 modal config show
 
 # Set token via environment
-export MODAL_TOKEN_ID=REDACTED_IN_BACKUP
-export MODAL_TOKEN_SECRET=REDACTED_IN_BACKUP
+export MODAL_TOKEN_ID=ak-...
+export MODAL_TOKEN_SECRET=as-...
 ```
 
 ### Package installation issues
@@ -330,7 +330,7 @@ web_app = FastAPI()
 web_app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=REDACTED_IN_BACKUP
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -350,7 +350,7 @@ def cors_enabled():
 **Solutions**:
 ```bash
 # Create secret via CLI
-modal secret create my-secret KEY=REDACTED_IN_BACKUP
+modal secret create my-secret KEY=value
 
 # List secrets
 modal secret list
@@ -365,7 +365,7 @@ modal secret list
 **Solutions**:
 ```python
 # Ensure secret is attached
-@app.function(secrets=REDACTED_IN_BACKUP
+@app.function(secrets=[modal.Secret.from_name("my-secret")])
 def use_secret():
     import os
     value = os.environ.get("KEY")  # Use get() to handle missing

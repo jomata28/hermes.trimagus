@@ -231,14 +231,14 @@ async def batch_predict(inputs: list[str]) -> list[dict]:
 
 ```bash
 # Create secret
-modal secret create huggingface HF_TOKEN=REDACTED_IN_BACKUP
+modal secret create huggingface HF_TOKEN=hf_xxx
 ```
 
 ```python
-@app.function(secrets=REDACTED_IN_BACKUP
+@app.function(secrets=[modal.Secret.from_name("huggingface")])
 def download_model():
     import os
-    token =REDACTED_IN_BACKUP
+    token = os.environ["HF_TOKEN"]
 ```
 
 ## Scheduling

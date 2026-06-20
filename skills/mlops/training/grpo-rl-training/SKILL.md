@@ -282,8 +282,8 @@ model = AutoModelForCausalLM.from_pretrained(
     device_map="auto"
 )
 
-tokenizer =REDACTED_IN_BACKUP
-tokenizer.pad_token =REDACTED_IN_BACKUP
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+tokenizer.pad_token = tokenizer.eos_token
 
 # Optional: LoRA for parameter-efficient training
 peft_config = LoraConfig(
@@ -322,7 +322,7 @@ trainer.save_model("final_model")
 ```python
 from unsloth import FastLanguageModel
 
-model, tokenizer =REDACTED_IN_BACKUP
+model, tokenizer = FastLanguageModel.from_pretrained(
     model_name="google/gemma-3-1b-it",
     max_seq_length=1024,
     load_in_4bit=True,
@@ -465,7 +465,7 @@ from transformers import pipeline
 generator = pipeline(
     "text-generation",
     model="production_model",
-    tokenizer=REDACTED_IN_BACKUP
+    tokenizer=tokenizer
 )
 
 result = generator(
@@ -473,7 +473,7 @@ result = generator(
         {'role': 'system', 'content': SYSTEM_PROMPT},
         {'role': 'user', 'content': "What is 15 + 27?"}
     ],
-    max_new_tokens=REDACTED_IN_BACKUP
+    max_new_tokens=256,
     do_sample=True,
     temperature=0.7,
     top_p=0.9

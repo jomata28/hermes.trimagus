@@ -38,8 +38,8 @@ if _SCRIPTS_DIR not in sys.path:
 from _hermes_home import display_hermes_home, get_hermes_home
 
 HERMES_HOME = get_hermes_home()
-TOKEN_PATH =REDACTED_IN_BACKUP
-CLIENT_SECRET_PATH =REDACTED_IN_BACKUP
+TOKEN_PATH = HERMES_HOME / "google_token.json"
+CLIENT_SECRET_PATH = HERMES_HOME / "google_client_secret.json"
 PENDING_AUTH_PATH = HERMES_HOME / "google_oauth_pending.json"
 
 SCOPES = [
@@ -69,7 +69,7 @@ def _normalize_authorized_user_payload(payload: dict) -> dict:
     return normalized
 
 
-def _load_token_payload(path: Path =REDACTED_IN_BACKUP
+def _load_token_payload(path: Path = TOKEN_PATH) -> dict:
     try:
         return json.loads(path.read_text())
     except Exception:
@@ -203,7 +203,7 @@ def store_client_secret(path: str):
         print("Download the correct file from: https://console.cloud.google.com/apis/credentials")
         sys.exit(1)
 
-    CLIENT_SECRET_PATH.write_text(json.dumps(data, indent=REDACTED_IN_BACKUP
+    CLIENT_SECRET_PATH.write_text(json.dumps(data, indent=2))
     print(f"OK: Client secret saved to {CLIENT_SECRET_PATH}")
 
 
@@ -318,32 +318,32 @@ def exchange_auth_code(code: str):
 
     try:
         # Accept partial scopes — user may deselect some permissions in the consent screen
-        os.environ["OAUTHLIB_RELAX_TOKEN_SCOPE"] =REDACTED_IN_BACKUP
-        flow.fetch_token(code=REDACTED_IN_BACKUP
+        os.environ["OAUTHLIB_RELAX_TOKEN_SCOPE"] = "1"
+        flow.fetch_token(code=code)
     except Exception as e:
         print(f"ERROR: Token exchange failed: {e}")
         print("The code may have expired. Run --auth-url to get a fresh URL.")
         sys.exit(1)
 
     creds = flow.credentials
-    token_payload =REDACTED_IN_BACKUP
+    token_payload = _normalize_authorized_user_payload(json.loads(creds.to_json()))
 
     # Store only the scopes actually granted by the user, not what was requested.
     # creds.to_json() writes the requested scopes, which causes refresh to fail
     # with invalid_scope if the user only authorized a subset.
     actually_granted = list(creds.granted_scopes or []) if hasattr(creds, "granted_scopes") and creds.granted_scopes else []
     if actually_granted:
-        token_payload["scopes"] =REDACTED_IN_BACKUP
+        token_payload["scopes"] = actually_granted
     elif granted_scopes != SCOPES:
         # granted_scopes was extracted from the callback URL
-        token_payload["scopes"] =REDACTED_IN_BACKUP
+        token_payload["scopes"] = granted_scopes
 
     missing_scopes = _missing_scopes_from_payload(token_payload)
     if missing_scopes:
         print(f"WARNING: Token missing some Google Workspace scopes: {', '.join(missing_scopes)}")
         print("Some services may not be available.")
 
-    TOKEN_PATH.write_text(json.dumps(token_payload, indent=REDACTED_IN_BACKUP
+    TOKEN_PATH.write_text(json.dumps(token_payload, indent=2))
     PENDING_AUTH_PATH.unlink(missing_ok=True)
     print(f"OK: Authenticated. Token saved to {TOKEN_PATH}")
     print(f"Profile-scoped token location: {display_hermes_home()}/google_token.json")
@@ -367,7 +367,7 @@ def revoke():
         import urllib.request
         urllib.request.urlopen(
             urllib.request.Request(
-                f"https://oauth2.googleapis.com/revoke?token=REDACTED_IN_BACKUP
+                f"https://oauth2.googleapis.com/revoke?token={creds.token}",
                 method="POST",
                 headers={"Content-Type": "application/x-www-form-urlencoded"},
             )
@@ -376,7 +376,7 @@ def revoke():
     except Exception as e:
         print(f"Remote revocation failed (token may already be invalid): {e}")
 
-    TOKEN_PATH.unlink(missing_ok=REDACTED_IN_BACKUP
+    TOKEN_PATH.unlink(missing_ok=True)
     PENDING_AUTH_PATH.unlink(missing_ok=True)
     print(f"Deleted {TOKEN_PATH}")
 
@@ -385,7 +385,7 @@ def main():
     parser = argparse.ArgumentParser(description="Google Workspace OAuth setup for Hermes")
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--check", action="store_true", help="Check if auth is valid (exit 0=yes, 1=no)")
-    group.add_argument("--client-secret", metavar=REDACTED_IN_BACKUP
+    group.add_argument("--client-secret", metavar="PATH", help="Store OAuth client_secret.json")
     group.add_argument("--auth-url", action="store_true", help="Print OAuth URL for user to visit")
     group.add_argument("--auth-code", metavar="CODE", help="Exchange auth code for token")
     group.add_argument("--revoke", action="store_true", help="Revoke and delete stored token")

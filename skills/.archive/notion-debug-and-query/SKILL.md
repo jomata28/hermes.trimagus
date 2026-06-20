@@ -34,7 +34,7 @@ hermes config show | grep -A2 -B2 NOTION
 cat ~/.hermes/.env | grep NOTION_API_KEY
 
 # Extract the raw value (important: hermes config may show masked values)
-grep '^NOTION_API_KEY=REDACTED_IN_BACKUP
+grep '^NOTION_API_KEY=' ~/.hermes/.env | cut -d'=' -f2
 ```
 
 ### 2. Test Both API Keys (if you have multiple)
@@ -65,7 +65,7 @@ Once you've identified the working key:
 
 ```bash
 # Set it for current session
-export NOTION_API_KEY=REDACTED_IN_BACKUP
+export NOTION_API_KEY="your_working_key_here"
 
 # Or update it permanently in Hermes
 hermes config set NOTION_API_KEY "your_working_key_here"
