@@ -398,7 +398,7 @@ Reference: see `references/live-site-placeholder-completion.md` for the live-sit
   - Fine-tuning a model on pharmacology text
   - Using few-shot prompting with examples
   - Implementing rule-based extraction for known patterns (drug names, mechanisms)
-- **Duplicate Processing**: Tracking processed episodes by ID prevents re-processing same episode. For live-site fallback, also de-duplicate by normalized episode title/number and existing note filenames/frontmatter because the same episode URL can hash to different `live:<hash>` IDs depending on URL normalization (date URL vs canonical URL, trailing slash, query string). If a matching existing note is a placeholder, complete/replace that note instead of creating a new dated duplicate.
+- **Duplicate Processing**: Tracking processed episodes by ID prevents re-processing same episode. For live-site fallback, also de-duplicate by normalized episode title/number and existing note filenames/frontmatter because the same episode URL can hash to different `live:<hash>` IDs depending on URL normalization (date URL vs canonical URL, trailing slash, query string). If a matching existing note is a placeholder, complete/replace that note instead of creating a new dated duplicate. If a matching existing note is already completed, mark any newly discovered equivalent `live:<hash>`/URL as processed and return `[SILENT]` rather than overwriting the completed note or processing an older episode just because its exact live hash was missing from the log.
 - **Error Handling**: Production script should include more robust error checking and logging, including timeout handling for transcription
 - **Vault Location**: Adjust Obsidian vault path to match actual setup (in this environment: `/root/Divine-Pharmacology`)
 - **Timing**: 7:00 AM CST = 13:00 UTC (adjust cron if server is in different timezone)
@@ -411,7 +411,7 @@ Reference: see `references/live-site-placeholder-completion.md` for the live-sit
   - Use explicit file deletion: `rm -f \"$AUDIO_FILE\" \"$TRANSCRIPT_FILE\"`
   - Remove directories only when confirmed empty: `if [ -d \"$WORK_DIR\" ] && [ -z \"$(ls -A \"$WORK_DIR\")\" ]; then rmdir \"$WORK_DIR\"; fi`
   - Or use unique per-episode directories: `WORK_DIR=\"/tmp/divine_pharma_${EPISODE_ID}\"` and clean only that specific directory
-- **Telegram Notifications**: Requires both TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID to be set in ~/.hermes/.env
+- **Telegram Notifications / Cron Delivery**: Requires both TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID to be set in ~/.hermes/.env when running a standalone shell script. When invoked by a Hermes scheduled cron job whose prompt says final output is automatically delivered, do **not** call `send_message`; put the notification/report in the final assistant response. If there is genuinely nothing new to report, respond with exactly `[SILENT]` and nothing else.
 - **Processed ID Tracking**: The processed log may contain duplicate entries - consider using `sort -u` when reading or ensuring deduplication when writing
 - **Existing Audio Files**: Check for pre-downloaded audio files in the vault before attempting to download (saves time and bandwidth)
 - **Debugging Notion Responses**: Use `jq` to inspect the full response structure when fields appear missing: `echo "$EPISODE_DATA" | jq '.results[0].properties'`
