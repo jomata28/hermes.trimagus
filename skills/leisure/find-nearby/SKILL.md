@@ -71,5 +71,6 @@ python3 SKILL_DIR/scripts/find_nearby.py --near "90210" --type pharmacy --json
 - For CDMX driver's license questions near Coapa/Tlalpan, see `references/cdmx-driving-license.md` for the verified checklist, payment link, and Coyoacán module lead.
 - Google Search and DuckDuckGo may bot-block VPS browser sessions. When blocked, use direct known business pages, Nominatim/OSM, or constructed Google Maps search URLs instead of pretending search succeeded. DuckDuckGo HTML search plus direct page fetches can work well for current event pages when browser search times out.
 - For "open now" requests: check the `hours` field in results, cross-reference with web/direct business pages for accuracy since OSM hours aren't always complete
+- For nearby Catholic Mass / misa requests, do **not** rely only on generic OSM `place_of_worship` results. Use OSM/geocoding for the origin, then query MassTimes for parish schedules. See `references/catholic-mass-times.md` for the direct API pattern and 403-header workaround.
 - Zip codes alone can be ambiguous globally — prompt the user for country/state if results look wrong
 - The script uses OpenStreetMap data which is community-maintained; coverage varies by region
