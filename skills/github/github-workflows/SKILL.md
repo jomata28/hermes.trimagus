@@ -39,6 +39,16 @@ Use GitHub auth setup when `gh auth status` fails, git push needs credentials, o
 
 For clone/create/fork/remotes/releases, inspect the local git state first. Confirm ownership and visibility before creating public/private repos or changing remotes.
 
+### Backup Repositories with Config or Dotfiles
+
+When backing up local config/dotfiles to GitHub:
+
+1. Locate or clone the repo in the requested backup location; if it exists locally, `git pull --ff-only` before copying.
+2. Copy only the requested artifacts, preserving directory layout. For live SQLite databases, prefer `sqlite3 source.db ".backup 'dest.db'"` instead of raw copying so the backup is consistent. Hermes memory may be `memory_store.db` even when the user says `memory.db`; if compatibility matters, back up both names from the current source DB.
+3. Redact secret-like values in the repository copy before committing. Use the bundled helper when appropriate: `python scripts/redact-backup-secrets.py /path/to/backup/repo`. Do not mutate the live source config.
+4. Commit with the requested timestamp/message, push, then verify with `git fetch`, `git rev-parse HEAD`, `git rev-parse origin/<branch>`, `git ls-remote origin refs/heads/<branch>`, and `git log -1 origin/<branch>`.
+5. If the requested `GITHUB_TOKEN` environment variable is absent, report that fact and fall back to existing configured credentials only if they work; do not claim token auth was used.
+
 ## Issues
 
 For issue creation and triage, gather title, body, labels, assignees, milestone, and linked context. If the user supplies a vague bug, inspect the code/repro first and produce a concrete issue body.
