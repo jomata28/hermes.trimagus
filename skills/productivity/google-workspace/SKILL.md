@@ -237,7 +237,11 @@ curl -s -X DELETE -H "Authorization: Bearer $TOKEN" "$TASKS_API/lists/LIST_ID/ta
 
 ### Gmail attachments and full-message extraction
 
-`$GAPI gmail get MESSAGE_ID` is enough for simple messages, but it can miss attachment contents and may emit raw HTML/CSS-heavy bodies. For operational tasks (lease packets, maintenance docs, forms), use the Gmail API directly to recursively walk MIME parts, decode text parts, and download attachments:
+`$GAPI gmail get MESSAGE_ID` is enough for simple messages, but it can miss attachment contents and may emit raw HTML/CSS-heavy bodies. For operational tasks (lease packets, maintenance docs, forms), use the Gmail API directly to recursively walk MIME parts, decode text parts, and download attachments.
+
+**Lease/waiver packet workflow:** when the user asks for help completing apartment/rent/lease waiver documents from Gmail, search the relevant thread, extract attached PDFs, and use `pdftotext -layout` first to identify fields and intent. If fields are not interactive, overlay text with `pypdf` + `reportlab` in a venv, render previews with `pdftoppm`, and QA visually before delivering. Fill factual fields from the email/context (name, unit, property, work type, dates) but leave signature/legal attestation fields blank unless the user explicitly provides a signature/approval. Do not send the completed forms back by email without showing the drafted email and receiving confirmation.
+
+Example extraction pattern:
 
 ```python
 import base64, json, os, re

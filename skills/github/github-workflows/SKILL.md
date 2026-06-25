@@ -44,9 +44,9 @@ For clone/create/fork/remotes/releases, inspect the local git state first. Confi
 When backing up local config/dotfiles to GitHub:
 
 1. Locate or clone the repo in the requested backup location; if it exists locally, `git pull --ff-only` before copying.
-2. Copy only the requested artifacts, preserving directory layout. For live SQLite databases, prefer `sqlite3 source.db ".backup 'dest.db'"` instead of raw copying so the backup is consistent. Hermes memory may be `memory_store.db` even when the user says `memory.db`; if compatibility matters, back up both names from the current source DB.
-3. Redact secret-like values in the repository copy before committing. Use the bundled helper when appropriate: `python scripts/redact-backup-secrets.py /path/to/backup/repo`. Do not mutate the live source config.
-4. Commit with the requested timestamp/message, push, then verify with `git fetch`, `git rev-parse HEAD`, `git rev-parse origin/<branch>`, `git ls-remote origin refs/heads/<branch>`, and `git log -1 origin/<branch>`.
+2. Copy only the requested artifacts, preserving directory layout. For live SQLite databases, prefer `sqlite3 source.db ".backup 'dest.db'"` instead of raw copying so the backup is consistent. Hermes memory may be `memory_store.db` even when the user says `memory.db`; if compatibility matters, back up both names from the current source DB. Hermes cron jobs may be stored as `~/.hermes/cron/jobs.json` rather than a `cron/jobs/` directory; back up the actual jobs file found.
+3. Redact secret-like values in the repository copy before committing. Use the bundled helper when appropriate: `python scripts/redact-backup-secrets.py /path/to/backup/repo`. Do not mutate the live source config. If a raw backup commit was already made and GitHub Push Protection rejects it, run the redactor against the repo copy, `git add` the redacted files, `git commit --amend`, then retry the push.
+4. Commit with the requested timestamp/message, push, then verify with `git fetch`, `git rev-parse HEAD`, `git rev-parse origin/<branch>`, `git ls-remote origin refs/heads/<branch>`, and `git log -1 origin/<branch>`. Finish by checking `git status --short --branch` so the backup working tree is clean and synced.
 5. If the requested `GITHUB_TOKEN` environment variable is absent, report that fact and fall back to existing configured credentials only if they work; do not claim token auth was used.
 
 ## Issues

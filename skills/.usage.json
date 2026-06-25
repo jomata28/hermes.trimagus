@@ -82,26 +82,26 @@
     "created_at": "2026-05-26T13:55:18.349510+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-06-23T13:55:36.470090+00:00",
-    "last_viewed_at": "2026-06-23T13:55:36.461666+00:00",
+    "last_used_at": "2026-06-24T13:55:47.917547+00:00",
+    "last_viewed_at": "2026-06-24T13:55:47.909816+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 28,
-    "view_count": 28
+    "use_count": 29,
+    "view_count": 29
   },
   "divine-pharma-daily-cron": {
     "archived_at": null,
     "created_at": "2026-05-08T07:00:58.625760+00:00",
     "created_by": null,
     "last_patched_at": "2026-06-08T07:07:06.973823+00:00",
-    "last_used_at": "2026-06-23T07:00:36.704102+00:00",
-    "last_viewed_at": "2026-06-23T07:00:36.697064+00:00",
+    "last_used_at": "2026-06-24T07:00:45.830564+00:00",
+    "last_viewed_at": "2026-06-24T07:00:45.823327+00:00",
     "patch_count": 19,
     "pinned": false,
     "state": "active",
-    "use_count": 119,
-    "view_count": 53
+    "use_count": 122,
+    "view_count": 54
   },
   "divine-pharma-notion-episodes-fetch": {
     "archived_at": null,
@@ -121,12 +121,12 @@
     "created_at": "2026-05-08T07:00:58.663545+00:00",
     "created_by": null,
     "last_patched_at": "2026-06-20T07:10:07.661349+00:00",
-    "last_used_at": "2026-06-23T07:00:30.812555+00:00",
+    "last_used_at": "2026-06-24T07:00:39.527609+00:00",
     "last_viewed_at": "2026-06-16T07:00:43.029639+00:00",
     "patch_count": 9,
     "pinned": false,
     "state": "active",
-    "use_count": 37,
+    "use_count": 38,
     "view_count": 5
   },
   "dogfood": {
@@ -159,14 +159,14 @@
     "archived_at": null,
     "created_at": "2026-06-19T03:02:30.397843+00:00",
     "created_by": null,
-    "last_patched_at": "2026-06-23T03:03:48.739747+00:00",
-    "last_used_at": "2026-06-24T03:00:43.215902+00:00",
-    "last_viewed_at": "2026-06-24T03:00:43.202744+00:00",
-    "patch_count": 3,
+    "last_patched_at": "2026-06-24T03:03:08.539861+00:00",
+    "last_used_at": "2026-06-25T03:01:02.871616+00:00",
+    "last_viewed_at": "2026-06-25T03:01:02.862210+00:00",
+    "patch_count": 4,
     "pinned": false,
     "state": "active",
-    "use_count": 7,
-    "view_count": 7
+    "use_count": 10,
+    "view_count": 10
   },
   "godmode": {
     "archived_at": null,
@@ -185,27 +185,27 @@
     "archived_at": null,
     "created_at": "2026-06-05T02:49:50.299887+00:00",
     "created_by": null,
-    "last_patched_at": "2026-06-19T12:38:17.260022+00:00",
-    "last_used_at": "2026-06-23T15:05:17.036959+00:00",
-    "last_viewed_at": "2026-06-23T15:05:17.030026+00:00",
-    "patch_count": 2,
+    "last_patched_at": "2026-06-24T18:49:38.356233+00:00",
+    "last_used_at": "2026-06-25T01:17:01.165466+00:00",
+    "last_viewed_at": "2026-06-25T01:17:01.158707+00:00",
+    "patch_count": 3,
     "pinned": false,
     "state": "active",
-    "use_count": 8,
-    "view_count": 8
+    "use_count": 10,
+    "view_count": 10
   },
   "hermes-agent": {
     "archived_at": null,
     "created_at": "2026-06-05T02:49:50.310912+00:00",
     "created_by": null,
     "last_patched_at": "2026-06-12T02:55:15.569642+00:00",
-    "last_used_at": "2026-06-21T23:29:15.054896+00:00",
-    "last_viewed_at": "2026-06-21T23:29:15.049270+00:00",
+    "last_used_at": "2026-06-25T03:00:50.974358+00:00",
+    "last_viewed_at": "2026-06-25T03:00:50.969956+00:00",
     "patch_count": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 9,
-    "view_count": 9
+    "use_count": 10,
+    "view_count": 10
   },
   "hermes-agent-skill-authoring": {
     "archived_at": null,
@@ -238,13 +238,13 @@
     "created_at": "2026-06-05T02:49:50.321111+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": null,
-    "last_viewed_at": null,
+    "last_used_at": "2026-06-24T18:45:50.018837+00:00",
+    "last_viewed_at": "2026-06-24T18:45:50.013740+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 0,
-    "view_count": 0
+    "use_count": 1,
+    "view_count": 1
   },
   "huggingface-hub": {
     "archived_at": null,
@@ -628,13 +628,13 @@
     "created_at": "2026-05-26T07:00:59.854111+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-06-12T07:00:58.062636+00:00",
-    "last_viewed_at": "2026-06-12T07:00:58.058069+00:00",
+    "last_used_at": "2026-06-24T07:00:45.481961+00:00",
+    "last_viewed_at": "2026-06-24T07:00:45.476223+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 19,
-    "view_count": 18
+    "use_count": 20,
+    "view_count": 19
   },
   "writing-plans": {
     "archived_at": null,
