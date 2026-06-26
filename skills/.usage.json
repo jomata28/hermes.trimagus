@@ -12,19 +12,6 @@
     "use_count": 0,
     "view_count": 0
   },
-  "baoyu-infographic": {
-    "archived_at": null,
-    "created_at": "2026-06-05T02:49:50.212540+00:00",
-    "created_by": null,
-    "last_patched_at": null,
-    "last_used_at": null,
-    "last_viewed_at": null,
-    "patch_count": 0,
-    "pinned": false,
-    "state": "active",
-    "use_count": 0,
-    "view_count": 0
-  },
   "bitacora-vault": {
     "archived_at": null,
     "created_at": "2026-05-29T01:55:27.028037+00:00",
@@ -51,19 +38,6 @@
     "use_count": 1,
     "view_count": 1
   },
-  "comfyui": {
-    "archived_at": null,
-    "created_at": "2026-06-05T02:49:50.242315+00:00",
-    "created_by": null,
-    "last_patched_at": null,
-    "last_used_at": null,
-    "last_viewed_at": null,
-    "patch_count": 0,
-    "pinned": false,
-    "state": "active",
-    "use_count": 0,
-    "view_count": 0
-  },
   "daily-briefing": {
     "archived_at": null,
     "created_at": "2026-05-25T21:26:45.898522+00:00",
@@ -82,26 +56,26 @@
     "created_at": "2026-05-26T13:55:18.349510+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-06-24T13:55:47.917547+00:00",
-    "last_viewed_at": "2026-06-24T13:55:47.909816+00:00",
+    "last_used_at": "2026-06-25T13:55:55.240552+00:00",
+    "last_viewed_at": "2026-06-25T13:55:55.233536+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 29,
-    "view_count": 29
+    "use_count": 30,
+    "view_count": 30
   },
   "divine-pharma-daily-cron": {
     "archived_at": null,
     "created_at": "2026-05-08T07:00:58.625760+00:00",
     "created_by": null,
-    "last_patched_at": "2026-06-08T07:07:06.973823+00:00",
-    "last_used_at": "2026-06-24T07:00:45.830564+00:00",
-    "last_viewed_at": "2026-06-24T07:00:45.823327+00:00",
-    "patch_count": 19,
+    "last_patched_at": "2026-06-25T07:02:36.796029+00:00",
+    "last_used_at": "2026-06-25T07:01:10.123629+00:00",
+    "last_viewed_at": "2026-06-25T07:01:10.118435+00:00",
+    "patch_count": 23,
     "pinned": false,
     "state": "active",
-    "use_count": 122,
-    "view_count": 54
+    "use_count": 128,
+    "view_count": 58
   },
   "divine-pharma-notion-episodes-fetch": {
     "archived_at": null,
@@ -121,12 +95,12 @@
     "created_at": "2026-05-08T07:00:58.663545+00:00",
     "created_by": null,
     "last_patched_at": "2026-06-20T07:10:07.661349+00:00",
-    "last_used_at": "2026-06-24T07:00:39.527609+00:00",
+    "last_used_at": "2026-06-25T07:00:49.907387+00:00",
     "last_viewed_at": "2026-06-16T07:00:43.029639+00:00",
     "patch_count": 9,
     "pinned": false,
     "state": "active",
-    "use_count": 38,
+    "use_count": 39,
     "view_count": 5
   },
   "dogfood": {
@@ -160,13 +134,13 @@
     "created_at": "2026-06-19T03:02:30.397843+00:00",
     "created_by": null,
     "last_patched_at": "2026-06-24T03:03:08.539861+00:00",
-    "last_used_at": "2026-06-25T03:01:02.871616+00:00",
-    "last_viewed_at": "2026-06-25T03:01:02.862210+00:00",
+    "last_used_at": "2026-06-26T03:01:04.809869+00:00",
+    "last_viewed_at": "2026-06-26T03:01:04.805307+00:00",
     "patch_count": 4,
     "pinned": false,
     "state": "active",
-    "use_count": 10,
-    "view_count": 10
+    "use_count": 11,
+    "view_count": 11
   },
   "godmode": {
     "archived_at": null,
@@ -181,31 +155,18 @@
     "use_count": 0,
     "view_count": 0
   },
-  "google-workspace": {
-    "archived_at": null,
-    "created_at": "2026-06-05T02:49:50.299887+00:00",
-    "created_by": null,
-    "last_patched_at": "2026-06-24T18:49:38.356233+00:00",
-    "last_used_at": "2026-06-25T01:17:01.165466+00:00",
-    "last_viewed_at": "2026-06-25T01:17:01.158707+00:00",
-    "patch_count": 3,
-    "pinned": false,
-    "state": "active",
-    "use_count": 10,
-    "view_count": 10
-  },
   "hermes-agent": {
     "archived_at": null,
     "created_at": "2026-06-05T02:49:50.310912+00:00",
     "created_by": null,
     "last_patched_at": "2026-06-12T02:55:15.569642+00:00",
-    "last_used_at": "2026-06-25T03:00:50.974358+00:00",
-    "last_viewed_at": "2026-06-25T03:00:50.969956+00:00",
+    "last_used_at": "2026-06-26T03:01:02.818656+00:00",
+    "last_viewed_at": "2026-06-26T03:01:02.813898+00:00",
     "patch_count": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 10,
-    "view_count": 10
+    "use_count": 12,
+    "view_count": 12
   },
   "hermes-agent-skill-authoring": {
     "archived_at": null,
@@ -233,35 +194,9 @@
     "use_count": 6,
     "view_count": 6
   },
-  "himalaya": {
-    "archived_at": null,
-    "created_at": "2026-06-05T02:49:50.321111+00:00",
-    "created_by": null,
-    "last_patched_at": null,
-    "last_used_at": "2026-06-24T18:45:50.018837+00:00",
-    "last_viewed_at": "2026-06-24T18:45:50.013740+00:00",
-    "patch_count": 0,
-    "pinned": false,
-    "state": "active",
-    "use_count": 1,
-    "view_count": 1
-  },
   "huggingface-hub": {
     "archived_at": null,
     "created_at": "2026-06-19T02:52:49.473709+00:00",
-    "created_by": null,
-    "last_patched_at": null,
-    "last_used_at": null,
-    "last_viewed_at": null,
-    "patch_count": 0,
-    "pinned": false,
-    "state": "active",
-    "use_count": 0,
-    "view_count": 0
-  },
-  "humanizer": {
-    "archived_at": null,
-    "created_at": "2026-06-05T02:49:50.333282+00:00",
     "created_by": null,
     "last_patched_at": null,
     "last_used_at": null,
@@ -277,13 +212,13 @@
     "created_at": "2026-06-05T02:49:50.346378+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": null,
-    "last_viewed_at": null,
+    "last_used_at": "2026-06-26T02:54:13.733893+00:00",
+    "last_viewed_at": "2026-06-26T02:54:13.712515+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 0,
-    "view_count": 0
+    "use_count": 1,
+    "view_count": 1
   },
   "llama-cpp": {
     "archived_at": null,
@@ -306,19 +241,6 @@
     "last_used_at": null,
     "last_viewed_at": null,
     "patch_count": 1,
-    "pinned": false,
-    "state": "active",
-    "use_count": 0,
-    "view_count": 0
-  },
-  "manim-video": {
-    "archived_at": null,
-    "created_at": "2026-06-05T02:49:50.374187+00:00",
-    "created_by": null,
-    "last_patched_at": null,
-    "last_used_at": null,
-    "last_viewed_at": null,
-    "patch_count": 0,
     "pinned": false,
     "state": "active",
     "use_count": 0,
@@ -415,31 +337,18 @@
     "use_count": 0,
     "view_count": 0
   },
-  "ocr-and-documents": {
-    "archived_at": null,
-    "created_at": "2026-06-05T02:49:50.417536+00:00",
-    "created_by": null,
-    "last_patched_at": "2026-06-12T02:55:06.396516+00:00",
-    "last_used_at": null,
-    "last_viewed_at": null,
-    "patch_count": 1,
-    "pinned": false,
-    "state": "active",
-    "use_count": 0,
-    "view_count": 0
-  },
   "openhue": {
     "archived_at": null,
     "created_at": "2026-06-05T02:49:50.428464+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": null,
-    "last_viewed_at": null,
+    "last_used_at": "2026-06-26T02:54:17.153478+00:00",
+    "last_viewed_at": "2026-06-26T02:54:17.107625+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 0,
-    "view_count": 0
+    "use_count": 1,
+    "view_count": 1
   },
   "plan": {
     "archived_at": null,
@@ -462,19 +371,6 @@
     "last_used_at": "2026-06-03T22:42:43.440494+00:00",
     "last_viewed_at": "2026-06-03T22:42:43.428517+00:00",
     "patch_count": 0,
-    "pinned": false,
-    "state": "active",
-    "use_count": 1,
-    "view_count": 1
-  },
-  "powerpoint": {
-    "archived_at": null,
-    "created_at": "2026-06-05T02:49:50.461097+00:00",
-    "created_by": null,
-    "last_patched_at": "2026-06-19T13:25:43.697963+00:00",
-    "last_used_at": "2026-06-19T12:30:52.596291+00:00",
-    "last_viewed_at": "2026-06-19T12:30:52.589506+00:00",
-    "patch_count": 3,
     "pinned": false,
     "state": "active",
     "use_count": 1,
@@ -519,19 +415,6 @@
     "use_count": 6,
     "view_count": 6
   },
-  "second-brain": {
-    "archived_at": null,
-    "created_at": "2026-05-25T18:52:00.893193+00:00",
-    "created_by": "agent",
-    "last_patched_at": "2026-06-16T21:11:35.051394+00:00",
-    "last_used_at": "2026-06-17T04:16:19.679564+00:00",
-    "last_viewed_at": "2026-06-17T04:16:19.675342+00:00",
-    "patch_count": 9,
-    "pinned": false,
-    "state": "active",
-    "use_count": 12,
-    "view_count": 12
-  },
   "social-platform-interactions": {
     "archived_at": null,
     "created_at": "2026-06-12T02:54:34.131628+00:00",
@@ -574,19 +457,6 @@
   "systematic-debugging": {
     "archived_at": null,
     "created_at": "2026-06-19T02:52:49.527625+00:00",
-    "created_by": null,
-    "last_patched_at": null,
-    "last_used_at": null,
-    "last_viewed_at": null,
-    "patch_count": 0,
-    "pinned": false,
-    "state": "active",
-    "use_count": 0,
-    "view_count": 0
-  },
-  "teams-meeting-pipeline": {
-    "archived_at": null,
-    "created_at": "2026-06-05T02:49:50.524687+00:00",
     "created_by": null,
     "last_patched_at": null,
     "last_used_at": null,

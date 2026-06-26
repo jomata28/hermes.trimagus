@@ -11,9 +11,9 @@ A homepage scrape treated the navigation link `Podcast Topics` (`/podcast-catego
 1. Scrape `https://divineinterventionpodcasts.com/`.
 2. Collect anchors only if they look like real episode posts:
    - label matches `^DIP\s+Ep\s+\d+`
-   - label matches `Divine Intervention Episode`
-   - label matches `Episode\s+\d+`
-   - label contains a specific USMLE episode title, e.g. `USMLE Step 2/3 Rapid Review`
+   - label matches `^Divine Intervention Episode\s+\d+`
+   - label matches `^Episode\s+\d+`
+   - Do **not** use a broad `USMLE Step` substring rule; course/class announcements can contain `USMLE Step`, embedded MP3 audio, and are not podcast episodes.
 3. Exclude:
    - `/podcast-categories/`, `/tutoring/`, `/notes/`, `/contact/`, `/exam-topic-lists/`
    - `/wp-content/` audio URLs as candidate pages (keep them only as `audio_url`)
@@ -27,7 +27,7 @@ A homepage scrape treated the navigation link `Podcast Topics` (`/podcast-catego
 import re, html, urllib.parse
 
 REAL_EPISODE = re.compile(
-    r"^(DIP\s+Ep\s+\d+|Divine Intervention Episode|Episode\s+\d+)|USMLE Step",
+    r"^(DIP\\s+Ep\\s+\\d+|Divine Intervention Episode\\s+\\d+|Episode\\s+\\d+)",
     re.I,
 )
 

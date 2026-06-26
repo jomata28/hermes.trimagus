@@ -52,10 +52,12 @@ for directory in (DAILY, TRANS, AUDIO_DIR):
 
 PROCESSED = HOME / ".divine_pharma_processed"
 processed_text = PROCESSED.read_text(errors="ignore") if PROCESSED.exists() else ""
-REAL_EPISODE_RE = re.compile(r"^(DIP\s+Ep\s+\d+|Divine Intervention Episode|Episode\s+\d+)|USMLE Step", re.I)
+REAL_EPISODE_RE = re.compile(r"^(DIP\s+Ep\s+\d+|Divine Intervention Episode\s+\d+|Episode\s+\d+)", re.I)
+ANNOUNCEMENT_RE = re.compile(r"(class|course|zoom|review\s*\(|\bmcq\b|\d+\s*hour)", re.I)
 WEAK_SECTION_RE = re.compile(r"\n## (Evening Review Preview|Processing Log)\n.*", re.I | re.S)
 STRONG_KEYS = {"podcast_title", "podcast", "episode_url", "link", "source"}
 EXCLUDE_HREFS = ["/podcast-categories/", "/tutoring/", "/notes/", "/contact/", "/exam-topic-lists/", "/wp-content/", "/author/"]
+EXCLUDE_TITLE_RE = re.compile(r"(zoom\s+classes?|classes|course|review\s*\(|\b\d+\s*hour\b|\b\d+\s*mcq\b|starts?\s+\d|nutrition\s+updates)", re.I)
 
 
 def norm(s: str) -> str:
@@ -169,6 +171,8 @@ def live_candidates() -> list[dict]:
         if "divineinterventionpodcasts.com" not in href or any(x in href for x in EXCLUDE_HREFS):
             continue
         if href.rstrip("/") == "https://divineinterventionpodcasts.com" or not REAL_EPISODE_RE.search(text):
+            continue
+        if ANNOUNCEMENT_RE.search(text):
             continue
         key = href.rstrip("/")
         if key in seen:

@@ -1,9 +1,9 @@
 {
-  "last_report_path": "/root/.hermes/logs/curator/20260619-025248",
-  "last_run_at": "2026-06-19T02:52:48.306244+00:00",
-  "last_run_duration_seconds": 243.564907,
-  "last_run_summary": "auto: no changes; llm: Completed an umbrella-building consolidation pass.\n\nWhat changed:\n- Archived 20 narrow/duplicate skill package roots into `~/.hermes/skills/.archive/curator-umbrella-20260619/`.\n- Preserved each archived package’s content by copying it into…\narchived 19 skill(s):\n  • hermes-agent-skill-authoring → hermes-agent\n  • hermes-backup → hermes-agent\n  • nano-pdf → ocr-and-documents\n  • obsidian → second-brain\n  • airtable — pruned (stale)\n  • dogfood — pruned (stale)\n  • godmode — pruned (stale)\n  • huggingface-hub — pruned (stale)\n  • llama-cpp — pruned (stale)\n  • maps — pruned (stale)\n  … and 9 more\nfull report: hermes curator status\nkeep an umbrella stable: hermes curator pin hermes-agent",
+  "last_report_path": "/root/.hermes/logs/curator/20260626-025356",
+  "last_run_at": "2026-06-26T02:53:56.197538+00:00",
+  "last_run_duration_seconds": 199.717397,
+  "last_run_summary": "auto: no changes; llm: Completed an umbrella-building consolidation pass.\n\n### Umbrellas created\n\n1. `creative-production-workflows`\n   - Absorbs creative artifact workflows:\n     - `humanizer`\n     - `baoyu-infographic`\n     - `manim-video`\n     - `comfyui`\n   -…\narchived 1 skill(s):\n  • second-brain — pruned (stale)\nfull report: hermes curator status",
   "last_run_summary_shown_at": null,
   "paused": false,
-  "run_count": 6
+  "run_count": 7
 }
