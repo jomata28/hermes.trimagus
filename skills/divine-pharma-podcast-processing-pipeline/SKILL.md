@@ -377,7 +377,7 @@ chmod +x /usr/local/bin/divine-pharma-daily.sh
 
 ## Notes & Pitfalls
 
-Reference: see `references/live-site-placeholder-completion.md` for the live-site fallback and the rule to complete existing placeholder notes/audio before returning `[SILENT]`.
+References: see `references/live-site-placeholder-completion.md` for the live-site fallback and the rule to complete existing placeholder notes/audio before returning `[SILENT]`; see `references/placeholder-completion-pattern.md` for the general in-place placeholder completion workflow, verification steps, and curation warning for Whisper-mangled drug names.
 
 - **Audio Source**: Divine Intervention podcast may require scraping the webpage for actual MP3 URL - inspect network tab when playing episode
 - **URL Handling**: Notion API may return URLs with trailing whitespace that breaks wget/curl. Always trim whitespace: `EPISODE_URL=$(echo "$EPISODE_URL" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')`
@@ -388,9 +388,11 @@ Reference: see `references/live-site-placeholder-completion.md` for the live-sit
      - `https?://[^\"']*\\.mp3` (within quotes)
      - Check `<audio>` and `<source>` tags
   3. Use wget with `--show-progress` for large files
-- **Transcription Quality & Timing**: Whisper base model can timeout on longer episodes (>20 min), but do not skip transcription solely because no GPU is present. In this environment, `faster_whisper` base on CPU/int8 successfully transcribed a 23-minute, 21MB episode in ~390 seconds. Consider:
+- **Transcription Quality & Timing**: Whisper base model can timeout on longer episodes (>20 min), but do not skip transcription solely because no GPU is present. In this environment, `faster_whisper` base on CPU/int8 successfully transcribed a 23-minute, 21MB episode in ~390 seconds and a 35-minute, 34MB episode within a 600-second cron tool timeout. Consider:
   - Using `faster_whisper` with `WhisperModel("base", device="cpu", compute_type="int8")` as the default CPU path
-  - Setting foreground command timeouts to at least 600 seconds for ~20-25 minute episodes
+  - Setting foreground command timeouts to at least 600 seconds for ~20-35 minute episodes
+  - Reusing existing downloaded audio in `/root/Divine-Pharmacology/Audio` before downloading again
+  - Writing both a raw `.txt` transcript and a linked Obsidian transcript note with `transcription_status: completed`
   - Using `--model tiny` or chunks only when base CPU exceeds the cron window
   - If a previous cron run created a placeholder note/transcript and downloaded audio, treat the next run as an opportunity to complete the transcript and replace the placeholder rather than reporting nothing
   - If transcription truly fails, create a clearly marked placeholder note and leave the audio path for follow-up
@@ -398,7 +400,7 @@ Reference: see `references/live-site-placeholder-completion.md` for the live-sit
   - Fine-tuning a model on pharmacology text
   - Using few-shot prompting with examples
   - Implementing rule-based extraction for known patterns (drug names, mechanisms)
-- **Duplicate Processing**: Tracking processed episodes by ID prevents re-processing same episode. For live-site fallback, also de-duplicate by normalized episode title/number and existing note filenames/frontmatter because the same episode URL can hash to different `live:<hash>` IDs depending on URL normalization (date URL vs canonical URL, trailing slash, query string). If a matching existing note is a placeholder, complete/replace that note instead of creating a new dated duplicate. If a matching existing note is already completed, mark any newly discovered equivalent `live:<hash>`/URL as processed and return `[SILENT]` rather than overwriting the completed note or processing an older episode just because its exact live hash was missing from the log.
+- **Duplicate Processing / Placeholder Completion**: Tracking processed episodes by ID prevents re-processing same episode. For both Notion and live-site candidates, de-duplicate by normalized episode title/number and existing note filenames/frontmatter because the same episode can appear under different IDs or URL normalizations (date URL vs canonical URL, trailing slash, query string). Do **not** skip a candidate solely because its processed marker is present: first inspect any matching note for placeholder language such as `Transcription failed`, `Content pending transcription`, `structured fallback`, `To be extracted from transcript`, or `transcription_status` not completed. If a matching existing note is a placeholder, complete/replace that exact note (preserving its original note date/path when possible) instead of creating a new dated duplicate. If a matching existing note is already completed, mark any newly discovered equivalent `live:<hash>`/URL as processed and return `[SILENT]` rather than overwriting the completed note or processing an older episode just because its exact live hash was missing from the log.
 - **Error Handling**: Production script should include more robust error checking and logging, including timeout handling for transcription
 - **Vault Location**: Adjust Obsidian vault path to match actual setup (in this environment: `/root/Divine-Pharmacology`)
 - **Timing**: 7:00 AM CST = 13:00 UTC (adjust cron if server is in different timezone)
