@@ -377,7 +377,7 @@ chmod +x /usr/local/bin/divine-pharma-daily.sh
 
 ## Notes & Pitfalls
 
-References: see `references/live-site-placeholder-completion.md` for the live-site fallback and the rule to complete existing placeholder notes/audio before returning `[SILENT]`; see `references/placeholder-completion-pattern.md` for the general in-place placeholder completion workflow, verification steps, and curation warning for Whisper-mangled drug names.
+References: see `references/live-site-placeholder-completion.md` for the live-site fallback and the rule to complete existing placeholder notes/audio before returning `[SILENT]`; see `references/placeholder-completion-pattern.md` for the general in-place placeholder completion workflow, verification steps, and curation warning for Whisper-mangled drug names; see `references/cpu-placeholder-completion-case-study.md` for a proven 32-minute `skipped_no_gpu` placeholder completion using CPU `faster_whisper` base/int8 within a 600-second cron window.
 
 - **Audio Source**: Divine Intervention podcast may require scraping the webpage for actual MP3 URL - inspect network tab when playing episode
 - **URL Handling**: Notion API may return URLs with trailing whitespace that breaks wget/curl. Always trim whitespace: `EPISODE_URL=$(echo "$EPISODE_URL" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')`
@@ -388,7 +388,7 @@ References: see `references/live-site-placeholder-completion.md` for the live-si
      - `https?://[^\"']*\\.mp3` (within quotes)
      - Check `<audio>` and `<source>` tags
   3. Use wget with `--show-progress` for large files
-- **Transcription Quality & Timing**: Whisper base model can timeout on longer episodes (>20 min), but do not skip transcription solely because no GPU is present. In this environment, `faster_whisper` base on CPU/int8 successfully transcribed a 23-minute, 21MB episode in ~390 seconds and a 35-minute, 34MB episode within a 600-second cron tool timeout. Consider:
+- **Transcription Quality & Timing**: Whisper base model can timeout on longer episodes (>20 min), but do not skip transcription solely because no GPU is present. In this environment, `faster_whisper` base on CPU/int8 successfully transcribed a 23-minute, 21MB episode in ~390 seconds, a 32-minute/25.98MB `skipped_no_gpu` placeholder in ~406 seconds, and a 35-minute, 34MB episode within a 600-second cron tool timeout. Consider:
   - Using `faster_whisper` with `WhisperModel("base", device="cpu", compute_type="int8")` as the default CPU path
   - Setting foreground command timeouts to at least 600 seconds for ~20-35 minute episodes
   - Reusing existing downloaded audio in `/root/Divine-Pharmacology/Audio` before downloading again
