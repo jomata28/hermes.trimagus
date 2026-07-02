@@ -20,6 +20,7 @@ This skill consolidates the former standalone packages `google-workspace`, `hima
 | User asks for | Use subsection | Full package reference |
 |---|---|---|
 | Gmail, Calendar, Drive, Docs, Sheets, Google Tasks, rclone Drive mount | Google Workspace operations | `references/google-workspace-package/SKILL.md` |
+| Drive folder image OCR/extraction into Google Sheets, especially timer/clock numbers from screenshots | Image-to-Sheets extraction | `references/timer-image-extraction-to-sheets.md` |
 | IMAP/SMTP mailbox via Himalaya CLI | Terminal email operations | `references/himalaya-package/SKILL.md` |
 | PDF text extraction, OCR, scanned docs, forms, marker-pdf, pymupdf | PDF and document extraction | `references/ocr-and-documents-package/SKILL.md` |
 | Create/read/edit `.pptx`, slide decks, Google Slides conversion | Presentation and deck production | `references/powerpoint-package/SKILL.md` |
@@ -37,6 +38,8 @@ This skill consolidates the former standalone packages `google-workspace`, `hima
 ## Google Workspace operations
 
 Use the Google Workspace package for Gmail, Calendar, Drive, Docs, Sheets, Contacts, Tasks, OAuth setup, Drive upload/convert flows, Google Slides conversion, rclone Drive mounts, Google Cloud CLI PKCE quirks, and Antigravity CLI notes.
+
+For Drive folders containing screenshots/photos that need values extracted into a Sheet, especially white digital timer/clock numbers, use `references/timer-image-extraction-to-sheets.md`: copy the folder locally with rclone, OCR only the target number, manually review flagged cases, then create and verify a formatted Google Sheet in the source folder.
 
 Operational pattern:
 1. Run the setup check before first use.
