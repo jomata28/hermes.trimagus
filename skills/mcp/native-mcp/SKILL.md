@@ -275,7 +275,7 @@ mcp_servers:
     command: "npx"
     args: ["-y", "@modelcontextprotocol/server-github"]
     env:
-      GITHUB_PERSONAL_ACCESS_TOKEN: "ghp_xxxxxxxxxxxxxxxxxxxx"
+      GITHUB_PERSONAL_ACCESS_TOKEN: "__REDACTED_FOR_GITHUB_BACKUP__"
     timeout: 60
 ```
 
@@ -310,7 +310,7 @@ mcp_servers:
     command: "npx"
     args: ["-y", "@modelcontextprotocol/server-github"]
     env:
-      GITHUB_PERSONAL_ACCESS_TOKEN: "ghp_xxxxxxxxxxxxxxxxxxxx"
+      GITHUB_PERSONAL_ACCESS_TOKEN: "__REDACTED_FOR_GITHUB_BACKUP__"
 
   company_api:
     url: "https://mcp.internal.company.com/mcp"

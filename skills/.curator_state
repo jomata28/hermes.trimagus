@@ -1,9 +1,9 @@
 {
-  "last_report_path": "/root/.hermes/logs/curator/20260626-025356",
-  "last_run_at": "2026-06-26T02:53:56.197538+00:00",
-  "last_run_duration_seconds": 199.717397,
-  "last_run_summary": "auto: no changes; llm: Completed an umbrella-building consolidation pass.\n\n### Umbrellas created\n\n1. `creative-production-workflows`\n   - Absorbs creative artifact workflows:\n     - `humanizer`\n     - `baoyu-infographic`\n     - `manim-video`\n     - `comfyui`\n   -…\narchived 1 skill(s):\n  • second-brain — pruned (stale)\nfull report: hermes curator status",
+  "last_report_path": "/root/.hermes/logs/curator/20260703-025519",
+  "last_run_at": "2026-07-03T02:55:19.082875+00:00",
+  "last_run_duration_seconds": 182.559768,
+  "last_run_summary": "auto: no changes; llm: Processed the candidate list as an umbrella-building pass.\n\nSummary:\n- Kept `hermes-agent` active: it is already a class-level Hermes operations/development umbrella with rich subsections and references.\n- Verified the existing creative con…\narchived 2 skill(s):\n  • jupyter-live-kernel — pruned (stale)\n  • openhue — pruned (stale)\nfull report: hermes curator status",
   "last_run_summary_shown_at": null,
   "paused": false,
-  "run_count": 7
+  "run_count": 8
 }

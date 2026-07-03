@@ -61,6 +61,8 @@ The former package also covers lightweight PDF editing with `nano-pdf`; verify e
 
 Use this subsection for any `.pptx`, slide deck, presentation, Google Slides deliverable, or journal-club deck. Read/analyze with markitdown and thumbnails; edit with the preserved office scripts or create from scratch with pptxgenjs. Every deck must be visually QA'd by rendering to images. Assume the first render has problems and do at least one fix-and-verify cycle before declaring success.
 
+For research-heavy marketplace/listing decks (cars, real estate, products, vendor comparisons), use `references/marketplace-research-decks.md`: save raw source evidence and a manifest, download images, clearly label unpublished fields instead of estimating, and separate source facts from recommendation synthesis. Be especially defensive with bot-blocked or client-rendered pages because extracted tables can be shifted/misaligned.
+
 For Google Slides deliverables, create a local `.pptx`, upload/convert to native Slides, export the converted version to PDF, render pages, and QA the converted artifact because Google conversion can change spacing and wrapping.
 
 ## Second-brain knowledge base
