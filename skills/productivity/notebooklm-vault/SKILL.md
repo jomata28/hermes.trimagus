@@ -25,6 +25,8 @@ For NotebookLM, always use CLI first, not browser:
 
 ## Workflow shape
 
+For web/forum corpora that need to become NotebookLM sources, stage the scrape into the vault first and batch it for confirmation before upload. See `references/forum-scrape-staging.md` for the Flarum/forum pattern, including the 10-discussion batching workflow and Markdown+JSON output shape.
+
 0. Verify the CLI before claiming access:
    ```bash
    command -v notebooklm

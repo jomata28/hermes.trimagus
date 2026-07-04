@@ -18,15 +18,15 @@
       "schedule_display": "55 13 * * *",
       "repeat": {
         "times": null,
-        "completed": 80
+        "completed": 81
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-13T21:12:49.081621+00:00",
-      "next_run_at": "2026-07-03T13:55:00+00:00",
-      "last_run_at": "2026-07-02T13:55:27.204042+00:00",
+      "next_run_at": "2026-07-04T13:55:00+00:00",
+      "last_run_at": "2026-07-03T13:55:47.242617+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "origin",
@@ -58,15 +58,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 78
+        "completed": 79
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-15T20:25:37.192710+00:00",
-      "next_run_at": "2026-07-03T07:00:00+00:00",
-      "last_run_at": "2026-07-02T07:13:38.317971+00:00",
+      "next_run_at": "2026-07-04T07:00:00+00:00",
+      "last_run_at": "2026-07-03T07:01:48.755486+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "telegram",
@@ -93,15 +93,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 78
+        "completed": 79
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-15T21:39:46.829937+00:00",
-      "next_run_at": "2026-07-03T07:00:00+00:00",
-      "last_run_at": "2026-07-02T07:01:01.015283+00:00",
+      "next_run_at": "2026-07-04T07:00:00+00:00",
+      "last_run_at": "2026-07-03T07:00:42.673822+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "telegram",
@@ -133,15 +133,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 67
+        "completed": 68
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-26T15:35:16.683709+00:00",
-      "next_run_at": "2026-07-03T07:00:00+00:00",
-      "last_run_at": "2026-07-02T07:00:17.746544+00:00",
+      "next_run_at": "2026-07-04T07:00:00+00:00",
+      "last_run_at": "2026-07-03T07:00:27.177260+00:00",
       "last_status": "error",
       "last_error": "RuntimeError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16000 tokens, but can only afford 9458. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16000 tokens, but can only afford 15368. To increase, visit https://openrouter.ai/settings/credits and add more credits'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 13816. To increase, visit https://openrouter.ai/settings/credits and add more credits'}]}}, 'user_id': 'user_2v95px7iuCUePfth4Hs6DCu0hdT'}",
       "deliver": "telegram",
@@ -173,15 +173,15 @@
       "schedule_display": "0 3 * * *",
       "repeat": {
         "times": null,
-        "completed": 55
+        "completed": 56
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-08T18:09:30.722153+00:00",
-      "next_run_at": "2026-07-04T03:00:00+00:00",
-      "last_run_at": "2026-07-02T03:02:45.724442+00:00",
+      "next_run_at": "2026-07-05T03:00:00+00:00",
+      "last_run_at": "2026-07-03T03:02:53.616904+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -210,15 +210,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 38
+        "completed": 39
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-25T19:56:44.909253+00:00",
-      "next_run_at": "2026-07-03T07:00:00+00:00",
-      "last_run_at": "2026-07-02T07:01:36.809908+00:00",
+      "next_run_at": "2026-07-04T07:00:00+00:00",
+      "last_run_at": "2026-07-03T07:02:04.417777+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -281,5 +281,5 @@
       "workdir": null
     }
   ],
-  "updated_at": "2026-07-03T03:00:20.901540+00:00"
+  "updated_at": "2026-07-04T03:00:32.699698+00:00"
 }

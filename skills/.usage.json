@@ -1,4 +1,17 @@
 {
+  "ai-coding-agents": {
+    "archived_at": null,
+    "created_at": "2026-07-03T20:54:20.049132+00:00",
+    "created_by": null,
+    "last_patched_at": "2026-07-03T21:43:16.116773+00:00",
+    "last_used_at": "2026-07-03T21:42:30.824888+00:00",
+    "last_viewed_at": "2026-07-03T21:42:30.818969+00:00",
+    "patch_count": 5,
+    "pinned": false,
+    "state": "active",
+    "use_count": 2,
+    "view_count": 2
+  },
   "airtable": {
     "archived_at": null,
     "created_at": "2026-06-19T02:52:49.444088+00:00",
@@ -95,13 +108,13 @@
     "created_at": "2026-05-26T13:55:18.349510+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-07-02T13:55:17.520827+00:00",
-    "last_viewed_at": "2026-07-02T13:55:17.513191+00:00",
+    "last_used_at": "2026-07-03T13:55:30.874221+00:00",
+    "last_viewed_at": "2026-07-03T13:55:30.862435+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 37,
-    "view_count": 37
+    "use_count": 38,
+    "view_count": 38
   },
   "data-science-workflows": {
     "archived_at": null,
@@ -121,13 +134,13 @@
     "created_at": "2026-05-08T07:00:58.625760+00:00",
     "created_by": null,
     "last_patched_at": "2026-06-25T07:02:36.796029+00:00",
-    "last_used_at": "2026-07-02T07:00:18.342247+00:00",
-    "last_viewed_at": "2026-07-02T07:00:18.333732+00:00",
+    "last_used_at": "2026-07-03T07:00:32.938299+00:00",
+    "last_viewed_at": "2026-07-03T07:00:32.925483+00:00",
     "patch_count": 23,
     "pinned": false,
     "state": "active",
-    "use_count": 154,
-    "view_count": 70
+    "use_count": 160,
+    "view_count": 74
   },
   "divine-pharma-notion-episodes-fetch": {
     "archived_at": null,
@@ -147,12 +160,12 @@
     "created_at": "2026-05-08T07:00:58.663545+00:00",
     "created_by": null,
     "last_patched_at": "2026-07-02T07:14:18.928484+00:00",
-    "last_used_at": "2026-07-02T07:00:11.299422+00:00",
+    "last_used_at": "2026-07-03T07:00:23.556245+00:00",
     "last_viewed_at": "2026-07-01T07:01:01.877609+00:00",
     "patch_count": 21,
     "pinned": false,
     "state": "active",
-    "use_count": 50,
+    "use_count": 51,
     "view_count": 9
   },
   "dogfood": {
@@ -185,14 +198,14 @@
     "archived_at": null,
     "created_at": "2026-06-19T03:02:30.397843+00:00",
     "created_by": null,
-    "last_patched_at": "2026-07-01T03:03:30.425753+00:00",
-    "last_used_at": "2026-07-03T03:00:26.227261+00:00",
-    "last_viewed_at": "2026-07-03T03:00:26.221114+00:00",
-    "patch_count": 5,
+    "last_patched_at": "2026-07-03T03:03:05.189487+00:00",
+    "last_used_at": "2026-07-04T03:01:03.432262+00:00",
+    "last_viewed_at": "2026-07-04T03:01:03.426943+00:00",
+    "patch_count": 6,
     "pinned": false,
     "state": "active",
-    "use_count": 23,
-    "view_count": 23
+    "use_count": 25,
+    "view_count": 25
   },
   "godmode": {
     "archived_at": null,
@@ -225,13 +238,13 @@
     "created_at": "2026-06-05T02:49:50.310912+00:00",
     "created_by": null,
     "last_patched_at": "2026-06-12T02:55:15.569642+00:00",
-    "last_used_at": "2026-07-03T02:55:30.792134+00:00",
-    "last_viewed_at": "2026-07-03T02:55:30.786528+00:00",
+    "last_used_at": "2026-07-03T21:39:02.010171+00:00",
+    "last_viewed_at": "2026-07-03T21:39:01.989570+00:00",
     "patch_count": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 15,
-    "view_count": 15
+    "use_count": 16,
+    "view_count": 16
   },
   "hermes-agent-skill-authoring": {
     "archived_at": null,
@@ -393,14 +406,14 @@
     "archived_at": null,
     "created_at": "2026-06-03T21:14:12.707734+00:00",
     "created_by": null,
-    "last_patched_at": "2026-06-03T21:35:03.851975+00:00",
-    "last_used_at": "2026-06-03T21:34:44.860521+00:00",
-    "last_viewed_at": "2026-06-03T21:34:44.856909+00:00",
-    "patch_count": 6,
+    "last_patched_at": "2026-07-03T15:49:26.675519+00:00",
+    "last_used_at": "2026-07-03T21:43:06.676426+00:00",
+    "last_viewed_at": "2026-07-03T21:43:06.671819+00:00",
+    "patch_count": 8,
     "pinned": false,
     "state": "active",
-    "use_count": 4,
-    "view_count": 4
+    "use_count": 6,
+    "view_count": 6
   },
   "obliteratus": {
     "archived_at": null,
@@ -497,14 +510,14 @@
     "archived_at": null,
     "created_at": "2026-06-29T22:34:31.391966+00:00",
     "created_by": null,
-    "last_patched_at": "2026-07-02T05:30:25.941084+00:00",
-    "last_used_at": "2026-07-03T02:55:54.249552+00:00",
-    "last_viewed_at": "2026-07-03T02:55:54.243730+00:00",
-    "patch_count": 5,
+    "last_patched_at": "2026-07-03T20:23:45.253751+00:00",
+    "last_used_at": "2026-07-03T20:23:16.501774+00:00",
+    "last_viewed_at": "2026-07-03T20:23:16.497537+00:00",
+    "patch_count": 8,
     "pinned": false,
     "state": "active",
-    "use_count": 7,
-    "view_count": 7
+    "use_count": 10,
+    "view_count": 10
   },
   "requesting-code-review": {
     "archived_at": null,
@@ -524,13 +537,13 @@
     "created_at": "2026-06-11T18:56:44.606366+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-07-02T05:12:54.677120+00:00",
-    "last_viewed_at": "2026-07-02T05:12:54.670609+00:00",
+    "last_used_at": "2026-07-03T15:54:45.592528+00:00",
+    "last_viewed_at": "2026-07-03T15:54:45.587585+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 7,
-    "view_count": 7
+    "use_count": 8,
+    "view_count": 8
   },
   "smart-home-device-control": {
     "archived_at": null,

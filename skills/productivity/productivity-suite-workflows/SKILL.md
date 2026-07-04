@@ -25,6 +25,7 @@ This skill consolidates the former standalone packages `google-workspace`, `hima
 | PDF text extraction, OCR, scanned docs, forms, marker-pdf, pymupdf | PDF and document extraction | `references/ocr-and-documents-package/SKILL.md` |
 | Create/read/edit `.pptx`, slide decks, Google Slides conversion | Presentation and deck production | `references/powerpoint-package/SKILL.md` |
 | Obsidian vault, Bitácora, PARA/ONEPISSA, rclone-backed knowledge base, lab vault separation | Second-brain knowledge base | `references/second-brain-package/SKILL.md` |
+| Forum/community scraping into Obsidian + future NotebookLM querying | Forum scrape to knowledge base | `references/forum-scrape-to-knowledge-base.md` |
 | Teams meeting summaries, Microsoft Graph transcripts, pipeline jobs/subscriptions | Teams meeting pipeline | `references/teams-meeting-pipeline-package/SKILL.md` |
 
 ## Shared safety rules
@@ -70,6 +71,8 @@ For Google Slides deliverables, create a local `.pptx`, upload/convert to native
 Use this subsection for the user's Obsidian/Bitácora knowledge system, rclone-backed vault operations, daily standups, weekly reviews, project tracking, PARA/ONEPISSA pillar structure, and separate Cieslik Lab vault workflows. The personal vault and lab vault are separate sibling mounts; never mix or share vault data unless explicitly directed.
 
 Key rules: keep `.obsidian/` at vault root, never edit `raw/` or per-pillar `Raw/` folders, preserve frontmatter/wikilinks, and use rclone listing when file search has trouble on FUSE mounts.
+
+For scraped forums/community archives that the user wants to query later or upload to NotebookLM, use `references/forum-scrape-to-knowledge-base.md`: archive raw JSON + Markdown in batches, create a source registry/topic index/hub, build a local SQLite FTS index, and stage a NotebookLM upload pack before attempting upload.
 
 ## Teams meeting pipeline
 
