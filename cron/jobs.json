@@ -18,15 +18,15 @@
       "schedule_display": "55 13 * * *",
       "repeat": {
         "times": null,
-        "completed": 81
+        "completed": 82
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-13T21:12:49.081621+00:00",
-      "next_run_at": "2026-07-04T13:55:00+00:00",
-      "last_run_at": "2026-07-03T13:55:47.242617+00:00",
+      "next_run_at": "2026-07-05T13:55:00+00:00",
+      "last_run_at": "2026-07-04T13:55:54.775223+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "origin",
@@ -58,15 +58,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 79
+        "completed": 80
       },
-      "enabled": true,
-      "state": "scheduled",
-      "paused_at": null,
+      "enabled": false,
+      "state": "paused",
+      "paused_at": "2026-07-04T15:20:42.222898+00:00",
       "paused_reason": null,
       "created_at": "2026-04-15T20:25:37.192710+00:00",
-      "next_run_at": "2026-07-04T07:00:00+00:00",
-      "last_run_at": "2026-07-03T07:01:48.755486+00:00",
+      "next_run_at": "2026-07-05T07:00:00+00:00",
+      "last_run_at": "2026-07-04T07:02:05.286679+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "telegram",
@@ -93,15 +93,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 79
+        "completed": 80
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-15T21:39:46.829937+00:00",
-      "next_run_at": "2026-07-04T07:00:00+00:00",
-      "last_run_at": "2026-07-03T07:00:42.673822+00:00",
+      "next_run_at": "2026-07-05T07:00:00+00:00",
+      "last_run_at": "2026-07-04T07:00:58.353370+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "telegram",
@@ -133,15 +133,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 68
+        "completed": 69
       },
-      "enabled": true,
-      "state": "scheduled",
-      "paused_at": null,
+      "enabled": false,
+      "state": "paused",
+      "paused_at": "2026-07-04T15:20:40.994474+00:00",
       "paused_reason": null,
       "created_at": "2026-04-26T15:35:16.683709+00:00",
-      "next_run_at": "2026-07-04T07:00:00+00:00",
-      "last_run_at": "2026-07-03T07:00:27.177260+00:00",
+      "next_run_at": "2026-07-05T07:00:00+00:00",
+      "last_run_at": "2026-07-04T07:00:41.667911+00:00",
       "last_status": "error",
       "last_error": "RuntimeError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16000 tokens, but can only afford 9458. To increase, visit https://openrouter.ai/settings/credits and add more credits', 'code': 402, 'metadata': {'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16000 tokens, but can only afford 15368. To increase, visit https://openrouter.ai/settings/credits and add more credits'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 13816. To increase, visit https://openrouter.ai/settings/credits and add more credits'}]}}, 'user_id': 'user_2v95px7iuCUePfth4Hs6DCu0hdT'}",
       "deliver": "telegram",
@@ -173,15 +173,15 @@
       "schedule_display": "0 3 * * *",
       "repeat": {
         "times": null,
-        "completed": 56
+        "completed": 57
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-08T18:09:30.722153+00:00",
-      "next_run_at": "2026-07-05T03:00:00+00:00",
-      "last_run_at": "2026-07-03T03:02:53.616904+00:00",
+      "next_run_at": "2026-07-06T03:00:00+00:00",
+      "last_run_at": "2026-07-04T03:02:14.005558+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -210,15 +210,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 39
+        "completed": 40
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-25T19:56:44.909253+00:00",
-      "next_run_at": "2026-07-04T07:00:00+00:00",
-      "last_run_at": "2026-07-03T07:02:04.417777+00:00",
+      "next_run_at": "2026-07-05T07:00:00+00:00",
+      "last_run_at": "2026-07-04T07:01:50.492665+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -238,7 +238,7 @@
     {
       "id": "c0728427d850",
       "name": "Weekly Review \u2014 JT",
-      "prompt": "You are delivering a **Weekly Review summary** for JT (Jose Torres) via Telegram.\n\nDo this:\n\n1. Run calendar list to get NEXT week's events\n2. List Google Tasks and scan for any overdue or completed tasks\n3. Read /root/obsidian-vault/1-Projects/ for project deadline status\n4. Read /root/obsidian-vault/5-Admin and Reviews/00_log.md for this week's log\n\nFormat:\n\n```\n\ud83d\udccb Weekly Review \u2014 [Date]\n\n\ud83d\udcca THIS WEEK DONE\n- [summary of what was accomplished]\n\n\ud83d\udd25 NEXT WEEK's KEY DATES\n- [date] Event/deadline\n\n\u23f0 OVERDUE TASKS\n- [list] task if any overdue\n\n\ud83c\udfaf FOCUS AREAS NEXT WEEK\n- Top 3 priorities\n\n\u26a1 OPEN DECISIONS PENDING\n- Decisions still unresolved\n\nSunday's 30-min review checklist:\n\u2610 Archive done projects\n\u2610 Raw \u2192 Wiki processing\n\u2610 Check Step 1/IFOM metrics\n\u2610 Define next moves\n```\n\nKeep it to the point. JT is casual, direct.",
+      "prompt": "You are delivering a **Weekly Review summary** for JT (Jose Torres) via Telegram.\n\nDo this:\n\n1. Run calendar list to get NEXT week's events\n2. List Google Tasks and scan for any overdue or completed tasks\n3. Read /root/obsidian-vault/1-Projects/ for project deadline status\n4. Read /root/obsidian-vault/5-Admin and Reviews/00_log.md for this week's log\n\nFormat:\n\n```\n\ud83d\udccb Weekly Review \u2014 [Date]\n\n\ud83d\udcca THIS WEEK DONE\n- [summary of what was accomplished]\n\n\ud83d\udd25 NEXT WEEK's KEY DATES\n- [date] Event/deadline\n\n\u23f0 OVERDUE TASKS\n- [list] task if any overdue\n\n\ud83c\udfaf FOCUS AREAS NEXT WEEK\n- Top 3 priorities\n\n\u26a1 OPEN DECISIONS PENDING\n- Decisions still unresolved\n\nSunday's 30-min review checklist:\n\u2610 Archive done projects\n\u2610 Raw \u2192 Wiki processing\n\u2610 Check Step 1/IFOM metrics\n\u2610 Define next moves\n```\n\nKeep it to the point. JT is casual, direct.\n\nTHEN \u2014 after sending the Telegram summary \u2014 persist it to the vault:\n\n5. Write the exact same review (markdown, with a frontmatter block: date, type: weekly-review) to\n   /root/obsidian-vault/5-Admin and Reviews/reviews/weekly/YYYY-Www.md\n   (e.g. 2026-W27.md, using the ISO week of the review date). Overwrite if it exists.\n6. Append one line to /root/obsidian-vault/5-Admin and Reviews/00_log.md under today's date:\n   \"- Weekly review delivered \u2192 reviews/weekly/YYYY-Www.md\"",
       "skills": [],
       "skill": null,
       "model": null,
@@ -279,7 +279,45 @@
         "file"
       ],
       "workdir": null
+    },
+    {
+      "id": "545d4019798c",
+      "name": "USMLE Daily Nudge",
+      "prompt": "You are Hermes delivering JT's daily USMLE study nudge, ~30 min before his evening study block. Warm but efficient \u2014 friendly, tight, a well-placed emoji is fine. Not corporate, not bubbly.\n\nDo this:\n1. Read /root/obsidian-vault/2-Areas/Intellectual/Wiki/usmle-cockpit.md\n2. Compute days remaining to the exam dates in the frontmatter (exam_ifom, exam_step1) vs today.\n3. Pull the top 3 weak areas and today's suggested focus subject from the cockpit.\n\nSend a short Telegram message shaped like:\n\n\ud83c\udfaf Step 1 nudge \u2014 [N] days to IFOM \u00b7 [M] to Step 1\nTonight (18:00 block):\n\u2022 Anki due \u2192 clear it\n\u2022 UWorld: 1 timed block + review incorrects\n\u2022 Weak-area focus: [pick one weak subject]\n[one-line encouragement or a sharp reminder if dates D1 still unlocked]\n\nRules:\n- If the cockpit still shows dates unlocked (D1 open), lead with a nudge to LOCK THE TESTING DATES \u2014 that's the blocker.\n- Keep it to ~5 lines. This should feel like a coach texting, not a report.\n- If weak areas are still blank in the cockpit, tell JT to fill them from his last UWorld/NBME breakdown.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 22 * * *",
+        "display": "30 22 * * *"
+      },
+      "schedule_display": "30 22 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 2
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-07-04T15:26:33.125064+00:00",
+      "next_run_at": "2026-07-05T22:30:00+00:00",
+      "last_run_at": "2026-07-04T22:30:43.442034+00:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "telegram:1585113960",
+      "origin": null,
+      "enabled_toolsets": null,
+      "workdir": null,
+      "profile": null
     }
   ],
-  "updated_at": "2026-07-04T03:00:32.699698+00:00"
+  "updated_at": "2026-07-05T03:00:29.189305+00:00"
 }

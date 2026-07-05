@@ -51,12 +51,27 @@ Use linked markdown knowledge-base tooling for interlinked concept maps and retr
 
 For ML papers, support the workflow from design to submission: positioning, related work, method, experiments, limitations, and template compliance. Use templates when the target venue requires them.
 
+## Safety / Medical-Adjacent Research
+
+When the user asks about body-use safety of DIY experiments, supplements, devices, or electrically/chemically modified liquids:
+
+1. Separate **anecdote**, **established mechanism**, and **clinical evidence** explicitly.
+2. Do not dismiss subjective benefits, but do not let “felt good” substitute for safety evidence.
+3. Triage by route and dose: ingestion, inhalation/spray, topical intact skin, wounds/eyes/mucosa, duration, amount, and current symptoms.
+4. Prefer adjacent primary literatures when direct clinical evidence is absent: toxicology, electrochemistry, food-safety, water-treatment, materials/corrosion, and physiology.
+5. Quantify plausible exposure when possible instead of relying on vague risk language.
+6. If there are acute/severe symptoms or meaningful poisoning concern, recommend Poison Control / urgent care rather than continuing speculative analysis.
+
+Reference note: `references/electrochemistry-body-use-risk.md` covers DIY charged/electrolyzed water or milk, electrode leaching, Faraday-law estimates, and literature-search anchors.
+
 ## Common Pitfalls
 
 1. Mixing uncited synthesis with source facts.
 2. Using stale market or feed data.
 3. Overcollecting papers without clustering or ranking relevance.
 4. Drafting paper claims before evidence/experiments are available.
+5. Treating a lack of direct medical literature as proof of safety; absence of evidence is not evidence of absence.
+6. Hardening a session-specific hazard into a blanket refusal. Capture the mechanism and safer experimental controls instead.
 
 ## Verification Checklist
 

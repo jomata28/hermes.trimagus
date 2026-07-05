@@ -105,7 +105,7 @@ Or create a dedicated file:
 mkdir -p ~/.config/x-cli
 cat > ~/.config/x-cli/.env <<'EOF'
 X_API_KEY=your_consumer_key
-X_API_SECRET=your_secret_key
+X_API_SECRET=your___REDACTED_FOR_GITHUB_BACKUP__
 X_BEARER_TOKEN=your_bearer_token
 X_ACCESS_TOKEN=your_access_token
 X_ACCESS_TOKEN_SECRET=your_access_token_secret
