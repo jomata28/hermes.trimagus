@@ -288,7 +288,7 @@ mcp_servers:
   company_api:
     url: "https://mcp.mycompany.com/v1/mcp"
     headers:
-      Authorization: "Bearer sk-xxxxxxxxxxxxxxxxxxxx"
+      Authorization: "Bearer __REDACTED_FOR_GITHUB_BACKUP__"
       X-Team-Id: "engineering"
     timeout: 180
     connect_timeout: 30
@@ -315,7 +315,7 @@ mcp_servers:
   company_api:
     url: "https://mcp.internal.company.com/mcp"
     headers:
-      Authorization: "Bearer sk-xxxxxxxxxxxxxxxxxxxx"
+      Authorization: "Bearer __REDACTED_FOR_GITHUB_BACKUP__"
     timeout: 300
 ```
 

@@ -1,6 +1,6 @@
 # 2026-06-10 — GitHub placeholder token scan quirk
 
-During the scheduled Hermes backup to `jomata28/hermes.trimagus`, the first redaction/scan pass still flagged `.env` because it contained a GitHub-token-shaped placeholder like `__REDACTED_FOR_GITHUB_BACKUP__...`.
+During the scheduled Hermes backup to `jomata28/hermes.trimagus`, the first redaction/scan pass still flagged `.env` because it contained a GitHub-token-shaped placeholder like `ghp_xxxx...`.
 
 ## Durable lesson
 

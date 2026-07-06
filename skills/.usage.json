@@ -108,13 +108,13 @@
     "created_at": "2026-05-26T13:55:18.349510+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-07-04T22:30:30.291370+00:00",
-    "last_viewed_at": "2026-07-04T22:30:30.287457+00:00",
+    "last_used_at": "2026-07-05T13:55:36.253118+00:00",
+    "last_viewed_at": "2026-07-05T13:55:36.247283+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 40,
-    "view_count": 40
+    "use_count": 41,
+    "view_count": 41
   },
   "data-science-workflows": {
     "archived_at": null,
@@ -134,13 +134,13 @@
     "created_at": "2026-05-08T07:00:58.625760+00:00",
     "created_by": null,
     "last_patched_at": "2026-06-25T07:02:36.796029+00:00",
-    "last_used_at": "2026-07-04T07:00:41.853292+00:00",
-    "last_viewed_at": "2026-07-04T07:00:41.849128+00:00",
+    "last_used_at": "2026-07-05T07:00:43.823876+00:00",
+    "last_viewed_at": "2026-07-05T07:00:43.815689+00:00",
     "patch_count": 23,
     "pinned": false,
     "state": "active",
-    "use_count": 163,
-    "view_count": 75
+    "use_count": 165,
+    "view_count": 76
   },
   "divine-pharma-notion-episodes-fetch": {
     "archived_at": null,
@@ -199,13 +199,13 @@
     "created_at": "2026-06-19T03:02:30.397843+00:00",
     "created_by": null,
     "last_patched_at": "2026-07-03T03:03:05.189487+00:00",
-    "last_used_at": "2026-07-05T03:01:25.796648+00:00",
-    "last_viewed_at": "2026-07-05T03:01:25.793378+00:00",
+    "last_used_at": "2026-07-06T03:00:43.175133+00:00",
+    "last_viewed_at": "2026-07-06T03:00:43.170811+00:00",
     "patch_count": 6,
     "pinned": false,
     "state": "active",
-    "use_count": 27,
-    "view_count": 27
+    "use_count": 28,
+    "view_count": 28
   },
   "godmode": {
     "archived_at": null,
@@ -238,13 +238,13 @@
     "created_at": "2026-06-05T02:49:50.310912+00:00",
     "created_by": null,
     "last_patched_at": "2026-06-12T02:55:15.569642+00:00",
-    "last_used_at": "2026-07-03T21:39:02.010171+00:00",
-    "last_viewed_at": "2026-07-03T21:39:01.989570+00:00",
+    "last_used_at": "2026-07-05T17:55:47.440771+00:00",
+    "last_viewed_at": "2026-07-05T17:55:47.437615+00:00",
     "patch_count": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 16,
-    "view_count": 16
+    "use_count": 17,
+    "view_count": 17
   },
   "hermes-agent-skill-authoring": {
     "archived_at": null,
@@ -563,13 +563,13 @@
     "created_at": "2026-06-12T02:54:34.131628+00:00",
     "created_by": null,
     "last_patched_at": "2026-06-12T02:54:34.131647+00:00",
-    "last_used_at": null,
-    "last_viewed_at": null,
+    "last_used_at": "2026-07-05T17:52:24.397552+00:00",
+    "last_viewed_at": "2026-07-05T17:52:24.392331+00:00",
     "patch_count": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 0,
-    "view_count": 0
+    "use_count": 1,
+    "view_count": 1
   },
   "software-development-workflows": {
     "archived_at": null,
