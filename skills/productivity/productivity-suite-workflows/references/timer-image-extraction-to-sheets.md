@@ -1,6 +1,6 @@
 # Timer image extraction to Google Sheets
 
-Use when the user has a Drive folder of screenshots/photos and wants only the visible digital timer/clock number extracted into a Google Sheet.
+Use when the user has a Drive folder of screenshots/photos and wants only the visible digital timer/clock number extracted into a Google Sheet. Also use for follow-up passes on the same image set where JT asks to add adjacent columns for other visible annotations, especially hand/digitally painted red/yellow IDs or numbers.
 
 ## Workflow
 
@@ -40,8 +40,33 @@ Use when the user has a Drive folder of screenshots/photos and wants only the vi
    - Freeze the header, bold it, add a basic filter, auto-resize columns.
    - Move the sheet into the source Drive folder via Drive API if the folder is found.
 
+## Follow-up pass: colored handwritten / digitally painted IDs
+
+When JT asks to write out hand/digitally written markings in a new column:
+
+1. **Keep the existing image order**
+   - Read the current extraction CSV/Sheet first and process images in that exact order.
+   - Add new columns next to the existing extraction instead of creating a separate unsorted artifact unless asked.
+   - Recommended columns: `handwritten_marking`, `marking_confidence`, `marking_notes`.
+
+2. **Target only the annotation layer**
+   - Transcribe the red/yellow/dim hand-drawn or digitally painted IDs/numbers/letters.
+   - Ignore the large white timer, phone UI labels, lap row, status bar time/battery, call thumbnails, and app chrome.
+   - Common patterns in the Timer ht set included `HT1/HT2/HT3`, `D1/D2`, `AR`, and mouse/ID-like numbers such as `2097`, `3008`, etc.
+
+3. **Review twice and expose uncertainty**
+   - Use contact sheets for throughput, but crop/inspect individual images for messy cases.
+   - Mark uncertain reads with `?` and set confidence `low` or `medium`; do not make low-visibility scribbles look definitive.
+   - Use `NO_MARKING` when no colored marking is visible.
+   - Prefer concise notes like `messy overlapping yellow scribbles`, `red handwriting`, or `last digit uncertain`.
+
+4. **Chunk large sets safely**
+   - For ~1k images, split by row ranges, then combine back against the original filename order.
+   - Before writing to Sheets, verify: expected row count, no missing images, no duplicate images, no blank markings.
+   - After writing to Sheets, read back header + sample rows + final rows to confirm the added columns landed in the right tab/range.
+
 ## Quality rules
 
-- Do not present OCR output as perfect without review. Include a status/notes column for alternates and manual fixes.
+- Do not present OCR/visual transcription output as perfect without review. Include status/confidence/notes columns for alternates, manual fixes, and uncertain handwriting.
 - Preserve source image filenames exactly, especially converted HEIC files.
-- Verify the created Sheet by reading back row count and a sample range before reporting the link.
+- Verify the created or updated Sheet by reading back row count and sample ranges before reporting the link.

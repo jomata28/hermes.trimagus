@@ -108,13 +108,13 @@
     "created_at": "2026-05-26T13:55:18.349510+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-07-05T13:55:36.253118+00:00",
-    "last_viewed_at": "2026-07-05T13:55:36.247283+00:00",
+    "last_used_at": "2026-07-06T13:55:45.937077+00:00",
+    "last_viewed_at": "2026-07-06T13:55:45.930137+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 41,
-    "view_count": 41
+    "use_count": 42,
+    "view_count": 42
   },
   "data-science-workflows": {
     "archived_at": null,
@@ -134,13 +134,13 @@
     "created_at": "2026-05-08T07:00:58.625760+00:00",
     "created_by": null,
     "last_patched_at": "2026-06-25T07:02:36.796029+00:00",
-    "last_used_at": "2026-07-05T07:00:43.823876+00:00",
-    "last_viewed_at": "2026-07-05T07:00:43.815689+00:00",
+    "last_used_at": "2026-07-06T07:00:46.834438+00:00",
+    "last_viewed_at": "2026-07-06T07:00:46.829945+00:00",
     "patch_count": 23,
     "pinned": false,
     "state": "active",
-    "use_count": 165,
-    "view_count": 76
+    "use_count": 167,
+    "view_count": 77
   },
   "divine-pharma-notion-episodes-fetch": {
     "archived_at": null,
@@ -198,14 +198,14 @@
     "archived_at": null,
     "created_at": "2026-06-19T03:02:30.397843+00:00",
     "created_by": null,
-    "last_patched_at": "2026-07-03T03:03:05.189487+00:00",
-    "last_used_at": "2026-07-06T03:00:43.175133+00:00",
-    "last_viewed_at": "2026-07-06T03:00:43.170811+00:00",
-    "patch_count": 6,
+    "last_patched_at": "2026-07-06T03:03:32.647246+00:00",
+    "last_used_at": "2026-07-07T03:00:55.238444+00:00",
+    "last_viewed_at": "2026-07-07T03:00:55.231024+00:00",
+    "patch_count": 8,
     "pinned": false,
     "state": "active",
-    "use_count": 28,
-    "view_count": 28
+    "use_count": 29,
+    "view_count": 29
   },
   "godmode": {
     "archived_at": null,
@@ -310,6 +310,19 @@
     "state": "active",
     "use_count": 0,
     "view_count": 0
+  },
+  "lab-data-sheets": {
+    "archived_at": null,
+    "created_at": "2026-07-06T16:08:48.729521+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_used_at": "2026-07-06T16:08:48.735459+00:00",
+    "last_viewed_at": "2026-07-06T16:08:48.729553+00:00",
+    "patch_count": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 1,
+    "view_count": 1
   },
   "llama-cpp": {
     "archived_at": null,
@@ -510,14 +523,14 @@
     "archived_at": null,
     "created_at": "2026-06-29T22:34:31.391966+00:00",
     "created_by": null,
-    "last_patched_at": "2026-07-03T20:23:45.253751+00:00",
-    "last_used_at": "2026-07-04T15:27:38.691182+00:00",
-    "last_viewed_at": "2026-07-04T15:27:38.687633+00:00",
-    "patch_count": 8,
+    "last_patched_at": "2026-07-06T16:36:29.899474+00:00",
+    "last_used_at": "2026-07-06T16:16:24.480589+00:00",
+    "last_viewed_at": "2026-07-06T16:16:24.476245+00:00",
+    "patch_count": 11,
     "pinned": false,
     "state": "active",
-    "use_count": 11,
-    "view_count": 11
+    "use_count": 13,
+    "view_count": 13
   },
   "requesting-code-review": {
     "archived_at": null,

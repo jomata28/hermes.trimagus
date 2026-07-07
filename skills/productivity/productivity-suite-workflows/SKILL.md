@@ -20,7 +20,7 @@ This skill consolidates the former standalone packages `google-workspace`, `hima
 | User asks for | Use subsection | Full package reference |
 |---|---|---|
 | Gmail, Calendar, Drive, Docs, Sheets, Google Tasks, rclone Drive mount | Google Workspace operations | `references/google-workspace-package/SKILL.md` |
-| Drive folder image OCR/extraction into Google Sheets, especially timer/clock numbers from screenshots | Image-to-Sheets extraction | `references/timer-image-extraction-to-sheets.md` |
+| Drive folder image OCR/extraction into Google Sheets, especially timer/clock numbers from screenshots or follow-up passes for colored handwritten/digital annotations | Image-to-Sheets extraction | `references/timer-image-extraction-to-sheets.md` |
 | IMAP/SMTP mailbox via Himalaya CLI | Terminal email operations | `references/himalaya-package/SKILL.md` |
 | PDF text extraction, OCR, scanned docs, forms, marker-pdf, pymupdf | PDF and document extraction | `references/ocr-and-documents-package/SKILL.md` |
 | Create/read/edit `.pptx`, slide decks, Google Slides conversion | Presentation and deck production | `references/powerpoint-package/SKILL.md` |
