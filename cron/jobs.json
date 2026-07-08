@@ -18,15 +18,15 @@
       "schedule_display": "55 13 * * *",
       "repeat": {
         "times": null,
-        "completed": 84
+        "completed": 85
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-13T21:12:49.081621+00:00",
-      "next_run_at": "2026-07-07T13:55:00+00:00",
-      "last_run_at": "2026-07-06T13:56:20.387445+00:00",
+      "next_run_at": "2026-07-08T13:55:00+00:00",
+      "last_run_at": "2026-07-07T13:56:09.010225+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "origin",
@@ -93,15 +93,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 82
+        "completed": 83
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-15T21:39:46.829937+00:00",
-      "next_run_at": "2026-07-07T07:00:00+00:00",
-      "last_run_at": "2026-07-06T07:01:20.276025+00:00",
+      "next_run_at": "2026-07-08T07:00:00+00:00",
+      "last_run_at": "2026-07-07T07:01:23.225494+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "telegram",
@@ -173,15 +173,15 @@
       "schedule_display": "0 3 * * *",
       "repeat": {
         "times": null,
-        "completed": 59
+        "completed": 60
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-08T18:09:30.722153+00:00",
-      "next_run_at": "2026-07-08T03:00:00+00:00",
-      "last_run_at": "2026-07-06T03:03:02.934189+00:00",
+      "next_run_at": "2026-07-09T03:00:00+00:00",
+      "last_run_at": "2026-07-07T03:02:43.086665+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -192,8 +192,8 @@
     },
     {
       "id": "0c97b80566e6",
-      "name": "Daily Standup - JM",
-      "prompt": "You are delivering a **Morning Briefing** for JT (Jose Torres) via Telegram. You have access to:\n- Google Calendar via: `python /root/.hermes/skills/productivity/google-workspace/scripts/google_api.py calendar list`\n- Google Tasks via: `curl -s \"https://www.googleapis.com/tasks/v1/users/@me/lists\" -H \"Authorization: Bearer $(cat /root/.hermes/google_token.json | python3 -c \\\"import sys,json;print(json.load(sys.stdin)['token'])\\\")\"`\n- The Bit\u00e1cora vault mounted at /root/obsidian-vault/ via rclone\n\nDo this:\n\n1. Run calendar list to get today's + this week's events\n2. List all Google Tasks lists and scan for tasks in the next 7 days\n3. Read /root/obsidian-vault/1-Projects/ for any projects with deadlines this week\n4. Read /root/obsidian-vault/5-Admin and Reviews/00_log.md for recent context\n5. Read /root/obsidian-vault/3-Resources/_decisions.md for open bottlenecks\n\nThen format a Morning Briefing like this:\n\n```\n\u2600\ufe0f Morning Briefing \u2014 [Day] [Date]\n\n\ud83d\udccb TODAY'S GRID\n- [time] Event name\n- [time] Event name\n\n\ud83d\udd25 THIS WEEK's KEY DEADLINES\n- [deadline] Project/task\n\n\u2705 GOOGLE TASKS \u2014 Priority items\n- [list name] task title\n- [list name] task title\n\n\u26a1 ACTIVE BOTTLENECKS\n- D1: [decision needed]\n- [other open items]\n\nWhat are we executing today?\n```\n\nKeep it concise. Casual tone. JT prefers direct communication. Under 200 words.",
+      "name": "RISING Brief \u2014 JT",
+      "prompt": "You are delivering the **RISING Brief** for JT (Jose Torres) via Telegram. This is the official name of the former morning/daily briefing; use **RISING Brief** in all headings and future references.\n\nYou have access to:\n- Google Calendar via: `python /root/.hermes/skills/productivity/google-workspace/scripts/google_api.py calendar list`\n- Google Tasks via: `curl -s \"https://www.googleapis.com/tasks/v1/users/@me/lists\" -H \"Authorization: Bearer $(cat /root/.hermes/google_token.json | python3 -c \\\"import sys,json;print(json.load(sys.stdin)['token'])\\\")\"`\n- The Bit\u00e1cora vault mounted at /root/obsidian-vault/ via rclone\n\nDo this:\n\n1. Run calendar list to get today's + this week's events\n2. List all Google Tasks lists and scan for tasks in the next 7 days\n3. Read /root/obsidian-vault/1-Projects/ for any projects with deadlines this week\n4. Read /root/obsidian-vault/5-Admin and Reviews/00_log.md for recent context\n5. Read /root/obsidian-vault/3-Resources/_decisions.md for open bottlenecks\n\nThen format a RISING Brief like this:\n\n```\n\u2600\ufe0f RISING Brief \u2014 [Day] [Date]\n\n\ud83d\udccb TODAY'S GRID\n- [time] Event name\n- [time] Event name\n\n\ud83d\udd25 THIS WEEK's KEY DEADLINES\n- [deadline] Project/task\n\n\u2705 GOOGLE TASKS \u2014 Priority items\n- [list name] task title\n- [list name] task title\n\n\u26a1 ACTIVE BOTTLENECKS\n- D1: [decision needed]\n- [other open items]\n\nWhat are we executing today?\n```\n\nKeep it concise. Casual tone. JT prefers direct communication. Under 200 words.",
       "skills": [],
       "skill": null,
       "model": null,
@@ -210,15 +210,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 42
+        "completed": 43
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-25T19:56:44.909253+00:00",
-      "next_run_at": "2026-07-07T07:00:00+00:00",
-      "last_run_at": "2026-07-06T07:02:01.089691+00:00",
+      "next_run_at": "2026-07-08T07:00:00+00:00",
+      "last_run_at": "2026-07-07T07:02:12.378293+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -300,15 +300,15 @@
       "schedule_display": "30 22 * * *",
       "repeat": {
         "times": null,
-        "completed": 4
+        "completed": 5
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-04T15:26:33.125064+00:00",
-      "next_run_at": "2026-07-07T22:30:00+00:00",
-      "last_run_at": "2026-07-06T22:31:05.934454+00:00",
+      "next_run_at": "2026-07-08T22:30:00+00:00",
+      "last_run_at": "2026-07-07T22:31:19.583100+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -319,5 +319,5 @@
       "profile": null
     }
   ],
-  "updated_at": "2026-07-07T03:00:45.873080+00:00"
+  "updated_at": "2026-07-08T03:00:55.927780+00:00"
 }

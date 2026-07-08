@@ -1,14 +1,20 @@
 ---
 name: daily-briefing
 category: productivity
-description: Daily and weekly briefing workflow — scans Google Calendar, Google Tasks, and Obsidian vault to deliver actionable summaries and auto-fix gaps
-trigger: User asks for daily/weekly briefing, morning check-in, or "what's up today"
+description: RISING Brief and weekly review workflow — scans Google Calendar, Google Tasks, and Obsidian vault to deliver actionable summaries and auto-fix gaps
+trigger: User asks for the RISING Brief, daily/weekly briefing, morning check-in, or "what's up today"
 ---
 
-# Daily Briefing & Weekly Review Workflow
+# RISING Brief & Weekly Review Workflow
 
 ## Purpose
-Deliver actionable daily and weekly briefings by scanning THREE sources, identifying conflicts/gaps, and updating Google Calendar + Tasks + Obsidian vault to stay in sync.
+Deliver actionable RISING Briefs and weekly reviews by scanning THREE sources, identifying conflicts/gaps, and updating Google Calendar + Tasks + Obsidian vault to stay in sync.
+
+## Naming Rule
+- **RISING Brief** is the official name for JT's 7 AM morning/daily briefing. Use this name in cron prompts, cron job names, headings, saved summaries, vault docs, memories, and user-facing replies.
+- Treat "morning brief", "daily briefing", "daily standup", and "what's up today" as aliases that trigger the same workflow, but do not use them as the displayed title unless quoting the user.
+- Standard heading: `☀️ RISING Brief — [Day] [Date]`.
+- If JT asks to make a name change "official" or "across all time," propagate it beyond the immediate reply: update this skill, durable memory/user profile if relevant, cron job names/prompts, and any Bitácora/vault docs that display the old name.
 
 ## Data Sources (check ALL three every time)
 
@@ -45,14 +51,14 @@ Deliver actionable daily and weekly briefings by scanning THREE sources, identif
 
 ## Review Process
 
-### Daily Briefing (7 AM CT)
+### RISING Brief (7 AM CT)
 1. Scan calendar for today + tomorrow
 2. Scan tasks for due/overdue items
 3. Check project files with deadlines within 2 weeks
 4. **Identify gaps**: "no study time blocked today" / "no workout scheduled"
 5. **Add calendar blocks** where needed (study, workout, admin time)
 6. **Create/adjust tasks** for any missing next actions
-7. Deliver briefing via Telegram with:
+7. Deliver the RISING Brief via Telegram with:
    - Today's schedule
    - Tasks due / overdue
    - Next actions for active projects

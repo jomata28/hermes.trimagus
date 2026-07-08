@@ -65,8 +65,30 @@ When JT asks to write out hand/digitally written markings in a new column:
    - Before writing to Sheets, verify: expected row count, no missing images, no duplicate images, no blank markings.
    - After writing to Sheets, read back header + sample rows + final rows to confirm the added columns landed in the right tab/range.
 
+## Hanging-test handwritten time sheets from chat images
+
+Use this pattern when JT sends Telegram/chat-attached photos of yellow notepad hanging-test records and asks for Excel output.
+
+1. **Count and preserve inputs first**
+   - Confirm the number of image attachments received and preserve each cache filename in the output.
+   - Process every image; do not silently skip repeated-looking sheets because D2/D3/date/group combinations can repeat across cages.
+
+2. **Transcribe the sheet structure**
+   - Extract `sheet_label` / cage-group (examples: `F9`, `E2`, `E4`, `H8`, `H9`), `date`, `day` (`D2`, `D3`), `mouse_id`, and circled trial columns `1`, `2`, `3`.
+   - Keep the handwritten time text exactly as written (commonly `00:56:97`, `01:12:67`, etc.); do **not** convert to numeric Excel time unless the user explicitly asks.
+   - Split multi-section sheets into separate rows while preserving the same source image filename.
+
+3. **Expose uncertainty for correction**
+   - Add `confidence` and `notes` columns. Use `medium` for overwritten/darkened cells, unclear dates, or ambiguous digits; use notes like `trial_1 overwritten/darkened`.
+   - Do not guess hidden or cut-off headers. Leave missing date/day blank and explain in notes.
+
+4. **Excel deliverable pattern**
+   - Create an `.xlsx` with columns: `source_image`, `sheet_label`, `date`, `day`, `mouse_id`, `trial_1`, `trial_2`, `trial_3`, `confidence`, `notes`.
+   - Add a formatted table, freeze the header, auto-size columns, and include a `readme` sheet with image count, row count, and uncertainty guidance.
+   - Verify by reading the workbook back: row count, headers, first row, and last row before sending `MEDIA:/path/to/file`.
+
 ## Quality rules
 
 - Do not present OCR/visual transcription output as perfect without review. Include status/confidence/notes columns for alternates, manual fixes, and uncertain handwriting.
-- Preserve source image filenames exactly, especially converted HEIC files.
-- Verify the created or updated Sheet by reading back row count and sample ranges before reporting the link.
+- Preserve source image filenames exactly, especially converted HEIC files or Telegram image-cache filenames.
+- Verify the created or updated Sheet/Excel workbook by reading back row count and sample ranges before reporting the link/file.

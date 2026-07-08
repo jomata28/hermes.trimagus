@@ -9,7 +9,7 @@ fallback_providers:
   provider: openrouter
 - model: moonshotai/kimi-k2.6
   provider: openrouter
-credential_pool_strategies: "__REDACTED_FOR_GITHUB_BACKUP__"
+credential_pool_strategies: {}
 toolsets:
 - hermes-cli
 agent:
@@ -554,7 +554,7 @@ x_search:
   model: grok-4.20-reasoning
   timeout_seconds: 180
   retries: 2
-secrets: "__REDACTED_FOR_GITHUB_BACKUP__"
+secrets:
   bitwarden:
     enabled: false
     access_token_env: "__REDACTED_FOR_GITHUB_BACKUP__"

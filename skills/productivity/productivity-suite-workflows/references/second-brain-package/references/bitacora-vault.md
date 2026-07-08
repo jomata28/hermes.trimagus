@@ -54,9 +54,9 @@ Each pillar in `2-Areas/<Pillar>/` contains:
 | Spiritual | Spiritual path | TBD |
 | Artistics | Culture, language | Language decision: French/Chinese/Russian |
 
-## Daily briefing workflow
+## RISING Brief workflow
 
-For 7 AM CT morning briefing cron or manual daily standup:
+For 7 AM CT RISING Brief cron or manual daily standup:
 
 1. Read `5-Admin and Reviews/00_log.md` for recent context.
 2. Read `1-Projects/` for deadlines this week.
@@ -66,7 +66,7 @@ For 7 AM CT morning briefing cron or manual daily standup:
 6. Format:
 
 ```text
-☀️ Morning Briefing — [Day] [Date]
+☀️ RISING Brief — [Day] [Date]
 📋 TODAY'S GRID
 🔥 THIS WEEK's KEY DEADLINES
 ✅ GOOGLE TASKS — Priority items

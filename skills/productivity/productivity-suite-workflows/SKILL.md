@@ -21,6 +21,7 @@ This skill consolidates the former standalone packages `google-workspace`, `hima
 |---|---|---|
 | Gmail, Calendar, Drive, Docs, Sheets, Google Tasks, rclone Drive mount | Google Workspace operations | `references/google-workspace-package/SKILL.md` |
 | Drive folder image OCR/extraction into Google Sheets, especially timer/clock numbers from screenshots or follow-up passes for colored handwritten/digital annotations | Image-to-Sheets extraction | `references/timer-image-extraction-to-sheets.md` |
+| Handwritten hanging-test sheet photos into Excel, with box/day IDs, duplicate removal, and trial time transcription | Hanging-test image extraction | `references/hanging-test-image-extraction.md` |
 | IMAP/SMTP mailbox via Himalaya CLI | Terminal email operations | `references/himalaya-package/SKILL.md` |
 | PDF text extraction, OCR, scanned docs, forms, marker-pdf, pymupdf | PDF and document extraction | `references/ocr-and-documents-package/SKILL.md` |
 | Create/read/edit `.pptx`, slide decks, Google Slides conversion | Presentation and deck production | `references/powerpoint-package/SKILL.md` |
@@ -40,7 +41,9 @@ This skill consolidates the former standalone packages `google-workspace`, `hima
 
 Use the Google Workspace package for Gmail, Calendar, Drive, Docs, Sheets, Contacts, Tasks, OAuth setup, Drive upload/convert flows, Google Slides conversion, rclone Drive mounts, Google Cloud CLI PKCE quirks, and Antigravity CLI notes.
 
-For Drive folders containing screenshots/photos that need values extracted into a Sheet, especially white digital timer/clock numbers, use `references/timer-image-extraction-to-sheets.md`: copy the folder locally with rclone, OCR only the target number, manually review flagged cases, then create and verify a formatted Google Sheet in the source folder.
+For Drive folders containing screenshots/photos that need values extracted into a Sheet, especially white digital timer/clock numbers, use `references/timer-image-extraction-to-sheets.md`: copy the folder locally with rclone, OCR only the target number, manually review flagged cases, then create and verify a formatted Google Sheet in the source folder. For JT's hanging-test images, preserve the requested `box_day_id` style (`F9-1`, `F9-2`, `F9-3`, etc.) next to the image/source column; de-duplicate repeated photos before producing the final workbook.
+
+For handwritten hanging-test sheets sent as Telegram images, use `references/hanging-test-image-extraction.md`: count all attachments, transcribe box/day/mouse/trial times, add `box_day_id` next to image name (`F9-3`, `H8-2`), remove duplicate sheet photos before final Excel, and verify the workbook by reading it back.
 
 Operational pattern:
 1. Run the setup check before first use.

@@ -35,6 +35,22 @@ The token already has the `spreadsheets` scope. No extra auth needed.
    unless told otherwise; leave unknowns blank.
 3. `sheets append` to the right tab. Confirm in one line: "Logged echo · m-142 · EF 58 ✅".
 
+### Frailty entries from Telegram text/voice
+1. Parse bilingual shorthand carefully: alopecia/alopecia, fur color/color de pelo, coat condition/condición del pelaje, loss of whiskers/pérdida de bigotes. "Resto/todo lo demás normal" means unmentioned items are normal, not missing.
+2. If the user asks for a file rather than direct Sheet logging, create a standalone `.xlsx` with:
+   - a detailed item-score sheet (`mouse_id`, date, assessor, individual frailty items, score sum, denominator, provisional index, notes)
+   - a `sheet_import_format` tab matching the current Frailty tab columns exactly.
+3. Do not silently resolve ambiguous IDs: flag likely typos in notes (e.g. `18.1062F` vs `18.2062F`) and missing sex suffixes.
+4. When computing a provisional frailty index, state the denominator assumption (e.g. score_sum/31) in the workbook notes unless the user provided the exact denominator.
+
+### Whole FI lookup vs hanging/AR data
+- If JT asks whether mice were "logged" in **whole FI**, **FI**, **Frailty Index**, or similar, search the actual whole-FI workbook/tab first (e.g. files/tabs named `FI_*`, `Fraility Index`, `Frailty Index`, `frailty_index_*`, and the Google Sheet `Frailty` tab). Do **not** answer from hanging test, wire test, or AR extraction files unless he explicitly asks about those assays.
+- Treat hanging/wire/AR rows as supporting assay data, not proof that a mouse exists in whole FI.
+- If you accidentally find data in a different assay while answering an FI question, label it clearly as non-FI and continue checking FI before answering.
+- When current FI has no rows for requested mouse IDs, proactively search older/backed-up Excel sources before giving a negative: Drive folders such as `Cieslik LabVault/Raw/frailty/Friality Index and Hanging Time Excel/`, backup files named `FI_WHT_*.backup_before_*`, local `/tmp/frailty*`/`/tmp/lab*` copies, and broader Drive spreadsheets that may contain older lab history (e.g. `DAILY1.xlsx`).
+- Report findings by source class: **whole-FI hits**, **non-FI assay hits** (HT/Wire/AR), and **older unrelated lab-history hits** (echo/dopp/weight). This prevents conflating “mouse ID exists somewhere” with “mouse has a whole-FI row.”
+- Avoid creating new non-FI tabs in the lab data engine when the user's target is whole FI; ask one tight clarification if the destination tab/schema is unclear.
+
 ### Query  ("how many live mice?", "last echo for m-142")
 1. `sheets get` the relevant tab, filter in-agent, answer concisely.
 2. For counts/summaries, compute — don't dump the whole sheet.

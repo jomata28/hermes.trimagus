@@ -145,13 +145,13 @@ Two separate rclone mounts exist on VPS:
 
 | Agent | Role | Access |
 |-------|------|--------|
-| **Hermes (VPS)** | Calendar management, Google Tasks, daily standups, proactive Telegram pings, calendar→vault logging, project tracking | Full Drive via rclone + Calendar/Tasks API |
+| **Hermes (VPS)** | Calendar management, Google Tasks, RISING Briefs, proactive Telegram pings, calendar→vault logging, project tracking | Full Drive via rclone + Calendar/Tasks API |
 | **Claude (work laptop)** | Raw ingestion, wiki restructuring, knowledge synthesis, handoff summaries | Drive folder + Obsidian local |
 | **Gemini** | Ad-hoc access, supplemental research | Drive folder |
 
 ## Hermes Daily Routine and Reviews
 
-When asked to do a daily standup or morning briefing:
+When asked to do the RISING Brief, daily standup, or morning briefing:
 
 1. Read `5-Admin and Reviews/00_log.md` for recent context.
 2. Read `1-Projects/` for deadlines this week.
@@ -159,14 +159,14 @@ When asked to do a daily standup or morning briefing:
 4. Check Google Calendar for today's events and this week's schedule.
 5. Check Google Tasks for @today and priority items across the ONEPISSA task lists.
 6. Check `2-Areas/` pillars for active projects.
-7. Write a morning summary to `hermes/daily/YYYY-MM-DD.md` when a persistent log is requested or expected.
+7. Write a RISING Brief summary to `hermes/daily/YYYY-MM-DD.md` when a persistent log is requested or expected.
 8. Ping the user on Telegram with today's priorities when the workflow is proactive/scheduled.
 9. Update active project tracking.
 
-Morning briefing format:
+RISING Brief format:
 
 ```text
-☀️ Morning Briefing — [Day] [Date]
+☀️ RISING Brief — [Day] [Date]
 📋 TODAY'S GRID
 🔥 THIS WEEK's KEY DEADLINES
 ✅ GOOGLE TASKS — Priority items
