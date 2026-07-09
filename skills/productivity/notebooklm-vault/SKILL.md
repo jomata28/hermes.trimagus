@@ -27,6 +27,8 @@ For NotebookLM, always use CLI first, not browser:
 
 For web/forum corpora that need to become NotebookLM sources, stage the scrape into the vault first and batch it for confirmation before upload. See `references/forum-scrape-staging.md` for the Flarum/forum pattern, including the 10-discussion batching workflow and Markdown+JSON output shape.
 
+For a requested book/PDF found online, use `references/book-pdf-notebook-workflow.md`: download and validate the PDF, create a new notebook, upload the PDF, verify source status is `ready`, then ask a content-specific question before telling JT it is chat-ready.
+
 0. Verify the CLI before claiming access:
    ```bash
    command -v notebooklm
@@ -72,6 +74,10 @@ The npm package `notebooklm` also exists, but in a headless VPS session the Pyth
 
 ## Failure handling
 
-If a command fails with an auth error: first report that NotebookLM is installed but not authenticated, then offer the headless auth flow in `references/headless-vps-auth.md`. Do not try to recover by silently logging into the user's Google account. When exposing a temporary noVNC/Cloudflare tunnel for auth, give the user the tunnel URL + one-time VNC password, wait for them to say login is done, verify with `notebooklm auth check` + `notebooklm list`, then shut down the tunnel/processes.
+If a command fails with an auth error: first report that NotebookLM is installed but not authenticated, then offer the headless auth flow in `references/headless-vps-auth.md`. Do not try to recover by silently logging into the user's Google account. When exposing a temporary noVNC/Cloudflare tunnel for auth, give the user the tunnel URL + one-time VNC password, wait for them to say login is done, verify with `notebooklm auth check` + `notebooklm list`, then shut down the tunnel/processes. If the noVNC password/link fails, use the troubleshooting sequence in `references/headless-vps-auth.md`: inspect the live `x11vnc` auth file and ports before rotating passwords, and verify the final `vnc.html` URL returns HTTP 200 before sending it.
+
+If the Cloudflare tunnel returns `502` even though ports look open, inspect the noVNC/websockify bind address before giving the URL to the user. `novnc_proxy --listen 127.0.0.1:6080` has been observed to exit or bind unexpectedly on container interfaces; prefer a direct `websockify --web=/usr/share/novnc 127.0.0.1:6080 127.0.0.1:5901` process and verify the origin is reachable before sharing the trycloudflare link.
+
+For remote-browser login sessions where the VNC password fails, the browser is invisible, or multiple x11vnc/websockify/cloudflared processes exist, use `references/headless-novnc-auth-triage.md`. Key rule: verify the live `x11vnc` process, bound port, and `-rfbauth` file before telling JT which password to use. If rotation is messy, start a separate temporary stack on fresh ports and close only the public/temp stack afterward.
 
 If the user asks whether they can share notebooks: yes, but Hermes still needs an authenticated NotebookLM session or access to the source files/URLs. A shared notebook link alone is not useful until auth is configured.

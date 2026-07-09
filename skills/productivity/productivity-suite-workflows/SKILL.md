@@ -27,6 +27,7 @@ This skill consolidates the former standalone packages `google-workspace`, `hima
 | Create/read/edit `.pptx`, slide decks, Google Slides conversion | Presentation and deck production | `references/powerpoint-package/SKILL.md` |
 | Obsidian vault, Bitácora, PARA/ONEPISSA, rclone-backed knowledge base, lab vault separation | Second-brain knowledge base | `references/second-brain-package/SKILL.md` |
 | Forum/community scraping into Obsidian + future NotebookLM querying | Forum scrape to knowledge base | `references/forum-scrape-to-knowledge-base.md` |
+| Paid/private Substack/newsletter archive from Gmail into Markdown, Drive, and NotebookLM | Substack email archive to NotebookLM | `references/substack-email-archive-to-notebooklm.md` |
 | Teams meeting summaries, Microsoft Graph transcripts, pipeline jobs/subscriptions | Teams meeting pipeline | `references/teams-meeting-pipeline-package/SKILL.md` |
 
 ## Shared safety rules
@@ -46,7 +47,7 @@ For Drive folders containing screenshots/photos that need values extracted into 
 For handwritten hanging-test sheets sent as Telegram images, use `references/hanging-test-image-extraction.md`: count all attachments, transcribe box/day/mouse/trial times, add `box_day_id` next to image name (`F9-3`, `H8-2`), remove duplicate sheet photos before final Excel, and verify the workbook by reading it back.
 
 Operational pattern:
-1. Run the setup check before first use.
+1. Run the setup check before first use. In the umbrella package layout, the Google Workspace scripts live under `productivity-suite-workflows/references/google-workspace-package/scripts/`; if older notes mention `${HERMES_HOME}/skills/productivity/google-workspace/scripts/setup.py`, resolve to this preserved package path instead.
 2. Confirm required scopes before auth, especially Drive write access.
 3. Use the package's `google_api.py` wrapper when possible; use direct Google APIs for Tasks and attachment-heavy Gmail workflows.
 4. For Google Slides/Docs/Sheets deliverables, create locally when appropriate, upload/convert to native Google format, export back for QA, then share the final link.
@@ -76,6 +77,8 @@ Use this subsection for the user's Obsidian/Bitácora knowledge system, rclone-b
 Key rules: keep `.obsidian/` at vault root, never edit `raw/` or per-pillar `Raw/` folders, preserve frontmatter/wikilinks, and use rclone listing when file search has trouble on FUSE mounts.
 
 For scraped forums/community archives that the user wants to query later or upload to NotebookLM, use `references/forum-scrape-to-knowledge-base.md`: archive raw JSON + Markdown in batches, create a source registry/topic index/hub, build a local SQLite FTS index, and stage a NotebookLM upload pack before attempting upload.
+
+For paid/private Substack or newsletter content that arrives by email, prefer Gmail extraction over scraping the logged-in web UI. Use `references/substack-email-archive-to-notebooklm.md`: search by sender, exclude receipts, extract the latest posts into Markdown with manifest metadata, upload the corpus to NotebookLM, write a strategy/synthesis note, upload the archive to Bitácora/Drive, then close any temporary public remote-view tunnel.
 
 ## Teams meeting pipeline
 

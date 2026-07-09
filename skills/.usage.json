@@ -95,26 +95,26 @@
     "created_at": "2026-05-25T21:26:45.898522+00:00",
     "created_by": null,
     "last_patched_at": "2026-07-07T17:07:18.342694+00:00",
-    "last_used_at": "2026-07-07T17:07:09.038307+00:00",
-    "last_viewed_at": "2026-07-07T17:07:09.034298+00:00",
+    "last_used_at": "2026-07-08T22:30:13.405138+00:00",
+    "last_viewed_at": "2026-07-08T22:30:13.400769+00:00",
     "patch_count": 9,
     "pinned": false,
     "state": "active",
-    "use_count": 7,
-    "view_count": 7
+    "use_count": 8,
+    "view_count": 8
   },
   "daily-consciousness-practice": {
     "archived_at": null,
     "created_at": "2026-05-26T13:55:18.349510+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-07-07T13:55:53.986574+00:00",
-    "last_viewed_at": "2026-07-07T13:55:53.981216+00:00",
+    "last_used_at": "2026-07-08T13:55:09.853241+00:00",
+    "last_viewed_at": "2026-07-08T13:55:09.847911+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 43,
-    "view_count": 43
+    "use_count": 44,
+    "view_count": 44
   },
   "data-science-workflows": {
     "archived_at": null,
@@ -134,13 +134,13 @@
     "created_at": "2026-05-08T07:00:58.625760+00:00",
     "created_by": null,
     "last_patched_at": "2026-06-25T07:02:36.796029+00:00",
-    "last_used_at": "2026-07-07T07:00:53.861420+00:00",
-    "last_viewed_at": "2026-07-07T07:00:53.850882+00:00",
+    "last_used_at": "2026-07-08T07:00:16.368859+00:00",
+    "last_viewed_at": "2026-07-08T07:00:16.359841+00:00",
     "patch_count": 23,
     "pinned": false,
     "state": "active",
-    "use_count": 169,
-    "view_count": 78
+    "use_count": 171,
+    "view_count": 79
   },
   "divine-pharma-notion-episodes-fetch": {
     "archived_at": null,
@@ -199,13 +199,13 @@
     "created_at": "2026-06-19T03:02:30.397843+00:00",
     "created_by": null,
     "last_patched_at": "2026-07-06T03:03:32.647246+00:00",
-    "last_used_at": "2026-07-08T03:01:25.658847+00:00",
-    "last_viewed_at": "2026-07-08T03:01:25.647713+00:00",
+    "last_used_at": "2026-07-09T03:00:13.511554+00:00",
+    "last_viewed_at": "2026-07-09T03:00:13.414434+00:00",
     "patch_count": 8,
     "pinned": false,
     "state": "active",
-    "use_count": 32,
-    "view_count": 32
+    "use_count": 33,
+    "view_count": 33
   },
   "godmode": {
     "archived_at": null,
@@ -316,13 +316,13 @@
     "created_at": "2026-07-06T16:08:48.729521+00:00",
     "created_by": null,
     "last_patched_at": "2026-07-07T17:27:41.596461+00:00",
-    "last_used_at": "2026-07-07T22:24:46.099747+00:00",
-    "last_viewed_at": "2026-07-07T22:24:46.094257+00:00",
+    "last_used_at": "2026-07-08T03:57:29.744972+00:00",
+    "last_viewed_at": "2026-07-08T03:57:29.740840+00:00",
     "patch_count": 3,
     "pinned": false,
     "state": "active",
-    "use_count": 12,
-    "view_count": 12
+    "use_count": 13,
+    "view_count": 13
   },
   "llama-cpp": {
     "archived_at": null,
@@ -415,18 +415,31 @@
     "use_count": 0,
     "view_count": 0
   },
+  "navigate-bot-protected-sites": {
+    "archived_at": null,
+    "created_at": "2026-07-08T23:36:16.237930+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_used_at": "2026-07-08T23:36:16.246464+00:00",
+    "last_viewed_at": "2026-07-08T23:36:16.237956+00:00",
+    "patch_count": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 1,
+    "view_count": 1
+  },
   "notebooklm-vault": {
     "archived_at": null,
     "created_at": "2026-06-03T21:14:12.707734+00:00",
     "created_by": null,
-    "last_patched_at": "2026-07-03T15:49:26.675519+00:00",
-    "last_used_at": "2026-07-03T21:43:06.676426+00:00",
-    "last_viewed_at": "2026-07-03T21:43:06.671819+00:00",
-    "patch_count": 8,
+    "last_patched_at": "2026-07-09T01:31:37.628960+00:00",
+    "last_used_at": "2026-07-09T01:23:57.389515+00:00",
+    "last_viewed_at": "2026-07-09T01:23:57.374975+00:00",
+    "patch_count": 18,
     "pinned": false,
     "state": "active",
-    "use_count": 6,
-    "view_count": 6
+    "use_count": 10,
+    "view_count": 10
   },
   "obliteratus": {
     "archived_at": null,
@@ -523,14 +536,14 @@
     "archived_at": null,
     "created_at": "2026-06-29T22:34:31.391966+00:00",
     "created_by": null,
-    "last_patched_at": "2026-07-07T17:11:51.268149+00:00",
-    "last_used_at": "2026-07-07T14:58:09.462841+00:00",
-    "last_viewed_at": "2026-07-07T14:58:09.457878+00:00",
-    "patch_count": 17,
+    "last_patched_at": "2026-07-09T01:31:08.549583+00:00",
+    "last_used_at": "2026-07-09T01:23:57.402663+00:00",
+    "last_viewed_at": "2026-07-09T01:23:57.393436+00:00",
+    "patch_count": 21,
     "pinned": false,
     "state": "active",
-    "use_count": 15,
-    "view_count": 15
+    "use_count": 18,
+    "view_count": 18
   },
   "requesting-code-review": {
     "archived_at": null,
@@ -550,13 +563,13 @@
     "created_at": "2026-06-11T18:56:44.606366+00:00",
     "created_by": null,
     "last_patched_at": "2026-07-05T02:06:48.665570+00:00",
-    "last_used_at": "2026-07-05T02:04:04.434425+00:00",
-    "last_viewed_at": "2026-07-05T02:04:04.429761+00:00",
+    "last_used_at": "2026-07-09T01:23:57.398755+00:00",
+    "last_viewed_at": "2026-07-09T01:23:57.381704+00:00",
     "patch_count": 2,
     "pinned": false,
     "state": "active",
-    "use_count": 9,
-    "view_count": 9
+    "use_count": 11,
+    "view_count": 11
   },
   "smart-home-device-control": {
     "archived_at": null,
@@ -575,14 +588,14 @@
     "archived_at": null,
     "created_at": "2026-06-12T02:54:34.131628+00:00",
     "created_by": null,
-    "last_patched_at": "2026-06-12T02:54:34.131647+00:00",
-    "last_used_at": "2026-07-05T17:52:24.397552+00:00",
-    "last_viewed_at": "2026-07-05T17:52:24.392331+00:00",
-    "patch_count": 1,
+    "last_patched_at": "2026-07-09T00:26:09.876892+00:00",
+    "last_used_at": "2026-07-08T23:11:58.324931+00:00",
+    "last_viewed_at": "2026-07-08T23:11:58.321709+00:00",
+    "patch_count": 7,
     "pinned": false,
     "state": "active",
-    "use_count": 1,
-    "view_count": 1
+    "use_count": 2,
+    "view_count": 2
   },
   "software-development-workflows": {
     "archived_at": null,
