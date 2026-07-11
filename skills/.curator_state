@@ -1,9 +1,9 @@
 {
-  "last_report_path": "/root/.hermes/logs/curator/20260703-025519",
-  "last_run_at": "2026-07-03T02:55:19.082875+00:00",
-  "last_run_duration_seconds": 182.559768,
-  "last_run_summary": "auto: no changes; llm: Processed the candidate list as an umbrella-building pass.\n\nSummary:\n- Kept `hermes-agent` active: it is already a class-level Hermes operations/development umbrella with rich subsections and references.\n- Verified the existing creative con…\narchived 2 skill(s):\n  • jupyter-live-kernel — pruned (stale)\n  • openhue — pruned (stale)\nfull report: hermes curator status",
+  "last_report_path": "/root/.hermes/logs/curator/20260710-032319",
+  "last_run_at": "2026-07-10T03:23:19.259089+00:00",
+  "last_run_duration_seconds": 99.173921,
+  "last_run_summary": "auto: no changes; llm: Processed the full 10-skill candidate set and identified two obvious prefix/domain clusters plus one already-class-level skill:\n\n- **Creative production cluster**: `baoyu-infographic`, `comfyui`, `humanizer`, `manim-video`\n  - Consolidated …",
   "last_run_summary_shown_at": null,
   "paused": false,
-  "run_count": 8
+  "run_count": 9
 }

@@ -159,6 +159,12 @@ Choose colors that match your topic — don't default to generic blue. Use these
 
 When a user provides a paper PDF for a journal club, prioritize **readable presenter text plus authentic paper figures** over decorative/AI-looking diagrams. A good default is: left column with large, speakable bullets (about 15–18 pt), right side with cropped figure panels from the PDF, and short captions naming the figure/panel. If the requested slide count makes text + figures cramped, choose one extra slide and explain that it preserves legibility. Crop out paper body captions and excess whitespace; keep panel labels and axis/legend text when useful. Always render/export the deck and visually QA for crop cutoffs, tiny unreadable text, and captions leaking into figure crops.
 
+If JT asks to redo a scientific deck with a **white background** and more “explaining text,” treat that as an explainer redesign, not just a theme swap: expand the slide count if needed, use clear section cards with short method/result/interpretation text, keep body text speakable, and avoid cramming dense explanations into the original slide count. White decks still need visual hierarchy—use subtle accent bars/cards, authentic figures, and enough whitespace rather than plain bullet walls.
+
+If the main text pages do not show figures, render a contact sheet of later/back-matter PDF pages before giving up; some Article-in-Press PDFs place figure legends first and full figure panels near the end. Use `pdftoppm` to render likely figure ranges, make a quick contact sheet, visually identify figure pages, then crop/autofit those pages or panels into the deck. Prefer the paper's graphical abstract/model figure for title or conclusion slides when available.
+
+LibreOffice/PPTX conversion can change wrapping compared with python-pptx coordinates. For dense scientific slides, expect first render defects: oversized titles, overlapping bullets, or cramped cards. Fix by reducing font sizes, separating dense bullets into individual cards, and re-rendering. Do not deliver until at least one fix-and-verify loop has produced a clean rendered contact sheet.
+
 Reference: `references/journal-club-pdf-figures.md` covers the PDF-to-crops-to-Google-Slides workflow used for paper decks.
 
 ## QA (Required)

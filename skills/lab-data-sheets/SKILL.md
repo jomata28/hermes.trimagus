@@ -43,6 +43,11 @@ The token already has the `spreadsheets` scope. No extra auth needed.
 3. Do not silently resolve ambiguous IDs: flag likely typos in notes (e.g. `18.1062F` vs `18.2062F`) and missing sex suffixes.
 4. When computing a provisional frailty index, state the denominator assumption (e.g. score_sum/31) in the workbook notes unless the user provided the exact denominator.
 
+### AR / hanging-test entries from Telegram images
+- The schema doc may lag the live spreadsheet. Before writing assay rows, inspect the actual spreadsheet tabs and headers, especially for tabs not listed in the doc.
+- AR entries are stored in the `Hanging_Test` tab with `assay = AR` using columns: `mouse_id, assay, day, trial, time, source_image, marking, ocr_status, confidence, notes, updated`.
+- For a stopwatch screenshot plus shorthand like “Add ar to mice 1222,” parse the visible stopwatch time, check for an existing row for that mouse, then append a row like `["1222","AR","","","02:18.03","<image>","AR; 1222","ok","high","<visual note>",today]` and verify by reading the row back.
+
 ### Whole FI lookup vs hanging/AR data
 - If JT asks whether mice were "logged" in **whole FI**, **FI**, **Frailty Index**, or similar, search the actual whole-FI workbook/tab first (e.g. files/tabs named `FI_*`, `Fraility Index`, `Frailty Index`, `frailty_index_*`, and the Google Sheet `Frailty` tab). Do **not** answer from hanging test, wire test, or AR extraction files unless he explicitly asks about those assays.
 - Treat hanging/wire/AR rows as supporting assay data, not proof that a mouse exists in whole FI.
