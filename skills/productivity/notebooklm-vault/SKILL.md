@@ -29,6 +29,8 @@ For web/forum corpora that need to become NotebookLM sources, stage the scrape i
 
 For a requested book/PDF found online, use `references/book-pdf-notebook-workflow.md`: download and validate the PDF, create a new notebook, upload the PDF, verify source status is `ready`, then ask a content-specific question before telling JT it is chat-ready.
 
+For bulk YouTube ingestion, do not default to browser-extension automation if the CLI is authenticated. Accept a playlist/channel/course page/pasted URL list/text file, extract and de-duplicate YouTube URLs, then add them with `notebooklm source add --type youtube <url>` to the selected notebook. After adding, run `notebooklm source list` / wait or refresh as needed, and ask a content-specific test question before saying the notebook is chat-ready. Browser-plugin investigation is secondary: use it only to understand JT's existing workflow or when CLI ingestion fails.
+
 0. Verify the CLI before claiming access:
    ```bash
    command -v notebooklm
