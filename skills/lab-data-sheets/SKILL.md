@@ -42,6 +42,7 @@ The token already has the `spreadsheets` scope. No extra auth needed.
    - a `sheet_import_format` tab matching the current Frailty tab columns exactly.
 3. Do not silently resolve ambiguous IDs: flag likely typos in notes (e.g. `18.1062F` vs `18.2062F`) and missing sex suffixes.
 4. When computing a provisional frailty index, state the denominator assumption (e.g. score_sum/31) in the workbook notes unless the user provided the exact denominator.
+5. For bulk all-normal entries like “3-month males 1221–1224, all 0s” or “first five females 1225–1229 all have 0 in every cell,” act without asking if the destination is clearly Frailty/FI. Inspect the live `Frailty` header first. If the tab still has placeholder/summary columns rather than item-by-item FI columns, append normalized rows with `frailty_index = 0`, set available numeric parameter columns to `0`, and put the missing detail in `notes` (e.g. `3-month FI; male/female; all FI parameters scored 0`). Then read back the affected rows to verify.
 
 ### AR / hanging-test entries from Telegram images
 - The schema doc may lag the live spreadsheet. Before writing assay rows, inspect the actual spreadsheet tabs and headers, especially for tabs not listed in the doc.

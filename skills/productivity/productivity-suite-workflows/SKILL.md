@@ -80,6 +80,8 @@ Key rules: keep `.obsidian/` at vault root, never edit `raw/` or per-pillar `Raw
 
 For scraped forums/community archives that the user wants to query later or upload to NotebookLM, use `references/forum-scrape-to-knowledge-base.md`: archive raw JSON + Markdown in batches, create a source registry/topic index/hub, build a local SQLite FTS index, and stage a NotebookLM upload pack before attempting upload.
 
+For Dreamlining / life-reactivation sessions, use `references/dreamlining-bitacora.md`: store artifacts under `5-Admin and Reviews/reviews/dreamlining/`, create a dated session note before collecting answers, map Tener/Ser/Hacer into ONEPISSA, and convert each Ser into a concrete Hacer proof plus ≤5-minute next actions.
+
 For paid/private Substack or newsletter content that arrives by email, prefer Gmail extraction over scraping the logged-in web UI. Use `references/substack-email-archive-to-notebooklm.md`: search by sender, exclude receipts, extract the latest posts into Markdown with manifest metadata, upload the corpus to NotebookLM, write a strategy/synthesis note, upload the archive to Bitácora/Drive, then close any temporary public remote-view tunnel.
 
 ## Teams meeting pipeline

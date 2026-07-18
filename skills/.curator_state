@@ -1,9 +1,9 @@
 {
-  "last_report_path": "/root/.hermes/logs/curator/20260710-032319",
-  "last_run_at": "2026-07-10T03:23:19.259089+00:00",
-  "last_run_duration_seconds": 99.173921,
-  "last_run_summary": "auto: no changes; llm: Processed the full 10-skill candidate set and identified two obvious prefix/domain clusters plus one already-class-level skill:\n\n- **Creative production cluster**: `baoyu-infographic`, `comfyui`, `humanizer`, `manim-video`\n  - Consolidated …",
+  "last_report_path": "/root/.hermes/logs/curator/20260717-040922",
+  "last_run_at": "2026-07-17T04:09:22.608621+00:00",
+  "last_run_duration_seconds": 0.98725,
+  "last_run_summary": "auto: no changes; llm: skipped (consolidation off)",
   "last_run_summary_shown_at": null,
   "paused": false,
-  "run_count": 9
+  "run_count": 10
 }
