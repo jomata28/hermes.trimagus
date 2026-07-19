@@ -20,6 +20,7 @@ This skill consolidates the former standalone packages `google-workspace`, `hima
 | User asks for | Use subsection | Full package reference |
 |---|---|---|
 | Gmail, Calendar, Drive, Docs, Sheets, Google Tasks, rclone Drive mount | Google Workspace operations | `references/google-workspace-package/SKILL.md` |
+| Gmail-based annual contract renewals / Texas electricity plan shopping / Gexa renewal optimization | Texas electricity contract shopping | `references/texas-electricity-contract-shopping.md` |
 | Drive folder image OCR/extraction into Google Sheets, especially timer/clock numbers from screenshots or follow-up passes for colored handwritten/digital annotations | Image-to-Sheets extraction | `references/timer-image-extraction-to-sheets.md` |
 | Handwritten hanging-test sheet photos into Excel, with box/day IDs, duplicate removal, and trial time transcription | Hanging-test image extraction | `references/hanging-test-image-extraction.md` |
 | IMAP/SMTP mailbox via Himalaya CLI | Terminal email operations | `references/himalaya-package/SKILL.md` |
@@ -81,6 +82,8 @@ Key rules: keep `.obsidian/` at vault root, never edit `raw/` or per-pillar `Raw
 For scraped forums/community archives that the user wants to query later or upload to NotebookLM, use `references/forum-scrape-to-knowledge-base.md`: archive raw JSON + Markdown in batches, create a source registry/topic index/hub, build a local SQLite FTS index, and stage a NotebookLM upload pack before attempting upload.
 
 For Dreamlining / life-reactivation sessions, use `references/dreamlining-bitacora.md`: store artifacts under `5-Admin and Reviews/reviews/dreamlining/`, create a dated session note before collecting answers, map Tener/Ser/Hacer into ONEPISSA, and convert each Ser into a concrete Hacer proof plus ≤5-minute next actions.
+
+For Gmail-based annual contract renewals or Texas electricity plan shopping, use `references/texas-electricity-contract-shopping.md`: read renewal/expiration notices from Gmail first, extract PDFs/EFLs, calculate actual usage sensitivity, and avoid bill-credit traps before recommending a switch.
 
 For paid/private Substack or newsletter content that arrives by email, prefer Gmail extraction over scraping the logged-in web UI. Use `references/substack-email-archive-to-notebooklm.md`: search by sender, exclude receipts, extract the latest posts into Markdown with manifest metadata, upload the corpus to NotebookLM, write a strategy/synthesis note, upload the archive to Bitácora/Drive, then close any temporary public remote-view tunnel.
 

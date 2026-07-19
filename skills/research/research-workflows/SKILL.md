@@ -23,6 +23,7 @@ This umbrella covers research as a class: discover sources, collect evidence, sy
 - The user asks to query Polymarket or market/event probabilities.
 - The user asks to build/query a linked LLM knowledge wiki.
 - The user asks to draft or structure an ML research paper.
+- The user asks for high-stakes consumer due diligence that needs public-record checks, market comparables, and a buy/avoid recommendation (for Mexico used/semi-new vehicles, use `references/vehicle-purchase-due-diligence-mexico.md`).
 
 ## Source Discipline
 
@@ -50,6 +51,12 @@ Use linked markdown knowledge-base tooling for interlinked concept maps and retr
 ## Research Paper Writing
 
 For ML papers, support the workflow from design to submission: positioning, related work, method, experiments, limitations, and template compliance. Use templates when the target venue requires them.
+
+## Consumer Due Diligence
+
+Use this subsection for practical purchase/risk research where the user needs a decision, not just a source dump. Separate visible/listing facts from assumptions, run official/public checks first, use market comparables, and end with a concrete recommendation plus missing data.
+
+For Mexico used/semi-new car purchases, follow `references/vehicle-purchase-due-diligence-mexico.md`: extract plate/VIN/listing data from photos, check REPUVE/state tenencia-verification/recalls, benchmark price, account for Kavak-vs-private risk, and never green-light from photos alone.
 
 ## Safety / Medical-Adjacent Research
 
