@@ -22,6 +22,11 @@ Use when JT asks whether to buy a used/semi-new car, sends a car listing/photo, 
    - From photos/listing: make, model, year, trim, mileage, price, plate, state, VIN/NIV, seller/dealer, visible condition.
    - If VIN/NIV is partial/uncertain, state uncertainty clearly. A VIN/NIV must have 17 characters.
 
+1a. **For post-purchase trámites, choose the registration route first**
+   - If the buyer keeps the current state registration: use that state's cambio de propietario + reemplacamiento rules and domicile requirement.
+   - If the buyer lives in another state: use alta de placas in the buyer's state plus whatever baja/return/resolution of prior plates is required.
+   - For CDMX buyer + Edomex plates, do not phrase it as “changing Edomex plates in CDMX”; it is usually CDMX alta de placas for a used vehicle from another entity. See `references/mexico-registration-transfer-notes.md`.
+
 2. **Validate identity/legal fit**
    - Plate must match vehicle make/model/year in the relevant official registry.
    - VIN/NIV must match listing, windshield/door labels, factura, tarjeta de circulación, and any registry output.
@@ -54,6 +59,10 @@ Kavak reduces private-party fraud risk but does **not** eliminate overpricing, r
 - Do not treat a dealer/platform inspection as a substitute for checking recalls, adeudos, REPUVE, and warranty terms.
 - Do not infer a final recommendation without price, mileage, year/trim, and legal checks.
 - Avoid generic checklist dumps; tie the checklist to the specific vehicle and the user's current decision.
+- For handouts/PDFs, keep only the requested procedural content; omit seller negotiation context unless asked.
+- If the user says not to change the artifact yet, report the researched facts only and wait before editing/regenerating.
+- When quoting government trámite costs, prefer official agency pages, direct links, and screenshots of the visible price section; if a portal is accordion-based, open/capture the relevant `Costo` panel.
+- Do not include ISAVAU in a simple transfer/plates handout unless directly requested; mention it separately only when it affects cost.
 
 ## Verification checklist
 

@@ -61,6 +61,8 @@ Use Himalaya when the user wants mailbox operations through IMAP/SMTP from the t
 
 Use this subsection for PDFs, scanned documents, OCR, forms, and extraction. Try remote extraction first when a URL is available. For local files, use lightweight `pymupdf`/`pymupdf4llm` unless OCR, equations, forms, or complex layout require marker-pdf. Before installing marker-pdf, check disk space because it can require several GB. For simple scanned forms, try Poppler + Tesseract before heavy OCR stacks.
 
+For creating short user-facing PDF handouts/checklists, use `references/pdf-generation-verification.md`: draft tight Markdown, render to PDF, then verify with `file`, `pdfinfo`, and `pdftotext` before delivery. Do not trust a renderer's “wrote PDF” message alone; headless Chromium/Snap can produce a valid-looking PDF containing a local-file access error when printing `file:///tmp/...`, so use a localhost HTTP workaround and re-check the extracted text.
+
 The former package also covers lightweight PDF editing with `nano-pdf`; verify edits visually or by extracting affected page text.
 
 ## Presentation and deck production
