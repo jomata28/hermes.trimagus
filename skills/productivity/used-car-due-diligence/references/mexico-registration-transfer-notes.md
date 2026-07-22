@@ -28,7 +28,7 @@ CDMX SEMOVI alta foránea (used vehicle from another state):
 - Official page: `https://www.semovi.cdmx.gob.mx/tramites-y-servicios/vehiculos-particulares/placas/alta-de-placas-vehiculos-usados/alta-de-placas-vehiculos-usados-de-otra-entidad-federativa-foraneos`.
 - **$972.00** por derechos de alta.
 - **$590.00** por baja de placas de otra entidad only if doing the digital Ventanilla de Control Vehicular route, lacking prior baja, and needing a baja FUM.
-- Practical total: **$972** if baja is already resolved, or **$1,562** if alta + baja FUM applies. Capture a screenshot of the SEMOVI `Costo` accordion when the user asks for proof.
+- Practical total: **$972** if baja is already resolved, or **$1,562** if alta + baja FUM applies. Capture a screenshot of the SEMOVI `Costo` accordion when the user asks for proof. If the accordion stays visually closed in headless capture, use the page HTML to identify the collapse id (e.g. `#collapse934`) and force it visible with Playwright/JS before taking the screenshot; verify the image actually shows `$972.00` and `$590.00` before sending.
 
 For CDMX cars already in the CDMX padrón, the line-capture forms for 36_2/36_7 can calculate from marca/modelo/placa. For an Edomex plate, the CDMX form may return “datos no se encuentran actualizados en el padrón,” which is expected and indicates this is an **alta from another entity**, not a simple CDMX cambio-propietario calculation.
 
