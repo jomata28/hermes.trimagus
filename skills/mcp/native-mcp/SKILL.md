@@ -275,7 +275,7 @@ mcp_servers:
     command: "npx"
     args: ["-y", "@modelcontextprotocol/server-github"]
     env:
-      GITHUB_PERSONAL_ACCESS_TOKEN: "REDACTED_TOKEN_IN_BACKUP"
+      GITHUB_PERSONAL_ACCESS_TOKEN: "__REDACTED_FOR_GITHUB_BACKUP__"
     timeout: 60
 ```
 
@@ -288,7 +288,7 @@ mcp_servers:
   company_api:
     url: "https://mcp.mycompany.com/v1/mcp"
     headers:
-      Authorization: "Bearer REDACTED_TOKEN_IN_BACKUP"
+      Authorization: "Bearer __REDACTED_FOR_GITHUB_BACKUP__"
       X-Team-Id: "engineering"
     timeout: 180
     connect_timeout: 30
@@ -310,12 +310,12 @@ mcp_servers:
     command: "npx"
     args: ["-y", "@modelcontextprotocol/server-github"]
     env:
-      GITHUB_PERSONAL_ACCESS_TOKEN: "REDACTED_TOKEN_IN_BACKUP"
+      GITHUB_PERSONAL_ACCESS_TOKEN: "__REDACTED_FOR_GITHUB_BACKUP__"
 
   company_api:
     url: "https://mcp.internal.company.com/mcp"
     headers:
-      Authorization: "Bearer REDACTED_TOKEN_IN_BACKUP"
+      Authorization: "Bearer __REDACTED_FOR_GITHUB_BACKUP__"
     timeout: 300
 ```
 
