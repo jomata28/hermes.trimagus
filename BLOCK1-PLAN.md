@@ -1,94 +1,75 @@
-# BLOCK1-PLAN.md — Weeks 1–12 ("Foundations")
+# BLOCK 1 — Weeks 1–12: Foundation
+Chinese (zero → HSK 2 exit) · Tai chi (zero → Yang 24 complete, rough) · History spine (origins → Han)
 
-Companion to `STATE-SHIFU.md` (current position, metrics, operating rules) and
-`PROGRAM-OPERATIONS.md` (runbooks any executor follows). This file is the
-detailed content plan for program weeks 1–12 only. Weeks 13–26 (Block 2) get
-their own plan file, authored no later than the Block 1 exit review (week 12).
+## TAI CHI SOURCES (video-first path)
+**Primary course (pick ONE, follow linearly):**
+1. **YMAA — Master Yang, Jwing-Ming / Helen Liang (Yang 24)** — the most rigorous free+paid option. Structured step-by-step, front + rear views, martial applications explained. YouTube: youtube.com/ymaa; apps/DVDs for the full course. Best if you want depth and lineage (traces to Yang Chengfu).
+2. **Chris Pei (BodyWisdom) — "24 Yang Style Tai Chi Form, Full Beginner Instruction"** — free on YouTube, single structured progression of the Yang 24, well-paced for self-learners. Best free complete course.
+3. **David-Dorian Ross / Tai Chi Made Easy** — most beginner-friendly pacing, strong on principles; less martial depth.
 
-Daily dose is fixed at 150 min/day per `STATE-SHIFU.md`: 30 Anki / 30 tai chi
-/ 60 input / 30 speaking. This file specifies *what content* fills each of
-those slots, week by week, and does not change the daily structure.
+**Supplementary:**
+- **Master Yijiao Hong — Yang 24 segmented series** (YouTube) — each of the 24 movements as its own lesson; use as your per-movement reference when drilling.
+- **Dr. Paul Lam — Tai Chi for Health** — slow, safety-focused; use his warm-up sequence as your daily opener.
+- **Deyin Taijiquan Institute** (Master Faye Yip lineage) — competition-standard Yang style reference footage for Friday video comparisons.
+- **Adam Mizner — Heaven Man Earth** — internal principles (song/relaxation, peng). Watch conceptually from Month 2; do not imitate before basics.
 
-## Design rationale (DiSSS/CaFE applied)
+**Recommended stack:** YMAA or Chris Pei as spine · Yijiao Hong for per-movement drilling · Deyin footage as your Friday comparison standard · Paul Lam warm-up daily.
+**Chinese-language bonus:** once at ~Week 8, watch native-Chinese tai chi instruction (search 二十四式太极拳教学) — instruction becomes comprehensible input, and from this point mine one new word every 10 minutes into Anki (Ikenna Method upgrade trigger — see STATE-SHIFU.md LOG, 2026-07-24).
 
-- **Deconstruction**: Mandarin is split into tones+pinyin, a core hanzi/radical
-  set, and grammar patterns, taught against a **chronological Chinese history
-  spine** so vocabulary is always acquired inside a narrative, not a list.
-  Tai chi is split into the 24 canonical postures, taught in their standard
-  performance order in groups of 2, plus stance/weight-shift fundamentals in
-  week 1.
-- **Selection**: history units use the highest-frequency ~15-25 content words
-  per era (rulers, era-defining nouns, one or two verbs), not exhaustive
-  vocabulary. Grammar patterns are selected for reuse across every later unit
-  (是/有/在 in week 2 get used in every week after).
-- **Sequencing**: both tracks move chronologically/canonically so each new
-  unit builds on and re-activates everything before it (retrieval practice is
-  built into the sequencing itself, not bolted on).
-- **Stakes**: weekly tutor session is the stakes mechanism for Mandarin
-  (must produce spoken output in front of another person on a schedule);
-  weekly self-recorded video is the stakes mechanism for tai chi (must show
-  visible progress against last week's recording).
+## MANDARIN SOURCES
+- **Anki:** start with a curated HSK 1–2 deck + custom deck of tai chi movement names (I generate this). HSK 1–2 already functions as the Ikenna Method's high-frequency word list; a well-designed gamified SRS app is an acceptable 1:1 swap for Anki if it serves the same due-queue function without padding simple content into long low-density sessions (avoid Duolingo-pattern tools).
+- **Pronunciation (Weeks 1–2 only):** Yoyo Chinese pinyin course or Grace Mandarin tone videos; Ferriss-style minimal-pair tone drills
+- **Comprehensible input:** Little Fox Chinese → Chinese史 graded readers (Mandarin Companion Level 1) → "Story Learning Chinese with Annie"; history podcasts in English initially (The History of China podcast) migrating to TeaTime Chinese by Week 10 — from that migration onward, mine one new word every 10 minutes into Anki (Ikenna Method upgrade trigger)
+- **Speaking:** iTalki community tutor 4x/wk, 30 min ($8–12/session). Instruction to tutor: history + tai chi topics only after Week 6; pure survival Mandarin before.
+- **Ferriss deconstruction:** Day 1–2 = his 12 sentences translated to Mandarin to expose grammar skeleton (no conjugation, SVO, aspect particles 了/过, measure words)
 
-## Weekly table
+## WEEK-BY-WEEK
+**W1–2 · Sound system + skeleton**
+- Mandarin: pinyin complete, 4 tones + tone pairs drilled daily, Ferriss 12 sentences, first 50 Anki cards (pinyin-only)
+- Tai chi: course selected; Paul Lam warm-up + movements 1–2 (起势 qǐshì, 野马分鬃 yěmǎ fēnzōng)
+- History: Shang/Zhou overview (podcast, English)
+- Milestone: pass a self-recorded tone-pair test; book iTalki tutor
 
-| Wk | Tai chi (new postures) | Mandarin/history unit | Grammar/pattern focus | Tutor day(s) |
-|----|------------------------|------------------------|------------------------|---------------|
-| 1  | Stance & weight-shift fundamentals; Commencing Form; Part Wild Horse's Mane (L/R/L) | Tones + pinyin system; numbers, dates, time words (年/世纪/朝代); legendary era (三皇五帝) | Tone pairs drilling only, no sentence grammar yet | Sat |
-| 2  | White Crane Spreads Wings; Brush Knee Twist Step (L/R/L) | Xia & Shang dynasty (王/朝/青铜/甲骨文) | 是, 有, 在 | Tue, Sat |
-| 3  | Hand Strums the Lute; Step Back Repulse Monkey | Zhou dynasty + Warring States (诸侯/战国/思想家) | Question words (谁/什么/哪儿/为什么); basic verbs | Tue, Sat |
-| 4  | Left Grasp Sparrow's Tail; Right Grasp Sparrow's Tail | Qin dynasty (统一/长城/秦始皇) | Measure words (个/条/座) | Tue, Sat + **monthly gate** |
-| 5  | Single Whip; Wave Hands Like Clouds | Han dynasty (丝绸之路/汉字/汉朝) | Aspect markers 了 / 过 | Tue, Sat |
-| 6  | Review + consolidate postures 1–10; first slow full run-through with prompts allowed | Consolidation: narrate legendary era → Han aloud, unprompted | Free recombination of weeks 1–5 patterns | Tue, Sat |
-| 7  | High Pat on Horse; Kick with Right Heel | Three Kingdoms/Jin/Sui (三国/分裂/统一) | 比 comparatives | Tue, Sat |
-| 8  | Strike Ears with Both Fists; Turn and Kick with Left Heel | Tang dynasty (盛世/诗/长安) | 因为...所以 / 虽然...但是 | Tue, Sat + **monthly gate** |
-| 9  | Snake Creeps Down + Golden Rooster Stands on One Leg (L then R) | Song dynasty (科技/印刷术/火药) | 的 relative clauses | Tue, Sat |
-| 10 | Fair Lady Works the Shuttles (L/R); Needle at Sea Bottom; Fan Through the Back | Yuan & Ming dynasty (蒙古/郑和/明朝) | Narrative connectors (然后/后来/于是) | Tue, Sat |
-| 11 | Turn/Deflect/Parry/Punch; Apparent Close Up; Cross Hands; Closing Form | Qing dynasty + early modern transition (清朝/鸦片战争) | Review all patterns, no new grammar | Tue, Sat |
-| 12 | Full unprompted run-through of all 24 postures, self-recorded | Capstone: narrate legendary era → Qing chronologically, unprompted, to tutor | — | Tue, Sat + **Block 1 exit review** |
+**W3–4 · Characters begin**
+- Mandarin: switch Anki to characters (radicals first), HSK1 vocab ~150, first tutor sessions (introductions, numbers, survival)
+- Tai chi: movements 3–6 (白鹤亮翅, 搂膝拗步...)
+- History: Spring & Autumn, Confucius vs. Laozi — 道 dào enters your vocab from philosophy, not a textbook
+- Milestone: 3-sentence self-intro from memory
 
-All 24 Yang-form postures are covered by end of week 11; week 12 is
-integration and assessment only, no new material on either track.
+**W5–6 · Momentum**
+- Mandarin: HSK1 complete (~300 words), graded reader #1 started
+- Tai chi: movements 7–12; Friday video comparisons begin
+- History: Warring States, Daoism deepens (无为 wúwéi, 气 qì — now your tai chi vocabulary IS your history vocabulary)
+- Milestone: first 10-min tutor conversation with no English
 
-## Sources (function → default implementation; swap the implementation freely)
+**W7–8 · First integration**
+- Mandarin: HSK2 vocab begins; describe tai chi movements to tutor in Mandarin
+- Tai chi: movements 13–18; sectional run-throughs (1–18 continuous)
+- History: Qin unification, Legalism
+- Milestone: perform movements 1–12 from memory, no video
 
-| Function | What it must do | Default implementation |
-|---|---|---|
-| SRS_ENGINE | Spaced repetition of vocab/hanzi with due-queue tracking | Anki, deck per week's unit, tags = dynasty name |
-| FORM_REFERENCE | Canonical, correct demonstration of each posture, replayable | A single consistent Yang 24 instructional video series (same instructor throughout, for consistency of cueing) |
-| FORM_FEEDBACK | Catches structural errors invisible to the self | Weekly self-recorded video, compared side-by-side against FORM_REFERENCE |
-| INPUT_SOURCE | Comprehensible Mandarin content on this week's history unit, at a level ~10% above current ability | A graded-Mandarin history course/channel with subtitle toggle; fall back to written graded readers if no video exists for a given era |
-| SPEAKING_PARTNER | Live, corrective, scheduled spoken output practice | iTalki (or equivalent live-tutor marketplace) tutor, 2x/week per the table above |
+**W9–10 · Compression**
+- Mandarin: HSK2 ~450 cumulative words; TeaTime Chinese podcast entry
+- Tai chi: movements 19–24 — full form learned
+- History: Han dynasty, Daoism institutionalizes
+- Milestone: full Yang 24 run-through (rough is fine)
 
-## Cron schedule (adjust clock times to local timezone; do not change cadence)
+**W11–12 · Consolidation + exam**
+- Mandarin: HSK2 mock test; 15-min free conversation
+- Tai chi: daily full-form runs; record final Block 1 video vs. Week 5 video
+- IRL: attend one in-person class/trial in Houston (Month 2 checkpoint — mandatory correction session)
+- Exit criteria: HSK2 mock ≥80% · Yang 24 from memory · 40+ tutor sessions... if met → Block 2 (HSK3 + form refinement + push hands intro)
 
-```
-# Daily deep-work block (Mon-Sun) — see STATE-SHIFU.md daily protocol for the internal 4-part split
-30 6 * * *   run-daily-session       # positive slide + Anki + tai chi + input + speaking-or-shadow
-0 21 * * *   log-daily-session       # write session status/dose_pct/metrics to STATE-SHIFU.md if not already logged
-
-# Weekly review — see PROGRAM-OPERATIONS.md §3
-0 20 * * 0   run-weekly-review       # Sunday, end of program week
-
-# Monthly gate — only fires on weeks 4, 8, 12 (checked inside the job, not the cron expression)
-0 19 * * 0   run-monthly-gate-check  # Sunday evening, same day as weekly review on gate weeks
+## CRON SCHEDULE (VPS / Hermes)
+```cron
+# SHIFU curriculum agent
+0 6 * * *   shifu daily-brief      # today's Anki target, form segment, input resource, slide reminder
+0 21 * * *  shifu daily-log        # prompt: log hours, streak, blockers → append STATE.md
+0 18 * * 5  shifu video-compare    # Friday: record form, compare vs Deyin reference, log 3 corrections
+0 17 * * 0  shifu weekly-review    # compile metrics, ≤300 words, 1 corrective action
+0 9 1 * *   shifu monthly-irl      # generate IRL task: school trial / meetup / cultural event
+0 9 * * 1   shifu tutor-check      # verify 4 iTalki sessions booked this week
 ```
 
-## Exit criteria — Block 1 (end of week 12)
-
-All of the following must be true for the monthly gate to return `pass`.
-Partial success (2 of 3 true) returns `pass-with-flags` and Block 2 starts
-with the missed item as its first-week priority. Fewer than 2 true returns
-`hold` — see `PROGRAM-OPERATIONS.md` §4 for what `hold` triggers.
-
-1. **Tai chi**: full 24-posture form performed unprompted (no verbal/video
-   cueing) from a single self-recording, in the correct order, without
-   stopping. Individual posture precision is not graded at this checkpoint —
-   sequence completeness and continuity are.
-2. **Mandarin**: chronological narration of legendary-era-through-Qing (the
-   10 history units above — weeks 1,2,3,4,5,7,8,9,10,11; weeks 6 and 12 are
-   consolidation, not new eras) delivered unprompted to the tutor in Mandarin,
-   using at least 6 of the 8 grammar patterns from the weekly table, tutor
-   rates it comprehensible without English fallback.
-3. **Anki**: ≥80% of cards introduced in weeks 1-11 are at "mature" SRS
-   interval (≥21 days) by end of week 12, and 7-day rolling due-queue
-   completion rate ≥90% (from `STATE-SHIFU.md` metrics).
+## TRANSURFING SLIDE (pre-tai-chi, 2 min)
+Construct once, run daily: you at month 6 — flowing through the full 24 form in a Houston park, exchanging comments in Mandarin with a Chinese practitioner afterward. Sensory detail, first person, no doubt-checking. The slide precedes practice; practice makes the slide true.
