@@ -37,6 +37,36 @@ Do not use for a single command or trivial edit where direct tools are faster.
 
 Good for feature implementation and PR-sized coding tasks. Provide exact repo context and ask for evidence. Avoid interactive hangs by using the appropriate CLI mode for the environment.
 
+### Herdr as a Claude Code cockpit
+
+When Herdr is installed/running, prefer treating it as the persistent terminal cockpit for Claude Code/Codex/Hermes agent panes instead of guessing from process names alone. Useful inspection commands:
+
+```bash
+herdr status
+herdr api snapshot
+herdr workspace list
+herdr tab list
+herdr pane list
+herdr pane current
+herdr pane read <pane-id>
+```
+
+Summarize the live Herdr state as workspace → tabs → panes → agent/status/cwd. If the user asks to modify Claude Code provider/auth, do **not** mutate the currently working pane by default; create a separate Herdr tab/pane for experimentation so the existing Anthropic/OpenAI setup remains intact.
+
+### Testing Claude Code against Kimi/Moonshot safely
+
+For Kimi/Moonshot, Claude Code can be tested through Anthropic-compatible environment variables in a **new** pane/session first:
+
+```bash
+export ANTHROPIC_BASE_URL="https://api.moonshot.ai/anthropic"
+export ANTHROPIC_AUTH_TOKEN="$KIMI_API_KEY"
+export ANTHROPIC_MODEL="kimi-k2.6"
+export ANTHROPIC_SMALL_FAST_MODEL="kimi-k2.6"
+claude
+```
+
+If the direct endpoint/model is rejected, fall back to an Anthropic-compatible proxy that translates Claude Code requests to Moonshot/Kimi, then point `ANTHROPIC_BASE_URL` at the local proxy. Keep the experiment scoped to a separate Herdr tab/pane until the user explicitly asks to switch defaults.
+
 ### Updating Claude Code on VPS machines
 
 When the user asks to update Claude Code, verify both the installed package version and the binary that `PATH` actually resolves. Claude Code can have multiple shims at once: an npm/global install may be current while `/root/.local/bin/claude` or `/usr/local/bin/claude` still points at an older self-managed local version.

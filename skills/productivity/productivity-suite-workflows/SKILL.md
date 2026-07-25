@@ -26,6 +26,7 @@ This skill consolidates the former standalone packages `google-workspace`, `hima
 | IMAP/SMTP mailbox via Himalaya CLI | Terminal email operations | `references/himalaya-package/SKILL.md` |
 | PDF text extraction, OCR, scanned docs, forms, marker-pdf, pymupdf | PDF and document extraction | `references/ocr-and-documents-package/SKILL.md` |
 | Create/read/edit `.pptx`, slide decks, Google Slides conversion | Presentation and deck production | `references/powerpoint-package/SKILL.md` |
+| Short scientific/journal-club deck from a paper/PDF with simple style, figure screenshots, exact speaker script, and visual QA | Journal-club paper decks | `references/journal-club-paper-decks.md` |
 | Obsidian vault, Bitácora, PARA/ONEPISSA, rclone-backed knowledge base, lab vault separation | Second-brain knowledge base | `references/second-brain-package/SKILL.md` |
 | Forum/community scraping into Obsidian + future NotebookLM querying | Forum scrape to knowledge base | `references/forum-scrape-to-knowledge-base.md` |
 | Paid/private Substack/newsletter archive from Gmail into Markdown, Drive, and NotebookLM | Substack email archive to NotebookLM | `references/substack-email-archive-to-notebooklm.md` |
