@@ -30,6 +30,34 @@ Pitfall encountered:
 
 - Blurry photo OCR read `NCH769C`, which returned a **Dodge Stratus 2002**. User corrected plate to `NCW769C`; official portal then matched Mazda2 2021. Always test plausible visual confusions before calling it a fatal mismatch.
 
+## Edomex NEW tenencia portal — direct JSON API (2026, preferred)
+
+The old sfpya flow above still works for identity, but the current portal `https://tenencia.edomex.gob.mx/` is a Vue app whose backend accepts a **plain POST without CAPTCHA** (reCAPTCHA is enforced only in the browser UI). It returns far richer data, including **plate expiration dates** — use it first when JT asks about vigencia/adeudos/tenencia.
+
+```bash
+# grab session cookie first, then POST the plate (no hyphens, uppercase)
+curl -s -c /tmp/edomex_cookies -A 'Mozilla/5.0' \
+  'https://tenencia.edomex.gob.mx/TenenciaIndividual/tenencia/A06E1A88B8A6ED4B/'
+curl -s -b /tmp/edomex_cookies -A 'Mozilla/5.0' \
+  -e 'https://tenencia.edomex.gob.mx/TenenciaIndividual/tenencia/A06E1A88B8A6ED4B/' \
+  -d 'placa=NCW769C' \
+  'https://tenencia.edomex.gob.mx/TenenciaIndividual/tenencia/calculaTenencia'
+```
+
+Response JSON: top-level `numError` + `tenencia` (a JSON **string** — parse it twice). Key fields inside `tenencia`:
+
+| Field | Meaning |
+|---|---|
+| `fechaInicioVigenciaFormat` / `fechaFinVigenciaFormat` | **Plate vigencia start/end** (e.g. 19/01/2026 → 19/01/2031) — answers "¿cuándo se vencen las placas?" |
+| `descAdeudos` | e.g. `SIN ADEUDOS` |
+| `ultPago` | last paid year (e.g. `26` = 2026) |
+| `tenenciaNoPagada`, `cobroActual`, `total` | payment status / amount due now |
+| `serie` | **full 17-char VIN/NIV** — use to confirm seller VIN instead of OCR guessing |
+| `verificado`, `placaBloqueada` | verification + block status |
+| `vehiculo`, `modeloVehi`, `fechaFacturaFormat`, `importeFacturaFormat` | identity cross-check |
+
+Observed: `numError` `7` (also `0`/`9`) still returns full data; real failures carry `mensajeError`/`documentacion`. Privacy note: the response includes owner RFC/CURP — do not echo those back to chats or files.
+
 ## VIN/NIV handling
 
 - Mexico vehicle labels may be hard to OCR. VIN/NIV must be 17 characters.

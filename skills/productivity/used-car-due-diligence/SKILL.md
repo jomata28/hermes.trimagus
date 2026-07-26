@@ -49,6 +49,8 @@ Use when JT asks whether to buy a used/semi-new car, sends a car listing/photo, 
 
 For Edomex tenencia/refrendo, use the official portal and submit the plate **without hyphens and uppercase**. If a photo-read plate returns a different car, consider OCR/letter confusion before declaring a red flag; ask/try visually similar letters (e.g., H vs W). See `references/mexico-edomex-vehicle-checks.md`.
 
+For plate validity/vigencia questions, the Edomex Tenencia Individual backend can return `fechaInicioVigenciaFormat`, `fechaFinVigenciaFormat`, `descAdeudos`, `ultPago`, and vehicle identity from a plate-only POST. Use `references/edomex-plate-validity-backend.md`; report only the small public-facing table and avoid exposing returned personal fields (RFC/CURP/full VIN) unless required.
+
 ## Kavak/platform-specific notes
 
 Kavak reduces private-party fraud risk but does **not** eliminate overpricing, registration/adeudo issues, recalls, warranty exclusions, or imperfect reconditioning. If Kavak blocks scraping, ask JT for screenshots of price/km/VIN/warranty and continue with external comps.
