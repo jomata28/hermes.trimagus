@@ -53,19 +53,19 @@ herdr pane read <pane-id>
 
 Summarize the live Herdr state as workspace → tabs → panes → agent/status/cwd. If the user asks to modify Claude Code provider/auth, do **not** mutate the currently working pane by default; create a separate Herdr tab/pane for experimentation so the existing Anthropic/OpenAI setup remains intact.
 
-### Testing Claude Code against Kimi/Moonshot safely
+### Routing Claude Code to Kimi/Moonshot (verified working)
 
-For Kimi/Moonshot, Claude Code can be tested through Anthropic-compatible environment variables in a **new** pane/session first:
+Claude Code works directly against Moonshot's Anthropic-compatible endpoint — no proxy needed. Verified with model `kimi-k3` in a parallel Herdr pane while the original Anthropic pane stayed untouched:
 
 ```bash
 export ANTHROPIC_BASE_URL="https://api.moonshot.ai/anthropic"
 export ANTHROPIC_AUTH_TOKEN="$KIMI_API_KEY"
-export ANTHROPIC_MODEL="kimi-k2.6"
-export ANTHROPIC_SMALL_FAST_MODEL="kimi-k2.6"
+export ANTHROPIC_MODEL="kimi-k3"
+export ANTHROPIC_SMALL_FAST_MODEL="kimi-k3"
 claude
 ```
 
-If the direct endpoint/model is rejected, fall back to an Anthropic-compatible proxy that translates Claude Code requests to Moonshot/Kimi, then point `ANTHROPIC_BASE_URL` at the local proxy. Keep the experiment scoped to a separate Herdr tab/pane until the user explicitly asks to switch defaults.
+Verify inside the session with `/status` — must show `Auth token: ANTHROPIC_AUTH_TOKEN`, base URL `api.moonshot.ai/anthropic`, `Model: kimi-k3`. Subscription marketing banners (Max plan, model promos) still render but are NOT evidence of which backend is active; `/status` is the only source of truth. Full verified Herdr launch sequence (tab create with `--env`, trust-prompt/fullscreen-prompt handling, pane-read checks) is in `references/herdr-agent-multiplexer.md`. Keep experiments in a separate Herdr tab/pane until the user explicitly asks to switch defaults.
 
 ### Updating Claude Code on VPS machines
 
@@ -111,7 +111,53 @@ Good for implementation and PR review workflows. Use it when configured for the 
 
 ## Google Antigravity (`agy`)
 
-Use for agentic coding when `agy` is installed/authenticated. Confirm setup before relying on it; capture CLI output and changed files.
+Two separate use modes. Keep them distinct:
+
+1. **Worker CLI** — Hermes launches `agy -p ...` for coding/review tasks.
+2. **Hermes main model backend** — local OpenAI-compatible proxy fronts `agy` so Hermes can use Antigravity subscription models as `model.provider`.
+
+Confirm install/auth before either mode; capture CLI output and changed files for worker runs.
+
+### Worker CLI usage
+
+```bash
+command -v agy && agy --version
+agy models
+agy -p 'task prompt' --model gemini-3.5-flash-medium --print-timeout 10m --dangerously-skip-permissions
+```
+
+Headless VPS needs `--dangerously-skip-permissions` for tool/command permission prompts that would otherwise auto-deny.
+
+### Auth on headless VPS
+
+Antigravity auth belongs to the `agy` CLI itself, not Hermes credential pools. If the user asks for a command like `hermes auth add google-antigravity --type oauth`, first test it, but expect current Hermes installs to reject `google-antigravity` as an unknown provider. In that case, run the `agy` auth flow instead.
+
+Pattern:
+
+```bash
+command -v agy && agy --version
+agy --print 'auth smoke test' --print-timeout 5m
+```
+
+When unauthenticated, `agy --print` prints a Google OAuth URL and waits for an authorization code on stdin. The inner auth prompt may time out after ~60 seconds even when `--print-timeout` is longer, so make the user ready before starting the flow or restart with a fresh URL if it expires. Full operational notes: `references/antigravity-auth-vps.md`.
+
+### Using Antigravity models as Hermes main model
+
+Hermes has no first-party `antigravity` / `google-antigravity` provider. When JT wants Hermes itself to run on agy models, do **not** invent a core Hermes provider plugin unless asked for a repo contribution. The proven local path is:
+
+1. Auth `agy`.
+2. Run a local OpenAI-compatible server at `http://127.0.0.1:9777/v1` with `/health`, `/v1/models`, `/v1/chat/completions` backed by `agy --print`.
+3. Register it as Hermes custom provider `antigravity` and set `model.*` to that proxy.
+4. Smoke-test: `hermes chat -q '...' --provider antigravity -m <model>`.
+
+On JT's VPS the durable artifacts are:
+
+- proxy: `/root/agy-proxy/proxy.py` (stdlib HTTP; avoid nested FastAPI/Pydantic route models that crash schema generation)
+- PM2 app: `agy-proxy`
+- Hermes provider: `antigravity`
+- verified default: `gemini-3.5-flash-medium`
+
+Full recipe + caveats: `references/antigravity-hermes-main-model-proxy.md`.
 
 ## Common Pitfalls
 
@@ -119,6 +165,11 @@ Use for agentic coding when `agy` is installed/authenticated. Confirm setup befo
 2. Letting an external agent overwrite uncommitted user work.
 3. Believing a self-reported test pass without rerunning tests.
 4. Forgetting that external CLIs may need auth or interactive setup.
+5. Treating every external agent auth as a Hermes `auth add` provider; some CLIs, including Antigravity, manage OAuth in their own CLI state.
+6. Expecting Antigravity to appear in `hermes model` without a local proxy/custom-provider bridge.
+7. Reusing a Google OAuth code from a previous `agy` URL attempt → `invalid_grant` / `Invalid code verifier`.
+8. Blocking proxy startup on synchronous `agy models` — bind the HTTP port first; refresh models in background.
+9. Assuming agy-proxy supports streaming or native Hermes tool calling; the current bridge is non-stream text in/out with tools serialized into the prompt.
 
 ## Verification Checklist
 

@@ -18,17 +18,17 @@
       "schedule_display": "55 13 * * *",
       "repeat": {
         "times": null,
-        "completed": 103
+        "completed": 105
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-13T21:12:49.081621+00:00",
-      "next_run_at": "2026-07-26T13:55:00+00:00",
-      "last_run_at": "2026-07-25T13:56:10.085054+00:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-07-28T13:55:00+00:00",
+      "last_run_at": "2026-07-27T13:55:33.760479+00:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: HTTP 402: This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 3074. To increase, visit https://openrouter.ai/settings/credits and add more credits",
       "deliver": "origin",
       "origin": {
         "platform": "telegram",
@@ -94,17 +94,17 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 101
+        "completed": 103
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-15T21:39:46.829937+00:00",
-      "next_run_at": "2026-07-26T07:00:00+00:00",
-      "last_run_at": "2026-07-25T07:02:20.569526+00:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-07-28T07:00:00+00:00",
+      "last_run_at": "2026-07-27T07:00:41.893501+00:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: HTTP 402: This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 3074. To increase, visit https://openrouter.ai/settings/credits and add more credits",
       "deliver": "telegram",
       "origin": {
         "platform": "telegram",
@@ -175,17 +175,17 @@
       "schedule_display": "0 3 * * *",
       "repeat": {
         "times": null,
-        "completed": 78
+        "completed": 80
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-08T18:09:30.722153+00:00",
-      "next_run_at": "2026-07-27T03:00:00+00:00",
-      "last_run_at": "2026-07-25T03:02:41.096515+00:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-07-29T03:00:00+00:00",
+      "last_run_at": "2026-07-27T03:00:24.703506+00:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: HTTP 402: This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 3074. To increase, visit https://openrouter.ai/settings/credits and add more credits",
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -213,17 +213,17 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 61
+        "completed": 63
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-25T19:56:44.909253+00:00",
-      "next_run_at": "2026-07-26T07:00:00+00:00",
-      "last_run_at": "2026-07-25T07:02:19.269827+00:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-07-28T07:00:00+00:00",
+      "last_run_at": "2026-07-27T07:00:41.246760+00:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: HTTP 402: This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 3074. To increase, visit https://openrouter.ai/settings/credits and add more credits",
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": {
@@ -259,15 +259,15 @@
       "schedule_display": "0 20 * * 0",
       "repeat": {
         "times": null,
-        "completed": 8
+        "completed": 9
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-25T20:28:23.702076+00:00",
-      "next_run_at": "2026-07-26T20:00:00+00:00",
-      "last_run_at": "2026-07-19T20:04:32.825100+00:00",
+      "next_run_at": "2026-08-02T20:00:00+00:00",
+      "last_run_at": "2026-07-26T20:04:49.348249+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -305,15 +305,15 @@
       "schedule_display": "30 22 * * *",
       "repeat": {
         "times": null,
-        "completed": 23
+        "completed": 25
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-04T15:26:33.125064+00:00",
-      "next_run_at": "2026-07-26T22:30:00+00:00",
-      "last_run_at": "2026-07-25T22:31:18.761884+00:00",
+      "next_run_at": "2026-07-28T22:30:00+00:00",
+      "last_run_at": "2026-07-27T22:31:43.721273+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -325,5 +325,5 @@
       "fire_claim": null
     }
   ],
-  "updated_at": "2026-07-26T03:00:05.252726+00:00"
+  "updated_at": "2026-07-28T03:00:57.448240+00:00"
 }

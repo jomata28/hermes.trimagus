@@ -1,7 +1,7 @@
 ---
 name: agent-teams
-description: JT's playbook for spinning up multi-agent teams via delegate_task — a Research Team (fan out to gather + synthesize) and an Execution Team (fan out to build/do in parallel). Invoke from Telegram ("research team: ...", "execution team: ..."); Hermes orchestrates the children and returns one synthesized result.
-version: 1.0.0
+description: JT's playbook for spinning up multi-agent teams via delegate_task — a Research Team (fan out to gather + synthesize) and an Execution Team (fan out to build/do in parallel). Invoke from Telegram (research team / execution team); Hermes orchestrates the children and returns one synthesized result.
+version: 1.0.1
 author: Hermes Agent
 category: productivity
 metadata:
@@ -58,6 +58,11 @@ Rule of thumb: fan out only when the parts are genuinely independent.
 - Keep the final answer Telegram-sized with an option to expand.
 - Respect the concurrency cap; queue extra parts rather than exceeding it.
 - Children inherit the warm-but-efficient voice for anything user-facing.
+
+## Herdr cockpit (terminal multiplexer)
+For pane-based agents (Claude Code / Hermes CLI side-by-side in workspaces per
+project, Hermes reading and directing them via the Herdr socket API), see
+`references/herdr-multiplexer.md`.
 
 ## Config knobs (in config.yaml → delegation)
 - `max_concurrent_children` (3), `max_spawn_depth`, `child_timeout_seconds` (600),

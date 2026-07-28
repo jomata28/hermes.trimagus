@@ -1,16 +1,29 @@
 {
+  "agent-teams": {
+    "archived_at": null,
+    "created_at": "2026-07-26T23:46:46.720876+00:00",
+    "created_by": null,
+    "last_patched_at": "2026-07-26T23:49:15.552245+00:00",
+    "last_used_at": "2026-07-26T23:46:46.727916+00:00",
+    "last_viewed_at": "2026-07-26T23:46:46.720901+00:00",
+    "patch_count": 2,
+    "pinned": false,
+    "state": "active",
+    "use_count": 1,
+    "view_count": 1
+  },
   "ai-coding-agents": {
     "archived_at": null,
     "created_at": "2026-07-03T20:54:20.049132+00:00",
     "created_by": null,
-    "last_patched_at": "2026-07-25T19:25:00.325739+00:00",
-    "last_used_at": "2026-07-25T19:24:23.156399+00:00",
-    "last_viewed_at": "2026-07-25T19:24:23.148622+00:00",
-    "patch_count": 8,
+    "last_patched_at": "2026-07-27T15:48:06.590534+00:00",
+    "last_used_at": "2026-07-27T15:47:25.536961+00:00",
+    "last_viewed_at": "2026-07-27T15:47:25.530810+00:00",
+    "patch_count": 14,
     "pinned": false,
     "state": "active",
-    "use_count": 8,
-    "view_count": 8
+    "use_count": 16,
+    "view_count": 16
   },
   "airtable": {
     "archived_at": null,
@@ -155,18 +168,31 @@
     "use_count": 1,
     "view_count": 1
   },
+  "debugging-hermes-tui-commands": {
+    "archived_at": null,
+    "created_at": "2026-07-26T19:48:22.690232+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_used_at": "2026-07-26T19:48:22.698004+00:00",
+    "last_viewed_at": "2026-07-26T19:48:22.690252+00:00",
+    "patch_count": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 1,
+    "view_count": 1
+  },
   "divine-pharma-daily-cron": {
     "archived_at": null,
     "created_at": "2026-05-08T07:00:58.625760+00:00",
     "created_by": null,
     "last_patched_at": "2026-06-25T07:02:36.796029+00:00",
-    "last_used_at": "2026-07-25T07:00:54.615111+00:00",
-    "last_viewed_at": "2026-07-25T07:00:54.610390+00:00",
+    "last_used_at": "2026-07-27T07:00:25.379821+00:00",
+    "last_viewed_at": "2026-07-26T07:00:29.406818+00:00",
     "patch_count": 23,
     "pinned": false,
     "state": "active",
-    "use_count": 212,
-    "view_count": 103
+    "use_count": 215,
+    "view_count": 104
   },
   "divine-pharma-notion-episodes-fetch": {
     "archived_at": null,
@@ -224,14 +250,14 @@
     "archived_at": null,
     "created_at": "2026-06-19T03:02:30.397843+00:00",
     "created_by": null,
-    "last_patched_at": "2026-07-11T03:03:04.049913+00:00",
-    "last_used_at": "2026-07-25T03:01:09.953587+00:00",
-    "last_viewed_at": "2026-07-25T03:01:09.947989+00:00",
-    "patch_count": 9,
+    "last_patched_at": "2026-07-26T03:04:52.249061+00:00",
+    "last_used_at": "2026-07-26T03:03:58.345584+00:00",
+    "last_viewed_at": "2026-07-26T03:03:58.340870+00:00",
+    "patch_count": 13,
     "pinned": false,
     "state": "active",
-    "use_count": 61,
-    "view_count": 61
+    "use_count": 62,
+    "view_count": 62
   },
   "godmode": {
     "archived_at": null,
@@ -264,13 +290,13 @@
     "created_at": "2026-06-05T02:49:50.310912+00:00",
     "created_by": null,
     "last_patched_at": "2026-06-12T02:55:15.569642+00:00",
-    "last_used_at": "2026-07-25T03:00:53.636195+00:00",
-    "last_viewed_at": "2026-07-25T03:00:53.632020+00:00",
+    "last_used_at": "2026-07-27T15:00:56.124908+00:00",
+    "last_viewed_at": "2026-07-27T15:00:56.112632+00:00",
     "patch_count": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 26,
-    "view_count": 26
+    "use_count": 28,
+    "view_count": 28
   },
   "hermes-agent-skill-authoring": {
     "archived_at": null,
@@ -297,6 +323,19 @@
     "state": "active",
     "use_count": 6,
     "view_count": 6
+  },
+  "hermes-ops": {
+    "archived_at": null,
+    "created_at": "2026-07-26T19:49:45.292115+00:00",
+    "created_by": "agent",
+    "last_patched_at": "2026-07-26T19:50:13.677358+00:00",
+    "last_used_at": "2026-07-27T15:48:08.711486+00:00",
+    "last_viewed_at": "2026-07-27T15:48:08.699642+00:00",
+    "patch_count": 1,
+    "pinned": false,
+    "state": "active",
+    "use_count": 2,
+    "view_count": 2
   },
   "himalaya": {
     "archived_at": null,
@@ -519,6 +558,19 @@
     "use_count": 0,
     "view_count": 0
   },
+  "personal-crm": {
+    "archived_at": null,
+    "created_at": "2026-07-26T23:17:42.952865+00:00",
+    "created_by": null,
+    "last_patched_at": "2026-07-26T23:48:47.523962+00:00",
+    "last_used_at": "2026-07-26T23:48:34.741259+00:00",
+    "last_viewed_at": "2026-07-26T23:48:34.737557+00:00",
+    "patch_count": 1,
+    "pinned": false,
+    "state": "active",
+    "use_count": 2,
+    "view_count": 2
+  },
   "petdex": {
     "archived_at": null,
     "created_at": "2026-07-17T04:09:23.525764+00:00",
@@ -667,13 +719,13 @@
     "created_at": "2026-06-12T02:54:21.657543+00:00",
     "created_by": null,
     "last_patched_at": "2026-06-12T02:54:21.657580+00:00",
-    "last_used_at": null,
-    "last_viewed_at": null,
+    "last_used_at": "2026-07-27T15:00:56.149873+00:00",
+    "last_viewed_at": "2026-07-27T15:00:56.142979+00:00",
     "patch_count": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 0,
-    "view_count": 0
+    "use_count": 1,
+    "view_count": 1
   },
   "spike": {
     "archived_at": null,
@@ -732,13 +784,26 @@
     "created_at": "2026-07-18T22:45:58.288745+00:00",
     "created_by": "agent",
     "last_patched_at": "2026-07-25T19:25:29.974008+00:00",
-    "last_used_at": "2026-07-25T19:25:10.256850+00:00",
-    "last_viewed_at": "2026-07-25T19:25:10.250226+00:00",
+    "last_used_at": "2026-07-27T00:29:47.181298+00:00",
+    "last_viewed_at": "2026-07-27T00:29:47.178188+00:00",
     "patch_count": 10,
     "pinned": false,
     "state": "active",
-    "use_count": 12,
-    "view_count": 12
+    "use_count": 15,
+    "view_count": 15
+  },
+  "vps-desktop-sessions": {
+    "archived_at": null,
+    "created_at": "2026-07-27T00:32:28.149104+00:00",
+    "created_by": "agent",
+    "last_patched_at": null,
+    "last_used_at": null,
+    "last_viewed_at": null,
+    "patch_count": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 0,
+    "view_count": 0
   },
   "weights-and-biases": {
     "archived_at": null,

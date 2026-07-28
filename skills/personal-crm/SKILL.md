@@ -50,6 +50,26 @@ Template: `crm/_template.md`. Index/roster: `crm/README.md`.
 - After any change, refresh the `| Person | Tier | Last contact | Cadence | Next due |`
   table in `crm/README.md` from the people/ files.
 
+## Visualization (without Telegram)
+JT will ask "how do I see the CRM without talking to you?" — answer with options,
+lightest first:
+1. **Drive roster** — `crm/README.md` table is the at-a-glance view; readable as
+   plain text in the Google Drive app/web, no setup.
+2. **Obsidian** — full graph/search; work PC vault or Android + sync plugin.
+3. **HTML dashboard** — on request, generate a color-coded (current vs overdue,
+   sorted by urgency) dashboard into the vault; same pattern as the Dreamlining asset.
+4. **Google Sheet roster mirror** — if JT wants sortable/filterable: Sheet = visual
+   roster (update it whenever the roster README is refreshed), `people/*.md` stays
+   the source of truth for detail/logs.
+
+## Onboarding flow (architecture first)
+JT wants the architecture agreed with him BEFORE data entry. When he starts
+dictating people (usually by voice — expect transcription noise, e.g. "RME" = CRM):
+- Per person, ask only: name, relationship, tier, cadence_days, birthday (if known).
+- Confirm spelling of voice-dictated names before creating files (never invent).
+- Batch-create the `people/` files, then show the roster table as confirmation.
+- Categories he has mentioned: family, GF, friends, work colleagues, mentors/network.
+
 ## Voice
 Warm but efficient. This is a coach nudging JT to stay close to the people who
 matter, not a database report. Keep confirmations to one line.

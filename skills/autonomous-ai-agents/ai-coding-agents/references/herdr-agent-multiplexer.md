@@ -54,19 +54,45 @@ herdr pane read <pane-id>
 - Prefer creating a separate Herdr tab for experiments (for example Kimi-backed Claude Code) instead of mutating an existing Anthropic/Claude pane.
 - Leave current provider sessions untouched unless JT explicitly says to switch.
 
-## Claude Code via Kimi/Moonshot
+## Driving panes programmatically
 
-Claude Code can often be pointed at Kimi/Moonshot by launching it in a separate pane with environment variables such as:
+Beyond inspection, Hermes can fully operate panes (verified workflow):
 
 ```bash
-export ANTHROPIC_BASE_URL="https://api.moonshot.ai/anthropic"
-export ANTHROPIC_AUTH_TOKEN="$KIMI_API_KEY"
-export ANTHROPIC_MODEL="kimi-k2.6"   # or the target Kimi model supported by endpoint
-export ANTHROPIC_SMALL_FAST_MODEL="$ANTHROPIC_MODEL"
-claude
+herdr tab create --label <name> --cwd /root --env KEY=VALUE [--env ...]
+herdr pane run <pane-id> <command>        # launches command in the pane
+herdr pane send-text <pane-id> 'text'     # types literal text
+herdr pane send-keys <pane-id> Enter|Escape|<key>
+herdr pane read <pane-id>                 # read current screen
 ```
 
-If the direct Anthropic-compatible endpoint is rejected, run a local Anthropic-compatible proxy and point `ANTHROPIC_BASE_URL` at `http://127.0.0.1:<port>`.
+## Claude Code via Kimi/Moonshot (VERIFIED 2026-07 — direct endpoint works, no proxy)
+
+Verified end-to-end: Claude Code pane routed to Moonshot with model `kimi-k3`, answering prompts through `api.moonshot.ai/anthropic`. Exact sequence that worked:
+
+```bash
+KIMI_KEY=$(grep '^KIMI_API_KEY=' /root/.hermes/.env | cut -d= -f2)
+herdr tab create --label kimi-k3 --cwd /root \
+  --env "ANTHROPIC_BASE_URL=https://api.moonshot.ai/anthropic" \
+  --env "ANTHROPIC_AUTH_TOKEN=$KIMI_KEY" \
+  --env "ANTHROPIC_MODEL=kimi-k3" \
+  --env "ANTHROPIC_SMALL_FAST_MODEL=kimi-k3"
+# returns new pane id (e.g. w1:p2), then:
+herdr pane run <pane> claude
+herdr pane send-keys <pane> Enter     # accept workspace trust prompt
+herdr pane send-keys <pane> 2         # decline fullscreen renderer (keeps pane-read output parseable)
+herdr pane send-keys <pane> Enter
+```
+
+Then verify inside the session:
+
+```bash
+herdr pane send-text <pane> '/status'; herdr pane send-keys <pane> Enter; sleep 10; herdr pane read <pane>
+```
+
+`/status` must show `Auth token: ANTHROPIC_AUTH_TOKEN`, `Anthropic base URL: https://api.moonshot.ai/anthropic`, `Model: kimi-k3`. Claude Code still prints subscription marketing banners (Max plan / model promos) — ignore them; `/status` is the only truth. Finish with a functional probe (`send-text` a trivial prompt, `pane read` the answer).
+
+Legacy fallback (only if the direct endpoint ever breaks): run a local Anthropic-compatible proxy and point `ANTHROPIC_BASE_URL` at `http://127.0.0.1:<port>`.
 
 ## Project cockpit layout pattern
 
