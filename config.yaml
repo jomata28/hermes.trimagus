@@ -3,13 +3,13 @@ model:
   base_url: http://127.0.0.1:9777/v1
   default: gemini-3.1-pro-high
   provider: antigravity
-  api_key: "__REDACTED_FOR_GITHUB_BACKUP__"
+  api_key: REDACTED_IN_BACKUP
 providers:
   antigravity:
     name: Google Antigravity (agy)
     base_url: http://127.0.0.1:9777/v1
     api: http://127.0.0.1:9777/v1
-    api_key: "__REDACTED_FOR_GITHUB_BACKUP__"
+    api_key: REDACTED_IN_BACKUP
     key_env: ''
     default_model: gemini-3.5-flash-medium
     api_mode: chat_completions
@@ -35,7 +35,7 @@ fallback_providers:
     provider: openrouter
   - provider: gemini
     model: gemini-2.5-flash
-credential_pool_strategies: {}
+credential_pool_strategies: REDACTED_IN_BACKUP
 toolsets:
   - hermes-cli
 agent:
@@ -202,7 +202,7 @@ auxiliary:
     provider: auto
     model: ''
     base_url: ''
-    api_key: "__REDACTED_FOR_GITHUB_BACKUP__"
+    api_key: REDACTED_IN_BACKUP
     timeout: 120
     extra_body: {}
     download_timeout: 30
@@ -210,77 +210,77 @@ auxiliary:
     provider: auto
     model: ''
     base_url: ''
-    api_key: "__REDACTED_FOR_GITHUB_BACKUP__"
+    api_key: REDACTED_IN_BACKUP
     timeout: 360
     extra_body: {}
   compression:
     provider: auto
     model: ''
     base_url: ''
-    api_key: "__REDACTED_FOR_GITHUB_BACKUP__"
+    api_key: REDACTED_IN_BACKUP
     timeout: 120
     extra_body: {}
   skills_hub:
     provider: auto
     model: ''
     base_url: ''
-    api_key: "__REDACTED_FOR_GITHUB_BACKUP__"
+    api_key: REDACTED_IN_BACKUP
     timeout: 30
     extra_body: {}
   approval:
     provider: auto
     model: ''
     base_url: ''
-    api_key: "__REDACTED_FOR_GITHUB_BACKUP__"
+    api_key: REDACTED_IN_BACKUP
     timeout: 30
     extra_body: {}
   mcp:
     provider: auto
     model: ''
     base_url: ''
-    api_key: "__REDACTED_FOR_GITHUB_BACKUP__"
+    api_key: REDACTED_IN_BACKUP
     timeout: 30
     extra_body: {}
   title_generation:
     provider: auto
     model: ''
     base_url: ''
-    api_key: "__REDACTED_FOR_GITHUB_BACKUP__"
+    api_key: REDACTED_IN_BACKUP
     timeout: 30
     extra_body: {}
   triage_specifier:
     provider: auto
     model: ''
     base_url: ''
-    api_key: "__REDACTED_FOR_GITHUB_BACKUP__"
+    api_key: REDACTED_IN_BACKUP
     timeout: 120
     extra_body: {}
   kanban_decomposer:
     provider: auto
     model: ''
     base_url: ''
-    api_key: "__REDACTED_FOR_GITHUB_BACKUP__"
+    api_key: REDACTED_IN_BACKUP
     timeout: 180
     extra_body: {}
   profile_describer:
     provider: auto
     model: ''
     base_url: ''
-    api_key: "__REDACTED_FOR_GITHUB_BACKUP__"
+    api_key: REDACTED_IN_BACKUP
     timeout: 60
     extra_body: {}
   curator:
     provider: auto
     model: ''
     base_url: ''
-    api_key: "__REDACTED_FOR_GITHUB_BACKUP__"
+    api_key: REDACTED_IN_BACKUP
     timeout: 600
     extra_body: {}
   session_search:
     provider: auto
     model: ''
     base_url: ''
-    api_key: "__REDACTED_FOR_GITHUB_BACKUP__"
+    api_key: REDACTED_IN_BACKUP
     timeout: 30
     extra_body: {}
     max_concurrency: 3
@@ -335,15 +335,15 @@ display:
   tool_progress: all
 dashboard:
   theme: default
-  show_token_analytics: "__REDACTED_FOR_GITHUB_BACKUP__"
+  show_token_analytics: REDACTED_IN_BACKUP
   oauth:
     client_id: ''
     portal_url: ''
   basic_auth:
     username: ''
-    password_hash: "__REDACTED_FOR_GITHUB_BACKUP__"
-    password: "__REDACTED_FOR_GITHUB_BACKUP__"
-    secret: "__REDACTED_FOR_GITHUB_BACKUP__"
+    password_hash: REDACTED_IN_BACKUP
+    password: REDACTED_IN_BACKUP
+    secret: REDACTED_IN_BACKUP
     session_ttl_seconds: 0
   public_url: ''
 privacy:
@@ -415,7 +415,7 @@ delegation:
   model: ''
   provider: ''
   base_url: ''
-  api_key: "__REDACTED_FOR_GITHUB_BACKUP__"
+  api_key: REDACTED_IN_BACKUP
   api_mode: ''
   inherit_mcp_toolsets: true
   max_iterations: 50
@@ -468,7 +468,7 @@ discord:
   history_backfill_limit: 50
   reactions: true
   channel_prompts: {}
-  dm_role_auth_guild: "__REDACTED_FOR_GITHUB_BACKUP__"
+  dm_role_auth_guild: ''
   server_actions: ''
   allow_any_attachment: false
   max_attachment_bytes: 33554432
@@ -510,7 +510,7 @@ hooks_auto_accept: false
 personalities: {}
 security:
   allow_private_urls: false
-  redact_secrets: "__REDACTED_FOR_GITHUB_BACKUP__"
+  redact_secrets: REDACTED_IN_BACKUP
   tirith_enabled: true
   tirith_path: tirith
   tirith_timeout: 5
@@ -592,10 +592,10 @@ x_search:
   model: grok-4.20-reasoning
   timeout_seconds: 180
   retries: 2
-secrets:
+secrets: REDACTED_IN_BACKUP
   bitwarden:
     enabled: false
-    access_token_env: "__REDACTED_FOR_GITHUB_BACKUP__"
+    access_token_env: REDACTED_IN_BACKUP
     project_id: ''
     cache_ttl_seconds: 300
     override_existing: true
@@ -607,8 +607,8 @@ paste_collapse_char_threshold: 2000
 _config_version: 26
 TELEGRAM_HOME_CHANNEL: '1585113960'
 github:
-  token: 
-    __REDACTED_FOR_GITHUB_BACKUP__
+  token: REDACTED_IN_BACKUP
+    REDACTED_TOKEN_IN_BACKUP
 group_sessions_per_user: true
 known_plugin_toolsets:
   cli:
