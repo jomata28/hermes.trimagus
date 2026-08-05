@@ -18,15 +18,15 @@
       "schedule_display": "55 13 * * *",
       "repeat": {
         "times": null,
-        "completed": 112
+        "completed": 113
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-13T21:12:49.081621+00:00",
-      "next_run_at": "2026-08-04T13:55:00+00:00",
-      "last_run_at": "2026-08-03T13:57:18.720282+00:00",
+      "next_run_at": "2026-08-05T13:55:00+00:00",
+      "last_run_at": "2026-08-04T13:56:37.221479+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "origin",
@@ -94,15 +94,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 110
+        "completed": 111
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-15T21:39:46.829937+00:00",
-      "next_run_at": "2026-08-04T07:00:00+00:00",
-      "last_run_at": "2026-08-03T07:02:02.798514+00:00",
+      "next_run_at": "2026-08-05T07:00:00+00:00",
+      "last_run_at": "2026-08-04T07:02:19.792448+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "telegram",
@@ -175,15 +175,15 @@
       "schedule_display": "0 3 * * *",
       "repeat": {
         "times": null,
-        "completed": 87
+        "completed": 88
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-08T18:09:30.722153+00:00",
-      "next_run_at": "2026-08-05T03:00:00+00:00",
-      "last_run_at": "2026-08-03T03:02:13.343329+00:00",
+      "next_run_at": "2026-08-06T03:00:00+00:00",
+      "last_run_at": "2026-08-04T03:02:27.266550+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -213,15 +213,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 70
+        "completed": 71
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-25T19:56:44.909253+00:00",
-      "next_run_at": "2026-08-04T07:00:00+00:00",
-      "last_run_at": "2026-08-03T07:01:59.920013+00:00",
+      "next_run_at": "2026-08-05T07:00:00+00:00",
+      "last_run_at": "2026-08-04T07:02:30.058495+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -305,15 +305,15 @@
       "schedule_display": "30 22 * * *",
       "repeat": {
         "times": null,
-        "completed": 32
+        "completed": 33
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-04T15:26:33.125064+00:00",
-      "next_run_at": "2026-08-04T22:30:00+00:00",
-      "last_run_at": "2026-08-03T22:31:57.760233+00:00",
+      "next_run_at": "2026-08-05T22:30:00+00:00",
+      "last_run_at": "2026-08-04T22:30:49.381979+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -323,7 +323,53 @@
       "workdir": null,
       "profile": null,
       "fire_claim": null
+    },
+    {
+      "id": "f7ed1b7d7b69",
+      "name": "Viva IROP Monitor",
+      "prompt": "",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "provider_snapshot": null,
+      "model_snapshot": null,
+      "base_url": null,
+      "script": "irop_monitor.py",
+      "no_agent": true,
+      "context_from": null,
+      "schedule": {
+        "kind": "interval",
+        "minutes": 5,
+        "display": "every 5m"
+      },
+      "schedule_display": "every 5m",
+      "repeat": {
+        "times": null,
+        "completed": 56
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-08-04T21:26:20.949312+00:00",
+      "next_run_at": "2026-08-05T03:07:13.687871+00:00",
+      "last_run_at": "2026-08-05T03:02:13.687871+00:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "telegram:1585113960",
+      "origin": {
+        "platform": "telegram",
+        "chat_id": "1585113960",
+        "chat_name": "JT .",
+        "thread_id": null,
+        "user_id": "1585113960"
+      },
+      "enabled_toolsets": null,
+      "workdir": null,
+      "fire_claim": null
     }
   ],
-  "updated_at": "2026-08-04T03:00:54.857302+00:00"
+  "updated_at": "2026-08-05T03:02:13.688179+00:00"
 }

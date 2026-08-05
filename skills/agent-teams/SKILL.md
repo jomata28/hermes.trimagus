@@ -1,7 +1,7 @@
 ---
 name: agent-teams
 description: JT's playbook for spinning up multi-agent teams via delegate_task — a Research Team (fan out to gather + synthesize) and an Execution Team (fan out to build/do in parallel). Invoke from Telegram (research team / execution team); Hermes orchestrates the children and returns one synthesized result.
-version: 1.0.1
+version: 1.0.2
 author: Hermes Agent
 category: productivity
 metadata:
@@ -50,7 +50,20 @@ contractors")
 ## When NOT to use a team
 - A single-step question → just answer it. Teams add latency + token cost.
 - Steps that depend on each other in sequence → do them inline, not as parallel children.
+- **Asking for advice, ideas, or a second opinion** — don't fire-and-forget a full
+  delegation task. Send a focused query to a single leaf instead.
 Rule of thumb: fan out only when the parts are genuinely independent.
+
+## Delegation strategy (JT preferences)
+- **Advice vs. execution:** When the user wants ideas, insights, or an approach
+  recommendation, delegate a lightweight "what would you do?" task with
+  `role: 'leaf'` that returns just a strategy or recipe. Don't dispatch a full
+  background execution and silently wait while the user expects you to keep talking.
+- **"Ask" means ask:** When the user says "ask Claude" or "get ideas," it means a
+  short strategy query, not a long-running background research operation.
+- **Full execution** (building, running, modifying files) is only for parts you've
+  already agreed on. Never delegate research or debugging as fire-and-forget
+  background ops without the user's explicit go-ahead.
 
 ## Orchestrator etiquette
 - Tell JT briefly what the team is doing ("spinning up 3 researchers on match data…"),

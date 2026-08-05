@@ -1,96 +1,159 @@
 ---
 name: navigate-bot-protected-sites
-description: Strategies for researching discount codes from websites with bot protection measures
+description: Strategies for accessing bot-protected websites including CDN-blocked authenticated APIs, Angular SPA reverse-engineering, XHR header capture, and Gmail fallback when direct access fails.
 category: productivity
 ---
 
-# Navigate Bot-Protected Sites for Discount Research
+# Navigate Bot-Protected Sites
 
 ## When to Use
-When you need to research discount codes, coupons, or promotional offers from websites that employ bot detection measures (Cloudflare challenges, CAPTCHAs, etc.) and automated access is blocked.
+- You need data from a site that employs bot detection (Akamai, Cloudflare, CAPTCHAs, Turnstile)
+- Headless browser navigation or API calls are blocked by CDN-level protection
+- The site is an Angular SPA in production mode with locked internals
+- You need to reverse-engineer an undocumented REST API behind a CDN/proxy
+- You need structured data that may also exist in the user's Gmail confirmation emails
 
-## Approach
-1. **Initial Assessment**: Try accessing the target site directly first
-2. **Challenge Identification**: Determine what type of verification is required (checkbox, image CAPTCHA, etc.)
-3. **Alternative Sources**: If direct access fails, try coupon aggregation sites (RetailMeNot, Honey, SlickDeals)
-4. **Search Engine Workarounds**: Use search engines with specific query patterns, being prepared for their own verification challenges
-5. **Manual Completion Recognition**: Accept that some challenges require human intervention and cannot be fully automated
+## Key references
+- `references/cdn-bypass-gmail-fallback.md` — Gmail-as-fallback pattern and Angular production build analysis
+- `references/cdn-blocked-api-request-patterns.md` — Request patterns that work vs. those that don't when facing Akamai/Cloudflare, including x-api-key capture methods and JS bundle analysis
 
-## Step-by-Step Process
+## Approach (ordered by effort)
 
-### 1. Direct Site Access Attempt
-```
-- Navigate to target website (e.g., everychem.com)
-- If Cloudflare challenge appears:
-  * Check for "Verify you are human" checkbox (requires manual click)
-  * Wait for automatic redirect after verification
-  * Note: Cannot be bypassed programmatically
-```
+### Tier 1 — Passive analysis (no automated requests)
+1. **Check Gmail** for confirmation/transaction emails (may contain same data as API)
+2. **Download JS bundles** from the target site — search for URL patterns, API keys, feature flags
+3. **Analyze the page DOM** for Angular components, ng-version, data attributes
 
-### 2. Coupon Site Alternatives
-```
-- Try retailmenot.com/view/[site]
-- Try slickdeals.net/[site]-com
-- Try honey.com/[site]
-- Each may have their own bot protection requiring similar handling
-```
+### Tier 2 — Manual browser console (user pastes JS)
+1. Guide the user to open DevTools → Network tab on the target page
+2. Have them identify a successful XHR/fetch to the API
+3. Extract the `x-api-key` or other auth headers from the network request headers
+4. Use `credentials: 'include'` in all console fetch() calls (CDNs verify session cookies)
+5. Add `X-Requested-With: XMLHttpRequest` header to match Angular's interceptor output
 
-### 3. Search Engine Approach (with caveats)
-```
-- Use DuckDuckGo or Google with queries like:
-  * "[site] discount code"
-  * "[site] promo code 2024"
-  * "[site] coupon"
-- Be prepared for search engine CAPTCHAs (often image-based)
-- DuckDuckGo frequently uses animal identification challenges
-- Google may show "sorry/index" abuse warning pages
-```
+### Tier 3 — XHR interception (smuggle inside Angular's pipeline)
+Patch `XMLHttpRequest.prototype` before the page loads (or before a button click triggers an API call), let Angular's HTTP interceptor add all the "secret sauce" headers, then capture them for replay.
 
-### 4. Handling Image CAPTCHAs (when encountered)
-```
-- Common types:
-  * Animal identification (select all squares with ducks, bears, etc.)
-  * Object identification (select all squares with traffic lights, buses, etc.)
-  * Text distortion (less common in modern systems)
-- Strategy:
-  * Carefully examine each square in the grid
-  * Select only those matching the requested category
-  * Look for the submit button after selection
-  * Expect possible retries if selection is incorrect
-```
+### Tier 4 — Full API reverse-engineering
+1. Download the main.js bundle (often 2-3MB for Angular SPAs)
+2. Search for API endpoint patterns: `v1/`, `v2/`, `booking/`, `cancel`, etc.
+3. Search for SSR codes, feature flags, and business rules
+4. Search for hardcoded API keys and token patterns
+5. Try reconstructed API calls with captured headers
 
-### 5. When Automation Fails
-```
-- Accept that some protections cannot be bypassed automatically
-- Recommend manual user completion for:
-  * Cloudflare Turnstile checkboxes
-  * Complex image CAPTCHAs
-  * Persistent abuse warnings
-- Suggest alternative approaches:
-  * Newsletter sign-up for welcome discounts
-  * Social media monitoring for promo announcements
-  * Direct customer service inquiry
+### Tier 5 — Manual fallback
+When all automated approaches fail (server-side rule gates, strict CDN policies):
+- Recommend the user calls customer service for actions the API blocks
+- Document what was found for future sessions (API key, endpoints, data shapes)
+
+## API Call Patterns That Work
+
+```javascript
+fetch('https://api.target.com/web/v1/endpoint', {
+  method: 'POST',  // or GET — check what Angular uses
+  credentials: 'include',  // CRITICAL: sends CDN session cookies
+  headers: {
+    'Authorization': 'Bearer ' + localStorage.getItem('viva-user-token'),
+    'X-Channel': 'web',
+    'x-api-key': 'CAPTURED_KEY',
+    'X-Requested-With': 'XMLHttpRequest',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ pnr: 'PNR', lastName: 'NAME' })
+})
 ```
 
-## Key Learnings from Experience\n\n### Bot Detection Patterns Observed:\n- **Cloudflare Turnstile**: Most common, requires manual checkbox interaction\n- **DuckDuckGo CAPTCHAs**: Frequently image-based animal identification challenges\n- **Search Engine Warnings**: Google shows abuse warnings; DuckDuckGo uses challenges\n- **Site Variability**: Different sites use different protection layers\n\n### What Doesn't Work:\n- Programmatic bypass of Cloudflare challenges\n- Automated solving of modern image CAPTCHAs\n- Repeated rapid requests (increases protection severity)\n\n### What Sometimes Works:\n- Waiting between attempts (30-60 seconds)\n- Using different User-Agent strings (limited effectiveness)\n- Accessing via different entry points (blog vs. main page)\n- Using incognito/private browsing modes (when done manually)\n\n### Real-World Example from Session:\n- Attempted to search for EveryChem discount codes\n- Encountered Cloudflare Turnstile checkbox requiring manual \"Verify you are human\" interaction\n- DuckDuckGo search showed image CAPTCHA asking to select squares containing ducks\n- Confirmed that these protections cannot be bypassed programmatically without solving the challenges
+### Key differences from naive fetch calls:
+- `credentials: 'include'` — without it, Akamai returns 403 (missing `_abck`/`bm_sz` cookies)
+- `X-Requested-With: XMLHttpRequest` — Angular HTTP client adds this by default; missing it flags the request as non-Angular
+- `x-api-key` — often from a CMS config, not hardcoded in JS; must be captured from Angular's interceptor output
+
+## How to Capture the x-api-key
+
+### Method A — Network tab (easiest)
+1. User opens DevTools → Network tab
+2. User refreshes the page (or triggers an action that calls the API)
+3. User clicks on any successful XHR to the API host
+4. User copies the `x-api-key` value from Request Headers
+5. User pastes the key into your script
+
+### Method B — XHR prototype patching
+Paste this BEFORE any API call happens (before page load or before clicking a button):
+```javascript
+window.__capturedHeaders = {};
+XMLHttpRequest.prototype.setRequestHeader = function(header, value) {
+  window.__capturedHeaders[header] = value;
+  if (header.toLowerCase() === 'x-api-key') window.__capturedApiKey = value;
+  return XMLHttpRequest.prototype.setRequestHeader._orig.apply(this, arguments);
+};
+```
+
+### Method C — Fetch intercept
+Paste this before page refresh:
+```javascript
+const origFetch = window.fetch;
+window.fetch = function(url, opts) {
+  if(url.includes('api.')) {
+    window.__capturedHeaders = opts?.headers;
+    window.__capturedUrl = url;
+  }
+  return origFetch.apply(this, arguments);
+};
+```
+
+## Analyzing API Responses for Rule Gates
+
+Many APIs include business rules alongside data. Check for:
+- `rules` array with `isEnabled: true/false` flags per operation
+- `disabledForBookingStatus*` or similar condition gates
+- `ssrCodes` — special service request codes controlling fare features
+- `featureFlags` — CMS-controlled toggles for UI features
+
+### Common rule gate pattern:
+```json
+{
+  "type": "TotalRefundCancellation",
+  "isEnabled": false,
+  "details": [{
+    "code": "DisabledForBookingStatusOnHold",
+    "description": "Booking rule disabled for booking status OnHold"
+  }]
+}
+```
+
+This means the backend enforces the gate — no frontend trick can bypass it.
+
+## JS Bundle Analysis for SPA Reverse-Engineering
+
+### Finding API endpoints:
+```bash
+grep -oP 'v1/[a-z/]+' main.js | sort -u
+grep -oP 'BOOKING_[A-Z_]+_URL[^,]+' main.js
+grep -oP 'CANCEL[^,=\"]+' main.js | grep -oP '[a-z]+/[a-z]+(/[a-z]+)*' | sort -u
+```
+
+### Finding API keys and config:
+```bash
+grep -oP 'publicKey[^,]+' main.js
+grep -oP 'x-api-key[^,)]+' main.js
+grep -oP 'environmentConfig[^}]+' main.js
+```
+
+### Finding SSR codes and feature flags:
+```bash
+grep -oP 'ssrCode[^,]+' main.js | sort -u
+grep -oP 'Show[A-Z][A-Za-z]+Modal[^,]+' main.js
+grep -oP '"VA[A-Z0-9]{2}"' main.js | sort -u
+```
+
+### Finding Angular component tags:
+```bash
+grep -oP 'app-[a-z-]+' main.js | sort -u
+grep -oP 'selector:"[a-z-]+"' main.js
+```
 
 ## Verification Steps
-After attempting to access discount information:
-1. Confirm if you reached the actual content page or just a verification screen
-2. If verification screen, identify type and assess if manual completion is feasible
-3. If coupon site, check if any codes are displayed without further verification
-4. Document what protection was encountered for future reference
-
-## Limitations and Caveats
-- This approach may still require manual intervention for final verification
-- Success rate varies significantly by site and time of day
-- Some sites may be completely inaccessible via automated means
-- Always respect site terms of service and rate limits when attempting access
-
-## When to Escalate to Manual
-- After 2-3 failed verification attempts on the same site
-- When encountering unusually complex or novel CAPTCHA types
-- If the site shows persistent abuse warnings despite correct responses
-- When time invested exceeds potential savings from found discounts
-
-This skill is most valuable when you need to systematically try multiple sources for discount information while managing expectations about what can be automated versus what requires human interaction.
+1. Confirm whether the CDN/API is returning structured data or just error pages
+2. If API returns JSON, check for rule gates that block the desired action
+3. If rule gates are server-side, inform the user — no frontend hack can override them
+4. Always capture the x-api-key and token format for reuse in later attempts

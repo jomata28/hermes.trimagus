@@ -30,6 +30,8 @@ This skill consolidates the former standalone packages `google-workspace`, `hima
 | Obsidian vault, Bitácora, PARA/ONEPISSA, rclone-backed knowledge base, lab vault separation | Second-brain knowledge base | `references/second-brain-package/SKILL.md` |
 | Forum/community scraping into Obsidian + future NotebookLM querying | Forum scrape to knowledge base | `references/forum-scrape-to-knowledge-base.md` |
 | Paid/private Substack/newsletter archive from Gmail into Markdown, Drive, and NotebookLM | Substack email archive to NotebookLM | `references/substack-email-archive-to-notebooklm.md` |
+| Bot-protected SPA (airline/hotel/booking) won't load in headless browser — extract confirmation data from Gmail instead | Gmail email data fallback | `references/gmail-email-data-fallback.md` |
+| Bot-protected SPA won't load AND Gmail didn't have the answer — download JS bundles offline to reverse-engineer feature flags, endpoints, and UI workflows | SPA bundle forensics | `references/spa-bundle-forensics.md` |
 | Teams meeting summaries, Microsoft Graph transcripts, pipeline jobs/subscriptions | Teams meeting pipeline | `references/teams-meeting-pipeline-package/SKILL.md` |
 
 ## Shared safety rules
@@ -43,6 +45,10 @@ This skill consolidates the former standalone packages `google-workspace`, `hima
 ## Google Workspace operations
 
 Use the Google Workspace package for Gmail, Calendar, Drive, Docs, Sheets, Contacts, Tasks, OAuth setup, Drive upload/convert flows, Google Slides conversion, rclone Drive mounts, Google Cloud CLI PKCE quirks, and Antigravity CLI notes.
+
+**CRITICAL: Gmail access IS available.** The `google_api.py` script has `gmail.readonly`, `gmail.send`, and `gmail.modify` scopes. Do NOT tell the user "I can't access your email" — use `gmail search` and `gmail get` instead. Gmail is often the fastest path to confirmation numbers, receipts, PDF attachments, and structured Schema.org JSON-LD data that the user needs. If a bot-protected website (airline, hotel, booking SPA) won't load in the browser, Gmail is the first fallback — see `references/gmail-email-data-fallback.md`.
+
+**Second-tier fallback: SPA Bundle Forensics.** If Gmail doesn't have the full answer and the site won't load (Akamai/Cloudflare bot protection), download the SPA's JS bundles and search them offline for feature flags, API endpoints, component/selector names, modal IDs, and translation keys. This reverse-engineers the user-facing UI workflow without ever loading the page. See `references/spa-bundle-forensics.md` for the full playbook: download bundles, grep for flags/endpoints/components, map the flow, try APIs, then give the user console commands for their own browser.
 
 For Drive folders containing screenshots/photos that need values extracted into a Sheet, especially white digital timer/clock numbers, use `references/timer-image-extraction-to-sheets.md`: copy the folder locally with rclone, OCR only the target number, manually review flagged cases, then create and verify a formatted Google Sheet in the source folder. For JT's hanging-test images, preserve the requested `box_day_id` style (`F9-1`, `F9-2`, `F9-3`, etc.) next to the image/source column; de-duplicate repeated photos before producing the final workbook.
 

@@ -27,6 +27,8 @@ python "$GA" sheets update <sheet_id> "<Tab>!A5"  --values '[[...row...]]'
 ```
 The token already has the `spreadsheets` scope. No extra auth needed.
 
+**Gmail access is also available** via the same script: `python "$GA" gmail search <query>` and `python "$GA" gmail get <message_id>`. Use this when the user mentions lab orders, supply shipments, vendor confirmations, or any email data from their inbox — don't assume you can't reach it.
+
 ## Operations
 
 ### Log an entry  ("log echo for m-142: EF 58, FS 31, HR 480")

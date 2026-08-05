@@ -37,9 +37,34 @@ Do not use for a single command or trivial edit where direct tools are faster.
 
 Good for feature implementation and PR-sized coding tasks. Provide exact repo context and ask for evidence. Avoid interactive hangs by using the appropriate CLI mode for the environment.
 
-### Herdr as a Claude Code cockpit
+### Quick queries via Herdr pane (preferred for advice)
 
-When Herdr is installed/running, prefer treating it as the persistent terminal cockpit for Claude Code/Codex/Hermes agent panes instead of guessing from process names alone. Useful inspection commands:
+When you need Claude Code's **analysis or advice** (not implementation), prefer sending a short question to the Herdr pane rather than delegating via `delegate_task`. This is faster, lighter, and the user prefers it.
+
+```bash
+# 1. Send a concise question (not a multi-paragraph task brief)
+herdr pane send-text w1:p1 "Quick question: does the Viva cancel endpoint need basketId or bookingId?"
+
+# 2. Press Enter to submit
+herdr pane send-keys w1:p1 Enter
+
+# 3. Wait for response, then read
+sleep 30 && herdr pane read w1:p1 | tail -20
+```
+
+**When to use this pattern vs delegate_task:**
+- **Quick query** (preferred): Use `herdr pane send-text/send-keys/read` when you just need advice, analysis, or a second opinion. The user explicitly corrected this: "dont delegate the whole thing, instead just ask it what it would do."
+- **Full delegation** (for implementations): Use `delegate_task` only when the agent needs its own sandboxed terminal to run code, test things, or produce deliverables.
+
+### Non-interactive query via claude -p (no Herdr needed)
+
+For single-shot questions where you don't need a persistent session, use `claude -p` (requires valid auth):
+
+```bash
+claude -p "Quick technical question: what API endpoint pattern does XYZ use?" 2>&1
+```
+
+This runs one query and exits — no Herdr pane needed. Good for fast answers without session overhead.
 
 ```bash
 herdr status

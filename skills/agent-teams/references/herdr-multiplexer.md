@@ -18,11 +18,46 @@ the **orchestrator** that reads and directs panes via the socket API.
 | Workspaces | `herdr workspace list` |
 | Tabs | `herdr tab list` / `herdr tab create --label <name>` |
 | Panes | `herdr pane list` / `herdr pane current` |
-| Run in a pane | `herdr pane run -- <cmd>` |
+| Run command in pane | `herdr pane run <PANE_ID> <COMMAND>...` |
 
 Snapshot tells you: workspace name, tab labels, pane id (`w1:p1`), running agent
 (e.g. `claude`), pane title, status (idle/running), cwd, focus. This is how Hermes
 "sees" the cockpit from Telegram.
+
+## Pane interaction (sending queries to agent panes like Claude Code)
+Use `send-text` + `send-keys` + `read` to talk to agent panes interactively:
+
+```
+# 1. Send text (types it into the pane's terminal)
+herdr pane send-text <PANE_ID> "your question here"
+
+# 2. Press Enter to submit
+herdr pane send-keys <PANE_ID> Enter
+
+# 3. Wait for processing, then read output
+herdr pane read <PANE_ID>
+
+# Or wait for expected output pattern before reading
+herdr pane wait-output <PANE_ID> "expected pattern"
+```
+
+Special keys for `send-keys`: `Enter`, `Escape`, Tab, etc. (capitalized).
+
+## Login/auth for Claude Code in Herdr
+Claude Code in a Herdr pane is a CLI session needing auth. Run `/login`:
+1. Select method (1=Claude account, 2=Console API, 3=3rd-party)
+2. An OAuth URL is shown — give to JT to open in browser
+3. JT authenticates, gets a code — paste it back via `send-text` + `send-keys Enter`
+4. If OAuth fails with "Invalid code", send `Escape` key then `/login` again
+
+## Command map (pane-specific)
+| Task | Command |
+|---|---|
+| Send typed text to pane | `herdr pane send-text <ID> "text"` |
+| Send key press | `herdr pane send-keys <ID> Enter` |
+| Read pane output | `herdr pane read <ID>` |
+| Wait for output match | `herdr pane wait-output <ID> "pattern"` |
+| Run and get output (non-interactive) | `herdr pane run <ID> <cmd>` |
 
 ## Operating pattern
 - One **workspace per project** (bitacora · step1 · ai-agency/foundationatlas · lab),

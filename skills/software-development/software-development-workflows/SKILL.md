@@ -89,6 +89,7 @@ Use these as supporting references; the class-level selector above should remain
 3. **Inventing verification.** Report real command/browser output only.
 4. **Letting spike code leak.** Promote only the understood design, not the scratch implementation.
 5. **Treating QA as clicking around.** Record evidence and reproduction steps.
+6. **Missing API auth headers from Angular SPAs.** When investigating web-app API calls from the console, use `credentials: 'include'` and extract `x-api-key` from the Network tab. See `references/angular-api-auth-bypass.md`.
 
 ## Verification Checklist
 
