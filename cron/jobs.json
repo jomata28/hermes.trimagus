@@ -18,15 +18,15 @@
       "schedule_display": "55 13 * * *",
       "repeat": {
         "times": null,
-        "completed": 114
+        "completed": 118
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-13T21:12:49.081621+00:00",
-      "next_run_at": "2026-08-06T13:55:00+00:00",
-      "last_run_at": "2026-08-05T13:56:09.928652+00:00",
+      "next_run_at": "2026-08-10T13:55:00+00:00",
+      "last_run_at": "2026-08-09T13:56:04.848703+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "origin",
@@ -94,15 +94,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 112
+        "completed": 116
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-15T21:39:46.829937+00:00",
-      "next_run_at": "2026-08-06T07:00:00+00:00",
-      "last_run_at": "2026-08-05T07:05:30.029464+00:00",
+      "next_run_at": "2026-08-10T07:00:00+00:00",
+      "last_run_at": "2026-08-09T07:00:35.697161+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "telegram",
@@ -175,15 +175,15 @@
       "schedule_display": "0 3 * * *",
       "repeat": {
         "times": null,
-        "completed": 89
+        "completed": 93
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-08T18:09:30.722153+00:00",
-      "next_run_at": "2026-08-07T03:00:00+00:00",
-      "last_run_at": "2026-08-05T03:10:14.311679+00:00",
+      "next_run_at": "2026-08-11T03:00:00+00:00",
+      "last_run_at": "2026-08-09T03:01:00.604749+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -213,17 +213,17 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 72
+        "completed": 76
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-25T19:56:44.909253+00:00",
-      "next_run_at": "2026-08-06T07:00:00+00:00",
-      "last_run_at": "2026-08-05T07:02:26.537712+00:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-08-10T07:00:00+00:00",
+      "last_run_at": "2026-08-09T07:00:49.104059+00:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.",
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": {
@@ -259,15 +259,15 @@
       "schedule_display": "0 20 * * 0",
       "repeat": {
         "times": null,
-        "completed": 10
+        "completed": 11
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-25T20:28:23.702076+00:00",
-      "next_run_at": "2026-08-09T20:00:00+00:00",
-      "last_run_at": "2026-08-02T20:02:16.193475+00:00",
+      "next_run_at": "2026-08-16T20:00:00+00:00",
+      "last_run_at": "2026-08-09T20:02:40.459283+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -305,15 +305,15 @@
       "schedule_display": "30 22 * * *",
       "repeat": {
         "times": null,
-        "completed": 34
+        "completed": 38
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-04T15:26:33.125064+00:00",
-      "next_run_at": "2026-08-06T22:30:00+00:00",
-      "last_run_at": "2026-08-05T22:31:11.125567+00:00",
+      "next_run_at": "2026-08-10T22:30:00+00:00",
+      "last_run_at": "2026-08-09T22:30:41.001813+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -346,15 +346,15 @@
       "schedule_display": "every 5m",
       "repeat": {
         "times": null,
-        "completed": 295
+        "completed": 1255
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-04T21:26:20.949312+00:00",
-      "next_run_at": "2026-08-06T03:01:32.388364+00:00",
-      "last_run_at": "2026-08-06T02:56:32.388364+00:00",
+      "next_run_at": "2026-08-10T03:02:57.359445+00:00",
+      "last_run_at": "2026-08-10T02:57:57.359445+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -372,7 +372,7 @@
     },
     {
       "id": "938e7e4f5493",
-      "name": "Viva Schedule Diff",
+      "name": "Viva Schedule Diff (3x/day)",
       "prompt": "",
       "skills": [],
       "skill": null,
@@ -386,22 +386,22 @@
       "context_from": null,
       "schedule": {
         "kind": "cron",
-        "expr": "0 9 * * *",
-        "display": "0 9 * * *"
+        "expr": "0 3,15,22 * * *",
+        "display": "0 3,15,22 * * *"
       },
-      "schedule_display": "0 9 * * *",
+      "schedule_display": "0 3,15,22 * * *",
       "repeat": {
         "times": null,
-        "completed": 0
+        "completed": 10
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-06T02:45:24.849337+00:00",
-      "next_run_at": "2026-08-06T09:00:00+00:00",
-      "last_run_at": null,
-      "last_status": null,
+      "next_run_at": "2026-08-10T15:00:00+00:00",
+      "last_run_at": "2026-08-09T22:04:36.244531+00:00",
+      "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
       "deliver": "telegram:1585113960",
@@ -413,8 +413,54 @@
         "user_id": "1585113960"
       },
       "enabled_toolsets": null,
+      "workdir": null,
+      "fire_claim": null
+    },
+    {
+      "id": "892a6d8e1927",
+      "name": "WhatsApp topics reminder",
+      "prompt": "Remind JT this morning: \u201cLet\u2019s talk through the WhatsApp topics today.\u201d Keep it brief and ask him to send the topic list or start with the first topic.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "provider_snapshot": "openai-codex",
+      "model_snapshot": "gpt-5.6-sol",
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "context_from": null,
+      "schedule": {
+        "kind": "once",
+        "run_at": "2026-08-10T07:00:00-05:00",
+        "display": "once at 2026-08-10 07:00"
+      },
+      "schedule_display": "once at 2026-08-10 07:00",
+      "repeat": {
+        "times": 1,
+        "completed": 0
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-08-09T20:23:32.335601+00:00",
+      "next_run_at": "2026-08-10T07:00:00-05:00",
+      "last_run_at": null,
+      "last_status": null,
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "origin",
+      "origin": {
+        "platform": "telegram",
+        "chat_id": "1585113960",
+        "chat_name": "JT .",
+        "thread_id": null,
+        "user_id": "1585113960"
+      },
+      "enabled_toolsets": null,
       "workdir": null
     }
   ],
-  "updated_at": "2026-08-06T03:00:03.795506+00:00"
+  "updated_at": "2026-08-10T03:00:30.128487+00:00"
 }

@@ -134,6 +134,24 @@ Level 4 — Flicker guard:
 | IROP Monitor | Every 5 min | `noControlableMessages` changes | Hours |
 | Schedule Diff | Daily 9am CT | Flight disappears from schedule | 1-4 days |
 
+### 2-day advance requirement (critical constraint)
+The booking must be OnHold for **2+ days before the flight** and the cancellation must happen **2+ days before departure**. This makes the schedule-diff strategy (detects 1-4 day lead time) the viable path — the IROP monitor catches same-day disruptions, which are too late.
+
+### Setup commands (run once)
+```python
+# IROP Monitor: polls every 5 min, $0 in LLM tokens
+cronjob(no_agent=True, script='irop_monitor.py', schedule='every 5m', name='Viva IROP Monitor')
+
+# Schedule Diff: daily snapshot + diff at 9am CT
+cronjob(no_agent=True, script='viva_daily.py', schedule='0 9 * * *', name='Viva Schedule Diff')
+```
+
+### Diff engine bugs fixed during build
+1. **confirm() never fired** — candidates not persisted across runs. Fix: JSON history file + check continued absence against current snapshot
+2. **Flight number matching too loose** — matched on flight_number only, missed route changes. Fix: key on (flight_number, route)
+3. **Silent row loss** — unparseable timestamps dropped silently. Fix: log dropped row counts
+4. **Retime false positives** — matched against ALL survivors, not just NEW ones. Fix: only compare against flights not in previous snapshot
+
 ### Key insight: 2-day advance requirement
 The booking must be OnHold for 2+ days before the flight and the cancellation must happen 2+ days before departure. This means the schedule-diff strategy (which detects cancellations 1-4 days ahead) is the viable path — the IROP monitor is too late (same-day detection).
 

@@ -84,3 +84,23 @@ If the Claude tmux session is root-owned, either run the session under the phone
 ## Safety
 
 Do not paste credentials into durable skills or memory. If a password is generated during a session, deliver it to the user in the current chat only and encourage changing it or replacing it with SSH keys later.
+
+## OAuth login fallback (when Herdr pane auth fails)
+
+Claude Code OAuth through a Herdr pane repeatedly fails with "Invalid code" — the authorization code expires in ~2 min, and Herdr pane text input + keypress submission introduces enough delay (and possible encoding issues) to miss the window.
+
+**Working fix:** Have the user SSH into the VPS directly and run:
+
+```bash
+claude auth login --claudeai
+```
+
+This prints an OAuth URL. The user opens it in their browser, authorizes, copies the code, and pastes it back into the SSH terminal within the 2-min window. Direct SSH is faster and more reliable than Herdr pane input routing.
+
+Once authenticated, `~/.claude/.credentials.json` is written with the access token. Any Herdr pane Claude Code processes may need a restart to pick up the new token.
+
+**Verification:**
+```bash
+claude --version
+# Should print version number without prompting for login
+```

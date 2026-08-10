@@ -71,7 +71,7 @@ Deliver actionable RISING Briefs and weekly reviews by scanning THREE sources, i
 4. **Proactively add calendar blocks** for study, workout, project work
 5. **Create tasks** for any project step that lacks one
 6. **Review _decisions.md** — flag any deadlines within 14 days
-7. **Clean up**: mark completed tasks, archive done subtasks
+7. **Clean up**: mark completed tasks and surface project-archive candidates using evidence, not deadline age alone. Classify each as safe-to-archive, archive-container/preserve-open-decisions, parked, active, or needs confirmation. Do not move project files merely because a review says “archive done projects”; archive only after JT explicitly approves the candidates.
 8. Deliver comprehensive weekly plan via Telegram
 
 ## Action Rules

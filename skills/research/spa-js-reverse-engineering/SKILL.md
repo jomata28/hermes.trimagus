@@ -243,7 +243,37 @@ The value of this strategy is in the **lead time distribution** — how many day
 - **5-7 days** = borderline
 - **8+ days** = schedule housekeeping, not useful
 
-Track this from day one. Run the daily snapshot at the same time every day.
+Track this from day one. Run snapshots at consistent times — but **cron
+schedules are UTC**: `0 9 * * *` fires at 4am CT. Convert to the user's
+local time before choosing hours, and match snapshot times to when the
+source makes decisions (airline ops decide during business hours →
+snapshot mid-morning, late afternoon, evening). 3×/day snapshots also
+narrow a detected disappearance to a 5–8h window — which directly answers
+"what time did the flight show as cancelled."
+
+### Match detector horizon to the user's strategy (do this BEFORE building)
+
+- A fast poller (`noControlableMessages` every 5 min) detects signals only
+  **hours** before departure — useless for strategies that need days of
+  runway (e.g., the OnHold booking must exist ≥48h before departure for the
+  IROP-refund play to work).
+- The **schedule diff** is the only detector that can give multi-day lead,
+  and only for cancellations decided days ahead (commercial/fleet
+  consolidation). Same-day operational cancels (weather/crew/mechanical)
+  are invisible to it by design.
+- State this trade-off explicitly instead of building both and hoping.
+
+### Measuring the API-vs-webpage gap (the real product question)
+
+The open question is whether `plannedFlights` updates before Viva's own
+webpage/notification tells passengers. It can't be answered until a real
+cancellation happens. When the diff fires its first confirmed candidate:
+1. Record the snapshot `taken_at` timestamp (add a `taken_at` column to
+   snapshot rows for exactly this).
+2. Immediately check Viva's flight-status page / booking search for that
+   flight and timestamp whether it's still bookable/visible.
+3. Log both timestamps — the difference is the gap. If the gap ≈ 0, the
+   detector has precision but no commercial value.
 
 ### Data source: plannedFlights endpoint
 
@@ -424,6 +454,51 @@ GET /service/v1/fsnc/plannedFlights?flightDate=YYYYMMDD&origin=XXX&flightNumber=
 ```
 
 The cron job uses `no_agent=True` so it's a pure Python script — **zero LLM tokens consumed** on every poll cycle. Only the alert delivery uses Hermes.
+
+### Token management for long-running monitors
+
+Auth tokens expire. Monitor scripts read from `~/.hermes/irop_token` — refresh by pasting a fresh token:
+
+```bash
+echo "NEW_JWT_TOKEN" > ~/.hermes/irop_token
+```
+
+**Detection:** if the script output includes `🔑 Token expired for HUB — refresh it`, the token needs updating.
+
+### Complete cron setup commands
+
+```python
+# IROP Monitor — polls plannedFlights every 5 min for noControlableMessages changes
+cronjob(
+    no_agent=True,
+    script='irop_monitor.py',      # /root/.hermes/scripts/irop_monitor.py
+    schedule='every 5m',
+    name='Viva IROP Monitor'
+)
+
+# Schedule Diff — snapshot + diff 3x/day, alerts on flight disappearances.
+# UTC hours chosen for CT coverage: 03:00=10pm, 15:00=10am, 22:00=5pm CT.
+cronjob(
+    no_agent=True,
+    script='viva_daily.py',           # orchestrator: snapshot + diff, gates output
+    schedule='0 3,15,22 * * *',
+    name='Viva Schedule Diff (3x/day)'
+)
+```
+
+The first snapshot starts collecting data immediately. You need 2+ snapshots
+before the diff can detect changes. The `confirm()` function requires 2+
+consecutive absences before promoting a candidate to confirmed cancellation.
+
+**Operational hardening** (silent-unless-news, dedupe, grace periods,
+orchestrator wrapper, stdlib-only) lives in the `cron-watchdog-scripts`
+skill — load it when building or fixing any monitor cron. Snapshot filenames
+must include the time (`schedule_YYYY-MM-DD_HHMM.csv`) when more than one
+snapshot per day is possible, or same-day runs overwrite the baseline.
+
+### User preference: alert-only mode
+
+When the user says "just alert rn" — set up monitors to **only deliver on detection**, not on every poll cycle. For `no_agent=True` scripts, the script silently prints nothing when nothing is found (no Telegram delivery), and only prints actionable alerts when something changes. Empty stdout = silent delivery.
 
 ## Advanced: ChangeJourneys endpoint (separate gate)
 
