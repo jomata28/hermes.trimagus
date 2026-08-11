@@ -77,6 +77,19 @@
     "use_count": 1,
     "view_count": 1
   },
+  "coaches": {
+    "archived_at": null,
+    "created_at": "2026-08-10T22:30:54.905171+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_used_at": "2026-08-10T22:30:54.922627+00:00",
+    "last_viewed_at": "2026-08-10T22:30:54.905351+00:00",
+    "patch_count": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 1,
+    "view_count": 1
+  },
   "comfyui": {
     "archived_at": null,
     "created_at": "2026-07-03T02:55:20.790246+00:00",
@@ -160,13 +173,13 @@
     "created_at": "2026-05-26T13:55:18.349510+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-07-25T13:56:01.060853+00:00",
-    "last_viewed_at": "2026-07-25T13:56:01.055040+00:00",
+    "last_used_at": "2026-08-10T13:55:47.547924+00:00",
+    "last_viewed_at": "2026-08-10T13:55:47.543443+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 62,
-    "view_count": 62
+    "use_count": 63,
+    "view_count": 63
   },
   "data-science-workflows": {
     "archived_at": null,
@@ -199,13 +212,13 @@
     "created_at": "2026-05-08T07:00:58.625760+00:00",
     "created_by": null,
     "last_patched_at": "2026-06-25T07:02:36.796029+00:00",
-    "last_used_at": "2026-08-09T07:00:09.164765+00:00",
-    "last_viewed_at": "2026-08-07T07:01:02.420447+00:00",
+    "last_used_at": "2026-08-10T07:01:16.724275+00:00",
+    "last_viewed_at": "2026-08-10T07:01:16.703996+00:00",
     "patch_count": 23,
     "pinned": false,
     "state": "active",
-    "use_count": 234,
-    "view_count": 110
+    "use_count": 238,
+    "view_count": 113
   },
   "divine-pharma-notion-episodes-fetch": {
     "archived_at": null,
@@ -276,14 +289,14 @@
     "archived_at": null,
     "created_at": "2026-06-19T03:02:30.397843+00:00",
     "created_by": null,
-    "last_patched_at": "2026-07-26T03:04:52.249061+00:00",
-    "last_used_at": "2026-08-10T03:01:04.114208+00:00",
-    "last_viewed_at": "2026-08-10T03:01:04.106166+00:00",
-    "patch_count": 13,
+    "last_patched_at": "2026-08-10T03:06:36.679324+00:00",
+    "last_used_at": "2026-08-11T03:00:57.595939+00:00",
+    "last_viewed_at": "2026-08-11T03:00:57.586381+00:00",
+    "patch_count": 15,
     "pinned": false,
     "state": "active",
-    "use_count": 66,
-    "view_count": 66
+    "use_count": 68,
+    "view_count": 68
   },
   "godmode": {
     "archived_at": null,
