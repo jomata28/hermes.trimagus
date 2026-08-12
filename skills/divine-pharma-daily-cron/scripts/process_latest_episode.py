@@ -202,6 +202,21 @@ def extract_audio_url(page_url: str) -> str:
     return ""
 
 
+def extract_youtube_url(page_url: str) -> str:
+    """Return a normalized YouTube watch URL for video-only episode pages."""
+    page = htmlmod.unescape(fetch_url(page_url).decode("utf-8", "ignore"))
+    patterns = [
+        r"youtube(?:-nocookie)?\.com/embed/([A-Za-z0-9_-]{6,})",
+        r"youtube\.com/watch\?[^\"'<>\s]*v=([A-Za-z0-9_-]{6,})",
+        r"youtu\.be/([A-Za-z0-9_-]{6,})",
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, page, re.I)
+        if match:
+            return "https://www.youtube.com/watch?v=" + match.group(1)
+    return ""
+
+
 def download(url: str, path: Path) -> None:
     result = run(["curl", "-L", "--retry", "3", "--fail", "--connect-timeout", "20", "--max-time", "600", "-o", str(path), url], timeout=650)
     if result.returncode != 0 or not path.exists() or path.stat().st_size < 10000:
@@ -233,7 +248,20 @@ def main() -> int:
     safe = slugify(title)
     audio_url = extract_audio_url(page_url)
     if not audio_url:
-        raise RuntimeError(f"Could not find MP3 URL for {title}: {page_url}")
+        video_url = extract_youtube_url(page_url)
+        if video_url:
+            print(json.dumps({
+                "status": "video_fallback_required",
+                "reason": "real_episode_has_youtube_embed_but_no_mp3",
+                "episode_title": title,
+                "episode_url": page_url,
+                "youtube_url": video_url,
+                "processed_id": processed_id,
+                "candidate_source": candidate["source"],
+                "next_step": "Follow references/video-only-episode-fallback.md; do not mark processed until Daily-Session and transcript notes exist.",
+            }, indent=2))
+            return 0
+        raise RuntimeError(f"Could not find MP3 or YouTube embed for {title}: {page_url}")
 
     audio_path = AUDIO_DIR / f"{today}-{safe}.mp3"
     if not audio_path.exists() or audio_path.stat().st_size < 10000:

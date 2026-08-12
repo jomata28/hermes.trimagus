@@ -55,7 +55,8 @@ Queries the Notion database for the most recent episode by checking:
 - See `references/live-site-scrape-fallback.md` for safe homepage scraping rules when Notion is stale; especially avoid navigation/category anchors like `Podcast Topics` and iterate past already-processed live-site episodes.
 - See `references/processed-episode-matching.md` for strict processed-vs-preview matching rules; avoid treating `Evening Review Preview`/`Processing Log` mentions as evidence that an episode has already been processed.
 - See `references/cron-fallback-implementation-notes.md` for stdlib-only HTML parsing when `bs4` is unavailable, plus the long-episode/no-GPU fallback checklist and verification steps.
-- Reusable helper: `scripts/process_latest_episode.py` implements the current stdlib-first cron flow (Notion query → live-site fallback → strong processed matching → MP3 download/ffprobe → no-GPU fallback note/transcript handoff → JSON status). If it prints `{"status": "silent"}`, the cron response should be exactly `[SILENT]`.
+- See `references/video-only-episode-fallback.md` when a valid episode page embeds a YouTube mini-lecture but has no MP3; retrieve captions, normalize rolling VTT, preserve a raw transcript, and synthesize the normal USMLE note rather than treating the page as a scrape failure.
+- Reusable helper: `scripts/process_latest_episode.py` implements the stdlib-first cron flow (Notion query → live-site fallback → strong processed matching → MP3 download/ffprobe → no-GPU fallback note/transcript handoff → JSON status). It also detects video-only YouTube pages and returns a structured `video_fallback_required` handoff so the caller can follow the caption workflow. If it prints `{"status": "silent"}`, the cron response should be exactly `[SILENT]`.
 
 ### 3. Pharmacological Extraction
 Uses LLM analysis to identify key pharmacological concepts from transcription:
@@ -106,6 +107,12 @@ This skill is designed to be run via Hermes cron job:
 - Preserves existing notes if processing fails mid-pipeline
 
 ## ⚠️ Critical Pitfalls
+
+### Video-only episodes are valid episodes
+- A real numbered episode may embed a YouTube mini-lecture and have no MP3. Do not reject it or skip to an older post solely because MP3 extraction failed.
+- Use the YouTube caption workflow in `references/video-only-episode-fallback.md`. Complete captions count as successful transcription even if authenticated media download is unavailable.
+- Preserve the raw cleaned caption transcript separately, synthesize the medically corrected Daily-Session note, and only then write processed markers.
+- The helper's `video_fallback_required` JSON is a handoff, not a completed run; continue the workflow rather than returning that JSON to the user.
 
 ### Whisper on CPU is effectively unusable for full episodes
 - Even with `tiny` model and 8-minute chunks, each chunk takes ~40-50 minutes on CPU. A 52-minute episode split into 7 chunks would take 5+ hours.

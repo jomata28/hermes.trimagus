@@ -64,8 +64,15 @@ Detailed batch/correction workflow: `references/ar-stopwatch-batch-workflow.md`.
 - Treat hanging/wire/AR rows as supporting assay data, not proof that a mouse exists in whole FI.
 - If you accidentally find data in a different assay while answering an FI question, label it clearly as non-FI and continue checking FI before answering.
 - When current FI has no rows for requested mouse IDs, proactively search older/backed-up Excel sources before giving a negative: Drive folders such as `Cieslik LabVault/Raw/frailty/Friality Index and Hanging Time Excel/`, backup files named `FI_WHT_*.backup_before_*`, local `/tmp/frailty*`/`/tmp/lab*` copies, and broader Drive spreadsheets that may contain older lab history (e.g. `DAILY1.xlsx`).
-- Report findings by source class: **whole-FI hits**, **non-FI assay hits** (HT/Wire/AR), and **older unrelated lab-history hits** (echo/dopp/weight). This prevents conflating “mouse ID exists somewhere” with “mouse has a whole-FI row.”
+- **If JT says he already provided the FI, treat that as a workflow-correction signal, not a debate.** Do not repeat “we do not have it” based only on the current workbook. Escalate through exact and prefixed/suffixed IDs; pending JSONL/CSV voice-note queues; session history including parent/child compacted sessions; Drive-root spreadsheets outside the lab folder; cohort/age files; image attachments and nearby messages; and prior skill text that may preserve a correction-derived example.
+- Separate three conclusions precisely:
+  1. **Scores recovered** — individual FI fields can be reproduced from an authoritative source.
+  2. **Provision evidenced, scores not recoverable** — history/corrections prove JT supplied or discussed the cohort, but the clinical scores were not persisted or are no longer reconstructable.
+  3. **No evidence found after escalation** — only after the full recovery ladder.
+- Never reconstruct clinical FI scores from grip strength, cohort membership, dates, sex, or a remembered correction. Those may prove identity/context but not clinical scores. State a persistence gap honestly rather than inventing values.
+- Report findings by source class: **whole-FI hits**, **non-FI assay hits** (HT/Wire/AR), **older unrelated lab-history hits** (echo/dopp/weight), and **provision evidence without recoverable scores**. This prevents conflating “mouse ID exists somewhere” with “mouse has a whole-FI row.”
 - Avoid creating new non-FI tabs in the lab data engine when the user's target is whole FI; ask one tight clarification if the destination tab/schema is unclear.
+- Detailed escalation checklist: `references/whole-fi-recovery-ladder.md`.
 
 ### Query  ("how many live mice?", "last echo for m-142")
 1. `sheets get` the relevant tab, filter in-agent, answer concisely.

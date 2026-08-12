@@ -77,6 +77,8 @@ Deliver actionable RISING Briefs and weekly reviews by scanning THREE sources, i
 ## Action Rules
 - **Never just report — act**: If a study block is missing, add it. If a task should be due, set the date.
 - **User corrections are source-of-truth updates**: If the user says a bottleneck/decision is wrong (e.g. a trip is now no-go, a vague "conference" goal should be replaced, or a prerequisite order changed), immediately edit the relevant vault decision/project files and verify the patch. Do not leave stale active bottlenecks in briefings.
+- **Parking means remove from active surfaces, not destroy history**: When JT says “delete this for now,” “move it to later,” or “park it,” remove that topic from active projects, current working orders, open-decision headlines, briefings, and due tasks; preserve one clearly labeled later/post-milestone backlog note. Do not delete unrelated semantic mentions (e.g. a food preference merely sharing the word “Chinese”).
+- **Run a cross-system stale-reference sweep after priority changes**: Check project notes, area/pillar summaries, `_decisions.md`, Google Tasks, recurring Calendar items, README/agent examples, and durable preference memory. A parked priority must not keep reappearing in the RISING Brief because one stale file still calls it active.
 - **Calendar is truth**: If vault says "study today" but nothing on calendar, add the block.
 - **Tasks are commitments**: Don't let tasks sit without due dates — assign them to the next realistic window.
 - **Sync both ways**: When vault changes, update calendar/tasks. When calendar/tasks change, update vault project files.
