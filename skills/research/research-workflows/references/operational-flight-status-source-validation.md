@@ -1,0 +1,88 @@
+# Operational Flight-Status Source Validation
+
+Use this note when identifying a source that must distinguish real operational outcomes such as **CANCELLED**, rather than merely returning scheduled/planned flights.
+
+## Validation standard
+
+A source is not validated merely because its schema, UI copy, or JavaScript bundle contains the word `Cancelled`. Make a real request and capture:
+
+- Request timestamp and exact URL/parameters (redact credentials).
+- HTTP status and content type.
+- Carrier identity and flight number.
+- Route/date and source freshness field, when available.
+- The actual per-flight status field/value.
+- A concrete cancelled flight if cancellation exposure is the requirement.
+
+When possible, independently corroborate the same flight with a second operational source. Report disagreements rather than silently choosing one.
+
+## Discovery workflow for undocumented airline/airport feeds
+
+1. Load the airline's flight-status page and inspect its current JavaScript bundle.
+2. Locate the service method and base URL constants; reconstruct the exact query shape from the call site, not by guessing parameter names.
+3. Check request interceptors for required browser-facing headers such as `x-api-key`, channel, origin, or locale.
+4. If configuration is loaded from a public CMS/bootstrap document, retrieve it dynamically. Never persist the current key in this skill, source control, logs, or examples; public browser visibility does not make a key stable or unrestricted.
+5. Reproduce the browser request directly and verify the returned status on a known flight.
+6. Sample several flights/statuses when practical. A single on-time response proves data access, but does not prove cancellation representation.
+7. Compare airport boards and aggregators against the airline result. Airport autocomplete/search endpoints may expose structured JSON yet still be stale or timetable-derived.
+
+## Viva Aerobus case study (validated 2026-08-12; re-discover before reuse)
+
+The public Viva web application used:
+
+```text
+GET https://api.vivaaerobus.com/web/vb/v1/flightstatus
+```
+
+Observed query shape:
+
+```text
+date=YYYY-MM-DD&flight=<numeric flight number>&lang=eng|esp
+```
+
+The browser client supplied a public web `x-api-key` obtained from its live CMS configuration. Retrieve that value from the current application/config at runtime; do not copy the historical value from a report.
+
+A real request for Viva flight 4042 on 2026-08-12 returned HTTP 200 and identified `VB`, MTY→TLC, with:
+
+```json
+{
+  "operatingCarrier": "VB",
+  "operatingCode": "4042",
+  "lastStatusUpdate": "2026-08-12T07:54:53",
+  "operatingStatus": "CANCELLED"
+}
+```
+
+The same response included an operational notification saying the flight had been canceled for operational reasons. FlightAware's public flight page for `VIV4042` independently embedded `"cancelled":true` for that flight. By contrast, an OMA Monterrey search endpoint reported the same flight as `A TIEMPO`, demonstrating that a convenient airport-board JSON endpoint is not automatically authoritative or fresh.
+
+Treat these endpoint details as a reproducible lead, not a permanent contract: the endpoint, schema, key distribution, and access policy may change.
+
+## Candidate assessment
+
+For each candidate, separate these judgments:
+
+- **Technically usable:** structured response, stable identifiers, adequate freshness, manageable auth/rate limits.
+- **Actually validated:** a successful live request returned carrier-specific operational evidence.
+- **Automation support:** documented API/SLA versus undocumented website backend or scraped HTML.
+- **Legal/policy posture:** published terms, robots directives, API licensing, and permission. `robots.txt` is relevant operational-policy evidence but is not by itself a complete legal opinion.
+
+Prefer, in order:
+
+1. Official documented airline or airport operational API.
+2. Official browser API, conservatively polled and clearly labeled undocumented.
+3. Licensed aviation-data API.
+4. HTML scraping only when terms permit it and no structured source exists.
+
+Do not recommend anti-bot circumvention as an automation strategy. If public pages return access controls, investigate the provider's documented/licensed API instead.
+
+## Reporting format
+
+Return a compact comparison containing:
+
+- Exact endpoint/page URL.
+- Reproducible request example with secrets represented as placeholders.
+- Minimal response excerpt proving carrier, flight, freshness, and status.
+- Validation date/time.
+- Coverage and latency limitations.
+- Technical automation feasibility.
+- Terms/robots/licensing caveat, without presenting it as legal advice.
+- Clear primary recommendation and fallback.

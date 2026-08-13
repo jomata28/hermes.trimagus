@@ -18,15 +18,15 @@
       "schedule_display": "55 13 * * *",
       "repeat": {
         "times": null,
-        "completed": 120
+        "completed": 121
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-13T21:12:49.081621+00:00",
-      "next_run_at": "2026-08-12T13:55:00+00:00",
-      "last_run_at": "2026-08-11T13:55:40.818154+00:00",
+      "next_run_at": "2026-08-13T13:55:00+00:00",
+      "last_run_at": "2026-08-12T13:55:56.252437+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "origin",
@@ -94,15 +94,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 118
+        "completed": 119
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-15T21:39:46.829937+00:00",
-      "next_run_at": "2026-08-12T07:00:00+00:00",
-      "last_run_at": "2026-08-11T07:05:22.070131+00:00",
+      "next_run_at": "2026-08-13T07:00:00+00:00",
+      "last_run_at": "2026-08-12T07:00:39.066430+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "telegram",
@@ -175,15 +175,15 @@
       "schedule_display": "0 3 * * *",
       "repeat": {
         "times": null,
-        "completed": 95
+        "completed": 96
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-08T18:09:30.722153+00:00",
-      "next_run_at": "2026-08-13T03:00:00+00:00",
-      "last_run_at": "2026-08-11T03:04:18.396740+00:00",
+      "next_run_at": "2026-08-14T03:00:00+00:00",
+      "last_run_at": "2026-08-12T03:02:33.578453+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -213,15 +213,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 78
+        "completed": 79
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-25T19:56:44.909253+00:00",
-      "next_run_at": "2026-08-12T07:00:00+00:00",
-      "last_run_at": "2026-08-11T07:02:30.415173+00:00",
+      "next_run_at": "2026-08-13T07:00:00+00:00",
+      "last_run_at": "2026-08-12T07:01:56.760959+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -305,15 +305,15 @@
       "schedule_display": "30 22 * * *",
       "repeat": {
         "times": null,
-        "completed": 40
+        "completed": 41
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-04T15:26:33.125064+00:00",
-      "next_run_at": "2026-08-12T22:30:00+00:00",
-      "last_run_at": "2026-08-11T22:30:37.753892+00:00",
+      "next_run_at": "2026-08-13T22:30:00+00:00",
+      "last_run_at": "2026-08-12T22:30:57.419927+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -346,15 +346,15 @@
       "schedule_display": "every 5m",
       "repeat": {
         "times": null,
-        "completed": 1735
+        "completed": 1973
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-04T21:26:20.949312+00:00",
-      "next_run_at": "2026-08-12T03:03:50.051599+00:00",
-      "last_run_at": "2026-08-12T02:58:50.051599+00:00",
+      "next_run_at": "2026-08-13T03:04:07.594992+00:00",
+      "last_run_at": "2026-08-13T02:59:07.594992+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -392,15 +392,15 @@
       "schedule_display": "0 3,15,22 * * *",
       "repeat": {
         "times": null,
-        "completed": 16
+        "completed": 19
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-06T02:45:24.849337+00:00",
-      "next_run_at": "2026-08-12T15:00:00+00:00",
-      "last_run_at": "2026-08-11T22:04:33.741890+00:00",
+      "next_run_at": "2026-08-13T15:00:00+00:00",
+      "last_run_at": "2026-08-12T22:04:32.816148+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -415,7 +415,101 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null
+    },
+    {
+      "id": "2d57c3c432b3",
+      "name": "Viva Operational Status Validator",
+      "prompt": "Run the FlightStats-based Viva operational status validator. It checks only near-departure Viva flights from the existing monitor cache, prints explicit cancellations or systemic parser failures, and otherwise remains silent.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "provider_snapshot": null,
+      "model_snapshot": null,
+      "base_url": null,
+      "script": "viva_operational_status.py",
+      "no_agent": true,
+      "context_from": null,
+      "schedule": {
+        "kind": "interval",
+        "minutes": 30,
+        "display": "every 30m"
+      },
+      "schedule_display": "every 30m",
+      "repeat": {
+        "times": null,
+        "completed": 24
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-08-12T13:59:29.354401+00:00",
+      "next_run_at": "2026-08-13T03:20:59.314958+00:00",
+      "last_run_at": "2026-08-13T02:50:59.314958+00:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "telegram",
+      "origin": {
+        "platform": "telegram",
+        "chat_id": "1585113960",
+        "chat_name": "JT .",
+        "thread_id": null,
+        "user_id": "1585113960"
+      },
+      "enabled_toolsets": null,
+      "workdir": null,
+      "fire_claim": null
+    },
+    {
+      "id": "57bc8332e34c",
+      "name": "Buscar renta amueblada cerca ABC Santa Fe",
+      "prompt": "Busca anuncios NUEVOS o todav\u00eda vivos de departamentos/casas completas en renta para tres estudiantes con estos requisitos estrictos: exactamente 3 rec\u00e1maras reales (no 2+estudio), expl\u00edcitamente AMUEBLADO, total mensual m\u00e1ximo $30,000 MXN incluyendo mantenimiento cuando se conozca, traslado pr\u00e1ctico a Hospital ABC Santa Fe. Buscar Santa Fe/Cuajimalpa, Jes\u00fas del Monte, Contadero, Olivar de los Padres, Tetelpan, Mixcoac, San Jos\u00e9 Insurgentes, San \u00c1ngel, Guadalupe Inn, Florida, Escand\u00f3n y N\u00e1poles en Inmuebles24, Vivanuncios, Lamudi, Propiedades.com, Pincali/EasyBroker, Homie, Mercado Libre, Facebook p\u00fablico y agencias. Ya conocidos: Ca\u00f1ada Propiedades ID 31135307; Jes\u00fas del Monte Vivanuncios ID 150478315; Lago Chapala Vivanuncios ID 149969075. Excluye esos salvo cambio de precio/estado. Verifica URL individual viva, muebles, 3 rec\u00e1maras, mantenimiento, precio y cercan\u00eda. Entrega solo opciones nuevas que cumplan; si no hay ninguna, no env\u00edes mensaje. No programes m\u00e1s cron jobs.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "provider_snapshot": "openai-codex",
+      "model_snapshot": "gpt-5.6-sol",
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 16 * * *",
+        "display": "0 16 * * *"
+      },
+      "schedule_display": "0 16 * * *",
+      "repeat": {
+        "times": 14,
+        "completed": 1
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-08-12T15:00:55.145875+00:00",
+      "next_run_at": "2026-08-13T16:00:00+00:00",
+      "last_run_at": "2026-08-12T16:00:44.237567+00:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "origin",
+      "origin": {
+        "platform": "telegram",
+        "chat_id": "1585113960",
+        "chat_name": "JT .",
+        "thread_id": null,
+        "user_id": "1585113960"
+      },
+      "enabled_toolsets": [
+        "web"
+      ],
+      "workdir": null,
+      "fire_claim": null
     }
   ],
-  "updated_at": "2026-08-12T03:00:19.957969+00:00"
+  "updated_at": "2026-08-13T03:00:38.167306+00:00"
 }

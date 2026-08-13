@@ -31,6 +31,23 @@ This umbrella covers research as a class: discover sources, collect evidence, sy
 2. Capture citations, URLs, dates, and IDs.
 3. Separate quoted evidence from synthesis.
 4. For current facts, fetch live data.
+5. For comparative superlatives ("most," "worst," "highest"), identify the exact comparison set, geography, observation period, denominator, and metric before repeating the claim.
+
+## Investigating Comparative Performance Claims
+
+Use this workflow for claims such as “company X cancels the most,” “service Y is least reliable,” or similar rankings:
+
+1. **Trace the wording to its origin.** Search exact and near-exact phrases in the relevant languages. Distinguish the first discoverable article from the underlying data source it cites.
+2. **Define scope explicitly.** Record geography, entities included, start/end dates, event window versus ordinary operations, and whether the source is a snapshot, rolling period, month, or year.
+3. **Audit the metric.** Separate raw event counts from rates. For rates, identify the denominator (scheduled, operated, arriving, or observed records); do not silently infer that “most” means highest rate.
+4. **Inspect the underlying table.** Count rows and categories directly when possible. Flag discrepancies between headline totals, prose, and the published table.
+5. **Assess credibility in layers.** Prefer regulator or first-party operational data, then established specialist data providers, then transparent secondary analysis. Treat SEO/news aggregation without named methodology as evidence of the claim’s origin, not proof of the generalization.
+6. **Triangulate typical magnitude.** Use at least one longer-period rate or count and one operational-volume source. Label estimates when sources use different periods or denominators.
+7. **Normalize to the requested window.** Compute expected events as `exposure × rate`; if only a period count exists, use `count ÷ period_days × observation_days`. State assumptions and do not compare whole-network counts with a route or airport subset without adjustment.
+8. **Reconcile monitoring results carefully.** Distinguish unique completed events from repeated forward-looking snapshots. A schedule feed may omit pre-baseline removals or lack final operational status, so zero detected candidates is not automatically evidence of zero real events.
+9. **State the narrowest defensible conclusion.** Replace unsupported global claims with wording preserving verified scope, such as “largest raw count in this six-airport event table.”
+
+See `references/comparative-operational-claims.md` for a compact audit checklist and calculation patterns.
 
 ## arXiv and Literature Search
 
@@ -58,6 +75,30 @@ Use this subsection for practical purchase/risk research where the user needs a 
 
 For Mexico used/semi-new car purchases, follow `references/vehicle-purchase-due-diligence-mexico.md`: extract plate/VIN/listing data from photos, check REPUVE/state tenencia-verification/recalls, benchmark price, account for Kavak-vs-private risk, and never green-light from photos alone.
 
+## Live Marketplace and Rental-Listing Research
+
+Use this workflow for housing, vehicles, jobs, tickets, and other time-sensitive marketplace searches:
+
+1. **Define hard filters first:** item/property type, exact quantity requirements (for example, exactly three bedrooms rather than “3+”), target geography, budget if given, and freshness threshold.
+2. **Search multiple independent sources.** Prefer live detail pages over category pages and search-result snippets. Record which requested sources were inspected, including sources that yielded no independently verifiable candidates.
+3. **Verify every row against its detail page.** Never promote a search snippet into the final table unless a current primary listing surface confirms the title, price, required attributes, and canonical URL. Reconcile card/detail-page conflicts before asserting an exact count: compare title, prose, labels, structured fields, and category filters; omit or flag the candidate when the source remains internally inconsistent.
+4. **Use layered retrieval rather than stopping at bot protection:** try the normal page, an indexed result exposing the canonical URL, a text-rendering/cache service, structured metadata, and the advertiser or agency's canonical page. These are retrieval routes, not proof of availability.
+5. **Deduplicate by underlying asset, not URL.** Compare address/development, price, area, bedroom/bath counts, distinctive description text, photos, and agency identity. When uncertain, retain one row and flag possible cross-posting rather than inflating the count.
+6. **Distinguish freshness levels:**
+   - `posted/updated DATE` only when the source states it;
+   - `live detail page retrieved DATE` when the page loads but supplies no publication date;
+   - `indexed DATE` only for an index/cache observation, clearly labeled as weaker evidence;
+   - `availability confirmed DATE` only after direct advertiser confirmation.
+7. **Do not call a listing “available” merely because its page resolves.** Say “live listing page” or “publicly retrievable,” and advise confirmation before paying or traveling.
+8. **Mark absent fields as “not stated.”** Do not infer furnished/unfurnished, maintenance, utilities, exact address, or security from photos, price, neighborhood reputation, or portal filters.
+9. **Estimate proximity transparently.** Label road distance and travel time as approximate, state the destination used, distinguish normal from peak traffic when relevant, and avoid false precision when only the neighborhood is known.
+10. **Keep suitability judgments evidence-based.** For safety or student suitability, prioritize controlled access, staffed security, lighting, safe pedestrian access, nearby transport/services, and late-night arrival logistics. Neighborhood reputation is context, never a guarantee.
+11. **Return the requested schema and rank actionable candidates.** Include source, title, location, price, exact required attribute count, condition/furnishing, recurring fees, distance/commute, canonical URL, and freshness. Add a short best-first shortlist and verification checklist.
+
+When fewer than the requested number survive verification, return the smaller honest set and explain the coverage gap; never pad the table with stale, duplicate, mismatched, or unverifiable entries.
+
+Detailed rental-specific evidence standards, deduplication fields, alternate-renderer workflow, commute precision, and safety framing are in `references/live-rental-listing-research.md`.
+
 ## Safety / Medical-Adjacent Research
 
 When the user asks about body-use safety of DIY experiments, supplements, devices, or electrically/chemically modified liquids:
@@ -70,6 +111,10 @@ When the user asks about body-use safety of DIY experiments, supplements, device
 6. If there are acute/severe symptoms or meaningful poisoning concern, recommend Poison Control / urgent care rather than continuing speculative analysis.
 
 Reference note: `references/electrochemistry-body-use-risk.md` covers DIY charged/electrolyzed water or milk, electrode leaching, Faraday-law estimates, and literature-search anchors.
+
+## Operational Status and Live-Endpoint Research
+
+When evaluating airline, airport, logistics, or similar operational feeds, require a successful real request containing the target entity and status; a schema, UI label, documentation claim, or JavaScript string is not validation. Capture the exact endpoint and request shape, redact credentials, preserve freshness fields, and seek a second source for disputed or high-impact states. See `references/operational-flight-status-source-validation.md` for the undocumented-web-API discovery workflow, cancellation evidence standard, Viva Aerobus case study, and automation-policy checklist.
 
 ## Common Pitfalls
 

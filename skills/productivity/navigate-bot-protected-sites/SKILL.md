@@ -16,6 +16,7 @@ category: productivity
 ## Key references
 - `references/cdn-bypass-gmail-fallback.md` — Gmail-as-fallback pattern and Angular production build analysis
 - `references/cdn-blocked-api-request-patterns.md` — Request patterns that work vs. those that don't when facing Akamai/Cloudflare, including x-api-key capture methods and JS bundle analysis
+- `references/human-login-authenticated-extraction.md` — human login through the VPS browser, persistent-profile/CDP handoff, geographic search pitfalls, and listing-level verification
 
 ## Approach (ordered by effort)
 

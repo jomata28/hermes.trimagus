@@ -29,14 +29,21 @@ ss -tlnp | grep -E '5901|6080'            # x11vnc on 5901, websockify on 172.18
 
 - Display is `:99` (1440x950). Launch GUI apps with `DISPLAY=:99 <app>` via `terminal(background=true)`.
 - Access URL for JT: `https://vnc.srv1056157.hstgr.cloud/vnc.html?autoconnect=true&resize=scale&path=websockify`
-- HTTP basic-auth password lives at `/root/.vps-screen/basic-auth-password.txt` (VNC auth at `/root/.vps-screen/x11vnc.pass`). Send it to JT in DM when he needs access; never persist it to memory/files.
+- The first prompt is HTTP Basic Auth and requires **username `jt`** plus the password from `/root/.vps-screen/basic-auth-password.txt`.
+- noVNC may then show a second, VNC-specific password prompt. The user-enterable plaintext is stored at `/root/.vps-screen/password.txt`; `/root/.vps-screen/x11vnc.pass` is the hashed/auth file used by the service, not the value to send.
+- Before sending access details, verify the HTTP pair without exposing the password in output: `curl -sS -u "jt:$(tr -d '\n' </root/.vps-screen/basic-auth-password.txt)" -o /dev/null -w '%{http_code}\n' 'https://vnc.srv1056157.hstgr.cloud/vnc.html'` should return `200`.
+- Send these server credentials only in JT's DM when he needs access; never persist their values to memory, skills, logs, or task summaries.
 
 ## Authenticated-account pattern (JT logs in, you read)
 
 1. Start service, then `DISPLAY=:99 chromium --no-sandbox --disable-dev-shm-usage --start-maximized <login-url>` in background.
-2. Send JT the noVNC URL + basic-auth password; he logs in himself (never ask for his account passwords).
-3. When he confirms, read the screen and operate/navigate for him.
-4. Chromium on this box is a **snap** — it keeps a persistent profile at `/root/snap/chromium/common/chromium/Default/`; sessions can survive across launches, so check existing cookies before asking JT to log in again.
+2. Verify HTTP Basic Auth returns `200` using username `jt` and the password file.
+3. Send JT the noVNC URL plus both access stages, clearly labeled:
+   - first prompt: HTTP username `jt` + Basic Auth password;
+   - second prompt, if shown: VNC password from `password.txt`.
+4. JT logs into the target website himself (never ask for or type his website password/2FA).
+5. When he confirms, capture the desktop and verify that the target site is authenticated before operating it.
+6. Chromium on this box is a **snap** — it keeps a persistent profile at `/root/snap/chromium/common/chromium/Default/`; sessions can survive across launches, so check existing cookies before asking JT to log in again.
 
 ## Screenshots of the desktop
 

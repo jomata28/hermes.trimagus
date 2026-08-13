@@ -133,6 +133,15 @@ overwrite each other and destroy the diff baseline. Sort by full filename.
 ## Validation of disappearance signals
 For airline schedules, inventory feeds, event listings, and similar sources, a disappearance is only a candidate until independently verified. Use `references/disappearance-monitor-validation.md` for paired API/web observations, ground-truth labeling, lead-time metrics, boundary controls, and retime/renumber pitfalls.
 
+- Do not interpret repeated zero disappearances as zero real-world events. First test whether the upstream endpoint is a live operational feed or an append-only/published timetable whose cancelled items remain listed.
+- Add a second source that exposes explicit operational state (`status`, `statusCode`, `canceled`) and validate it on a real item before scheduling. Restrict expensive public-page checks to near-event candidates from the primary cache rather than scraping the entire inventory.
+- For pages embedding JavaScript state such as `__NEXT_DATA__ = {...}`, parse with `json.JSONDecoder().raw_decode()` starting after the assignment. A non-greedy regex ending at `</script>` can stop at an inner brace or include trailing JavaScript and fail with `Extra data`.
+- A validator must fail closed: record parser failure counts, alert on systemic failure, and never convert an unreadable page into a normal/non-cancelled status.
+- For airline monitoring, distinguish **published schedule** from **operational status**. A cancelled flight may remain in a timetable endpoint indefinitely; zero disappearances therefore do not establish zero cancellations. Prefer an explicit field such as `operatingStatus == CANCELLED`, with disappearance only as a secondary candidate signal.
+- Before replacing a working confirmation layer with a “better” native endpoint, replay the native request independently from the cron host, verify schema and latency, and test repeated unattended calls. If it times out or becomes unstable, retain the working layer until the replacement passes—do not disable first and debug later.
+- For undocumented public-web APIs, poll only relevant flights at a conservative interval, cache by `(date, flight)`, back off on `429`/`5xx`, and avoid passenger/booking data.
+- Viva-specific evidence, endpoint contract, and source hierarchy live in `references/viva-operational-status-validation.md`.
+
 ## Verification checklist before declaring done
 1. `cd ~/.hermes/scripts && python3 <script>.py` → exit 0, output as expected
 2. Happy path prints nothing (or the orchestrator gates it to nothing)
