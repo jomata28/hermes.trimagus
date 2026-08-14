@@ -74,10 +74,25 @@ When the user requires furnished housing, do not present attractive unfurnished 
 
 8. **Deliver a decision-ready shortlist**
    - Lead with the best strict matches.
-   - Include direct links and a compact comparison table.
+   - Include direct links and a compact comparison table unless the user asks for message-by-message delivery.
    - Separate strict matches, pending-confirmation candidates, and excluded/negotiation-only listings.
    - State the checked date and “confirm availability.”
    - Provide a copyable message asking about availability, total cost, furniture in each bedroom, lease requirements, and video tour.
+
+### WhatsApp/Telegram message-by-message mode
+
+When the user asks for **“un mensaje por inmueble,” “uno por uno,” or “mensajes separados”**, do not place multiple properties in one assistant response separated by headings or horizontal rules. Send exactly **one property per assistant message**, then wait for the user’s acknowledgement before sending the next.
+
+Each message must be self-contained and include:
+
+- Property/zone and total monthly cost.
+- Furnishing status and whether all required bedrooms are real/usable.
+- Maintenance included or explicitly pending confirmation.
+- Approximate commute with free-flow clearly labeled.
+- Full plain-text URL (`https://...`) so WhatsApp makes it clickable; do not hide it behind Markdown.
+- One concise caveat or question for the advertiser.
+
+Do not repeat already rejected listings merely to fill a requested count. If no new strict match exists, say so directly and continue searching rather than recycling the shortlist.
 
 ## Persistence and monitoring
 

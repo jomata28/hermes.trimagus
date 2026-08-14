@@ -141,6 +141,23 @@ For airline schedules, inventory feeds, event listings, and similar sources, a d
 - Before replacing a working confirmation layer with a “better” native endpoint, replay the native request independently from the cron host, verify schema and latency, and test repeated unattended calls. If it times out or becomes unstable, retain the working layer until the replacement passes—do not disable first and debug later.
 - For undocumented public-web APIs, poll only relevant flights at a conservative interval, cache by `(date, flight)`, back off on `429`/`5xx`, and avoid passenger/booking data.
 - Viva-specific evidence, endpoint contract, and source hierarchy live in `references/viva-operational-status-validation.md`.
+- For retrospective labels, date-specific tracker identity checks, browser-session fallback, source reconciliation, and denominator hygiene, see `references/historical-operational-outcome-backfill.md`.
+- For weather/operations cross-sections, forecast-vintage capture, leakage prevention, airport sampling bias, and uncertainty-aware interpretation, see `references/aviation-weather-risk-cross-sections.md`.
+
+## Predictive-risk monitors: shadow mode before alerts
+
+When the user wants prediction rather than post-event detection, do not turn an intuitive score directly into an actionable alert. Build a prospective dataset first:
+
+1. On every poll, persist timestamped pre-event features (status, estimate shifts, delays, assigned asset/tail, equipment, irregular-operation type/time, and time to event).
+2. Continue observing past the scheduled event long enough to label outcomes (`operated`, `cancelled`, `unknown`). Capture normal outcomes as carefully as failures or precision cannot be measured.
+3. Run the score in **shadow mode**: store score, level, and explicit reasons, but emit no predictive user alert.
+4. Join each prediction to the later outcome by a full event identity such as `(flight, route, scheduled departure)`. Exclude observations made after the outcome.
+5. Report sample size, base rate, precision, recall, false positives/negatives, and median lead time. Do not call scores “probabilities” until calibrated.
+6. Predeclare an activation threshold (minimum positive outcomes and target precision) before enabling alerts. Keep prediction wording probabilistic and separate from confirmed status.
+
+Time-context matters: missing assignment/estimate many hours before an event may be normal; weight it only near the deadline. Age irregular-operation signals and ignore stale generic events. Inspect the first high-score cases manually—early false positives are model feedback, not alerts.
+
+For transactional use (tickets, reservations, purchases), state that a risk score does not create contractual eligibility, refund rights, or a guaranteed outcome. Never automate purchases merely because a heuristic is high.
 
 ## Verification checklist before declaring done
 1. `cd ~/.hermes/scripts && python3 <script>.py` → exit 0, output as expected

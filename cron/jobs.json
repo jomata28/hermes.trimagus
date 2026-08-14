@@ -18,15 +18,15 @@
       "schedule_display": "55 13 * * *",
       "repeat": {
         "times": null,
-        "completed": 121
+        "completed": 122
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-13T21:12:49.081621+00:00",
-      "next_run_at": "2026-08-13T13:55:00+00:00",
-      "last_run_at": "2026-08-12T13:55:56.252437+00:00",
+      "next_run_at": "2026-08-14T13:55:00+00:00",
+      "last_run_at": "2026-08-13T13:56:13.159971+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "origin",
@@ -94,15 +94,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 119
+        "completed": 120
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-15T21:39:46.829937+00:00",
-      "next_run_at": "2026-08-13T07:00:00+00:00",
-      "last_run_at": "2026-08-12T07:00:39.066430+00:00",
+      "next_run_at": "2026-08-14T07:00:00+00:00",
+      "last_run_at": "2026-08-13T07:01:01.840872+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "telegram",
@@ -175,15 +175,15 @@
       "schedule_display": "0 3 * * *",
       "repeat": {
         "times": null,
-        "completed": 96
+        "completed": 97
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-08T18:09:30.722153+00:00",
-      "next_run_at": "2026-08-14T03:00:00+00:00",
-      "last_run_at": "2026-08-12T03:02:33.578453+00:00",
+      "next_run_at": "2026-08-15T03:00:00+00:00",
+      "last_run_at": "2026-08-13T03:03:08.879521+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -213,15 +213,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 79
+        "completed": 80
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-25T19:56:44.909253+00:00",
-      "next_run_at": "2026-08-13T07:00:00+00:00",
-      "last_run_at": "2026-08-12T07:01:56.760959+00:00",
+      "next_run_at": "2026-08-14T07:00:00+00:00",
+      "last_run_at": "2026-08-13T07:01:41.810547+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -305,15 +305,15 @@
       "schedule_display": "30 22 * * *",
       "repeat": {
         "times": null,
-        "completed": 41
+        "completed": 42
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-04T15:26:33.125064+00:00",
-      "next_run_at": "2026-08-13T22:30:00+00:00",
-      "last_run_at": "2026-08-12T22:30:57.419927+00:00",
+      "next_run_at": "2026-08-14T22:30:00+00:00",
+      "last_run_at": "2026-08-13T22:31:17.792274+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -346,15 +346,15 @@
       "schedule_display": "every 5m",
       "repeat": {
         "times": null,
-        "completed": 1973
+        "completed": 2213
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-04T21:26:20.949312+00:00",
-      "next_run_at": "2026-08-13T03:04:07.594992+00:00",
-      "last_run_at": "2026-08-13T02:59:07.594992+00:00",
+      "next_run_at": "2026-08-14T03:04:31.212408+00:00",
+      "last_run_at": "2026-08-14T02:59:31.212408+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -392,15 +392,15 @@
       "schedule_display": "0 3,15,22 * * *",
       "repeat": {
         "times": null,
-        "completed": 19
+        "completed": 22
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-06T02:45:24.849337+00:00",
-      "next_run_at": "2026-08-13T15:00:00+00:00",
-      "last_run_at": "2026-08-12T22:04:32.816148+00:00",
+      "next_run_at": "2026-08-14T15:00:00+00:00",
+      "last_run_at": "2026-08-13T22:04:56.106249+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -419,7 +419,7 @@
     {
       "id": "2d57c3c432b3",
       "name": "Viva Operational Status Validator",
-      "prompt": "Run the FlightStats-based Viva operational status validator. It checks only near-departure Viva flights from the existing monitor cache, prints explicit cancellations or systemic parser failures, and otherwise remains silent.",
+      "prompt": "Run the combined Viva aviation-weather snapshot and FlightStats operational validator. Weather is captured for future forecast-vs-outcome calibration; alerts remain only explicit cancellations or systemic failures.",
       "skills": [],
       "skill": null,
       "model": null,
@@ -427,7 +427,7 @@
       "provider_snapshot": null,
       "model_snapshot": null,
       "base_url": null,
-      "script": "viva_operational_status.py",
+      "script": "viva_operational_with_weather.py",
       "no_agent": true,
       "context_from": null,
       "schedule": {
@@ -438,15 +438,15 @@
       "schedule_display": "every 30m",
       "repeat": {
         "times": null,
-        "completed": 24
+        "completed": 68
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-12T13:59:29.354401+00:00",
-      "next_run_at": "2026-08-13T03:20:59.314958+00:00",
-      "last_run_at": "2026-08-13T02:50:59.314958+00:00",
+      "next_run_at": "2026-08-14T03:06:05.591699+00:00",
+      "last_run_at": "2026-08-14T02:36:05.591699+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -484,15 +484,15 @@
       "schedule_display": "0 16 * * *",
       "repeat": {
         "times": 14,
-        "completed": 1
+        "completed": 2
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-12T15:00:55.145875+00:00",
-      "next_run_at": "2026-08-13T16:00:00+00:00",
-      "last_run_at": "2026-08-12T16:00:44.237567+00:00",
+      "next_run_at": "2026-08-14T16:00:00+00:00",
+      "last_run_at": "2026-08-13T16:00:55.233684+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -509,7 +509,104 @@
       ],
       "workdir": null,
       "fire_claim": null
+    },
+    {
+      "id": "88eb490af507",
+      "name": "Auditar predictor sombra Viva",
+      "prompt": "Audita una semana del predictor sombra de cancelaciones Viva. Lee /root/.hermes/viva_operational_status/observations.jsonl y /root/.hermes/viva_operational_status/risk_predictions.jsonl. Empareja cada predicci\u00f3n pre-salida por flight_number+origin+destination+scheduled_departure_utc con su desenlace posterior: cancelled si aparece canceled=true/Cancelled; operated si aparece has_departed_gate=true, has_departed_runway=true, status_code A/L o status Departed/Arrived. Excluye predicciones level confirmed/operating y cualquier predicci\u00f3n hecha despu\u00e9s del desenlace. Reporta muestra total, cancelaciones, precision y recall de score>=60 y score>=30, falsos positivos, falsos negativos y anticipaci\u00f3n mediana. NO inventes m\u00e9tricas si faltan datos. Solo recomienda activar alertas predictivas si hay al menos 20 cancelaciones etiquetadas y precision >=70% en score>=60; de lo contrario indica que debe continuar en modo sombra. No compres, reserves ni modifiques vuelos y no programes otros cron jobs.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "provider_snapshot": "openai-codex",
+      "model_snapshot": "gpt-5.6-sol",
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "context_from": null,
+      "schedule": {
+        "kind": "once",
+        "run_at": "2026-08-20T15:00:00+00:00",
+        "display": "once at 2026-08-20 15:00"
+      },
+      "schedule_display": "once at 2026-08-20 15:00",
+      "repeat": {
+        "times": 1,
+        "completed": 0
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-08-13T14:54:02.856860+00:00",
+      "next_run_at": "2026-08-20T15:00:00+00:00",
+      "last_run_at": null,
+      "last_status": null,
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "origin",
+      "origin": {
+        "platform": "telegram",
+        "chat_id": "1585113960",
+        "chat_name": "JT .",
+        "thread_id": null,
+        "user_id": "1585113960"
+      },
+      "enabled_toolsets": [
+        "terminal",
+        "file"
+      ],
+      "workdir": null
+    },
+    {
+      "id": "6b470137380c",
+      "name": "Viva \u2014 candidatos diarios de cancelaci\u00f3n",
+      "prompt": "Entrega a JT un reporte diario MUY CONCISO en espa\u00f1ol de vuelos Viva Aerobus que todav\u00eda parecen reservables y tienen mayor riesgo de cancelaci\u00f3n en las pr\u00f3ximas 24\u201372 horas. Objetivo pr\u00e1ctico: indicar cu\u00e1les ameritan APARTAR, cu\u00e1les solo VIGILAR y cu\u00e1ndo no hay ninguno. Antes de reportar: (1) ejecuta `/root/.hermes/scripts/viva_operational_with_weather.py`; (2) lee las \u00faltimas entradas de `/root/.hermes/viva_operational_status/risk_predictions.jsonl`, `observations.jsonl`, `weather_snapshots.jsonl`, `/root/.hermes/irop_monitor_v2/flight_cache.json` y `/root/.hermes/viva_historical_outcomes_consolidated.csv`; (3) consulta clima/TAF vigente, disrupciones aeroportuarias y estado del vuelo entrante si est\u00e1 disponible. Nunca llames 'probabilidad' a un score no calibrado. Categor\u00edas: APARTAR solo si hay al menos dos se\u00f1ales independientes fuertes (por ejemplo irregularidad reciente + vuelo entrante afectado; o clima aeron\u00e1utico severo + disrupci\u00f3n generalizada; o score>=60 con evidencia verificable) y el vuelo sigue a la venta. VIGILAR si hay se\u00f1al parcial (score 30\u201359, retraso fuerte, ruta hist\u00f3ricamente riesgosa o clima adverso sin confirmaci\u00f3n). Si no existe candidato fuerte, di claramente: 'Hoy no recomiendo apartar ninguno'. Para cada vuelo reportado incluye n\u00famero, ruta, fecha/hora, nivel, razones concretas, enlace de estado y enlace de b\u00fasqueda/reserva Viva. Incluye una l\u00ednea breve: si opera, el boleto conserva reglas normales y una predicci\u00f3n no garantiza IROP/reembolso. No compres ni reserves autom\u00e1ticamente, no accedas a reservas del usuario y no programes m\u00e1s cron jobs.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "provider_snapshot": "openai-codex",
+      "model_snapshot": "gpt-5.6-sol",
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 14 * * *",
+        "display": "0 14 * * *"
+      },
+      "schedule_display": "0 14 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 0
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-08-13T20:44:12.374955+00:00",
+      "next_run_at": "2026-08-14T14:00:00+00:00",
+      "last_run_at": null,
+      "last_status": null,
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "origin",
+      "origin": {
+        "platform": "telegram",
+        "chat_id": "1585113960",
+        "chat_name": "JT .",
+        "thread_id": null,
+        "user_id": "1585113960"
+      },
+      "enabled_toolsets": [
+        "terminal",
+        "file",
+        "web"
+      ],
+      "workdir": null
     }
   ],
-  "updated_at": "2026-08-13T03:00:38.167306+00:00"
+  "updated_at": "2026-08-14T03:00:03.845268+00:00"
 }

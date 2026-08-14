@@ -42,7 +42,18 @@ Patch `XMLHttpRequest.prototype` before the page loads (or before a button click
 4. Search for hardcoded API keys and token patterns
 5. Try reconstructed API calls with captured headers
 
-### Tier 5 — Manual fallback
+### Tier 5 — Persistent visual-browser extraction
+
+Direct HTTP may return 403/429 while the same public page renders normally in a persistent, human-verified browser profile. Before asking for a login, test the rendered page body: a CAPTCHA may already be solved and no credentials may be needed.
+
+1. Start/reuse the persistent browser profile and let the user solve CAPTCHA or log in personally if required; never request or repeat their passwords.
+2. Connect automation to the live browser session and inspect the rendered DOM/text.
+3. Navigate slowly and save raw page text plus source URL for auditability.
+4. Parse explicit dated outcomes/records only; do not infer success from presence in an index or schedule.
+5. Cross-check overlapping records against a stronger source and count contradictions before batch consolidation.
+6. Respect rate limits: human verification unlocks a session, not permission for high-volume scraping.
+
+### Tier 6 — Manual fallback
 When all automated approaches fail (server-side rule gates, strict CDN policies):
 - Recommend the user calls customer service for actions the API blocks
 - Document what was found for future sessions (API key, endpoints, data shapes)

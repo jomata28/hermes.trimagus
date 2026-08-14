@@ -85,7 +85,9 @@ Rank by hard-filter compliance first, then commute/security, total known cost, v
 
 ## Output
 
-Use a compact table with: rent, known total, neighborhood, bedrooms, furnished evidence, commute, freshness, and direct link. Separate:
+Honor the requested delivery unit literally. If the user asks for **one message per property** (especially for WhatsApp forwarding), send exactly one listing in the current assistant message, include the full plain-text `https://...` URL, and wait for the user's acknowledgment before sending the next. Dividers, separate blocks, numbered sections, or multiple listings in one assistant response are **not** separate messages. Do not hide the URL behind Markdown link text.
+
+Use a compact table with: rent, known total, neighborhood, bedrooms, furnished evidence, commute, freshness, and direct link only when a comparative table is wanted. Separate:
 
 1. fully verified matches;
 2. promising candidates needing one explicit confirmation;

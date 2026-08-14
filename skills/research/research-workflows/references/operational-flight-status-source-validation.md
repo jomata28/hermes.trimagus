@@ -56,6 +56,90 @@ The same response included an operational notification saying the flight had bee
 
 Treat these endpoint details as a reproducible lead, not a permanent contract: the endpoint, schema, key distribution, and access policy may change.
 
+## FlightStats/Cirium SSR historical lookup
+
+For public historical lookup by airline + flight number + date, first try the server-rendered tracker page:
+
+```text
+https://www.flightstats.com/v2/flight-tracker/{IATA}/{NUMBER}?year=YYYY&month=M&date=D
+```
+
+FlightStats has exposed structured tracker state through a JavaScript assignment shaped like:
+
+```html
+<script>__NEXT_DATA__ = {"props": ... }</script>
+```
+
+Do not assume the modern Next.js form `<script id="__NEXT_DATA__" type="application/json">`. A robust extractor finds the assignment, finds the following `{`, and uses `json.JSONDecoder().raw_decode()` so trailing `</script>` or JavaScript does not break parsing:
+
+```python
+import json, requests
+
+url = "https://www.flightstats.com/v2/flight-tracker/VB/4042?year=2026&month=8&date=12"
+r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
+r.raise_for_status()
+p = r.text.index("__NEXT_DATA__")
+p = r.text.index("{", p)
+next_data, _ = json.JSONDecoder().raw_decode(r.text[p:])
+flight = next_data["props"]["initialState"]["flightTracker"]["flight"]
+```
+
+Useful evidence fields:
+
+- `flightId`
+- `flightNote.canceled`, `flightNote.landed`, `flightNote.hasDepartedGate`
+- `status.statusCode`, `status.status`, `status.finalStatus`
+- `schedule.scheduledDepartureUTC`, `schedule.tookOff`, `schedule.landing`
+- `departureAirport.iata`, `arrivalAirport.iata`
+- `positional.flexTrack.positions`, `tailNumber`, and `irregularOperations`
+
+Classification should be asymmetric:
+
+- `statusCode == "C"`, `flightNote.canceled == true`, or explicit `CANCELLATION` irregular operation supports **Cancelled**.
+- Actual departure/arrival, `landed == true`, or credible positional evidence supports **Operated**.
+- A missing record, HTTP denial, schedule-only record, or absence of ADS-B evidence is **Unknown**, never cancellation by inference.
+
+Validated examples from 2026-08-12:
+
+- VB4042 MTY→TLC: `statusCode: "C"`, `flightNote.canceled: true`, and `irregularOperations[].type: "CANCELLATION"` (event timestamp `2026-08-11T15:50:54.578Z`).
+- VB101 JFK→MEX: `statusCode: "L"`, `landed: true`, actual departure/arrival, positions, and tail XA-VAK.
+
+The browser bundle has also constructed an internal route like:
+
+```text
+/v2/api-next/flight-tracker/{carrier}/{flight}/{year}/{month}/{day}/{flightId}?rqid=...
+```
+
+Treat that as an implementation detail, not the primary integration: it may require browser state or reject direct requests. Prefer the SSR state when the public page returns it. Cache each flight-day, throttle requests, and preserve the raw evidence excerpt because this is undocumented and may change.
+
+## FlightRadar24, Airportia, and airport-board triage
+
+### FlightRadar24
+
+Separate the Cloudflare-protected consumer website and legacy web JSON routes from the documented API. For supported automation, use the official authenticated endpoint:
+
+```text
+GET https://fr24api.flightradar24.com/api/flight-summary/full
+Authorization: Bearer <API_KEY>
+```
+
+Typical filters are `flight_datetime_from`, `flight_datetime_to`, and `flights=VB101,VB4042`. The documented range is bounded (observed maximum 14 days per request), and access requires a key/subscription. FR24 is strong corroboration for **Operated** through `first_seen`, `last_seen`, route, and track data. A cancelled flight may never transmit ADS-B, so no FR24 result is not cancellation evidence.
+
+### Airportia
+
+Treat public flight pages as manual corroboration unless a documented/licensed automation surface is available. Check `robots.txt` before probing: Airportia has disallowed `/api/`, `/widgets/`, and date-query flight paths. Do not turn bot-control evasion into an integration strategy.
+
+### Airport pages
+
+Airport pages often expose convenient same-day JSON but not historical date lookup. Two observed shapes:
+
+```text
+GET https://www.oma.aero/api/flighttime.php?status=both&airport={AIRPORT_ID}
+GET https://aeropuertodetoluca.com.mx/wp-json/tlc-airlabs/v1/schedules?type=arrivals&q=VB4042&limit=80&lang=es
+```
+
+Before calling either historical, prove that an explicit date parameter changes the returned service day. Search parameters may only filter an already-loaded current board, and unknown parameters may be silently ignored. Airport labels such as `A TIEMPO`, `CERRADO`, or `Activo` are not necessarily final operational outcomes. In the Viva VB4042 case, an airport board conflicted with airline/Cirium cancellation evidence, so airport feeds should be secondary and freshness-qualified.
+
 ## Candidate assessment
 
 For each candidate, separate these judgments:
