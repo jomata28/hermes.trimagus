@@ -31,6 +31,7 @@ Use this umbrella for class-level software delivery practices: plan before broad
 | Bug or regression | Systematic debugging | Reproduce, collect evidence, form hypotheses, then fix root cause. |
 | Behavioral change | TDD | Write/adjust a failing test first, then implement the smallest passing change. |
 | Before final handoff or commit | Code review | Run security/quality checks and fix findings, not just summarize them. |
+| Production change with explicit approval gates or separate implementer/reviewer | Gated dual-agent delivery | Audit read-only first; isolate worktrees; stop before each approval boundary; test rollback on a copy. |
 | Web/app UX validation | Dogfood QA | Explore like a user, capture evidence, and file reproducible issues. |
 
 ## Planning Mode
@@ -78,6 +79,7 @@ Full source packages were absorbed into non-root support directories so they rem
 - `references/systematic-debugging-details/overview.md` — evidence-first root-cause workflow.
 - `references/test-driven-development-details/overview.md` — RED/GREEN/REFACTOR details.
 - `references/requesting-code-review-details/overview.md` — pre-commit review and security scan workflow.
+- `references/gated-dual-agent-delivery.md` — read-only audit gates, isolated implementer/reviewer worktrees, independent verification, and tested rollback.
 - `references/dogfood-details/overview.md` plus `references/dogfood-details/references/` and `templates/` — exploratory QA issue taxonomy and report template.
 
 Use these as supporting references; the class-level selector above should remain the primary trigger surface.

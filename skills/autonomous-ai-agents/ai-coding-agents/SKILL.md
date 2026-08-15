@@ -1,12 +1,12 @@
 ---
 name: ai-coding-agents
-description: "Use when delegating coding work to external AI coding CLIs such as Claude Code, Codex, OpenCode, or Google Antigravity; covers setup, task framing, execution, and verification."
+description: "Use when delegating coding work to external AI coding CLIs such as Claude Code, Codex, Pi, OpenCode, or Google Antigravity; covers setup, task framing, execution, and verification."
 version: 1.0.0
 author: Hermes Agent
 license: MIT
 metadata:
   hermes:
-    tags: [ai-agents, coding, claude-code, codex, opencode, antigravity]
+    tags: [ai-agents, coding, claude-code, codex, opencode, antigravity, buzz, collaborative-agents]
     related_skills: [subagent-driven-development]
 ---
 
@@ -18,7 +18,7 @@ This umbrella covers external agentic coding CLIs as a class. The specific CLI m
 
 ## When to Use
 
-- The user asks to delegate implementation, PR review, refactoring, or debugging to Claude Code, Codex, OpenCode, or Google Antigravity (`agy`).
+- The user asks to delegate implementation, PR review, refactoring, or debugging to Claude Code, Codex, Pi, OpenCode, or Google Antigravity (`agy`).
 - A coding task benefits from independent agent exploration.
 - You need a second implementation/review pass while preserving Hermes as the orchestrator.
 
@@ -126,6 +126,21 @@ When the user wants to access Claude Code on a VPS from a phone, do **not** impl
 
 When the user wants Claude Code to stay open on a VPS and access it from a phone, use **SSH + tmux + Claude Code**. The Claude mobile app cannot attach directly to a Claude Code terminal session. Prefer creating a named tmux session such as `claude-phone`, start `claude` inside it, handle the workspace trust prompt, then tell the user to connect from a phone SSH client and run `tmux attach -t claude-phone`. See `references/claude-code-vps-tmux.md`.
 
+## Pi coding agent
+
+Pi is a terminal coding agent in this same class. Before installing, query npm metadata rather than relying on the historical package name:
+
+```bash
+npm view @earendil-works/pi-coding-agent name version repository.url bin engines --json
+npm install -g @earendil-works/pi-coding-agent@<verified-version>
+hash -r
+pi --version
+```
+
+The former `@mariozechner/pi-coding-agent` package is deprecated and migrated to `@earendil-works/pi-coding-agent`. If the old package is installed globally, uninstall it before installing the current package because both expose the `pi` binary. Verify the resolved `pi --version` and `npm list -g --depth=0`; do not treat a successful npm install alone as proof that PATH points to the intended package.
+
+Pi auth is separate from merely installing the CLI. Check its live auth/provider state before assigning work, and use the same shared workflow: scoped repository, clean branch/worktree, diff review, and independent test verification.
+
 ## Codex
 
 Good for focused coding, debugging, and patch generation. Keep prompts compact and verify every changed file with git diff and tests.
@@ -135,6 +150,15 @@ Good for focused coding, debugging, and patch generation. Keep prompts compact a
 Good for implementation and PR review workflows. Use it when configured for the user's environment and return verifiable handles or diffs.
 
 ## Google Antigravity (`agy`)
+
+Voice transcription may render `agy` as “ARX”, “arx”, “AGI”, or similar. When that wording appears in a conversation about Claude, coding agents, or something installed on the VPS, test the canonical binary before searching unrelated packages:
+
+```bash
+command -v agy && agy --version
+agy models
+```
+
+Do not confuse it with Monarx or assume the spoken spelling is a literal package name. If the user says Claude installed or updated it earlier, inspect Claude Code's recent project JSONL/history as secondary evidence after checking the live binary.
 
 Two separate use modes. Keep them distinct:
 
@@ -183,6 +207,10 @@ On JT's VPS the durable artifacts are:
 - verified default: `gemini-3.5-flash-medium`
 
 Full recipe + caveats: `references/antigravity-hermes-main-model-proxy.md`.
+
+## Buzz collaborative agent workspaces
+
+Buzz combines a desktop community, hosted/self-hosted Nostr relay, JSON-oriented `buzz` CLI, and managed `buzz-acp` agents. Use `references/buzz-collaborative-workspace.md` for CLI messaging, explicit-mention round trips, stale-listener recovery, relay-layer diagnosis, latency measurement, and the JT-specific rule to lead with the result and time-box live-agent waits.
 
 ## Common Pitfalls
 

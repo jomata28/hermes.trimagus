@@ -9,6 +9,8 @@ description: System for organizing knowledge and tracking projects across multip
 ### When to use this skill
 When you need to organize knowledge, track projects, and build systems across multiple life domains (academic/professional work, side businesses, fitness/health, personal learning) and want them to work together synergistically.
 
+For Jose's live ARX implementation on the VPS, use `references/arx-implementation.md`. It documents the read-only app/data-writer split, JSON invariants, Git commit protocol, agent rollout, and how to distinguish a healthy dashboard from an active agent layer.
+
 ### Core Components to Set Up
 
 #### 1. Central Knowledge Hub (Choose one or integrate)

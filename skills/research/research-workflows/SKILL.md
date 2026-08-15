@@ -116,6 +116,8 @@ Reference note: `references/electrochemistry-body-use-risk.md` covers DIY charge
 
 When evaluating airline, airport, logistics, or similar operational feeds, require a successful real request containing the target entity and status; a schema, UI label, documentation claim, or JavaScript string is not validation. Capture the exact endpoint and request shape, redact credentials, preserve freshness fields, and seek a second source for disputed or high-impact states. See `references/operational-flight-status-source-validation.md` for the undocumented-web-API discovery workflow, cancellation evidence standard, Viva Aerobus case study, and automation-policy checklist.
 
+When the user wants **early cancellation risk rather than reactive status**, follow `references/predictive-flight-cancellation-monitoring.md`. It covers prospective flight-instance observations, historical outcome recovery, missing-data denominators, sampling bias, weather forecast vintage without leakage, shadow-score calibration, and JT's APARTAR/VIGILAR/NINGUNO daily brief format.
+
 ## Common Pitfalls
 
 1. Mixing uncited synthesis with source facts.

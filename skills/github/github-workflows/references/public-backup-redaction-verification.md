@@ -12,7 +12,7 @@ github:
     __REDACTED_FOR_GITHUB_BACKUP__
 ```
 
-That can still parse, but it changes the value from a scalar into a nested mapping and may also introduce trailing whitespace. Normalize it to a scalar placeholder:
+YAML may still parse this as a multiline scalar, but the formatting is ambiguous and can introduce trailing whitespace; malformed variants can instead become nested mappings. Normalize every secret placeholder to an explicit single-line scalar:
 
 ```yaml
 github:
