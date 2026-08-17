@@ -158,6 +158,48 @@ Common gate types:
 - `DisabledForCarrierVB` — rule doesn't apply to this airline code
 - `DisabledForRoute` — rule doesn't apply to this origin/destination pair
 
+## JWT Token Alone Is Not Enough from VPS
+
+A valid JWT extracted from `localStorage` (e.g., `viva-user-token`) will return **401 from curl** even with correct headers, because Akamai validates the request's CDN session cookies (`_abck`, `bm_sz`) which only exist in the browser. Similarly, `booking/full`, `buyback`, and `marketplace` endpoints return **403 Access Denied** from curl regardless of token validity.
+
+The token works **only when sent from the browser itself** (via console `fetch()` with `credentials: 'include'`) because the browser automatically attaches the Akamai session cookies that the CDN requires.
+
+### Pattern: Token + mobile proxy + browser console fetch
+
+When you have a JWT but the VPS IP is blocked:
+
+1. User logs in on their phone/normal browser → extracts `localStorage.getItem('viva-user-token')`
+2. VPS Chrome launched through mobile proxy tunnel (see `user-owned-mobile-egress.md`)
+3. User navigates to the target site in the proxied VPS Chrome (gets Akamai cookies)
+4. Execute authenticated API calls via **browser console fetch** (not curl), which automatically includes CDN cookies:
+
+```javascript
+fetch('https://api.vivaaerobus.com/web/v1/account/funds', {
+  headers: {
+    'X-Channel': 'web',
+    'x-api-key': 'CAPTURED_KEY',
+    'Authorization': 'Bearer ' + localStorage.getItem('viva-user-token')
+  }
+}).then(r => r.text()).then(t => console.log(t.substring(0, 800)))
+```
+
+5. For automated extraction without xdotool typing, use the **raw CDP websocket** technique (see `vps-desktop-sessions/references/cdp-raw-websocket.md`) to execute the same fetch from Python.
+
+### What works from VPS curl (no proxy, no cookies)
+
+Some endpoints are tier-1 public and work from VPS curl with just `x-api-key`:
+
+| Endpoint | Auth needed | Works from VPS curl? |
+|---|---|---|
+| `plannedFlights` | `x-api-key` only | ✅ Yes |
+| `resources/stations` | `x-api-key` only | ✅ Yes |
+| `flightstatus` | `x-api-key` only | ✅ Yes (needs correct params) |
+| `availability/search` | CDN cookies | ❌ No (Akamai 403) |
+| `booking/full` | JWT + CDN cookies | ❌ No (Akamai 403) |
+| `account/funds` | JWT + CDN cookies | ❌ No (401 without cookies) |
+| `buyback` | JWT + CDN cookies | ❌ No (Akamai 403) |
+| `marketplace` | JWT + CDN cookies | ❌ No (Akamai 403) |
+
 ## Server-Side Gates Cannot Be Bypassed
 
 If the API response shows `isEnabled: false` with a rule gate like

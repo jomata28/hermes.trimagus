@@ -94,6 +94,22 @@ Each message must be self-contained and include:
 
 Do not repeat already rejected listings merely to fill a requested count. If no new strict match exists, say so directly and continue searching rather than recycling the shortlist.
 
+## MercadoLibre Inmuebles extraction (CDMX fallback portal)
+
+When Inmuebles24, Vivanuncios, Propiedades.com, and Lamudi are all blocked (Cloudflare/CloudFront 403/429 from the datacenter, even via reader proxies), **MercadoLibre Inmuebles renders reliably** through the persistent VPS Chrome with a residential proxy. It became the de-facto portal for CDMX rental searches.
+
+Working URL shapes (note the `3-recamaras` segment comes BEFORE the zone, and results pages may reorder the path):
+```
+https://inmuebles.mercadolibre.com.mx/departamentos/renta/3-recamaras/distrito-federal/coyoacan/
+https://inmuebles.mercadolibre.com.mx/departamentos/renta/distrito-federal/alvaro-obregon/santa-fe/
+```
+- The `_PriceRange-24000-30000` suffix and `/amueblado/` segment often get **dropped/redirected** — do not rely on URL filters; filter client-side in Python from the extracted text.
+- Extract via CDP: query `a[href*="MLM"]`, walk up to the card container (`closest('li, [class*="ui-search-result"], [class*="poly-card"]')`), grab `innerText`, dedupe by href (each card appears ~2x).
+- Parse price with regex `MXN\s*\|?\s*([\d,]+)` from the card text; bedroom count from `3 recámara|3 habitaciones`.
+- Verify each finalist's **individual detail page**: open it, extract the real description container (`[class*="ui-pdp-description"]`, or the element whose text starts with "Descripción"), then check for furnishing keywords **in that description only**.
+
+See `references/mercadolibre-inmuebles-extraction.md` for the full recipe including the CDP navigation fix and verified CDMX market floors (Santa Fe 3BR ≈ $48k+; Coyoacán furnished 3BR ≈ $45k+; San Ángel 3BR = 0 listings).
+
 ## Persistence and monitoring
 
 For time-sensitive searches, create a finite alert-only recurring search only with user authorization. The recurring prompt must be self-contained, list known listings for deduplication, and remain silent when there are no genuinely new matches. Update its geography and hard constraints when the user changes the brief.

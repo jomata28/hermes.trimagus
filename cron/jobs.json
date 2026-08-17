@@ -18,15 +18,15 @@
       "schedule_display": "55 13 * * *",
       "repeat": {
         "times": null,
-        "completed": 123
+        "completed": 125
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-13T21:12:49.081621+00:00",
-      "next_run_at": "2026-08-15T13:55:00+00:00",
-      "last_run_at": "2026-08-14T13:55:32.156377+00:00",
+      "next_run_at": "2026-08-17T13:55:00+00:00",
+      "last_run_at": "2026-08-16T13:55:23.224612+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "origin",
@@ -94,15 +94,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 121
+        "completed": 123
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-15T21:39:46.829937+00:00",
-      "next_run_at": "2026-08-15T07:00:00+00:00",
-      "last_run_at": "2026-08-14T07:00:25.060145+00:00",
+      "next_run_at": "2026-08-17T07:00:00+00:00",
+      "last_run_at": "2026-08-16T07:03:26.891689+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "telegram",
@@ -175,17 +175,17 @@
       "schedule_display": "0 3 * * *",
       "repeat": {
         "times": null,
-        "completed": 98
+        "completed": 100
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-08T18:09:30.722153+00:00",
-      "next_run_at": "2026-08-16T03:00:00+00:00",
-      "last_run_at": "2026-08-14T03:03:30.344039+00:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-08-18T03:00:00+00:00",
+      "last_run_at": "2026-08-16T03:00:53.091939+00:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: HTTP 402: This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 8320. To increase, visit https://openrouter.ai/settings/credits and add more credits",
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -213,15 +213,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 81
+        "completed": 83
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-25T19:56:44.909253+00:00",
-      "next_run_at": "2026-08-15T07:00:00+00:00",
-      "last_run_at": "2026-08-14T07:01:27.565671+00:00",
+      "next_run_at": "2026-08-17T07:00:00+00:00",
+      "last_run_at": "2026-08-16T07:02:31.870038+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -259,17 +259,17 @@
       "schedule_display": "0 20 * * 0",
       "repeat": {
         "times": null,
-        "completed": 11
+        "completed": 12
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-25T20:28:23.702076+00:00",
-      "next_run_at": "2026-08-16T20:00:00+00:00",
-      "last_run_at": "2026-08-09T20:02:40.459283+00:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-08-23T20:00:00+00:00",
+      "last_run_at": "2026-08-16T20:00:40.864107+00:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.",
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": {
@@ -305,17 +305,17 @@
       "schedule_display": "30 22 * * *",
       "repeat": {
         "times": null,
-        "completed": 43
+        "completed": 45
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-04T15:26:33.125064+00:00",
-      "next_run_at": "2026-08-15T22:30:00+00:00",
-      "last_run_at": "2026-08-14T22:30:44.527763+00:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-08-17T22:30:00+00:00",
+      "last_run_at": "2026-08-16T22:30:47.472411+00:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.",
       "last_delivery_error": null,
       "deliver": "telegram:1585113960",
       "origin": null,
@@ -346,15 +346,15 @@
       "schedule_display": "every 5m",
       "repeat": {
         "times": null,
-        "completed": 2453
+        "completed": 2928
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-04T21:26:20.949312+00:00",
-      "next_run_at": "2026-08-15T03:05:04.955627+00:00",
-      "last_run_at": "2026-08-15T03:00:04.955627+00:00",
+      "next_run_at": "2026-08-17T03:09:46.681169+00:00",
+      "last_run_at": "2026-08-17T03:04:46.681169+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -392,15 +392,15 @@
       "schedule_display": "0 3,15,22 * * *",
       "repeat": {
         "times": null,
-        "completed": 25
+        "completed": 32
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-06T02:45:24.849337+00:00",
-      "next_run_at": "2026-08-15T15:00:00+00:00",
-      "last_run_at": "2026-08-14T22:04:47.229741+00:00",
+      "next_run_at": "2026-08-17T15:00:00+00:00",
+      "last_run_at": "2026-08-17T03:04:18.215384+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -438,15 +438,15 @@
       "schedule_display": "every 30m",
       "repeat": {
         "times": null,
-        "completed": 112
+        "completed": 200
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-12T13:59:29.354401+00:00",
-      "next_run_at": "2026-08-15T03:06:10.672917+00:00",
-      "last_run_at": "2026-08-15T02:36:10.672917+00:00",
+      "next_run_at": "2026-08-17T03:15:13.451502+00:00",
+      "last_run_at": "2026-08-17T02:45:13.451502+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -465,9 +465,11 @@
     {
       "id": "57bc8332e34c",
       "name": "Buscar renta amueblada cerca ABC Santa Fe",
-      "prompt": "Busca anuncios NUEVOS o todav\u00eda vivos de departamentos/casas completas en renta para tres estudiantes con estos requisitos estrictos: exactamente 3 rec\u00e1maras reales (no 2+estudio), expl\u00edcitamente AMUEBLADO, total mensual m\u00e1ximo $30,000 MXN incluyendo mantenimiento cuando se conozca, traslado pr\u00e1ctico a Hospital ABC Santa Fe. Buscar Santa Fe/Cuajimalpa, Jes\u00fas del Monte, Contadero, Olivar de los Padres, Tetelpan, Mixcoac, San Jos\u00e9 Insurgentes, San \u00c1ngel, Guadalupe Inn, Florida, Escand\u00f3n y N\u00e1poles en Inmuebles24, Vivanuncios, Lamudi, Propiedades.com, Pincali/EasyBroker, Homie, Mercado Libre, Facebook p\u00fablico y agencias. Ya conocidos: Ca\u00f1ada Propiedades ID 31135307; Jes\u00fas del Monte Vivanuncios ID 150478315; Lago Chapala Vivanuncios ID 149969075. Excluye esos salvo cambio de precio/estado. Verifica URL individual viva, muebles, 3 rec\u00e1maras, mantenimiento, precio y cercan\u00eda. Entrega solo opciones nuevas que cumplan; si no hay ninguna, no env\u00edes mensaje. No programes m\u00e1s cron jobs.",
-      "skills": [],
-      "skill": null,
+      "prompt": "Busca anuncios NUEVOS o todav\u00eda vivos de departamentos/casas completas en renta para tres estudiantes con estos requisitos estrictos: exactamente 3 rec\u00e1maras reales (no 2+estudio), expl\u00edcitamente AMUEBLADO, total mensual m\u00e1ximo $30,000 MXN incluyendo mantenimiento cuando se conozca, y traslado pr\u00e1ctico al Hospital ABC Santa Fe. Ampl\u00eda la b\u00fasqueda a Santa Fe/Cuajimalpa, Jes\u00fas del Monte, Contadero, Olivar de los Padres, Tetelpan, Mixcoac, San Jos\u00e9 Insurgentes, San \u00c1ngel, Guadalupe Inn, Florida, Escand\u00f3n, N\u00e1poles y ahora tambi\u00e9n Coyoac\u00e1n: Villa Coyoac\u00e1n/Del Carmen, Barrio Santa Catarina, Romero de Terreros, Copilco, Chimalistac y zonas colindantes. No rechaces Coyoac\u00e1n solo por distancia, pero reporta claramente el riesgo de traslado a ABC Santa Fe. Busca Inmuebles24, Vivanuncios, Lamudi, Propiedades.com, Pincali/EasyBroker, Homie, Mercado Libre, Facebook p\u00fablico, Airbnb mensual, agencias locales y otros resultados p\u00fablicos. Ya conocidos: Ca\u00f1ada Propiedades ID 31135307; Jes\u00fas del Monte Vivanuncios ID 150478315; Lago Chapala Vivanuncios ID 149969075. Excluye esos salvo cambio de precio o estado. Verifica en cada URL individual viva: muebles incluidos expl\u00edcitamente, 3 rec\u00e1maras reales, mantenimiento, precio total y ubicaci\u00f3n. Entrega \u00fanicamente opciones nuevas que cumplan todos los filtros; si no hay ninguna, no env\u00edes mensaje. Una propiedad por mensaje, con URL completa en texto plano. No programes m\u00e1s cron jobs.",
+      "skills": [
+        "rental-housing-search"
+      ],
+      "skill": "rental-housing-search",
       "model": null,
       "provider": null,
       "provider_snapshot": "openai-codex",
@@ -484,15 +486,15 @@
       "schedule_display": "0 16 * * *",
       "repeat": {
         "times": 14,
-        "completed": 3
+        "completed": 5
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-12T15:00:55.145875+00:00",
-      "next_run_at": "2026-08-15T16:00:00+00:00",
-      "last_run_at": "2026-08-14T16:00:29.506969+00:00",
+      "next_run_at": "2026-08-17T16:00:00+00:00",
+      "last_run_at": "2026-08-16T16:01:12.789561+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -580,17 +582,17 @@
       "schedule_display": "0 14 * * *",
       "repeat": {
         "times": null,
-        "completed": 1
+        "completed": 3
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-13T20:44:12.374955+00:00",
-      "next_run_at": "2026-08-15T14:00:00+00:00",
-      "last_run_at": "2026-08-14T14:04:19.167633+00:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-08-17T14:00:00+00:00",
+      "last_run_at": "2026-08-16T14:00:03.628360+00:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: Skipped to prevent unintended spend: global inference config drifted since this job was created (provider 'openai-codex' -> 'custom'; model 'gpt-5.6-sol' -> 'z-ai/glm-5.2'), and this job is unpinned. No inference call was made. To run on the new config, pin it explicitly: `cronjob action=update job_id=6b470137380c provider=<provider> model=<model>` (or pin the original values to keep them). See #44585.",
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": {
@@ -609,5 +611,5 @@
       "fire_claim": null
     }
   ],
-  "updated_at": "2026-08-15T03:00:31.699809+00:00"
+  "updated_at": "2026-08-17T03:04:46.681427+00:00"
 }

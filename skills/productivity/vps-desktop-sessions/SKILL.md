@@ -28,6 +28,8 @@ ss -tlnp | grep -E '5901|6080'            # x11vnc on 5901, websockify on 172.18
 ```
 
 - Display is `:99` (1440x950). Launch GUI apps with `DISPLAY=:99 <app>` via `terminal(background=true)`.
+- For sites with payment, airline inventory, anti-bot, or reputation-sensitive APIs, prefer launching Chromium as a normal desktop user instead of root. Snap Chromium run as root requires `--no-sandbox`, which is a noisy browser fingerprint. If `runuser` fails with Snap cgroup/session errors, start a real user session and launch via `systemd-run`, e.g. `loginctl enable-linger jt; systemctl start user@1001.service; systemd-run --unit=<name> --collect --uid=jt --gid=jt --property=PAMName=login --setenv=HOME=/home/jt --setenv=DISPLAY=:99 --setenv=XDG_RUNTIME_DIR=/run/user/1001 chromium --disable-dev-shm-usage --lang=es-MX --start-maximized <url>`. Verify with process list and a fresh X11 screenshot before claiming the page is visible.
+- When a site works generally but a sensitive API returns CDN/edge blocks, isolate network reputation before changing browsers: compare IPv4 vs IPv6 with `curl -4/-6`, and if needed temporarily block IPv6 only for the browser UID (`ip6tables -I OUTPUT 1 -m owner --uid-owner jt -j REJECT`) to test whether IPv6 reputation is the culprit. Remove/review such test rules after the session.
 - Access URL for JT: `https://vnc.srv1056157.hstgr.cloud/vnc.html?autoconnect=true&resize=scale&path=websockify`
 - The first prompt is HTTP Basic Auth and requires **username `jt`** plus the password from `/root/.vps-screen/basic-auth-password.txt`.
 - noVNC may then show a second, VNC-specific password prompt. The user-enterable plaintext is stored at `/root/.vps-screen/password.txt`; `/root/.vps-screen/x11vnc.pass` is the hashed/auth file used by the service, not the value to send.
@@ -44,6 +46,17 @@ ss -tlnp | grep -E '5901|6080'            # x11vnc on 5901, websockify on 172.18
 4. JT logs into the target website himself (never ask for or type his website password/2FA).
 5. When he confirms, capture the desktop and verify that the target site is authenticated before operating it.
 6. Chromium on this box is a **snap** — it keeps a persistent profile at `/root/snap/chromium/common/chromium/Default/`; sessions can survive across launches, so check existing cookies before asking JT to log in again.
+7. For multi-page extraction after human verification, prefer a dedicated profile plus local CDP endpoint, e.g. `--user-data-dir=/root/snap/chromium/common/<task-profile> --remote-debugging-address=127.0.0.1 --remote-debugging-port=<port>`. Verify the page through `http://127.0.0.1:<port>/json/list` before claiming control. A dedicated profile may require its own one-time Turnstile even if the default profile is already verified. See `references/human-verified-cdp-browser.md` for the reusable launch, handoff, verification, and stop conditions.
+
+### Interaction and latency discipline
+
+JT prefers fast, concise operation. Do not narrate every screenshot, click, or hypothesis.
+
+- Batch independent readiness checks, launch, and capture where safe.
+- After each state-changing click, verify once; after **two failed coordinate attempts**, change strategy rather than repeating pixels.
+- If the visible browser is not present in X11 window discovery, focus is ambiguous, or events land in another window, launch a dedicated CDP-controlled Chromium profile instead of continuing `xdotool` trial-and-error.
+- Give the user only meaningful checkpoints: human action required, verified result, or real blocker. Keep low-level diagnostics internal unless requested.
+- For agent/chat round-trip tests, use a short fixed timeout and one controlled restart before deeper diagnosis; report measured latency separately from relay/network latency.
 
 ## Packaged GUI applications
 
@@ -72,6 +85,8 @@ GEOM=$(DISPLAY=:99 xdpyinfo | awk '/dimensions:/{print $2; exit}')
 ffmpeg -y -f x11grab -video_size "$GEOM" -i :99 -frames:v 1 -update 1 /tmp/current-screen.png
 ```
 
+**If `import` (ImageMagick) is not installed**, `ffmpeg -f x11grab` is the most reliable fallback. `scrot` may fail silently. The `vision_analyze` tool may also be unavailable (503 from the vision model provider) — always have a text-based fallback (check window titles via `xdotool search --name "" getwindowname`, or inject JS via the DevTools console with `ctrl+shift+j`).
+
 Load the resulting image with vision and report only what is visibly present: active app/window, page or setup step, notable warnings, and whether the requested application is actually on screen.
 
 ### Screenshot credential safety
@@ -94,6 +109,83 @@ When JT explicitly authorizes entering an API key or token into a GUI, treat suc
 5. After a secret is present, never send the raw screenshot to vision. Capture locally, redact every plausible credential-bearing field into a separate image, delete the raw image first, and inspect only the redacted copy.
 6. Delete all temporary redacted screenshots after verification unless JT explicitly asks to retain one.
 7. Complete deterministic setup choices such as provider, model, and effort when the requested configuration makes them obvious. Stop and ask when the next screen asks a meaningful user-specific question, such as account role or community ownership.
+
+## noVNC Basic Auth password management
+
+The noVNC URL is fronted by a Traefik reverse proxy (`vps-screen-proxy` Docker container running `alpine/socat`) that enforces HTTP Basic Auth via Traefik labels. The auth credentials are NOT in a file — they're baked into the container's Traefik labels.
+
+**The socat container forwards Traefik → host's websockify on `172.18.0.1:6080`.** The container must use `TCP:172.18.0.1:6080` as the socat target (NOT `host.docker.internal` — that doesn't resolve without `--add-host`).
+
+### Reading current credentials
+```bash
+docker inspect vps-screen-proxy --format '{{json .Config.Labels}}' | python3 -c "
+import sys, json
+labels = json.load(sys.stdin)
+print(labels.get('traefik.http.middlewares.vps-screen-auth.basicauth.users', 'not found'))
+"
+```
+
+### Changing the Basic Auth password (full recreation)
+```bash
+# 1. Generate new apr1 hash (Traefik requires this format)
+NEW_HASH=$(printf "NEW_PASSWORD\n" | openssl passwd -apr1 -salt vnc12345 -stdin)
+echo "jt:$NEW_HASH"
+
+# 2. Stop and remove the old container
+docker stop vps-screen-proxy && docker rm vps-screen-proxy
+
+# 3. Recreate with new password hash in the Traefik label
+#    NOTE: dollar signs in the hash MUST be escaped with backslash in --label
+docker run -d \
+  --name vps-screen-proxy \
+  --network root_default \
+  --restart always \
+  --label "traefik.enable=true" \
+  --label "traefik.http.middlewares.vps-screen-auth.basicauth.realm=JT VPS Screen" \
+  --label "traefik.http.middlewares.vps-screen-auth.basicauth.users=jt:\$apr1\$vnc12345\$NEW_HASH_HERE" \
+  --label "traefik.http.routers.vps-screen.entrypoints=web,websecure" \
+  --label "traefik.http.routers.vps-screen.middlewares=vps-screen-auth" \
+  --label "traefik.http.routers.vps-screen.rule=Host(\`vnc.srv1056157.hstgr.cloud\`)" \
+  --label "traefik.http.routers.vps-screen.tls=true" \
+  --label "traefik.http.routers.vps-screen.tls.certresolver=mytlschallenge" \
+  --label "traefik.http.services.vps-screen.loadbalancer.server.port=6080" \
+  alpine/socat -d -d TCP-LISTEN:6080,fork,reuseaddr TCP:172.18.0.1:6080
+```
+
+### Pitfall: 502 Bad Gateway after container recreation
+If the user reports "Bad Gateway" after recreating the container, the socat target is wrong. The original container used `TCP:host.docker.internal:6080` which fails because `host.docker.internal` doesn't resolve in the `root_default` Docker network without `--add-host host.docker.internal:host-gateway`. The fix is to use `TCP:172.18.0.1:6080` directly (the Docker bridge gateway IP where websockify listens).
+
+The VNC password (second prompt, inside noVNC) is separate and stored at `/root/.vps-screen/password.txt`.
+
+### User preference: simple passwords
+When JT says "haz el usuario más sencillo" or asks for simpler credentials, change the Basic Auth password via the container recreation above. Use a short, memorable password (e.g., `viva`). Do NOT change the VNC password (second prompt) unless asked — that requires regenerating `x11vnc.pass`.
+
+## Launching Google Chrome as non-root (for bot-protected sites)
+
+Snap Chromium cannot run as non-root due to snap confinement, forcing `--no-sandbox` which is a bot detection signal. Use `google-chrome-stable` (.deb at `/usr/bin/google-chrome-stable`) instead — it has a proper SUID sandbox and runs fine as user `jt`.
+
+```bash
+# Grant X11 access to jt (once per session or after Xvfb restart)
+xhost +SI:localuser:jt
+
+# Launch as jt with sandbox enabled, GPU disabled (Xvfb has no GPU)
+su - jt -c 'export DISPLAY=:99 && google-chrome-stable \
+  --display=:99 \
+  --disable-gpu \
+  --no-first-run \
+  --start-maximized \
+  --proxy-server="http://127.0.0.1:8888" \
+  --user-data-dir="/home/jt/.config/google-chrome-viva" \
+  "https://target-site.com"'
+```
+
+Use a **separate profile directory** per task (e.g., `google-chrome-viva`) so sessions don't collide. Persistent profiles retain cookies across launches.
+
+For sites with Akamai/bot protection, combine this with the mobile proxy pattern (see `navigate-bot-protected-sites` skill, `references/user-owned-mobile-egress.md`).
+
+### Reading page content when vision and packages are unavailable
+
+When `vision_analyze` returns 503 (provider down), `xdotool` console typing is unreliable, and `pip install websocket-client` is blocked by PEP 668, use **raw CDP via Python stdlib sockets** to execute JavaScript and read page content directly. This is the most reliable fallback for extracting structured data from a Chrome tab with `--remote-debugging-port` enabled. See `references/cdp-raw-websocket.md` for the full reusable technique, including navigate, evaluate, and data extraction patterns.
 
 ## Chromium headless file rendering pitfall
 

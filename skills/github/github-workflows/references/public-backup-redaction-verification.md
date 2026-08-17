@@ -8,7 +8,7 @@ A literal-token scanner may replace a token on a continuation line while leaving
 
 ```yaml
 github:
-  token:
+  token: 
     __REDACTED_FOR_GITHUB_BACKUP__
 ```
 

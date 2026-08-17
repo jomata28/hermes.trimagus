@@ -21,6 +21,17 @@ Translate preferences into hard and soft filters:
 - **Soft:** appearance/modernity, amenities, walkability, security, commute, bathrooms.
 - When the user changes a qualitative preference such as “nicer,” immediately redefine ranking and rerun the search; do not keep returning technically compliant but visibly poor options.
 
+### Continuity and geographic expansion
+
+When the user says “como dijimos,” “amplía la zona,” or otherwise continues an earlier housing search:
+
+1. Recover the prior hard filters, known listing exclusions, destination, and delivery format before searching; do not make the user restate them.
+2. Treat a geographic expansion as changing only the permitted area unless the user explicitly relaxes another criterion. Preserve bedroom count, furnishing, total-budget interpretation, occupant suitability, and known exclusions.
+3. Search the new area through separate neighborhood queries, including common barrio/colonia names and boundary areas, rather than relying on one municipality-wide query.
+4. If the user explicitly admits a farther area, do not silently reject it for commute. Verify and report the commute risk separately so the user can make the trade-off.
+5. If a recurring monitor already exists, list jobs first, update the existing job by its real ID, preserve its schedule/repeat state, and add the expanded neighborhoods and exclusions to its self-contained prompt. Do not create a duplicate monitor.
+6. Continue to require individual listing-level verification. Geographic expansion is not permission to weaken evidence standards.
+
 ## Search sequence
 
 1. Search public listing-level pages across multiple portals and agencies.
@@ -32,8 +43,11 @@ Translate preferences into hard and soft filters:
    - Do not regex the entire HTML for price, bedrooms, or maintenance when recommendation cards are present; isolate the primary listing object/section first.
 4. For Next.js listing sites, inspect `__NEXT_DATA__` on every pagination page and filter the embedded publication objects by structured bedroom count, total price, maintenance, furnished attribute, status, and canonical slug. Use prose to detect contradictions and furniture negation; use photos only for visual corroboration. See `references/structured-listing-extraction.md`.
 5. When the user offers help, use the persistent noVNC desktop so they can complete login/CAPTCHA privately; then operate the authenticated browser. Follow `vps-desktop-sessions` for its two-stage access and credential handling.
-5. For authenticated Marketplace searches, set the **map center/radius around the real destination** before trusting keyword results. A city-center radius can silently exclude the target neighborhood while returning irrelevant citywide matches.
-6. Run separate neighborhood queries rather than one long phrase; collect item URLs, deduplicate, then inspect descriptions individually.
+   - Prefer a **dedicated persistent browser profile with a CDP port** for portal verification, rather than coordinate-driving an ambiguous pre-existing window. Confirm attachment through `/json/list` before extracting listings.
+   - A fresh profile may trigger Cloudflare/Turnstile even when a different visible session already works. Ask the user to solve the checkbox once in noVNC, then continue through that same profile; never automate the human-verification control.
+   - If two coordinate attempts fail or window ownership/focus is unclear, stop retrying pixels. Relaunch a dedicated CDP-controlled session and verify the active URL and title before continuing.
+6. For authenticated Marketplace searches, set the **map center/radius around the real destination** before trusting keyword results. A city-center radius can silently exclude the target neighborhood while returning irrelevant citywide matches.
+7. Run separate neighborhood queries rather than one long phrase; collect item URLs, deduplicate, then inspect descriptions individually.
 
 ## Verification rules
 

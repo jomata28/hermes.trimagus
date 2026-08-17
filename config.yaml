@@ -1,6 +1,6 @@
 model:
-  default: gpt-5.6-sol
-  provider: openai-codex
+  default: deepseek/deepseek-v4-flash-0731
+  provider: custom:orcarouter
 providers:
   antigravity:
     name: Google Antigravity (agy)
@@ -483,6 +483,7 @@ approvals:
   destructive_slash_confirm: true
 command_allowlist:
   - stop/restart system service
+  - docker restart/stop/kill (container lifecycle)
   - script execution via -e/-c flag
   - kill process via pgrep/pidof expansion (self-termination)
   - stop/restart hermes gateway (kills running agents)
@@ -491,6 +492,7 @@ command_allowlist:
   - script execution via heredoc
   - overwrite system config
   - hermes update (restarts gateway, kills running agents)
+  - force kill processes
   - delete in root path
 hooks_auto_accept: false
 security:
@@ -616,6 +618,12 @@ session_reset:
   at_hour: 4
   idle_minutes: 1440
   mode: both
+custom_providers:
+  - name: orcarouter
+    base_url: https://api.orcarouter.ai/v1
+    key_env: ORCAROUTER_API_KEY
+    api_mode: chat_completions
+    model: obsidian/Qwen3.8-27B
 
 # ── Fallback Model ────────────────────────────────────────────────────
 # Automatic provider failover when primary is unavailable.

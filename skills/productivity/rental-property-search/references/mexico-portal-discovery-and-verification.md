@@ -12,6 +12,36 @@ Use these patterns for Propiedades.com, EasyBroker/Pincali, and local-agency inv
 
 When the normal page is blocked, retrieve the exact individual URL through a reputable text-rendering mirror such as `https://r.jina.ai/http://<host/path>` and inspect the rendered page. Use this only as a reading fallback; report the canonical individual URL to the user.
 
+### When the text mirror also fails
+
+Reader proxies like r.jina.ai use datacenter egress IPs themselves, so they cannot bypass IP-reputation WAF blocks:
+
+- **Propiedades.com:** Serves a JavaScript anti-bot challenge. jina.ai returns the challenge HTML (confirming the site is up) but not the rendered content. The VPS headless browser also fails (`ERR_HTTP2_PROTOCOL_ERROR`) because it runs with `--no-sandbox`/`--headless` flags that are themselves bot fingerprints.
+- **Lamudi.com.mx:** Behind CloudFront. Returns `401 Unauthorized` even through jina.ai. Even `robots.txt` and `sitemap.xml` return 403. No datacenter-egress path works.
+
+When both direct access and reader proxies fail, the only remaining automated path is the **mobile-proxy tunnel** (see `navigate-bot-protected-sites` skill, `references/user-owned-mobile-egress.md`). If no tunnel is active, inform the user that the portals are blocked from this server and offer the manual-browser fallback.
+
+### Search-engine URL discovery during portal blocking
+
+Google and DuckDuckGo return CAPTCHA challenges from datacenter IPs. Bing loads but **silently ignores the `site:` operator** in many queries, returning irrelevant results. Do not rely on `site:` alone — use the domain as a quoted search term and decode Bing's base64 redirect URLs to find actual listing pages. See `navigate-bot-protected-sites` skill, `references/reader-proxy-and-search-engine-diagnosis.md` for the full accessibility matrix and Bing workaround.
+
+**⚠️ Reader-proxy limitations (validated 2026-08-17):**
+
+r.jina.ai uses datacenter egress IPs itself, so it cannot bypass IP-reputation WAF blocks. However, it is NOT uniformly blocked — the behavior differs by portal:
+
+- **Propiedades.com:** jina.ai returns the JS challenge HTML page (site is up, challenge is JS-based). The VPS headless browser fails with `ERR_HTTP2_PROTOCOL_ERROR` because it runs with `--no-sandbox`/`--headless` flags that are themselves bot fingerprints. jina.ai confirms the site structure but cannot render content.
+- **Lamudi.com.mx:** Behind CloudFront. Returns `401 Unauthorized` even through jina.ai. Even `robots.txt` and `sitemap.xml` return 403. No datacenter-egress path works.
+- **Inmuebles24 / Vivanuncios / EasyBroker:** May be Cloudflare-protected. Test with jina.ai first — if it returns a Cloudflare challenge page rather than content, the block is IP-reputation-based.
+- **Google Cache** (`webcache.googleusercontent.com`) is CAPTCHA-blocked from the VPS network.
+- **Wayback Machine** returned 503 during testing — do not rely on it as a guaranteed fallback.
+
+**Working alternatives when portals are WAF-blocked:**
+
+1. **MercadoLibre Inmuebles** (`inmuebles.mercadolibre.com.mx`) — not Cloudflare-protected, loads in headless Chrome. Use as primary alternative when all other portals are blocked.
+2. **Mobile-proxy tunnel** — the only confirmed path to Lamudi/CloudFront-protected portals from this VPS. See `navigate-bot-protected-sites` skill, `references/user-owned-mobile-egress.md`. Requires an active reverse SSH tunnel on port 8888.
+3. **Human-in-the-loop noVNC** — launch Chrome as `jt` with CDP, have JT solve the Turnstile/JS challenge manually, then extract via CDP `Runtime.evaluate`.
+4. **Search-engine cached snippets** — Bing loads from the VPS but silently ignores `site:` operator. Google/DuckDuckGo return CAPTCHAs. Snippets may contain partial listing data (price, bedrooms) but do NOT prove the individual page is accessible or current. Treat as unverified leads only.
+
 A mirror response is still secondary evidence. Verify these page-level signals:
 
 - explicit `Fuera del mercado` or equivalent;

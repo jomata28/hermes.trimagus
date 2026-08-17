@@ -59,7 +59,7 @@ Historical METAR/ASOS sources:
 
 ```text
 https://aviationweather.gov/api/data/metar?ids=MMMY,KIAH&format=json&hours=240
-https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py?...
+https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py?... 
 ```
 
 Observed severe weather coincided with one cancellation to GDL: thunder/rain, low visibility, low ceiling, and strong gusts. Other cancellations had benign observed conditions. This showed weather is one feature family, not a complete explanation.

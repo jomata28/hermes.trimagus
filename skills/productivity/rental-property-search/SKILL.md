@@ -36,6 +36,8 @@ A shortlist entry is valid only when its **individual listing page** confirms ev
    - Authenticated Marketplace/session when the user volunteers to log in.
    - Text-rendered/indexed pages only for lead discovery; verify the individual page afterward.
    - If Cloudflare/CAPTCHA blocks access, use the human-in-the-loop noVNC workflow rather than asking for credentials.
+   - **MercadoLibre Inmuebles** (`inmuebles.mercadolibre.com.mx`) is not Cloudflare-protected and should be tried as a primary alternative when Inmuebles24/Vivanuncios/Lamudi/EasyBroker/Propiedades.com are all blocked. It has filters for recámaras, amueblado, and price.
+   - The `r.jina.ai` text mirror is also Cloudflare-blocked for MX real estate portals as of 2026 — do not rely on it. See `references/portal-verification-patterns.md` for current blocking status.
    - When the request specifies result-page ranges or sort orders, keep an explicit coverage ledger by portal, property type, sort mode, and page number. Never report pages as searched when a challenge page, redirect, or block prevented the actual result inventory from loading.
    - Search-engine indexes may recover stable listing URLs and IDs during portal blocking, but they do not prove page placement, current availability, maintenance, furnishing, or exact bedroom count. Treat these strictly as unverified leads.
 
@@ -106,5 +108,6 @@ A shortlist entry is valid only when its **individual listing page** confirms ev
 
 ## References
 
-- See `references/portal-verification-patterns.md` for portal-specific extraction, authenticated-browser, and anti-bot lessons.
-- See `references/mexico-portal-discovery-and-verification.md` for Propiedades.com, EasyBroker/Pincali deduplication, text-mirror fallback, exact requirements extraction, and precise availability labels.
+- See `references/portal-verification-patterns.md` for portal-specific extraction, authenticated-browser, anti-bot lessons, and MercadoLibre Inmuebles as a non-Cloudflare alternative.
+- See `references/mexico-portal-discovery-and-verification.md` for Propiedades.com, EasyBroker/Pincali deduplication, text-mirror fallback status, exact requirements extraction, and precise availability labels.
+- See `references/cdp-browser-extraction.md` for the reusable CDP page-reader script (Python stdlib only) used to extract listing content from VPS Chrome when Cloudflare blocks all other access methods.

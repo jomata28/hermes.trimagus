@@ -17,6 +17,8 @@ category: productivity
 - `references/cdn-bypass-gmail-fallback.md` — Gmail-as-fallback pattern and Angular production build analysis
 - `references/cdn-blocked-api-request-patterns.md` — Request patterns that work vs. those that don't when facing Akamai/Cloudflare, including x-api-key capture methods and JS bundle analysis
 - `references/human-login-authenticated-extraction.md` — human login through the VPS browser, persistent-profile/CDP handoff, geographic search pitfalls, and listing-level verification
+- `references/user-owned-mobile-egress.md` — Android reverse SSH tunnel for residential IP egress when datacenter IPs are WAF-blocked
+- `references/reader-proxy-and-search-engine-diagnosis.md` — r.jina.ai reader proxy as diagnostic tier, search-engine accessibility from datacenter IPs, Bing `site:` operator pitfall
 
 ## Approach (ordered by effort)
 
@@ -24,6 +26,26 @@ category: productivity
 1. **Check Gmail** for confirmation/transaction emails (may contain same data as API)
 2. **Download JS bundles** from the target site — search for URL patterns, API keys, feature flags
 3. **Analyze the page DOM** for Angular components, ng-version, data attributes
+
+### Tier 1b — Reader-proxy diagnosis (no automated requests to target)
+
+When direct browser and curl both fail (403/401/ERR_HTTP2_PROTOCOL_ERROR), use a third-party reader proxy to fetch the target page from a different egress IP. The most reliable is `r.jina.ai`:
+
+```bash
+curl -s --max-time 30 -A "Mozilla/5.0" \
+  "https://r.jina.ai/https://target-site.com/path" \
+  -o /tmp/jina_result.txt
+```
+
+**What jina.ai can do:**
+- Return 200 and rendered text for sites that return connection errors or JS challenges to the VPS directly (e.g., Propiedades.com returns a JS challenge page that at least confirms the site structure).
+- Fetch search-engine result pages (Bing works) when you need to discover indexed URLs from a datacenter IP that Google/DuckDuckGo would CAPTCHA.
+
+**What jina.ai cannot do:**
+- Bypass CloudFront/Cloudflare WAF blocks that are IP-reputation-based. Lamudi (CloudFront) returns `401 Unauthorized` even through jina.ai because jina's egress is also a datacenter IP.
+- Execute JavaScript challenges. A site that serves a JS challenge page will return that challenge HTML, not the rendered content.
+
+**Decision rule:** If jina.ai returns the actual page content → use it as a reading fallback (still secondary evidence). If it returns a challenge page or 401/403 → the block is IP-reputation-based and only a residential/mobile egress (Tier 5 mobile proxy) will work. See `references/reader-proxy-and-search-engine-diagnosis.md` for full details.
 
 ### Tier 2 — Manual browser console (user pastes JS)
 1. Guide the user to open DevTools → Network tab on the target page
@@ -57,6 +79,55 @@ Direct HTTP may return 403/429 while the same public page renders normally in a 
 When all automated approaches fail (server-side rule gates, strict CDN policies):
 - Recommend the user calls customer service for actions the API blocks
 - Document what was found for future sessions (API key, endpoints, data shapes)
+
+## CDP (Chrome DevTools Protocol) for reading page state
+
+When `vision_analyze` is unavailable (503) or you need to read DOM/localStorage programmatically, launch Chrome with `--remote-debugging-port=9222` and query it via CDP. This is more reliable than `xdotool` console injection.
+
+### Launch with CDP enabled
+```bash
+su - jt -c 'export DISPLAY=:99 && google-chrome-stable \
+  --display=:99 --disable-gpu --no-first-run --start-maximized \
+  --remote-debugging-port=9222 --remote-debugging-address=127.0.0.1 \
+  --proxy-server="http://127.0.0.1:8888" \
+  --user-data-dir="/home/jt/.config/google-chrome-viva" \
+  "https://www.target.com/profile"'
+```
+
+### Query page content via CDP (Python stdlib only — no websocket lib needed)
+Write a script to `/tmp/cdp_query.py` that:
+1. Fetches `http://127.0.0.1:9222/json/list` to find the tab's `webSocketDebuggerUrl`
+2. Opens a raw TCP websocket connection (stdlib `socket` + manual handshake)
+3. Sends `Runtime.evaluate` with a JS expression like:
+   ```javascript
+   JSON.stringify({
+     hasToken: !!localStorage.getItem("viva-user-token"),
+     url: window.location.href,
+     bodyText: document.body.innerText.substring(0, 2000)
+   })
+   ```
+4. Reads and parses the masked websocket frame response
+
+This avoids installing `websocket-client` (which may fail due to PEP 668 / venv isolation). The raw socket approach works with Python stdlib only.
+
+### CDP navigation pitfall: use `window.location.href`, not `Page.navigate`
+On some sites (MercadoLibre Inmuebles confirmed), sending `Page.navigate` over a raw CDP websocket
+**silently fails** — the command returns success but the URL never changes and the old page stays.
+Instead, navigate via `Runtime.evaluate`:
+```python
+cdp_eval(ws_url, "window.location.href = 'https://target.com/path'", timeout=10)
+time.sleep(8)
+cur = cdp_eval(ws_url, 'JSON.stringify({url: window.location.href, title: document.title})')
+```
+Always re-read `window.location.href` after navigating and confirm the title changed before extracting;
+do not assume the navigation landed.
+
+### CDP vs other approaches
+| Method | Reliability | Limitations |
+|--------|-------------|-------------|
+| `vision_analyze` screenshot | Medium | Fails when vision model is 503 |
+| `xdotool` console injection | Low | Unreliable keystroke timing, devtools may not open |
+| CDP `Runtime.evaluate` | **High** | Requires `--remote-debugging-port` at launch |
 
 ## API Call Patterns That Work
 
