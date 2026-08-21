@@ -1,6 +1,6 @@
 model:
-  default: deepseek/deepseek-v4-flash-0731
-  provider: custom:orcarouter
+  default: gpt-5.6-luna
+  provider: openai-codex
 providers:
   antigravity:
     name: Google Antigravity (agy)

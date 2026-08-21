@@ -49,6 +49,12 @@ When the user says “como dijimos,” “amplía la zona,” or otherwise conti
 6. For authenticated Marketplace searches, set the **map center/radius around the real destination** before trusting keyword results. A city-center radius can silently exclude the target neighborhood while returning irrelevant citywide matches.
 7. Run separate neighborhood queries rather than one long phrase; collect item URLs, deduplicate, then inspect descriptions individually.
 
+### Mid-search filter changes
+
+When the user changes occupancy or budget mid-search, update only the explicitly changed filters. Do **not** infer a new bedroom count from the number of occupants: “2 people” may still mean a 3-bedroom home, or it may mean the user now wants 2 bedrooms. Ask one concise clarification when bedroom count materially changes the candidate set; otherwise preserve the prior bedroom requirement. Recompute the total-cost ceiling immediately, including maintenance and mandatory fees, and exclude candidates over the new ceiling rather than presenting them as matches.
+
+When the user says “search all platforms” and offers access, begin public discovery immediately while preparing the authenticated path. If a portal returns Cloudflare/CAPTCHA, do not claim the inventory was reviewed. Use the persistent noVNC desktop and ask the user to complete the human challenge or login privately; never request or handle their website password/2FA in chat. After they say it is complete, verify the actual visible browser page and authenticated state before extracting listing-level data.
+
 ## Verification rules
 
 For every candidate, verify:

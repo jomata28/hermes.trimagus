@@ -11,6 +11,17 @@ A daily note can mention an episode that has **not** yet been processed, for exa
 
 A naive full-text search for title or URL can falsely mark that episode as already processed. This happened with `DIP Ep 654`: it appeared only as a tomorrow-preview inside the `DIP Ep 655` note, so broad content matching initially selected the older `DIP Ep 653` instead.
 
+## Title word-variant / slug-variant trap (2026-08-17)
+
+The same episode can also appear on the live site under a **different title word or URL slug** than the note that already processed it:
+
+- Processed note: `2026-08-11-DIP-Ep-663-Localize-That-Oxygen.md` (video-only YouTube page at `/2026/08/10/dip-ep-663-localize-that-oxygen`)
+- New live post: `DIP Ep 663: Localize The Oxygen` with MP3 at `/2026/08/15/dip-ep-663-localize-the-oxygen`
+
+The site re-posted the episode with an MP3 a few days later, swapping "That" → "The" and the slug. The helper's normalized-title substring match failed (`the` vs `that`), so it treated a fully-processed episode as new and created a degraded placeholder duplicate. It was only caught by verifying the episode **number**.
+
+**Rule:** when matching processed notes, do not rely on the full normalized title. Also extract the episode number (`DIP Ep N` / `Episode N` / `Ep. N`) from the candidate title and match it against existing note stems/frontmatter (`\bep[\s.\-]*N\b` on the normalized stem). Episode numbers are unique; title words are not. `process_latest_episode.py` now does this in `processed_by_note()` via `EP_NUM_RE`.
+
 ## Strong evidence that an episode is processed
 
 Count a note as processing a candidate only if the candidate title or URL appears in one of these locations:

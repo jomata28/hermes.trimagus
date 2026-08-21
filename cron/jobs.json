@@ -18,15 +18,15 @@
       "schedule_display": "55 13 * * *",
       "repeat": {
         "times": null,
-        "completed": 125
+        "completed": 129
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-13T21:12:49.081621+00:00",
-      "next_run_at": "2026-08-17T13:55:00+00:00",
-      "last_run_at": "2026-08-16T13:55:23.224612+00:00",
+      "next_run_at": "2026-08-21T13:55:00+00:00",
+      "last_run_at": "2026-08-20T13:55:43.823787+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "origin",
@@ -94,17 +94,17 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 123
+        "completed": 127
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-15T21:39:46.829937+00:00",
-      "next_run_at": "2026-08-17T07:00:00+00:00",
-      "last_run_at": "2026-08-16T07:03:26.891689+00:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-08-21T07:00:00+00:00",
+      "last_run_at": "2026-08-20T07:01:15.234331+00:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.",
       "deliver": "telegram",
       "origin": {
         "platform": "telegram",
@@ -175,17 +175,17 @@
       "schedule_display": "0 3 * * *",
       "repeat": {
         "times": null,
-        "completed": 100
+        "completed": 104
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-08T18:09:30.722153+00:00",
-      "next_run_at": "2026-08-18T03:00:00+00:00",
-      "last_run_at": "2026-08-16T03:00:53.091939+00:00",
+      "next_run_at": "2026-08-22T03:00:00+00:00",
+      "last_run_at": "2026-08-20T03:02:10.660998+00:00",
       "last_status": "error",
-      "last_error": "RuntimeError: HTTP 402: This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 8320. To increase, visit https://openrouter.ai/settings/credits and add more credits",
+      "last_error": "RuntimeError: HTTP 429: Resource has been exhausted (e.g. check quota).",
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -213,17 +213,17 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 83
+        "completed": 87
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-25T19:56:44.909253+00:00",
-      "next_run_at": "2026-08-17T07:00:00+00:00",
-      "last_run_at": "2026-08-16T07:02:31.870038+00:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-08-21T07:00:00+00:00",
+      "last_run_at": "2026-08-20T07:00:55.578229+00:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: HTTP 429: Resource has been exhausted (e.g. check quota).",
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": {
@@ -305,17 +305,17 @@
       "schedule_display": "30 22 * * *",
       "repeat": {
         "times": null,
-        "completed": 45
+        "completed": 49
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-04T15:26:33.125064+00:00",
-      "next_run_at": "2026-08-17T22:30:00+00:00",
-      "last_run_at": "2026-08-16T22:30:47.472411+00:00",
-      "last_status": "error",
-      "last_error": "RuntimeError: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.",
+      "next_run_at": "2026-08-21T22:30:00+00:00",
+      "last_run_at": "2026-08-20T22:30:35.967745+00:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "telegram:1585113960",
       "origin": null,
@@ -346,15 +346,15 @@
       "schedule_display": "every 5m",
       "repeat": {
         "times": null,
-        "completed": 2928
+        "completed": 3887
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-04T21:26:20.949312+00:00",
-      "next_run_at": "2026-08-17T03:09:46.681169+00:00",
-      "last_run_at": "2026-08-17T03:04:46.681169+00:00",
+      "next_run_at": "2026-08-21T03:07:37.197774+00:00",
+      "last_run_at": "2026-08-21T03:02:37.197774+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -392,15 +392,15 @@
       "schedule_display": "0 3,15,22 * * *",
       "repeat": {
         "times": null,
-        "completed": 32
+        "completed": 43
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-06T02:45:24.849337+00:00",
-      "next_run_at": "2026-08-17T15:00:00+00:00",
-      "last_run_at": "2026-08-17T03:04:18.215384+00:00",
+      "next_run_at": "2026-08-21T15:00:00+00:00",
+      "last_run_at": "2026-08-20T22:04:59.071540+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -438,15 +438,15 @@
       "schedule_display": "every 30m",
       "repeat": {
         "times": null,
-        "completed": 200
+        "completed": 376
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-12T13:59:29.354401+00:00",
-      "next_run_at": "2026-08-17T03:15:13.451502+00:00",
-      "last_run_at": "2026-08-17T02:45:13.451502+00:00",
+      "next_run_at": "2026-08-21T03:11:07.435841+00:00",
+      "last_run_at": "2026-08-21T02:41:07.435841+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -486,17 +486,17 @@
       "schedule_display": "0 16 * * *",
       "repeat": {
         "times": 14,
-        "completed": 5
+        "completed": 9
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-12T15:00:55.145875+00:00",
-      "next_run_at": "2026-08-17T16:00:00+00:00",
-      "last_run_at": "2026-08-16T16:01:12.789561+00:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-08-21T16:00:00+00:00",
+      "last_run_at": "2026-08-20T16:00:33.688420+00:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: Skipped to prevent unintended spend: global inference config drifted since this job was created (model 'gpt-5.6-sol' -> 'gpt-5.6-luna'), and this job is unpinned. No inference call was made. To run on the new config, pin it explicitly: `cronjob action=update job_id=57bc8332e34c provider=<provider> model=<model>` (or pin the original values to keep them). See #44585.",
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": {
@@ -511,54 +511,6 @@
       ],
       "workdir": null,
       "fire_claim": null
-    },
-    {
-      "id": "88eb490af507",
-      "name": "Auditar predictor sombra Viva",
-      "prompt": "Audita una semana del predictor sombra de cancelaciones Viva. Lee /root/.hermes/viva_operational_status/observations.jsonl y /root/.hermes/viva_operational_status/risk_predictions.jsonl. Empareja cada predicci\u00f3n pre-salida por flight_number+origin+destination+scheduled_departure_utc con su desenlace posterior: cancelled si aparece canceled=true/Cancelled; operated si aparece has_departed_gate=true, has_departed_runway=true, status_code A/L o status Departed/Arrived. Excluye predicciones level confirmed/operating y cualquier predicci\u00f3n hecha despu\u00e9s del desenlace. Reporta muestra total, cancelaciones, precision y recall de score>=60 y score>=30, falsos positivos, falsos negativos y anticipaci\u00f3n mediana. NO inventes m\u00e9tricas si faltan datos. Solo recomienda activar alertas predictivas si hay al menos 20 cancelaciones etiquetadas y precision >=70% en score>=60; de lo contrario indica que debe continuar en modo sombra. No compres, reserves ni modifiques vuelos y no programes otros cron jobs.",
-      "skills": [],
-      "skill": null,
-      "model": null,
-      "provider": null,
-      "provider_snapshot": "openai-codex",
-      "model_snapshot": "gpt-5.6-sol",
-      "base_url": null,
-      "script": null,
-      "no_agent": false,
-      "context_from": null,
-      "schedule": {
-        "kind": "once",
-        "run_at": "2026-08-20T15:00:00+00:00",
-        "display": "once at 2026-08-20 15:00"
-      },
-      "schedule_display": "once at 2026-08-20 15:00",
-      "repeat": {
-        "times": 1,
-        "completed": 0
-      },
-      "enabled": true,
-      "state": "scheduled",
-      "paused_at": null,
-      "paused_reason": null,
-      "created_at": "2026-08-13T14:54:02.856860+00:00",
-      "next_run_at": "2026-08-20T15:00:00+00:00",
-      "last_run_at": null,
-      "last_status": null,
-      "last_error": null,
-      "last_delivery_error": null,
-      "deliver": "origin",
-      "origin": {
-        "platform": "telegram",
-        "chat_id": "1585113960",
-        "chat_name": "JT .",
-        "thread_id": null,
-        "user_id": "1585113960"
-      },
-      "enabled_toolsets": [
-        "terminal",
-        "file"
-      ],
-      "workdir": null
     },
     {
       "id": "6b470137380c",
@@ -582,17 +534,17 @@
       "schedule_display": "0 14 * * *",
       "repeat": {
         "times": null,
-        "completed": 3
+        "completed": 7
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-13T20:44:12.374955+00:00",
-      "next_run_at": "2026-08-17T14:00:00+00:00",
-      "last_run_at": "2026-08-16T14:00:03.628360+00:00",
+      "next_run_at": "2026-08-21T14:00:00+00:00",
+      "last_run_at": "2026-08-20T14:00:32.112967+00:00",
       "last_status": "error",
-      "last_error": "RuntimeError: Skipped to prevent unintended spend: global inference config drifted since this job was created (provider 'openai-codex' -> 'custom'; model 'gpt-5.6-sol' -> 'z-ai/glm-5.2'), and this job is unpinned. No inference call was made. To run on the new config, pin it explicitly: `cronjob action=update job_id=6b470137380c provider=<provider> model=<model>` (or pin the original values to keep them). See #44585.",
+      "last_error": "RuntimeError: Skipped to prevent unintended spend: global inference config drifted since this job was created (model 'gpt-5.6-sol' -> 'gpt-5.6-luna'), and this job is unpinned. No inference call was made. To run on the new config, pin it explicitly: `cronjob action=update job_id=6b470137380c provider=<provider> model=<model>` (or pin the original values to keep them). See #44585.",
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": {
@@ -611,5 +563,5 @@
       "fire_claim": null
     }
   ],
-  "updated_at": "2026-08-17T03:04:46.681427+00:00"
+  "updated_at": "2026-08-21T03:02:37.200848+00:00"
 }

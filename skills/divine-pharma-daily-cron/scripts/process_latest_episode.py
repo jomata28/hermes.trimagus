@@ -80,13 +80,24 @@ def run(cmd: list[str], **kwargs) -> subprocess.CompletedProcess[str]:
     return subprocess.run(cmd, text=True, capture_output=True, **kwargs)
 
 
+EP_NUM_RE = re.compile(r"(?:dip\s*ep|episode|ep)\s*\.?\s*(\d+)", re.I)
+
+
 def processed_by_note(title: str, url: str) -> tuple[bool, str]:
     title_n = norm(title)
     url = (url or "").rstrip("/")
+    ep_match = EP_NUM_RE.search(title or "")
+    ep_num = ep_match.group(1) if ep_match else ""
     for note_path in DAILY.glob("*.md"):
         text = note_path.read_text(errors="ignore")
         if title_n and title_n in norm(note_path.stem):
             return True, str(note_path)
+        # Episode-number match catches title word-variant traps (e.g. "Localize
+        # The Oxygen" vs "Localize That Oxygen") when both refer to the same DIP Ep N.
+        if ep_num:
+            stem_n = norm(note_path.stem)
+            if re.search(rf"\bep[\s.\-]*{re.escape(ep_num)}\b", stem_n):
+                return True, str(note_path)
         rest = text
         if text.startswith("---"):
             parts = text.split("---", 2)

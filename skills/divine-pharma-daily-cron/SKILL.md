@@ -1,7 +1,7 @@
 ---
 name: divine-pharma-daily-cron
 description: Daily Divine Intervention Pharmacology podcast processing - fetches latest episode, transcribes, extracts insights, creates Obsidian notes
-version: 1.1.0
+version: 1.1.1
 author: Hermes Agent
 category: productivity
 ---
@@ -132,4 +132,5 @@ This skill is designed to be run via Hermes cron job:
 
 ### Existing note multiplicity
 - The same episode may have multiple notes across different dates (e.g., `2026-05-26-Episode-8-Heme-Drugs.md` and `2026-05-08-Heme-Drugs.md`). When a new Notion entry matches a previously-processed episode, check the most recent note for that title and only create a new note if the prior one was incomplete or needs a fresh pass.
+- **Match by episode number, not full title.** The site can re-post the same episode under a different title word or slug (e.g. `DIP Ep 663: Localize The Oxygen` re-posted days after `Localize That Oxygen` was already processed, with a different URL). `process_latest_episode.py` extracts `DIP Ep N` and checks existing note stems for the same N — keep that logic intact; never rely on normalized-title substring equality alone.
 - **Do not treat preview/log mentions as processed evidence.** Prior daily notes often include lines like `Tomorrow’s first unprocessed candidate appears to be DIP Ep 654...` or processing logs listing skipped candidates. When checking whether a live-site candidate is already processed, only count strong evidence: frontmatter `podcast_title`/`podcast`/`episode_url`/`link`, the main `#` title, `Source: [Episode page](exact URL)`, or exact episode URL in the primary episode metadata. Ignore `Evening Review Preview`, `Processing Log`, and generic body mentions unless corroborated by metadata. A prior run almost skipped `DIP Ep 654` because it appeared only as a tomorrow-preview in the `DIP Ep 655` note.
