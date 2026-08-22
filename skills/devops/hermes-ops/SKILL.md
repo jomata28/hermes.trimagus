@@ -65,18 +65,19 @@ A cron job backs up `~/.hermes` to `git@github.com:jomata28/hermes.trimagus.git`
    - `memory_store.db` → `memory_store.db` (also copy as `memory.db` for backward compat)
    - `skills/` → `skills/` (use `rsync -a --delete` for clean sync)
 3. **Redact secrets** before committing — GitHub Push Protection blocks any push containing real API keys/tokens.
-   - `.env`: replace all active (uncommented) key values with `REDACTED_IN_BACKUP`
-   - `config.yaml`: replace `github.token` value with `REDACTED_IN_BACKUP`
+   - `.env`: replace all active (uncommented) key values with a stable placeholder such as `__REDACTED_FOR_GITHUB_BACKUP__`
+   - `config.yaml`: replace `github.token` and other secret-bearing scalar values with the same explicit single-line placeholder
+   - Run a whole-repository literal token scan afterward; copied skills/docs can contain example tokens too.
 4. **Commit** with timestamp: `git add -A && git commit -m "Automated ~/.hermes backup: $(date -u +%Y-%m-%dT%H:%M:%SZ)"`
-5. **Push**: `git push origin main`
-6. **Verify**: `git log --oneline -3` should show the new commit.
+5. **Push**: `git push origin main`. If HTTPS push returns 403 even though `gh auth status` is valid, verify SSH with `ssh -o BatchMode=yes -T git@github.com`; GitHub commonly exits 1 while still printing successful authentication. Temporarily switch `origin` to `git@github.com:jomata28/hermes.trimagus.git`, push, then restore the canonical HTTPS URL **before the shell exits** and verify it afterward.
+6. **Verify** all three references: `git fetch origin main`, `git rev-parse HEAD`, `git rev-parse origin/main`, and `git ls-remote origin refs/heads/main` must match; then run `git show --check HEAD` and confirm `git status --short --branch` is clean.
 
 ### Pitfalls
 
 - **Cron-mode security bypass**: `cp`/`install` of config/env files in the repo triggers security approval scans that block in cron mode (no user to approve). Use `write_file` tool (preferred — cleanest bypass) or `bash -c 'cat src > dst'` (shell redirect not flagged) instead of `cp`.
 - **GitHub Push Protection**: `.env` and `config.yaml` contain real API keys (OpenRouter, Telegram, Groq, Notion, Kimi, Moonshot, GitHub PAT). These MUST be redacted before every commit or the push is rejected. The previous backup contents already use `REDACTED_IN_BACKUP` as the redaction value — match it.
 - **No `memory.db` in source**: `~/.hermes` has `memory_store.db` (460K), not `memory.db`. The backup creates both names for backward compatibility with the existing repo structure.
-- **Auth is SSH, not token**: The remote uses `git@github.com:jomata28/hermes.trimagus.git` — SSH keys are configured. `GITHUB_TOKEN` env var is empty.
+- **Auth fallback**: Prefer `GITHUB_TOKEN` when it is actually present, but do not assume it exists in cron. If absent, test the configured credential path with `gh auth status`; if HTTPS git push is rejected with 403, use the already-configured SSH key as described above. Do not reconstruct `GITHUB_TOKEN` from `gh auth token` inside a cron command.
 - **Skills dir**: `rsync -a --delete` ensures deleted skills are removed from the backup. The gitignore excludes `skills/.curator_backups/` but not the skills themselves.
 
 ## Security rules

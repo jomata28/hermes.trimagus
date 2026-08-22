@@ -66,3 +66,25 @@ Also grep the staged files for live token patterns before pushing
 (`sk-or-v1-`, `gsk_`, `ntn_`, `AAGro`, `github_pat_`) and confirm only
 comment-example matches remain. Verify push with `git log -1` + `git ls-remote
 origin refs/heads/main` showing the same SHA.
+
+## Updated run: 2026-08-21
+
+- A clean clone at `/root/backups/hermes.trimagus` was preferable to an
+  abandoned `/tmp` clone that was both ahead and behind `origin/main`; pull the
+  synchronized clone first rather than merging stale local backup history.
+- The live source had `memory_store.db` but not `memory.db`; use SQLite `.backup`
+  when available, then write snapshots to both repository names.
+- `GITHUB_TOKEN` was absent from the cron environment. `gh auth status` and SSH
+  authentication were still available, but HTTPS `git push` returned 403. Treat
+  that as an auth-path mismatch, not proof that the repository is unwritable;
+  switch `origin` temporarily to SSH, push, then restore the canonical URL.
+- GitHub Push Protection rejected the first commit (GH013) and identified
+  OpenRouter, Groq, Notion, and GitHub PAT values. Run the repository-copy
+  redactor on `.env` and `config.yaml`, then a whole-repository literal scan
+  because copied skills/docs can contain token-shaped examples. Do not mutate
+  live `~/.hermes` files.
+- The final verification must happen after the push: `git fetch origin main`,
+  compare `git rev-parse HEAD`, `git rev-parse origin/main`, and
+  `git ls-remote origin refs/heads/main`, then confirm `git show --check HEAD`
+  and a clean status. If using an EXIT trap to restore `origin`, verify the
+  restored URL in a separate command after the trap has actually run.
