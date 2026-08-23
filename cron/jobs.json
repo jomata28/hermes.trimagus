@@ -18,15 +18,15 @@
       "schedule_display": "55 13 * * *",
       "repeat": {
         "times": null,
-        "completed": 130
+        "completed": 131
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-13T21:12:49.081621+00:00",
-      "next_run_at": "2026-08-22T13:55:00+00:00",
-      "last_run_at": "2026-08-21T13:56:32.009715+00:00",
+      "next_run_at": "2026-08-23T13:55:00+00:00",
+      "last_run_at": "2026-08-22T13:55:21.736410+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "origin",
@@ -94,15 +94,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 128
+        "completed": 129
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-15T21:39:46.829937+00:00",
-      "next_run_at": "2026-08-22T07:00:00+00:00",
-      "last_run_at": "2026-08-21T07:02:52.893527+00:00",
+      "next_run_at": "2026-08-23T07:00:00+00:00",
+      "last_run_at": "2026-08-22T07:01:12.423109+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "telegram",
@@ -175,15 +175,15 @@
       "schedule_display": "0 3 * * *",
       "repeat": {
         "times": null,
-        "completed": 105
+        "completed": 106
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-08T18:09:30.722153+00:00",
-      "next_run_at": "2026-08-23T03:00:00+00:00",
-      "last_run_at": "2026-08-21T03:07:32.396522+00:00",
+      "next_run_at": "2026-08-24T03:00:00+00:00",
+      "last_run_at": "2026-08-22T03:02:50.208862+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -213,15 +213,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 88
+        "completed": 89
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-25T19:56:44.909253+00:00",
-      "next_run_at": "2026-08-22T07:00:00+00:00",
-      "last_run_at": "2026-08-21T07:06:29.394235+00:00",
+      "next_run_at": "2026-08-23T07:00:00+00:00",
+      "last_run_at": "2026-08-22T07:02:14.047995+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -305,15 +305,15 @@
       "schedule_display": "30 22 * * *",
       "repeat": {
         "times": null,
-        "completed": 50
+        "completed": 51
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-04T15:26:33.125064+00:00",
-      "next_run_at": "2026-08-22T22:30:00+00:00",
-      "last_run_at": "2026-08-21T22:31:12.617067+00:00",
+      "next_run_at": "2026-08-23T22:30:00+00:00",
+      "last_run_at": "2026-08-22T22:30:35.034508+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -346,15 +346,15 @@
       "schedule_display": "every 5m",
       "repeat": {
         "times": null,
-        "completed": 4126
+        "completed": 4365
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-04T21:26:20.949312+00:00",
-      "next_run_at": "2026-08-22T03:06:32.920064+00:00",
-      "last_run_at": "2026-08-22T03:01:32.920064+00:00",
+      "next_run_at": "2026-08-23T03:00:57.324157+00:00",
+      "last_run_at": "2026-08-23T02:55:57.324157+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -392,15 +392,15 @@
       "schedule_display": "0 3,15,22 * * *",
       "repeat": {
         "times": null,
-        "completed": 46
+        "completed": 49
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-06T02:45:24.849337+00:00",
-      "next_run_at": "2026-08-22T15:00:00+00:00",
-      "last_run_at": "2026-08-21T22:05:26.728873+00:00",
+      "next_run_at": "2026-08-23T15:00:00+00:00",
+      "last_run_at": "2026-08-22T22:04:36.650110+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -438,15 +438,15 @@
       "schedule_display": "every 30m",
       "repeat": {
         "times": null,
-        "completed": 421
+        "completed": 465
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-12T13:59:29.354401+00:00",
-      "next_run_at": "2026-08-22T03:30:28.464473+00:00",
-      "last_run_at": "2026-08-22T03:00:28.464473+00:00",
+      "next_run_at": "2026-08-23T03:13:07.671704+00:00",
+      "last_run_at": "2026-08-23T02:43:07.671704+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -486,15 +486,15 @@
       "schedule_display": "0 16 * * *",
       "repeat": {
         "times": 14,
-        "completed": 10
+        "completed": 11
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-12T15:00:55.145875+00:00",
-      "next_run_at": "2026-08-22T16:00:00+00:00",
-      "last_run_at": "2026-08-21T16:00:44.954214+00:00",
+      "next_run_at": "2026-08-23T16:00:00+00:00",
+      "last_run_at": "2026-08-22T16:00:08.519924+00:00",
       "last_status": "error",
       "last_error": "RuntimeError: Skipped to prevent unintended spend: global inference config drifted since this job was created (model 'gpt-5.6-sol' -> 'gpt-5.6-luna'), and this job is unpinned. No inference call was made. To run on the new config, pin it explicitly: `cronjob action=update job_id=57bc8332e34c provider=<provider> model=<model>` (or pin the original values to keep them). See #44585.",
       "last_delivery_error": null,
@@ -534,15 +534,15 @@
       "schedule_display": "0 14 * * *",
       "repeat": {
         "times": null,
-        "completed": 8
+        "completed": 9
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-13T20:44:12.374955+00:00",
-      "next_run_at": "2026-08-22T14:00:00+00:00",
-      "last_run_at": "2026-08-21T14:00:41.853428+00:00",
+      "next_run_at": "2026-08-23T14:00:00+00:00",
+      "last_run_at": "2026-08-22T14:00:06.740030+00:00",
       "last_status": "error",
       "last_error": "RuntimeError: Skipped to prevent unintended spend: global inference config drifted since this job was created (model 'gpt-5.6-sol' -> 'gpt-5.6-luna'), and this job is unpinned. No inference call was made. To run on the new config, pin it explicitly: `cronjob action=update job_id=6b470137380c provider=<provider> model=<model>` (or pin the original values to keep them). See #44585.",
       "last_delivery_error": null,
@@ -563,5 +563,5 @@
       "fire_claim": null
     }
   ],
-  "updated_at": "2026-08-22T03:01:32.920487+00:00"
+  "updated_at": "2026-08-23T03:00:22.856007+00:00"
 }
