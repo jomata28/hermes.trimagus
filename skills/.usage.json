@@ -160,26 +160,26 @@
     "created_at": "2026-05-25T21:26:45.898522+00:00",
     "created_by": null,
     "last_patched_at": "2026-08-11T13:55:43.041827+00:00",
-    "last_used_at": "2026-08-22T22:30:17.839762+00:00",
-    "last_viewed_at": "2026-08-22T22:30:17.831894+00:00",
+    "last_used_at": "2026-08-24T22:31:00.679029+00:00",
+    "last_viewed_at": "2026-08-24T22:31:00.669543+00:00",
     "patch_count": 11,
     "pinned": false,
     "state": "active",
-    "use_count": 20,
-    "view_count": 20
+    "use_count": 21,
+    "view_count": 21
   },
   "daily-consciousness-practice": {
     "archived_at": null,
     "created_at": "2026-05-26T13:55:18.349510+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-08-23T13:55:35.418378+00:00",
-    "last_viewed_at": "2026-08-23T13:55:35.411681+00:00",
+    "last_used_at": "2026-08-24T13:55:55.301117+00:00",
+    "last_viewed_at": "2026-08-24T13:55:55.294693+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 73,
-    "view_count": 73
+    "use_count": 74,
+    "view_count": 74
   },
   "data-science-workflows": {
     "archived_at": null,
@@ -212,13 +212,13 @@
     "created_at": "2026-05-08T07:00:58.625760+00:00",
     "created_by": null,
     "last_patched_at": "2026-08-17T07:18:26.052484+00:00",
-    "last_used_at": "2026-08-23T07:00:40.549608+00:00",
-    "last_viewed_at": "2026-08-23T07:00:40.532868+00:00",
+    "last_used_at": "2026-08-24T07:00:53.016403+00:00",
+    "last_viewed_at": "2026-08-24T07:00:53.006468+00:00",
     "patch_count": 31,
     "pinned": false,
     "state": "active",
-    "use_count": 280,
-    "view_count": 142
+    "use_count": 285,
+    "view_count": 146
   },
   "divine-pharma-notion-episodes-fetch": {
     "archived_at": null,
@@ -289,14 +289,14 @@
     "archived_at": null,
     "created_at": "2026-06-19T03:02:30.397843+00:00",
     "created_by": null,
-    "last_patched_at": "2026-08-15T03:05:02.855321+00:00",
-    "last_used_at": "2026-08-24T03:00:46.261855+00:00",
-    "last_viewed_at": "2026-08-24T03:00:46.255683+00:00",
-    "patch_count": 24,
+    "last_patched_at": "2026-08-24T03:03:24.214562+00:00",
+    "last_used_at": "2026-08-25T03:00:47.503427+00:00",
+    "last_viewed_at": "2026-08-25T03:00:47.495290+00:00",
+    "patch_count": 25,
     "pinned": false,
     "state": "active",
-    "use_count": 91,
-    "view_count": 91
+    "use_count": 96,
+    "view_count": 96
   },
   "godmode": {
     "archived_at": null,
@@ -355,13 +355,13 @@
     "created_at": "2026-06-05T02:49:50.310912+00:00",
     "created_by": null,
     "last_patched_at": "2026-06-12T02:55:15.569642+00:00",
-    "last_used_at": "2026-08-24T03:00:46.269175+00:00",
-    "last_viewed_at": "2026-08-24T03:00:46.248183+00:00",
+    "last_used_at": "2026-08-25T03:00:09.261004+00:00",
+    "last_viewed_at": "2026-08-25T03:00:09.255466+00:00",
     "patch_count": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 36,
-    "view_count": 36
+    "use_count": 37,
+    "view_count": 37
   },
   "hermes-agent-skill-authoring": {
     "archived_at": null,
@@ -732,12 +732,12 @@
     "created_at": "2026-08-12T16:03:52.122619+00:00",
     "created_by": "agent",
     "last_patched_at": "2026-08-20T20:22:30.993222+00:00",
-    "last_used_at": "2026-08-23T16:00:33.022407+00:00",
+    "last_used_at": "2026-08-24T16:00:51.829573+00:00",
     "last_viewed_at": "2026-08-20T20:22:23.512180+00:00",
     "patch_count": 12,
     "pinned": false,
     "state": "active",
-    "use_count": 28,
+    "use_count": 29,
     "view_count": 20
   },
   "rental-property-research": {
