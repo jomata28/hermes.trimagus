@@ -18,15 +18,15 @@
       "schedule_display": "55 13 * * *",
       "repeat": {
         "times": null,
-        "completed": 135
+        "completed": 136
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-13T21:12:49.081621+00:00",
-      "next_run_at": "2026-08-27T13:55:00+00:00",
-      "last_run_at": "2026-08-26T13:55:45.759576+00:00",
+      "next_run_at": "2026-08-28T13:55:00+00:00",
+      "last_run_at": "2026-08-27T13:55:52.080002+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "origin",
@@ -94,15 +94,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 133
+        "completed": 134
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-15T21:39:46.829937+00:00",
-      "next_run_at": "2026-08-27T07:00:00+00:00",
-      "last_run_at": "2026-08-26T07:00:43.699584+00:00",
+      "next_run_at": "2026-08-28T07:00:00+00:00",
+      "last_run_at": "2026-08-27T07:01:08.894327+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "telegram",
@@ -175,15 +175,15 @@
       "schedule_display": "0 3 * * *",
       "repeat": {
         "times": null,
-        "completed": 110
+        "completed": 111
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-08T18:09:30.722153+00:00",
-      "next_run_at": "2026-08-28T03:00:00+00:00",
-      "last_run_at": "2026-08-26T03:02:27.724897+00:00",
+      "next_run_at": "2026-08-29T03:00:00+00:00",
+      "last_run_at": "2026-08-27T03:02:29.727411+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -213,15 +213,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 93
+        "completed": 94
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-25T19:56:44.909253+00:00",
-      "next_run_at": "2026-08-27T07:00:00+00:00",
-      "last_run_at": "2026-08-26T07:01:44.338489+00:00",
+      "next_run_at": "2026-08-28T07:00:00+00:00",
+      "last_run_at": "2026-08-27T07:01:47.410683+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -305,15 +305,15 @@
       "schedule_display": "30 22 * * *",
       "repeat": {
         "times": null,
-        "completed": 55
+        "completed": 56
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-04T15:26:33.125064+00:00",
-      "next_run_at": "2026-08-27T22:30:00+00:00",
-      "last_run_at": "2026-08-26T22:31:05.948033+00:00",
+      "next_run_at": "2026-08-28T22:30:00+00:00",
+      "last_run_at": "2026-08-27T22:30:56.863004+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -346,15 +346,15 @@
       "schedule_display": "every 5m",
       "repeat": {
         "times": null,
-        "completed": 5325
+        "completed": 5565
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-04T21:26:20.949312+00:00",
-      "next_run_at": "2026-08-27T03:02:21.657668+00:00",
-      "last_run_at": "2026-08-27T02:57:21.657668+00:00",
+      "next_run_at": "2026-08-28T03:02:18.584529+00:00",
+      "last_run_at": "2026-08-28T02:57:18.584529+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -392,15 +392,15 @@
       "schedule_display": "0 3,15,22 * * *",
       "repeat": {
         "times": null,
-        "completed": 61
+        "completed": 64
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-06T02:45:24.849337+00:00",
-      "next_run_at": "2026-08-27T15:00:00+00:00",
-      "last_run_at": "2026-08-26T22:04:48.955494+00:00",
+      "next_run_at": "2026-08-28T15:00:00+00:00",
+      "last_run_at": "2026-08-27T22:04:44.954498+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -438,15 +438,15 @@
       "schedule_display": "every 30m",
       "repeat": {
         "times": null,
-        "completed": 645
+        "completed": 689
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-12T13:59:29.354401+00:00",
-      "next_run_at": "2026-08-27T03:31:19.515272+00:00",
-      "last_run_at": "2026-08-27T03:01:19.515272+00:00",
+      "next_run_at": "2026-08-28T03:05:26.356084+00:00",
+      "last_run_at": "2026-08-28T02:35:26.356084+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -484,15 +484,15 @@
       "schedule_display": "0 14 * * *",
       "repeat": {
         "times": null,
-        "completed": 13
+        "completed": 14
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-13T20:44:12.374955+00:00",
-      "next_run_at": "2026-08-27T14:00:00+00:00",
-      "last_run_at": "2026-08-26T14:00:33.571963+00:00",
+      "next_run_at": "2026-08-28T14:00:00+00:00",
+      "last_run_at": "2026-08-27T14:00:36.569556+00:00",
       "last_status": "error",
       "last_error": "RuntimeError: Skipped to prevent unintended spend: global inference config drifted since this job was created (model 'gpt-5.6-sol' -> 'gpt-5.6-luna'), and this job is unpinned. No inference call was made. To run on the new config, pin it explicitly: `cronjob action=update job_id=6b470137380c provider=<provider> model=<model>` (or pin the original values to keep them). See #44585.",
       "last_delivery_error": null,
@@ -513,5 +513,5 @@
       "fire_claim": null
     }
   ],
-  "updated_at": "2026-08-27T03:01:19.515551+00:00"
+  "updated_at": "2026-08-28T03:00:46.666088+00:00"
 }
