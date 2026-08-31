@@ -45,6 +45,17 @@ unresolved = Unknown + blocked + parse failure + date mismatch + future
 
 Cross-source browser work later resolved a subset as operated/cancelled while leaving the remainder Unknown. The durable lesson is denominator discipline, not the session-specific counts.
 
+### Hub-comparison and observation-stream audit
+
+A later audit illustrated two different datasets that must not be mixed:
+
+- The clean retrospective cohort contained 87 resolved events, 83 operated and 4 cancelled. It was heavily concentrated at MTY, with 80 of 87 resolved departures from that origin, so it could not establish that MTY cancels more than other hubs.
+- The live observation stream contained 5,174 unique scheduled events but only 51 apparently resolved under a naive final-status parser: 36 cancelled and 15 operated. Cancelled statuses were captured much more reliably than normal completed flights, so the resulting “cancellation rate” was invalid. That stream remained useful for identifying cancellation clusters and broken rotations.
+
+In one schedule snapshot, MTY accounted for 1,449 of 6,148 departures over 14 days, while 13 of 36 cancellation events in the biased observation stream originated at MTY. Comparing traffic share with cancellation share suggested a hypothesis, not proof, because the windows and outcome capture differed. A valid hub comparison requires every scheduled departure in the same period to receive an independently verified final outcome.
+
+The event stream also showed operational clustering: 27 of 36 detected cancellations fell within August 15–18, and several outbound-return route pairs were cancelled together. This supports using recent carrier-wide disruption and broken rotations as predictive features, while avoiding claims that a repeated flight number is intrinsically cancellation-prone.
+
 ## Schedule-Trail Finding
 
 For reconstructible cancellations, the published schedule stayed unchanged until roughly 2–3 hours before departure. One example remained normally listed from about 39 hours out through seven hours out, then disappeared near two hours before departure. Therefore:

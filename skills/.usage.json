@@ -173,13 +173,13 @@
     "created_at": "2026-05-26T13:55:18.349510+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-08-29T13:55:23.293826+00:00",
-    "last_viewed_at": "2026-08-29T13:55:23.287936+00:00",
+    "last_used_at": "2026-08-30T13:55:44.208796+00:00",
+    "last_viewed_at": "2026-08-30T13:55:44.202477+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 79,
-    "view_count": 79
+    "use_count": 80,
+    "view_count": 80
   },
   "data-science-workflows": {
     "archived_at": null,
@@ -212,13 +212,13 @@
     "created_at": "2026-05-08T07:00:58.625760+00:00",
     "created_by": null,
     "last_patched_at": "2026-08-17T07:18:26.052484+00:00",
-    "last_used_at": "2026-08-29T07:00:22.932866+00:00",
-    "last_viewed_at": "2026-08-29T07:00:22.920836+00:00",
+    "last_used_at": "2026-08-30T07:00:42.764850+00:00",
+    "last_viewed_at": "2026-08-30T07:00:42.752579+00:00",
     "patch_count": 31,
     "pinned": false,
     "state": "active",
-    "use_count": 312,
-    "view_count": 168
+    "use_count": 317,
+    "view_count": 172
   },
   "divine-pharma-notion-episodes-fetch": {
     "archived_at": null,
@@ -290,13 +290,13 @@
     "created_at": "2026-06-19T03:02:30.397843+00:00",
     "created_by": null,
     "last_patched_at": "2026-08-24T03:03:24.214562+00:00",
-    "last_used_at": "2026-08-30T03:00:36.855911+00:00",
-    "last_viewed_at": "2026-08-30T03:00:36.824830+00:00",
+    "last_used_at": "2026-08-31T03:01:42.051272+00:00",
+    "last_viewed_at": "2026-08-31T03:01:42.018905+00:00",
     "patch_count": 25,
     "pinned": false,
     "state": "active",
-    "use_count": 106,
-    "view_count": 106
+    "use_count": 110,
+    "view_count": 110
   },
   "godmode": {
     "archived_at": null,
@@ -849,13 +849,13 @@
     "created_at": "2026-08-04T19:38:15.710302+00:00",
     "created_by": "agent",
     "last_patched_at": "2026-08-16T05:55:05.488415+00:00",
-    "last_used_at": "2026-08-16T23:25:13.649757+00:00",
-    "last_viewed_at": "2026-08-16T23:25:13.640403+00:00",
+    "last_used_at": "2026-08-30T14:12:00.012352+00:00",
+    "last_viewed_at": "2026-08-30T14:12:00.006357+00:00",
     "patch_count": 30,
     "pinned": false,
     "state": "active",
-    "use_count": 43,
-    "view_count": 43
+    "use_count": 44,
+    "view_count": 44
   },
   "spike": {
     "archived_at": null,
@@ -913,14 +913,14 @@
     "archived_at": null,
     "created_at": "2026-08-14T02:23:20.901704+00:00",
     "created_by": "agent",
-    "last_patched_at": "2026-08-16T01:56:55.428740+00:00",
-    "last_used_at": "2026-08-16T01:56:30.900942+00:00",
-    "last_viewed_at": "2026-08-16T01:56:30.893645+00:00",
-    "patch_count": 8,
+    "last_patched_at": "2026-08-30T14:52:26.103400+00:00",
+    "last_used_at": "2026-08-30T14:52:14.725790+00:00",
+    "last_viewed_at": "2026-08-30T14:52:14.720941+00:00",
+    "patch_count": 10,
     "pinned": false,
     "state": "active",
-    "use_count": 11,
-    "view_count": 11
+    "use_count": 15,
+    "view_count": 15
   },
   "used-car-due-diligence": {
     "archived_at": null,

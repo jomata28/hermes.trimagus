@@ -71,10 +71,24 @@ Treat this as a watchlist. Weather models often miss rapidly developing convecti
 
 - Avoid raw percentages from tiny samples; include denominators and uncertainty intervals.
 - Use balanced or stratified sampling before comparing airports. A dataset concentrated at one hub cannot establish that the hub cancels more.
+- Compare hubs using cancellations divided by resolved departures over the same dates and coverage window. Absolute cancellation counts mostly measure hub traffic volume.
+- Before computing any cancellation rate from a live observation stream, audit outcome capture. If cancelled flights resolve reliably but operated flights remain `Scheduled`/`Unknown` because follow-up stops too early, the apparent rate is unusable. Use that stream for event-pattern discovery only, and use an independently followed clean cohort for rates.
+- Report traffic share versus cancellation share only as an exploratory signal when their denominators differ; never present that mismatch as proof that a hub has an elevated rate.
 - A recent cancellation of the same flight number is a weak signal unless validated against many operated controls.
 - Validate event date and route when a tracker returns “the latest” instance despite date parameters.
 - Distinguish `0 cancelled among resolved` from `0 cancelled overall`.
 - Do not call a heuristic score a probability until calibrated prospectively.
+
+## Three-Day Forecast Product
+
+A T-72 forecast is a ranked watchlist, not a definitive cancellation call. Use staged predictions that gain stronger operational evidence as departure approaches:
+
+1. **T-72:** route/flight baseline with shrinkage, preserved weather forecast vintage, planned airport restrictions, schedule thinning/retimes, and route redundancy. Do not assume tail assignment or crew state is known.
+2. **T-24:** add TAF, airport-wide disruption, recent carrier cancellations, and meaningful estimate changes.
+3. **T-8:** add inbound aircraft/rotation, tail assignment, diversions, stranded aircraft, and accumulating delays.
+4. **T-3:** add explicit IROP messages, persistent schedule disappearance, broken outbound-return pairs, and operational confirmation.
+
+Store every revision as a new timestamped prediction rather than overwriting the T-72 estimate. Evaluate each horizon separately because a strong T-3 detector can hide a useless T-72 model if results are pooled.
 
 ## Source and Access Discipline
 
