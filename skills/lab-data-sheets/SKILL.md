@@ -38,13 +38,17 @@ The token already has the `spreadsheets` scope. No extra auth needed.
 3. `sheets append` to the right tab. Confirm in one line: "Logged echo · m-142 · EF 58 ✅".
 
 ### Frailty entries from Telegram text/voice
+Detailed same-day source reconciliation and two-destination import workflow: `references/frailty-audio-day-reconciliation.md`.
+
 1. Parse bilingual shorthand carefully: alopecia/alopecia, fur color/color de pelo, coat condition/condición del pelaje, loss of whiskers/pérdida de bigotes. "Resto/todo lo demás normal" means unmentioned items are normal, not missing.
-2. If the user asks for a file rather than direct Sheet logging, create a standalone `.xlsx` with:
+2. Distinguish **original audio directly transcribed** from **platform-generated transcript only**. Never say every audio was transcribed until the expected voice-note count is reconciled against original media handles/files.
+3. Stage one provenance-bearing record per observation before import. If duplicate spoken mouse IDs have incompatible scores, preserve both and resolve identity before writing; do not silently map one to a missing sequential ID.
+4. If the user asks for a file rather than direct Sheet logging, create a standalone `.xlsx` with:
    - a detailed item-score sheet (`mouse_id`, date, assessor, individual frailty items, score sum, denominator, provisional index, notes)
    - a `sheet_import_format` tab matching the current Frailty tab columns exactly.
-3. Do not silently resolve ambiguous IDs: flag likely typos in notes (e.g. `18.1062F` vs `18.2062F`) and missing sex suffixes.
-4. When computing a provisional frailty index, state the denominator assumption (e.g. score_sum/31) in the workbook notes unless the user provided the exact denominator.
-5. For bulk all-normal entries like “3-month males 1221–1224, all 0s” or “first five females 1225–1229 all have 0 in every cell,” act without asking if the destination is clearly Frailty/FI. Inspect the live `Frailty` header first. If the tab still has placeholder/summary columns rather than item-by-item FI columns, append normalized rows with `frailty_index = 0`, set available numeric parameter columns to `0`, and put the missing detail in `notes` (e.g. `3-month FI; male/female; all FI parameters scored 0`). Then read back the affected rows to verify.
+5. Do not silently resolve ambiguous IDs: flag likely typos in notes (e.g. `18.1062F` vs `18.2062F`) and missing sex suffixes.
+6. When computing a provisional frailty index, state the denominator assumption (e.g. score_sum/31) in the workbook notes unless the user provided the exact denominator.
+7. For bulk all-normal entries like “3-month males 1221–1224, all 0s” or “first five females 1225–1229 all have 0 in every cell,” act without asking if the destination is clearly Frailty/FI. Inspect the live `Frailty` header first. If the tab still has placeholder/summary columns rather than item-by-item FI columns, append normalized rows with `frailty_index = 0`, set available numeric parameter columns to `0`, and put the missing detail in `notes` (e.g. `3-month FI; male/female; all FI parameters scored 0`). Then read back the affected rows to verify.
 
 ### AR / hanging-test entries from Telegram images
 Detailed batch/correction workflow: `references/ar-stopwatch-batch-workflow.md`.
