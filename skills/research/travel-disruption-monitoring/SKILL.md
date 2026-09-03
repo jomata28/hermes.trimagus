@@ -62,6 +62,7 @@ Treat this as a watchlist. Weather models often miss rapidly developing convecti
 ### 2–8 hours
 
 - Inbound aircraft cancelled, diverted, or stranded
+- Cancelled outbound leg of an aircraft rotation: the paired return flight becomes high-risk before any official status change (observed Viva pattern: round-trip pairs cancel together)
 - Explicit operational irregularity
 - Persistent schedule disappearance
 - No aircraft assignment unusually close to departure
@@ -75,6 +76,7 @@ Treat this as a watchlist. Weather models often miss rapidly developing convecti
 - Before computing any cancellation rate from a live observation stream, audit outcome capture. If cancelled flights resolve reliably but operated flights remain `Scheduled`/`Unknown` because follow-up stops too early, the apparent rate is unusable. Use that stream for event-pattern discovery only, and use an independently followed clean cohort for rates.
 - Report traffic share versus cancellation share only as an exploratory signal when their denominators differ; never present that mismatch as proof that a hub has an elevated rate.
 - A recent cancellation of the same flight number is a weak signal unless validated against many operated controls.
+- Cancellations cluster in operational waves (one Viva window produced 75% of a month's observed cancellations in four days). Same-day hub-correlated events corroborate each other as context, but they are not statistically independent confirmations.
 - Validate event date and route when a tracker returns “the latest” instance despite date parameters.
 - Distinguish `0 cancelled among resolved` from `0 cancelled overall`.
 - Do not call a heuristic score a probability until calibrated prospectively.

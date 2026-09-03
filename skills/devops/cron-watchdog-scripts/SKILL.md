@@ -129,6 +129,12 @@ overwrite each other and destroy the diff baseline. Sort by full filename.
 - **Alert fatigue kills the monitor**: the moment a watchdog spams, the user
   mutes it and the one real alert dies too. Silence is the default; earn
   every message.
+- **Header fingerprints can differ between interactive probes and cron scripts**:
+  if a CDN-backed public endpoint works with a manual `curl` but times out from
+  a watchdog, compare the exact headers. Do not blindly add browser-like
+  headers to curl jobs. Viva `plannedFlights` specifically has hung after TLS
+  when forced to use `User-Agent: Mozilla/5.0`, while curl's default UA returned
+  promptly. Verify the final script path, not only the one-off terminal probe.
 
 ## Validation of disappearance signals
 For airline schedules, inventory feeds, event listings, and similar sources, a disappearance is only a candidate until independently verified. Use `references/disappearance-monitor-validation.md` for paired API/web observations, ground-truth labeling, lead-time metrics, boundary controls, and retime/renumber pitfalls.

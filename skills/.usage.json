@@ -16,14 +16,14 @@
     "archived_at": null,
     "created_at": "2026-07-03T20:54:20.049132+00:00",
     "created_by": null,
-    "last_patched_at": "2026-08-16T00:17:55.823109+00:00",
-    "last_used_at": "2026-08-15T17:49:23.662149+00:00",
-    "last_viewed_at": "2026-08-15T17:49:23.648584+00:00",
-    "patch_count": 25,
+    "last_patched_at": "2026-09-02T22:02:51.718598+00:00",
+    "last_used_at": "2026-09-02T22:02:37.084918+00:00",
+    "last_viewed_at": "2026-09-02T22:02:37.079106+00:00",
+    "patch_count": 29,
     "pinned": false,
     "state": "active",
-    "use_count": 30,
-    "view_count": 30
+    "use_count": 33,
+    "view_count": 33
   },
   "airtable": {
     "archived_at": null,
@@ -37,6 +37,19 @@
     "state": "active",
     "use_count": 0,
     "view_count": 0
+  },
+  "autonomous-ai-agents:hermes-agent": {
+    "archived_at": null,
+    "created_at": "2026-09-03T03:03:51.699985+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_used_at": "2026-09-03T03:03:51.705562+00:00",
+    "last_viewed_at": "2026-09-03T03:03:51.700006+00:00",
+    "patch_count": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 1,
+    "view_count": 1
   },
   "baoyu-infographic": {
     "archived_at": null,
@@ -108,13 +121,13 @@
     "created_at": "2026-07-17T04:09:23.516598+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-08-15T17:10:41.691178+00:00",
-    "last_viewed_at": "2026-08-15T17:10:41.682691+00:00",
+    "last_used_at": "2026-09-02T22:06:10.980724+00:00",
+    "last_viewed_at": "2026-09-02T22:06:10.974185+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 3,
-    "view_count": 3
+    "use_count": 4,
+    "view_count": 4
   },
   "creative-production-workflows": {
     "archived_at": null,
@@ -146,14 +159,14 @@
     "archived_at": null,
     "created_at": "2026-08-06T23:38:15.218469+00:00",
     "created_by": "agent",
-    "last_patched_at": "2026-08-13T16:06:08.325153+00:00",
-    "last_used_at": "2026-08-13T16:05:59.571517+00:00",
-    "last_viewed_at": "2026-08-13T16:05:59.550928+00:00",
-    "patch_count": 13,
+    "last_patched_at": "2026-09-02T23:07:01.371910+00:00",
+    "last_used_at": "2026-09-02T23:29:27.566535+00:00",
+    "last_viewed_at": "2026-09-02T23:29:27.561589+00:00",
+    "patch_count": 14,
     "pinned": false,
     "state": "active",
-    "use_count": 14,
-    "view_count": 14
+    "use_count": 17,
+    "view_count": 17
   },
   "daily-briefing": {
     "archived_at": null,
@@ -173,13 +186,13 @@
     "created_at": "2026-05-26T13:55:18.349510+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-09-01T13:55:35.139675+00:00",
-    "last_viewed_at": "2026-09-01T13:55:35.132768+00:00",
+    "last_used_at": "2026-09-02T13:55:12.810953+00:00",
+    "last_viewed_at": "2026-09-02T13:55:12.806406+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 82,
-    "view_count": 82
+    "use_count": 83,
+    "view_count": 83
   },
   "data-science-workflows": {
     "archived_at": null,
@@ -212,13 +225,13 @@
     "created_at": "2026-05-08T07:00:58.625760+00:00",
     "created_by": null,
     "last_patched_at": "2026-08-17T07:18:26.052484+00:00",
-    "last_used_at": "2026-09-01T07:00:30.779038+00:00",
-    "last_viewed_at": "2026-09-01T07:00:30.774188+00:00",
+    "last_used_at": "2026-09-02T07:01:13.478968+00:00",
+    "last_viewed_at": "2026-09-02T07:01:13.471222+00:00",
     "patch_count": 31,
     "pinned": false,
     "state": "active",
-    "use_count": 321,
-    "view_count": 174
+    "use_count": 323,
+    "view_count": 175
   },
   "divine-pharma-notion-episodes-fetch": {
     "archived_at": null,
@@ -355,13 +368,13 @@
     "created_at": "2026-06-05T02:49:50.310912+00:00",
     "created_by": null,
     "last_patched_at": "2026-06-12T02:55:15.569642+00:00",
-    "last_used_at": "2026-09-02T03:00:47.271070+00:00",
-    "last_viewed_at": "2026-09-02T03:00:47.243963+00:00",
+    "last_used_at": "2026-09-02T21:39:13.801956+00:00",
+    "last_viewed_at": "2026-09-02T21:39:13.797904+00:00",
     "patch_count": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 45,
-    "view_count": 45
+    "use_count": 46,
+    "view_count": 46
   },
   "hermes-agent-skill-authoring": {
     "archived_at": null,
@@ -575,14 +588,14 @@
     "archived_at": null,
     "created_at": "2026-07-08T23:36:16.237930+00:00",
     "created_by": null,
-    "last_patched_at": "2026-08-17T02:24:53.740217+00:00",
-    "last_used_at": "2026-08-17T02:24:23.669363+00:00",
-    "last_viewed_at": "2026-08-17T02:24:23.663339+00:00",
-    "patch_count": 22,
+    "last_patched_at": "2026-09-02T23:07:23.906034+00:00",
+    "last_used_at": "2026-09-02T23:07:06.722211+00:00",
+    "last_viewed_at": "2026-09-02T23:07:06.716711+00:00",
+    "patch_count": 24,
     "pinned": false,
     "state": "active",
-    "use_count": 53,
-    "view_count": 53
+    "use_count": 59,
+    "view_count": 59
   },
   "notebooklm-vault": {
     "archived_at": null,
@@ -718,14 +731,14 @@
     "archived_at": null,
     "created_at": "2026-06-29T22:34:31.391966+00:00",
     "created_by": null,
-    "last_patched_at": "2026-08-28T13:18:17.169994+00:00",
-    "last_used_at": "2026-08-28T13:18:07.376433+00:00",
-    "last_viewed_at": "2026-08-28T13:18:07.369365+00:00",
-    "patch_count": 64,
+    "last_patched_at": "2026-09-02T22:28:29.094436+00:00",
+    "last_used_at": "2026-09-02T22:28:22.676692+00:00",
+    "last_viewed_at": "2026-09-02T22:28:22.670128+00:00",
+    "patch_count": 65,
     "pinned": false,
     "state": "active",
-    "use_count": 94,
-    "view_count": 94
+    "use_count": 96,
+    "view_count": 96
   },
   "rental-housing-search": {
     "archived_at": null,
@@ -848,14 +861,14 @@
     "archived_at": null,
     "created_at": "2026-08-04T19:38:15.710302+00:00",
     "created_by": "agent",
-    "last_patched_at": "2026-08-16T05:55:05.488415+00:00",
-    "last_used_at": "2026-08-30T14:12:00.012352+00:00",
-    "last_viewed_at": "2026-08-30T14:12:00.006357+00:00",
-    "patch_count": 30,
+    "last_patched_at": "2026-09-03T00:08:46.424782+00:00",
+    "last_used_at": "2026-09-03T00:08:24.456034+00:00",
+    "last_viewed_at": "2026-09-03T00:08:24.442899+00:00",
+    "patch_count": 36,
     "pinned": false,
     "state": "active",
-    "use_count": 44,
-    "view_count": 44
+    "use_count": 56,
+    "view_count": 56
   },
   "spike": {
     "archived_at": null,
@@ -913,14 +926,14 @@
     "archived_at": null,
     "created_at": "2026-08-14T02:23:20.901704+00:00",
     "created_by": "agent",
-    "last_patched_at": "2026-08-30T14:52:26.103400+00:00",
-    "last_used_at": "2026-08-30T14:52:14.725790+00:00",
-    "last_viewed_at": "2026-08-30T14:52:14.720941+00:00",
-    "patch_count": 10,
+    "last_patched_at": "2026-09-02T22:28:14.854874+00:00",
+    "last_used_at": "2026-09-02T22:28:06.751315+00:00",
+    "last_viewed_at": "2026-09-02T22:28:06.742800+00:00",
+    "patch_count": 12,
     "pinned": false,
     "state": "active",
-    "use_count": 15,
-    "view_count": 15
+    "use_count": 18,
+    "view_count": 18
   },
   "used-car-due-diligence": {
     "archived_at": null,
@@ -939,14 +952,14 @@
     "archived_at": null,
     "created_at": "2026-07-27T00:32:28.149104+00:00",
     "created_by": "agent",
-    "last_patched_at": "2026-08-17T01:38:30.457358+00:00",
-    "last_used_at": "2026-08-29T19:18:53.080896+00:00",
-    "last_viewed_at": "2026-08-29T19:18:53.076209+00:00",
-    "patch_count": 20,
+    "last_patched_at": "2026-09-02T22:28:03.701530+00:00",
+    "last_used_at": "2026-09-02T22:27:50.000127+00:00",
+    "last_viewed_at": "2026-09-02T22:27:49.994098+00:00",
+    "patch_count": 23,
     "pinned": false,
     "state": "active",
-    "use_count": 28,
-    "view_count": 28
+    "use_count": 34,
+    "view_count": 34
   },
   "webhook-subscriptions": {
     "archived_at": null,

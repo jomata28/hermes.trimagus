@@ -149,6 +149,21 @@ Good for focused coding, debugging, and patch generation. Keep prompts compact a
 
 Good for implementation and PR review workflows. Use it when configured for the user's environment and return verifiable handles or diffs.
 
+When updating OpenCode, verify `command -v`, `opencode --version`, and `type -a` both before and after `opencode upgrade`; multiple unrelated or per-user binaries may coexist, so do not blindly replace every copy. In particular, never repoint a system binary to an executable under another user's home. Discover model IDs from `opencode models` rather than guessing, and run first-contact model tests in an empty temporary directory.
+
+### Cost and provider identity
+
+OpenCode being free/open source does not make every model route free. Inspect the complete model prefix before describing cost:
+
+- `opencode/...-free` — anonymous free catalog.
+- `opencode-go/<model>` — $10/month OpenCode Go subscription allowance.
+- `orcarouter/<model>` or another external prefix — that provider's billing.
+- OpenCode Zen — separate metered credit balance.
+
+Kimi and GLM can be included in OpenCode Go while absent from the anonymous free catalog. A successful `orcarouter/z-ai/glm-*` test proves compatibility but does not test Go or its allowance. For Go authentication, model checks, PTY login behavior, subscription limits, and routing the same plan into Hermes, see `references/opencode-go-subscription.md`.
+
+For generic OpenAI-compatible routers, verify two separate capabilities: (1) plain completion and (2) a real tool-call round trip whose saved transcript proves the tool was invoked. If the same router should become Hermes' backend, configure it directly as a named Hermes provider using `key_env`, test it with explicit `--provider`/`--model` flags, and only then change the default. See `references/opencode-router-and-hermes.md` for the complete procedure.
+
 ## Google Antigravity (`agy`)
 
 Voice transcription may render `agy` as “ARX”, “arx”, “AGI”, or similar. When that wording appears in a conversation about Claude, coding agents, or something installed on the VPS, test the canonical binary before searching unrelated packages:

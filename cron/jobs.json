@@ -18,15 +18,15 @@
       "schedule_display": "55 13 * * *",
       "repeat": {
         "times": null,
-        "completed": 141
+        "completed": 142
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-13T21:12:49.081621+00:00",
-      "next_run_at": "2026-09-02T13:55:00+00:00",
-      "last_run_at": "2026-09-01T13:55:47.438775+00:00",
+      "next_run_at": "2026-09-03T13:55:00+00:00",
+      "last_run_at": "2026-09-02T13:55:23.096280+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "origin",
@@ -94,15 +94,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 139
+        "completed": 140
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-15T21:39:46.829937+00:00",
-      "next_run_at": "2026-09-02T07:00:00+00:00",
-      "last_run_at": "2026-09-01T07:00:40.067219+00:00",
+      "next_run_at": "2026-09-03T07:00:00+00:00",
+      "last_run_at": "2026-09-02T07:01:27.105032+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "telegram",
@@ -175,15 +175,15 @@
       "schedule_display": "0 3 * * *",
       "repeat": {
         "times": null,
-        "completed": 116
+        "completed": 117
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-08T18:09:30.722153+00:00",
-      "next_run_at": "2026-09-03T03:00:00+00:00",
-      "last_run_at": "2026-09-01T03:02:54.664220+00:00",
+      "next_run_at": "2026-09-04T03:00:00+00:00",
+      "last_run_at": "2026-09-02T03:02:52.834759+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -213,15 +213,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 99
+        "completed": 100
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-25T19:56:44.909253+00:00",
-      "next_run_at": "2026-09-02T07:00:00+00:00",
-      "last_run_at": "2026-09-01T07:01:55.878732+00:00",
+      "next_run_at": "2026-09-03T07:00:00+00:00",
+      "last_run_at": "2026-09-02T07:03:18.355285+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -305,15 +305,15 @@
       "schedule_display": "30 22 * * *",
       "repeat": {
         "times": null,
-        "completed": 61
+        "completed": 62
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-04T15:26:33.125064+00:00",
-      "next_run_at": "2026-09-02T22:30:00+00:00",
-      "last_run_at": "2026-09-01T22:31:00.300565+00:00",
+      "next_run_at": "2026-09-03T22:30:00+00:00",
+      "last_run_at": "2026-09-02T22:30:44.621233+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -346,15 +346,15 @@
       "schedule_display": "every 5m",
       "repeat": {
         "times": null,
-        "completed": 6765
+        "completed": 7004
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-04T21:26:20.949312+00:00",
-      "next_run_at": "2026-09-02T03:06:20.076329+00:00",
-      "last_run_at": "2026-09-02T03:01:20.076329+00:00",
+      "next_run_at": "2026-09-03T03:08:54.689958+00:00",
+      "last_run_at": "2026-09-03T03:03:54.689958+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -392,15 +392,15 @@
       "schedule_display": "0 3,15,22 * * *",
       "repeat": {
         "times": null,
-        "completed": 79
+        "completed": 83
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-06T02:45:24.849337+00:00",
-      "next_run_at": "2026-09-02T15:00:00+00:00",
-      "last_run_at": "2026-09-01T22:04:53.679378+00:00",
+      "next_run_at": "2026-09-03T15:00:00+00:00",
+      "last_run_at": "2026-09-03T03:05:05.902375+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -438,15 +438,15 @@
       "schedule_display": "every 30m",
       "repeat": {
         "times": null,
-        "completed": 913
+        "completed": 957
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-12T13:59:29.354401+00:00",
-      "next_run_at": "2026-09-02T03:21:20.508866+00:00",
-      "last_run_at": "2026-09-02T02:51:20.508866+00:00",
+      "next_run_at": "2026-09-03T03:10:00.920311+00:00",
+      "last_run_at": "2026-09-03T02:40:00.920311+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -484,15 +484,15 @@
       "schedule_display": "0 14 * * *",
       "repeat": {
         "times": null,
-        "completed": 19
+        "completed": 20
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-13T20:44:12.374955+00:00",
-      "next_run_at": "2026-09-02T14:00:00+00:00",
-      "last_run_at": "2026-09-01T14:05:57.641921+00:00",
+      "next_run_at": "2026-09-03T14:00:00+00:00",
+      "last_run_at": "2026-09-02T14:06:27.349781+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -511,7 +511,53 @@
       ],
       "workdir": null,
       "fire_claim": null
+    },
+    {
+      "id": "eb39a57d9f30",
+      "name": "Viva VI2PWQ Houston-GDL Watch",
+      "prompt": "Script-only monitor for JT's Viva booking VI2PWQ. The script prints nothing when all flights are normal, and prints an alert only if a monitored flight disappears from plannedFlights after consecutive checks, changes schedule, or shows noControlableMessages/IROP. Do not summarize or transform output.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "provider_snapshot": null,
+      "model_snapshot": null,
+      "base_url": null,
+      "script": "viva_vi2pwq_monitor.py",
+      "no_agent": true,
+      "context_from": null,
+      "schedule": {
+        "kind": "interval",
+        "minutes": 10,
+        "display": "every 10m"
+      },
+      "schedule_display": "every 10m",
+      "repeat": {
+        "times": 1000,
+        "completed": 22
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-09-02T23:05:43.880124+00:00",
+      "next_run_at": "2026-09-03T03:17:27.013549+00:00",
+      "last_run_at": "2026-09-03T03:07:27.013549+00:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "origin",
+      "origin": {
+        "platform": "telegram",
+        "chat_id": "1585113960",
+        "chat_name": "JT .",
+        "thread_id": null,
+        "user_id": "1585113960"
+      },
+      "enabled_toolsets": null,
+      "workdir": null,
+      "fire_claim": null
     }
   ],
-  "updated_at": "2026-09-02T03:01:20.076660+00:00"
+  "updated_at": "2026-09-03T03:07:27.013864+00:00"
 }

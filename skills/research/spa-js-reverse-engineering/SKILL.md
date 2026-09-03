@@ -22,6 +22,8 @@ Extract hidden UI flows, feature flags, API contracts, and modal triggers from m
 ## Output style
 When applying this skill, produce **direct, actionable commands** — raw grep/cURL/JS to paste, minimal commentary between steps. The user wants commands they can run, not a lecture.
 
+If the user asks for a concrete account action (e.g. “make the cancel option appear now”), prioritize direct read-only diagnosis of the active booking/payment/server-side gates before proposing monitors or support-message fallbacks. Do not infer payment state from a status label like `OnHold`; inspect `payments`, `travel.payments`, `paymentPlan`, `totalBalance`, and relevant status/check endpoints first.
+
 ## Step-by-step
 
 ### 1. Get the page HTML
@@ -395,6 +397,15 @@ fetch('https://api.vivaaerobus.com/web/v1/account/funds', {
 
 **Token expiry**: JWT tokens expire (observed ~24h or less). If 401 is returned, ask the user to re-extract. Monitor scripts should detect 401 and print a refresh prompt.
 
+### Programmatic login with JT-provided credentials (Viva pattern)
+
+When JT explicitly provides account credentials in chat and authorizes you to log in yourself, the reliable path is an API login executed from the logged-in page's own context (it carries Akamai cookies), not UI form automation:
+
+1. A UI form submit can fail with a generic service modal (Viva: `Lo sentimos, por el momento este servicio no está disponible`) even with valid credentials. Do not treat a UI failure as proof the credentials are wrong.
+2. Probe the login endpoint from the page (DevTools console or CDP `Runtime.evaluate` with `awaitPromise: true`). API body fields do not always match form inputs: Viva's form uses `input[name=email]` but `POST /web/v1/account/login` requires `userName` — `{email,password}` returns 400 INVALID_PARAMETER; `{userName,password}` returns 200 with `data.authToken` (JWE, ~3.6 KB).
+3. Store the token the way the SPA expects (`localStorage.setItem('viva-user-token', token)`), then navigate to the profile page. Verify by reading rendered profile text (name, member number), not token presence alone: the app can wipe the token on a login-redirect navigation, so if the first navigate lands back on `showLogin=true`, repeat login + store + navigate once before deeper diagnosis.
+4. Persist for monitors: `/root/.hermes/viva_token`, chmod 600.
+
 ### VPS screenshot tooling
 
 On the Hermes VPS, screenshot tools are limited:
@@ -525,7 +536,11 @@ Plan structure: `downPaymentAmount`, `paymentDetails[]` (with `partialAmount`), 
 | `vb/v1/resources/stations` | Full station/airport list with destination graph (164 stations for Viva) |
 | `service/v1/fsnc/plannedFlights` | Flight schedule + IROP status by hub/date |
 | `v1/resources/countries` | Country list |
-| `v1/resources/currencies` | Currency list |
+| `v1/resources/currencies` | Country list |
+
+### Viva account trips / OnHold cancel-options reference
+
+When Viva's visible `my-trips` route breaks or `booking/full` is blocked, use `v1/account/trips` from the authenticated browser context to read trip summaries, then create/load a fresh Manage basket to inspect `booking/canceloptions` and `irop/details` without mutating the booking. Details and known gateway pitfalls live in `references/viva-account-trips-and-onhold-cancel-options.md`.
 
 ### IROP cancel path (different from regular cancel)
 ```javascript

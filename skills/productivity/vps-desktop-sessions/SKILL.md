@@ -32,11 +32,13 @@ ss -tlnp | grep -E '5901|6080'            # x11vnc on 5901, websockify on 172.18
 - When a site works generally but a sensitive API returns CDN/edge blocks, isolate network reputation before changing browsers: compare IPv4 vs IPv6 with `curl -4/-6`, and if needed temporarily block IPv6 only for the browser UID (`ip6tables -I OUTPUT 1 -m owner --uid-owner jt -j REJECT`) to test whether IPv6 reputation is the culprit. Remove/review such test rules after the session.
 - Access URL for JT: `https://vnc.srv1056157.hstgr.cloud/vnc.html?autoconnect=true&resize=scale&path=websockify`
 - The first prompt is HTTP Basic Auth and requires **username `jt`** plus the password from `/root/.vps-screen/basic-auth-password.txt`.
-- noVNC may then show a second, VNC-specific password prompt. The user-enterable plaintext is stored at `/root/.vps-screen/password.txt`; `/root/.vps-screen/x11vnc.pass` is the hashed/auth file used by the service, not the value to send.
+- noVNC may then show a second, VNC-specific password prompt. The user-enterable plaintext is stored at `/root/.vps-screen/password.txt`; `/root/.vps-screen/x11vnc.pass` is the hashed/auth file used by the service, not the value to send. Never guess or reuse the Basic Auth password for this second prompt — read and send the `password.txt` value (reusing the Basic Auth password failed in practice).
 - Before sending access details, verify the HTTP pair without exposing the password in output: `curl -sS -u "jt:$(tr -d '\n' </root/.vps-screen/basic-auth-password.txt)" -o /dev/null -w '%{http_code}\n' 'https://vnc.srv1056157.hstgr.cloud/vnc.html'` should return `200`.
 - Send these server credentials only in JT's DM when he needs access; never persist their values to memory, skills, logs, or task summaries.
 
 ## Authenticated-account pattern (JT logs in, you read)
+
+**JT-authorized programmatic login variant.** When JT explicitly pastes credentials in chat and asks you to log in yourself, prefer an API login executed from the page's own browser context over UI form automation: SPA form submits can fail with generic error modals (Viva showed `Lo sentimos... servicio no está disponible` on a valid submit) while the underlying API works, and API body field names may differ from the form inputs (Viva login: form input `email`, API body `userName`). Store the returned token where the SPA expects it, navigate, and verify by reading rendered profile text. Full Viva recipe: `spa-js-reverse-engineering` skill, "Programmatic login" section.
 
 1. Start service, then `DISPLAY=:99 chromium --no-sandbox --disable-dev-shm-usage --start-maximized <login-url>` in background.
 2. Verify HTTP Basic Auth returns `200` using username `jt` and the password file.
@@ -85,7 +87,7 @@ GEOM=$(DISPLAY=:99 xdpyinfo | awk '/dimensions:/{print $2; exit}')
 ffmpeg -y -f x11grab -video_size "$GEOM" -i :99 -frames:v 1 -update 1 /tmp/current-screen.png
 ```
 
-**If `import` (ImageMagick) is not installed**, `ffmpeg -f x11grab` is the most reliable fallback. `scrot` may fail silently. The `vision_analyze` tool may also be unavailable (503 from the vision model provider) — always have a text-based fallback (check window titles via `xdotool search --name "" getwindowname`, or inject JS via the DevTools console with `ctrl+shift+j`).
+**If `import` (ImageMagick) is not installed**, `ffmpeg -f x11grab` is the most reliable fallback. `scrot` may fail silently. The `vision_analyze` tool may also be unavailable (503 from the vision model provider) — always have a text-based fallback (check window titles via `xdotool search --name "" getwindowname`, or inject JS via the DevTools console with `ctrl+shift+j`). `vision_analyze` can also fail with HTTP 400 `This model does not support image inputs` when the active model has no native vision. For on-screen text (modals, error banners), a working fallback is `tesseract` on a preprocessed capture: crop the region with PIL, resize ~3x with LANCZOS, apply `ImageOps.autocontrast` in grayscale, then `tesseract <img> stdout --psm 6`. This successfully read a Viva `Lo sentimos` service-error modal that blocked a login flow.
 
 Load the resulting image with vision and report only what is visibly present: active app/window, page or setup step, notable warnings, and whether the requested application is actually on screen.
 

@@ -12,6 +12,7 @@ category: productivity
 - The site is an Angular SPA in production mode with locked internals
 - You need to reverse-engineer an undocumented REST API behind a CDN/proxy
 - You need structured data that may also exist in the user's Gmail confirmation emails
+- The user asks about "Cloudflare agents", verified bots, or bypassing a 403: distinguish legitimate verified-agent access from evasion, and pivot to authorized browser/session/API paths.
 
 ## Key references
 - `references/cdn-bypass-gmail-fallback.md` — Gmail-as-fallback pattern and Angular production build analysis
@@ -240,3 +241,4 @@ grep -oP 'selector:"[a-z-]+"' main.js
 2. If API returns JSON, check for rule gates that block the desired action
 3. If rule gates are server-side, inform the user — no frontend hack can override them
 4. Always capture the x-api-key and token format for reuse in later attempts
+5. Do not describe Cloudflare verified-bot/agent programs as a workaround for third-party protected logins. They only help when the site owner elects to trust that agent/bot class; for user-owned bookings or accounts, use the user's authenticated browser/session, official APIs, emails, or support channels instead.
