@@ -18,6 +18,14 @@ Primary files:
 - `data/tempus.json`: dates and closing windows
 - `data/pietas.json`: relationship recency
 
+## Deployment topology (VPS)
+
+- ARX container `arx` (image `arx:local`, `node servidor.mjs` :4173) sits on Docker network `root_default` behind Traefik (`root-traefik-1`, owns 80/443, Let's Encrypt resolver `mytlschallenge`, label-based discovery). No published ports; only Traefik reaches it.
+- `/srv/arx/app` is bind-mounted at `/app`, so commits made from the phone land on host disk and survive container recreation.
+- Wildcard DNS: any `*.srv1056157.hstgr.cloud` subdomain resolves to the VPS. Adding a sibling service (e.g. `hermes.` for the Hermes dashboard — recipe in the `hermes-ops` skill, `references/dashboard-traefik-exposure.md`) needs zero DNS work: run a labeled container on `root_default`.
+- Deploy flow: `git push vps master` (SSH → bare repo `/srv/arx/repo.git`), then on the VPS `cd /srv/arx/app && git pull /srv/arx/repo.git master && docker restart arx`. GitHub is backup only.
+- History carries two commit identities: app/deploy commits as `ARX <arx@srv1056157.hstgr.cloud>`, Hermes data commits as the Hermes identity per the write-and-commit protocol below.
+
 ## Non-negotiable data rule
 
 Never fabricate a run, date, measurement, status, or output. Unknown means `null`. Preserve `null` until a real observation or executed run supplies a value. Empty honest state is better than plausible invented state.

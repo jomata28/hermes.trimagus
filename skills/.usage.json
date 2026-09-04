@@ -186,13 +186,13 @@
     "created_at": "2026-05-26T13:55:18.349510+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-09-02T13:55:12.810953+00:00",
-    "last_viewed_at": "2026-09-02T13:55:12.806406+00:00",
+    "last_used_at": "2026-09-03T13:55:40.123132+00:00",
+    "last_viewed_at": "2026-09-03T13:55:40.113181+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 83,
-    "view_count": 83
+    "use_count": 84,
+    "view_count": 84
   },
   "data-science-workflows": {
     "archived_at": null,
@@ -225,13 +225,13 @@
     "created_at": "2026-05-08T07:00:58.625760+00:00",
     "created_by": null,
     "last_patched_at": "2026-08-17T07:18:26.052484+00:00",
-    "last_used_at": "2026-09-02T07:01:13.478968+00:00",
-    "last_viewed_at": "2026-09-02T07:01:13.471222+00:00",
+    "last_used_at": "2026-09-03T07:00:48.802241+00:00",
+    "last_viewed_at": "2026-09-03T07:00:48.793852+00:00",
     "patch_count": 31,
     "pinned": false,
     "state": "active",
-    "use_count": 323,
-    "view_count": 175
+    "use_count": 329,
+    "view_count": 180
   },
   "divine-pharma-notion-episodes-fetch": {
     "archived_at": null,
@@ -303,13 +303,13 @@
     "created_at": "2026-06-19T03:02:30.397843+00:00",
     "created_by": null,
     "last_patched_at": "2026-08-24T03:03:24.214562+00:00",
-    "last_used_at": "2026-09-02T03:00:47.280049+00:00",
-    "last_viewed_at": "2026-09-02T03:00:47.260033+00:00",
+    "last_used_at": "2026-09-04T03:03:03.293910+00:00",
+    "last_viewed_at": "2026-09-04T03:03:03.287148+00:00",
     "patch_count": 25,
     "pinned": false,
     "state": "active",
-    "use_count": 113,
-    "view_count": 113
+    "use_count": 114,
+    "view_count": 114
   },
   "godmode": {
     "archived_at": null,
@@ -368,13 +368,13 @@
     "created_at": "2026-06-05T02:49:50.310912+00:00",
     "created_by": null,
     "last_patched_at": "2026-06-12T02:55:15.569642+00:00",
-    "last_used_at": "2026-09-02T21:39:13.801956+00:00",
-    "last_viewed_at": "2026-09-02T21:39:13.797904+00:00",
+    "last_used_at": "2026-09-03T19:57:06.864015+00:00",
+    "last_viewed_at": "2026-09-03T19:57:06.860061+00:00",
     "patch_count": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 46,
-    "view_count": 46
+    "use_count": 49,
+    "view_count": 49
   },
   "hermes-agent-skill-authoring": {
     "archived_at": null,
@@ -406,14 +406,14 @@
     "archived_at": null,
     "created_at": "2026-07-26T19:49:45.292115+00:00",
     "created_by": "agent",
-    "last_patched_at": "2026-08-23T03:02:30.947413+00:00",
-    "last_used_at": "2026-08-23T03:02:33.625158+00:00",
-    "last_viewed_at": "2026-08-23T03:02:33.620125+00:00",
-    "patch_count": 11,
+    "last_patched_at": "2026-09-03T20:20:37.606277+00:00",
+    "last_used_at": "2026-09-04T03:03:02.191268+00:00",
+    "last_viewed_at": "2026-09-04T03:03:02.176699+00:00",
+    "patch_count": 20,
     "pinned": false,
     "state": "active",
-    "use_count": 11,
-    "view_count": 11
+    "use_count": 15,
+    "view_count": 15
   },
   "himalaya": {
     "archived_at": null,
@@ -562,14 +562,14 @@
     "archived_at": null,
     "created_at": "2026-06-13T00:20:03.173063+00:00",
     "created_by": null,
-    "last_patched_at": "2026-08-14T22:09:14.669116+00:00",
-    "last_used_at": "2026-08-14T22:14:56.384202+00:00",
-    "last_viewed_at": "2026-08-14T22:14:56.376982+00:00",
-    "patch_count": 2,
+    "last_patched_at": "2026-09-03T20:20:15.094385+00:00",
+    "last_used_at": "2026-09-03T20:18:39.439931+00:00",
+    "last_viewed_at": "2026-09-03T20:18:39.430944+00:00",
+    "patch_count": 3,
     "pinned": false,
     "state": "active",
-    "use_count": 4,
-    "view_count": 4
+    "use_count": 6,
+    "view_count": 6
   },
   "nano-pdf": {
     "archived_at": null,
