@@ -80,6 +80,7 @@ Full source packages were absorbed into non-root support directories so they rem
 - `references/test-driven-development-details/overview.md` — RED/GREEN/REFACTOR details.
 - `references/requesting-code-review-details/overview.md` — pre-commit review and security scan workflow.
 - `references/gated-dual-agent-delivery.md` — read-only audit gates, isolated implementer/reviewer worktrees, independent verification, and tested rollback.
+- `references/secure-dashboard-embedding.md` — preserve loopback and edge authentication while integrating a sensitive dashboard through explicit iframe loading, a full-screen fallback, PWA cache handling, DOM tests, and responsive live QA.
 - `references/dogfood-details/overview.md` plus `references/dogfood-details/references/` and `templates/` — exploratory QA issue taxonomy and report template.
 
 Use these as supporting references; the class-level selector above should remain the primary trigger surface.

@@ -53,6 +53,22 @@ See `references/comparative-operational-claims.md` for a compact audit checklist
 
 Use arXiv search by keyword, author, category, or ID. Record paper IDs, titles, authors, dates, and links. For literature reviews, cluster papers by theme rather than dumping a flat list.
 
+## Primary-Paper Journal Club Analysis
+
+Use this workflow when the user requests a figure-level, section-by-section analysis of a scientific paper:
+
+1. Retrieve the final paper, Methods, supplementary files, reporting summary, source-data files, and peer-review history when available. Treat the paper and source data as primary evidence. Use peer review only to identify design criticisms, revisions, and unresolved caveats.
+2. Build an experiment map before writing: cohort, species or population, intervention, comparator, timing, sample size, endpoint family, masking, randomization, and statistical model. Keep independent cohorts distinct.
+3. Verify exact quantitative claims against source-data tables rather than estimating values from plotted bars. Record units, mean and uncertainty convention, n, test direction, adjustment method, and exact P value. If a paper reports only a pathway-level result, do not invent an effect size.
+4. For longitudinal figures, distinguish within-group slope tests from adjusted between-group slope comparisons. Do not use a significant within-group change as proof that groups differ.
+5. Separate three levels of inference: direct outcome, mechanistic association, and causal mediation. Biomarker movement or transcription-factor enrichment does not establish pathway necessity.
+6. Audit causal comparators carefully. A calorie-matched, pair-fed, weight-matched, vehicle, or sham arm may clarify some confounding while leaving survival, exposure, timing, or tissue-specific causality unresolved.
+7. Recommend figure panels by argumentative role: primary endpoint, representative functional evidence, mechanism, decisive comparator, and limitations. Prefer a small coherent panel set over a dense figure dump.
+8. Surface statistical caveats explicitly, especially one-sided tests, permissive false-discovery thresholds, many endpoint families, small mechanistic n, non-independent measurements, and absence of global multiplicity control.
+9. Match the user's requested headings exactly and run a final formatting audit for prohibited punctuation, terminology, and schema constraints.
+
+For a detailed retrieval and evidence-extraction checklist, see `references/primary-paper-journal-club.md`.
+
 ## Blog and Feed Monitoring
 
 Use blog/RSS monitoring when the task is recurring or change-oriented. Report new items, source feed, timestamp, and why each item matters.

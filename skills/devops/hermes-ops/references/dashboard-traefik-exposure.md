@@ -1,37 +1,74 @@
-# Dashboard Traefik exposure — 2026-09-03 session
+# Hermes dashboard behind Traefik with persistent cookie auth
 
-How the Hermes dashboard got a public HTTPS URL on JT's Hostinger VPS without touching the running dashboard, ARX, or Traefik config files.
+Current verified deployment for JT's Hostinger VPS. This supersedes the original September 3 Basic-Auth/Host-rewrite recipe.
 
-## VPS service topology (verified this session)
+## Topology
 
-- Traefik container `root-traefik-1` owns 80/443 (compose at `/docker/n8n/docker-compose.yml`), Docker provider enabled, cert resolver `mytlschallenge` (Let's Encrypt), network `root_default` (172.18.0.0/16), entrypoints `web,websecure`, HTTP→HTTPS redirect.
-- Wildcard DNS: any `*.srv1056157.hstgr.cloud` name resolves to the VPS → new subdomains need zero DNS work.
-- Existing containers: `arx` (ARX PWA, base hostname), `vps-screen-proxy` (socat :6080 → host `172.18.0.1:6080` noVNC, basic auth `jt`), `root-n8n-1`.
-- Host services bind the docker bridge `172.18.0.1` to be reachable from containers (the noVNC websockify does exactly this on :6080).
-- UFW active: 22/80/443 allowed, 5900:5999 denied, docker-subnet-only allows for host-bridge services.
+- Hermes dashboard: systemd `hermes-dashboard.service`, bound only to `127.0.0.1:9119`.
+- Host bridge: `hermes-dashboard-bridge.service`, `172.18.0.1:9119` → `127.0.0.1:9119`.
+- Edge: `hermes-dashboard-proxy`, `alpine/socat`, fixed IP `172.18.0.6` on `root_default`.
+- Traefik: `root-traefik-1`, TLS and routing for `hermes.srv1056157.hstgr.cloud`.
+- Recovery: `hermes-dashboard-healthcheck.timer` runs every two minutes and restarts the dashboard after two consecutive failed status probes.
 
-## Recipe: expose a host loopback service at https://<name>.srv1056157.hstgr.cloud
+## Authentication boundary
 
-1. **Host bridge (persistent).** `apt-get install -y socat` (not preinstalled). systemd unit with:
-   `ExecStart=/usr/bin/socat TCP-LISTEN:<PORT>,bind=172.18.0.1,fork,reuseaddr TCP:127.0.0.1:<PORT>`
-   Install path: `write_file` refuses `/etc/systemd/system/*`, so stage the unit in `/tmp`, then `bash -c 'cat /tmp/x.service > /etc/systemd/system/x.service'` (shell redirect passes the security scan; `cp` does not), then `systemctl daemon-reload && systemctl enable --now <unit>`.
-2. **UFW.** `ufw allow from 172.18.0.0/16 to 172.18.0.1 port <PORT> proto tcp` — only the docker network can reach the bridge.
-3. **Edge container** on `root_default` with Traefik labels mirroring `vps-screen-proxy`:
-   - router rule `Host(\`<name>.srv1056157.hstgr.cloud\`)`, entrypoints `web,websecure`, `tls=true`, `tls.certresolver=mytlschallenge`
-   - basic-auth middleware — reuse the existing hash (same `jt` login as the VNC screen):
-     `docker inspect vps-screen-proxy --format '{{index .Config.Labels "traefik.http.middlewares.vps-screen-auth.basicauth.users"}}'`
-     (password file: `/root/.vps-screen/basic-auth-password.txt`)
-   - service port label = the socat listen port; container command `alpine/socat -d -d TCP-LISTEN:<PORT>,fork,reuseaddr TCP:172.18.0.1:<PORT>`
-4. **Verify password-free:** `curl -sk https://<name>.srv1056157.hstgr.cloud/ -o /dev/null -w '%{http_code}'` without creds → expect **401** (auth gate engaged + TLS issued). Authenticated curls read the password file, which trips the approval scan — prefer asking JT to open the URL on his phone. First hit can take ~5–10 s (cert issuance).
+Authentication belongs to Hermes's bundled `dashboard_auth/basic` provider, not Traefik's browser Basic Auth.
 
-## Why this shape (design rationale)
+Canonical configuration:
 
-- `hermes dashboard --host 0.0.0.0 --insecure` is a no-op since the June 2026 hardening: non-loopback binds ALWAYS require an auth provider (OAuth or the bundled password provider). There is no supported open-bind mode.
-- The dashboard's internal auth keys on its **bind host** (`should_require_auth(host)` → `app.state.auth_required` in `hermes_cli/web_server.py`): bound to `127.0.0.1` it serves with the gate OFF — and that UI is the config/`.env` editor (API keys). A dumb passthrough from the internet would publish the key editor with zero internal auth. So auth must live at the edge: Traefik basic auth + TLS, matching the trust level of the existing `vnc.` subdomain.
-- Keeping the dashboard itself loopback leaves the existing access paths untouched (Termius port-forward, noVNC desktop Chromium app).
+- `dashboard.public_url`: exact public HTTPS URL. This both allows the exact public Host and engages the dashboard auth gate despite a loopback bind.
+- `dashboard.trusted_proxies`: exact edge container IP (`172.18.0.6`).
+- `HERMES_DASHBOARD_BASIC_AUTH_USERNAME`: operator username.
+- `HERMES_DASHBOARD_BASIC_AUTH_PASSWORD_HASH`: scrypt hash; never store plaintext.
+- `HERMES_DASHBOARD_BASIC_AUTH_SECRET`: stable random signing key so cookies survive restarts.
+- `HERMES_DASHBOARD_BASIC_AUTH_TTL_SECONDS`: 30-day access-token lifetime for this single-user deployment.
 
-## State as of 2026-09-03
+The edge router has no `basicauth` middleware and no Host-rewrite middleware. It preserves `Host: hermes.srv1056157.hstgr.cloud`; Hermes accepts that exact host from `public_url` and rejects other non-loopback hosts.
 
-- `hermes-dashboard-bridge.service` active/enabled; `hermes-dashboard-proxy` container up; UFW rule added. URL live per build.
-- **Pending JT verification:** open `https://hermes.srv1056157.hstgr.cloud`, log in with VNC-screen creds.
-- **Pending after verification:** register the URL in ARX `data/agentes.json` (voz/Hermes layer) following the ARX write-and-commit protocol (Spanish commit, Hermes identity). ARX repo rule: Hermes edits only `data/`.
+## Safe migration order
+
+Never remove Traefik Basic Auth first.
+
+1. Back up `~/.hermes/config.yaml` and `~/.hermes/.env` with mode 600.
+2. Generate the scrypt password hash and stable signing secret without printing either.
+3. Set `dashboard.public_url` and the exact trusted proxy IP.
+4. Restart `hermes-dashboard.service` and wait for the real `127.0.0.1:9119` listener; startup recompiles the web UI and may take tens of seconds.
+5. While old edge Basic Auth still exists, verify:
+   - `/api/status` reports `auth_required=true`, `auth_providers=["basic"]`.
+   - `/` redirects to `/login` after edge auth.
+   - `POST /auth/password-login` sets `Secure`, `HttpOnly`, `SameSite=Lax` cookies.
+   - `/api/auth/me` and `/` return 200 with that cookie jar.
+6. Recreate only `hermes-dashboard-proxy`, pinning it to `172.18.0.6`, without the former Basic Auth and Host-rewrite labels.
+7. Verify the final boundary:
+   - anonymous `/` → 302 `/login`;
+   - anonymous `/kanban` → 302 `/login?next=%2Fkanban`;
+   - anonymous sensitive API such as `/api/config` → 401;
+   - valid cookie login → dashboard 200;
+   - no `WWW-Authenticate` browser popup;
+   - invalid Host on `/login` → 400;
+   - unmatched public Traefik Host → 404.
+8. Restart the dashboard while retaining the cookie jar and prove `/api/auth/me` remains 200 afterward.
+
+## Reliability
+
+The dashboard process can remain alive after losing its listener, so `systemctl is-active` alone is insufficient. The health script probes the public-host shape locally and requires JSON containing `"auth_required":true`. It tolerates one miss, restarts after two, and waits up to 180 seconds for the Vite build plus listener recovery.
+
+Verify:
+
+```bash
+systemctl is-active hermes-dashboard.service \
+  hermes-dashboard-bridge.service \
+  hermes-dashboard-healthcheck.timer
+ss -ltnp | grep 9119
+systemctl list-timers hermes-dashboard-healthcheck.timer --no-pager
+```
+
+Healthy listeners are `127.0.0.1:9119` (Hermes) and `172.18.0.1:9119` (socat bridge). A healthy watchdog leaves no `/run/hermes-dashboard-watchdog.failures` file.
+
+## Security invariants
+
+- Never bind the primary dashboard publicly to avoid the reverse proxy.
+- Never put username, password, cookie, hash, or signing secret in ARX or a repository.
+- Do not weaken the Host validator.
+- Preserve the fixed proxy IP or update `dashboard.trusted_proxies` before recreating it at another address.
+- Keep TLS at Traefik and cookie flags `Secure`, `HttpOnly`, `SameSite=Lax`.

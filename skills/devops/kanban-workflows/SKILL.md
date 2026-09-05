@@ -47,6 +47,8 @@ Use the injected KANBAN_GUIDANCE as the authoritative live lifecycle when presen
 2. Worker drift: expanding scope beyond the assigned card.
 3. Weak handoffs: reporting success without artifacts.
 4. Lost dependencies: assigning downstream work before upstream evidence exists.
+5. **`--initial-status blocked` is not a durable human gate by itself.** A gateway dispatcher may promote a newly created card before a typed block record exists. For a batch of human-gated cards, pause dispatch first, create the cards, apply `hermes kanban --board <board> block <id> '<reason>' --kind needs_input`, verify every card is `blocked`, then resume dispatch. Do not assign runnable profiles before the typed block is present.
+6. **A DB block does not prove the worker process stopped.** Blocking a `running` card from the CLI can close its run and clear `worker_pid` while the already spawned OS process continues. After any external block/reclaim, inspect the prior run PID or process environment (`HERMES_KANBAN_TASK`, `HERMES_KANBAN_BOARD`), terminate lingering workers, and verify there are zero matching processes before claiming the work is paused.
 
 ## Verification Checklist
 

@@ -1,6 +1,6 @@
 model:
-  default: glm-5.3
-  provider: opencode-go
+  default: gpt-5.6-sol
+  provider: openai-codex
 providers:
   antigravity:
     name: Google Antigravity (agy)
@@ -100,6 +100,7 @@ agent:
       technically fluent, so don''t over-explain.'
   reasoning_effort: medium
   verbose: false
+  verify_on_stop: false
 terminal:
   backend: local
   modal_mode: auto
@@ -343,7 +344,9 @@ dashboard:
     password: "__REDACTED_FOR_GITHUB_BACKUP__"
     secret: "__REDACTED_FOR_GITHUB_BACKUP__"
     session_ttl_seconds: 0
-  public_url: ''
+  public_url: https://hermes.srv1056157.hstgr.cloud
+  trusted_proxies:
+    - 172.18.0.6
 privacy:
   redact_pii: false
 tts:
@@ -582,7 +585,7 @@ secrets:
 paste_collapse_threshold: 5
 paste_collapse_threshold_fallback: 5
 paste_collapse_char_threshold: 2000
-_config_version: 26
+_config_version: 33
 TELEGRAM_HOME_CHANNEL: '1585113960'
 github:
   token: "__REDACTED_FOR_GITHUB_BACKUP__"
