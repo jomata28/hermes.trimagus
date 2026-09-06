@@ -3,7 +3,7 @@
     {
       "id": "dc81b6bd2e66",
       "name": "300 Vibes Rising Routine",
-      "prompt": "You are generating a daily \"300 Vibes Rising Routine\" message for JT based on Frederick Dodson's Levels of Consciousness work. \n\nVALUES LIST: Kind, Warm, Cordial, Helpful, Diligent, Persistent, Disciplined, Focussed, Firm, Upright, Deliberate, Flexible, Balanced, Sensible, Reasonable, Mature, Pleasant, Easy-Going, Tolerant, Open, Honest, Genuine, Normal, Calm, Relaxed, Content, Patient, Trusting, Forgiving, Faithful, Optimistic, Hopeful, Appreciative, Considerate, Generous, Decent, Dependable, Reliable, Respecting, Humble, Modest, Humorous, Lighthearted, Ethical, Fair, Loyal, Happy, Healthy, Glad\n\nINDIVIDUALS LIST: Aristotle, Roger Bacon, Emerson, Edmund Husserl, Ernst Mach, Plato, Bertrand Russel, Salvador Dali, Van Gogh, Andrew Carnegie, Joe DiMaggio, Cristiano Ronaldo, Graham Hancock, Erich von Daniken, Jane Roberts (Seth Books), Alexander Graham Bell, DeKooning, Elisabeth Kubler Ross, Dostoyevsky, C.S. Lewis, Jack Benny, Bruce Lee, Florence Nightingale, Eisenhower, Wright Brothers, Eleanor Roosevelt\n\nGenerate a message with this structure:\n\n\ud83c\udf05 300 VIBES RISING ROUTINE - [Current Date in MM/DD/YYYY format]\n\n\ud83c\udfaf VALUE OF THE DAY: [Select ONE value from the VALUES LIST]\n> [Provide a brief 1-2 sentence explanation of what this value means in practical daily life, how to embody it, or why it matters for raising consciousness]\n\n\ud83d\udc64 TEACHER SPOTLIGHT: [Select ONE individual from the INDIVIDUALS LIST]\n> [Share one relevant quote, teaching snippet, or key insight from this individual that aligns with today's value OR consciousness elevation in general. If you know an actual quote, use it. Otherwise, create a plausible teaching statement in their style.]\n\n\ud83d\udcab TODAY'S PRACTICE: [Give one specific, actionable micro-habit or behavior to practice today that embodies the value]\n> [Make it concrete and doable in a normal day - e.g., \"Today, practice active listening in one conversation without interrupting\" or \"Find one opportunity to help someone without being asked\"]\n\n\ud83d\udcdd REFLECTION PROMPT: [One question for evening reflection]\n> [e.g., \"How did embodying [value] change your interactions today?\" or \"What small moment today reflected this value?\"]\n\nKeep the tone uplifting, practical, and aligned with the 300-400 consciousness range (courage, neutrality, willingness - moving toward acceptance, reason, love). Make it feel personal and encouraging, like a wise friend sharing morning wisdom.\n\nIMPORTANT: Select different values and individuals each day (you can track this implicitly by making the selection feel varied and not repetitive in pattern).",
+      "prompt": "You are generating a daily \"300 Vibes Rising Routine\" message for JT based on Frederick Dodson's Levels of Consciousness work. \n\nVALUES LIST: Kind, Warm, Cordial, Helpful, Diligent, Persistent, Disciplined, Focussed, Firm, Upright, Deliberate, Flexible, Balanced, Sensible, Reasonable, Mature, Pleasant, Easy-Going, Tolerant, Open, Honest, Genuine, Normal, Calm, Relaxed, Content, Patient, Trusting, Forgiving, Faithful, Optimistic, Hopeful, Appreciative, Considerate, Generous, Decent, Dependable, Reliable, Respecting, Humble, Modest, Humorous, Lighthearted, Ethical, Fair, Loyal, Happy, Healthy, Glad\n\nINDIVIDUALS LIST: Aristotle, Roger Bacon, Emerson, Edmund Husserl, Ernst Mach, Plato, Bertrand Russel, Salvador Dali, Van Gogh, Andrew Carnegie, Joe DiMaggio, Cristiano Ronaldo, Graham Hancock, Erich von Daniken, Jane Roberts (Seth Books), Alexander Graham Bell, DeKooning, Elisabeth Kubler Ross, Dostoyevsky, C.S. Lewis, Jack Benny, Bruce Lee, Florence Nightingale, Eisenhower, Wright Brothers, Eleanor Roosevelt\n\nGenerate a message with this structure:\n\n🌅 300 VIBES RISING ROUTINE - [Current Date in MM/DD/YYYY format]\n\n🎯 VALUE OF THE DAY: [Select ONE value from the VALUES LIST]\n> [Provide a brief 1-2 sentence explanation of what this value means in practical daily life, how to embody it, or why it matters for raising consciousness]\n\n👤 TEACHER SPOTLIGHT: [Select ONE individual from the INDIVIDUALS LIST]\n> [Share one relevant quote, teaching snippet, or key insight from this individual that aligns with today's value OR consciousness elevation in general. If you know an actual quote, use it. Otherwise, create a plausible teaching statement in their style.]\n\n💫 TODAY'S PRACTICE: [Give one specific, actionable micro-habit or behavior to practice today that embodies the value]\n> [Make it concrete and doable in a normal day - e.g., \"Today, practice active listening in one conversation without interrupting\" or \"Find one opportunity to help someone without being asked\"]\n\n📝 REFLECTION PROMPT: [One question for evening reflection]\n> [e.g., \"How did embodying [value] change your interactions today?\" or \"What small moment today reflected this value?\"]\n\nKeep the tone uplifting, practical, and aligned with the 300-400 consciousness range (courage, neutrality, willingness - moving toward acceptance, reason, love). Make it feel personal and encouraging, like a wise friend sharing morning wisdom.\n\nIMPORTANT: Select different values and individuals each day (you can track this implicitly by making the selection feel varied and not repetitive in pattern).",
       "skills": [],
       "skill": null,
       "model": null,
@@ -18,15 +18,15 @@
       "schedule_display": "55 13 * * *",
       "repeat": {
         "times": null,
-        "completed": 144
+        "completed": 145
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-13T21:12:49.081621+00:00",
-      "next_run_at": "2026-09-05T13:55:00+00:00",
-      "last_run_at": "2026-09-04T13:56:19.814359+00:00",
+      "next_run_at": "2026-09-06T13:55:00+00:00",
+      "last_run_at": "2026-09-05T13:56:03.712715+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "origin",
@@ -37,7 +37,14 @@
         "thread_id": "472"
       },
       "last_delivery_error": null,
-      "fire_claim": null
+      "fire_claim": null,
+      "last_dispatch": {
+        "scheduled_at": "2026-09-05T13:55:00+00:00",
+        "dispatched_at": "2026-09-05T13:55:40.881177+00:00",
+        "lateness_seconds": 40.9,
+        "kind": "on_time"
+      },
+      "failure_streak": 0
     },
     {
       "id": "69aae56e9148",
@@ -94,15 +101,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 142
+        "completed": 143
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-15T21:39:46.829937+00:00",
-      "next_run_at": "2026-09-05T07:00:00+00:00",
-      "last_run_at": "2026-09-04T07:04:42.324997+00:00",
+      "next_run_at": "2026-09-06T07:00:00+00:00",
+      "last_run_at": "2026-09-05T07:00:46.289998+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "telegram",
@@ -113,7 +120,14 @@
         "thread_id": "45"
       },
       "last_delivery_error": null,
-      "fire_claim": null
+      "fire_claim": null,
+      "last_dispatch": {
+        "scheduled_at": "2026-09-05T07:00:00+00:00",
+        "dispatched_at": "2026-09-05T07:00:30.650896+00:00",
+        "lateness_seconds": 30.7,
+        "kind": "on_time"
+      },
+      "failure_streak": 0
     },
     {
       "id": "db654a55b4b5",
@@ -175,15 +189,15 @@
       "schedule_display": "0 3 * * *",
       "repeat": {
         "times": null,
-        "completed": 119
+        "completed": 120
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-08T18:09:30.722153+00:00",
-      "next_run_at": "2026-09-06T03:00:00+00:00",
-      "last_run_at": "2026-09-04T03:07:40.804090+00:00",
+      "next_run_at": "2026-09-07T03:00:00+00:00",
+      "last_run_at": "2026-09-05T03:01:52.862781+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -191,12 +205,21 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null
+      "fire_claim": {
+        "at": "2026-09-06T03:01:38.950747+00:00",
+        "by": "srv1056157:2790158:ba3367b0ea224ade85bfe321530ffd8b"
+      },
+      "last_dispatch": {
+        "scheduled_at": "2026-09-06T03:00:00+00:00",
+        "dispatched_at": "2026-09-06T03:00:38.885703+00:00",
+        "lateness_seconds": 38.9,
+        "kind": "on_time"
+      }
     },
     {
       "id": "0c97b80566e6",
-      "name": "RISING Brief \u2014 JT",
-      "prompt": "You are delivering the **RISING Brief** for JT (Jose Torres) via Telegram. This is the official name of the former morning/daily briefing; use **RISING Brief** in all headings and future references.\n\nYou have access to:\n- Google Calendar via: `python /root/.hermes/skills/productivity/google-workspace/scripts/google_api.py calendar list`\n- Google Tasks via: `curl -s \"https://www.googleapis.com/tasks/v1/users/@me/lists\" -H \"Authorization: Bearer $(cat /root/.hermes/google_token.json | python3 -c \\\"import sys,json;print(json.load(sys.stdin)['token'])\\\")\"`\n- The Bit\u00e1cora vault mounted at /root/obsidian-vault/ via rclone\n\nDo this:\n\n1. Run calendar list to get today's + this week's events\n2. List all Google Tasks lists and scan for tasks in the next 7 days\n3. Read /root/obsidian-vault/1-Projects/ for any projects with deadlines this week\n4. Read /root/obsidian-vault/5-Admin and Reviews/00_log.md for recent context\n5. Read /root/obsidian-vault/3-Resources/_decisions.md for open bottlenecks\n\nThen format a RISING Brief like this:\n\n```\n\u2600\ufe0f RISING Brief \u2014 [Day] [Date]\n\n\ud83d\udccb TODAY'S GRID\n- [time] Event name\n- [time] Event name\n\n\ud83d\udd25 THIS WEEK's KEY DEADLINES\n- [deadline] Project/task\n\n\u2705 GOOGLE TASKS \u2014 Priority items\n- [list name] task title\n- [list name] task title\n\n\u26a1 ACTIVE BOTTLENECKS\n- D1: [decision needed]\n- [other open items]\n\nWhat are we executing today?\n```\n\nKeep it concise. Casual tone. JT prefers direct communication. Under 200 words.",
+      "name": "RISING Brief — JT",
+      "prompt": "You are delivering the **RISING Brief** for JT (Jose Torres) via Telegram. This is the official name of the former morning/daily briefing; use **RISING Brief** in all headings and future references.\n\nYou have access to:\n- Google Calendar via: `python /root/.hermes/skills/productivity/google-workspace/scripts/google_api.py calendar list`\n- Google Tasks via: `curl -s \"https://www.googleapis.com/tasks/v1/users/@me/lists\" -H \"Authorization: Bearer $(cat /root/.hermes/google_token.json | python3 -c \\\"import sys,json;print(json.load(sys.stdin)['token'])\\\")\"`\n- The Bitácora vault mounted at /root/obsidian-vault/ via rclone\n\nDo this:\n\n1. Run calendar list to get today's + this week's events\n2. List all Google Tasks lists and scan for tasks in the next 7 days\n3. Read /root/obsidian-vault/1-Projects/ for any projects with deadlines this week\n4. Read /root/obsidian-vault/5-Admin and Reviews/00_log.md for recent context\n5. Read /root/obsidian-vault/3-Resources/_decisions.md for open bottlenecks\n\nThen format a RISING Brief like this:\n\n```\n☀️ RISING Brief — [Day] [Date]\n\n📋 TODAY'S GRID\n- [time] Event name\n- [time] Event name\n\n🔥 THIS WEEK's KEY DEADLINES\n- [deadline] Project/task\n\n✅ GOOGLE TASKS — Priority items\n- [list name] task title\n- [list name] task title\n\n⚡ ACTIVE BOTTLENECKS\n- D1: [decision needed]\n- [other open items]\n\nWhat are we executing today?\n```\n\nKeep it concise. Casual tone. JT prefers direct communication. Under 200 words.",
       "skills": [],
       "skill": null,
       "model": null,
@@ -213,15 +236,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 102
+        "completed": 103
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-25T19:56:44.909253+00:00",
-      "next_run_at": "2026-09-05T07:00:00+00:00",
-      "last_run_at": "2026-09-04T07:03:33.660208+00:00",
+      "next_run_at": "2026-09-06T07:00:00+00:00",
+      "last_run_at": "2026-09-05T07:01:55.551983+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -237,12 +260,19 @@
         "file"
       ],
       "workdir": null,
-      "fire_claim": null
+      "fire_claim": null,
+      "last_dispatch": {
+        "scheduled_at": "2026-09-05T07:00:00+00:00",
+        "dispatched_at": "2026-09-05T07:00:30.650896+00:00",
+        "lateness_seconds": 30.7,
+        "kind": "on_time"
+      },
+      "failure_streak": 0
     },
     {
       "id": "c0728427d850",
-      "name": "Weekly Review \u2014 JT",
-      "prompt": "You are delivering a **Weekly Review summary** for JT (Jose Torres) via Telegram.\n\nDo this:\n\n1. Run calendar list to get NEXT week's events\n2. List Google Tasks and scan for any overdue or completed tasks\n3. Read /root/obsidian-vault/1-Projects/ for project deadline status\n4. Read /root/obsidian-vault/5-Admin and Reviews/00_log.md for this week's log\n\nFormat:\n\n```\n\ud83d\udccb Weekly Review \u2014 [Date]\n\n\ud83d\udcca THIS WEEK DONE\n- [summary of what was accomplished]\n\n\ud83d\udd25 NEXT WEEK's KEY DATES\n- [date] Event/deadline\n\n\u23f0 OVERDUE TASKS\n- [list] task if any overdue\n\n\ud83c\udfaf FOCUS AREAS NEXT WEEK\n- Top 3 priorities\n\n\u26a1 OPEN DECISIONS PENDING\n- Decisions still unresolved\n\nSunday's 30-min review checklist:\n\u2610 Archive done projects\n\u2610 Raw \u2192 Wiki processing\n\u2610 Check Step 1/IFOM metrics\n\u2610 Define next moves\n```\n\nKeep it to the point. JT is casual, direct.\n\nTHEN \u2014 after sending the Telegram summary \u2014 persist it to the vault:\n\n5. Write the exact same review (markdown, with a frontmatter block: date, type: weekly-review) to\n   /root/obsidian-vault/5-Admin and Reviews/reviews/weekly/YYYY-Www.md\n   (e.g. 2026-W27.md, using the ISO week of the review date). Overwrite if it exists.\n6. Append one line to /root/obsidian-vault/5-Admin and Reviews/00_log.md under today's date:\n   \"- Weekly review delivered \u2192 reviews/weekly/YYYY-Www.md\"",
+      "name": "Weekly Review — JT",
+      "prompt": "You are delivering a **Weekly Review summary** for JT (Jose Torres) via Telegram.\n\nDo this:\n\n1. Run calendar list to get NEXT week's events\n2. List Google Tasks and scan for any overdue or completed tasks\n3. Read /root/obsidian-vault/1-Projects/ for project deadline status\n4. Read /root/obsidian-vault/5-Admin and Reviews/00_log.md for this week's log\n\nFormat:\n\n```\n📋 Weekly Review — [Date]\n\n📊 THIS WEEK DONE\n- [summary of what was accomplished]\n\n🔥 NEXT WEEK's KEY DATES\n- [date] Event/deadline\n\n⏰ OVERDUE TASKS\n- [list] task if any overdue\n\n🎯 FOCUS AREAS NEXT WEEK\n- Top 3 priorities\n\n⚡ OPEN DECISIONS PENDING\n- Decisions still unresolved\n\nSunday's 30-min review checklist:\n☐ Archive done projects\n☐ Raw → Wiki processing\n☐ Check Step 1/IFOM metrics\n☐ Define next moves\n```\n\nKeep it to the point. JT is casual, direct.\n\nTHEN — after sending the Telegram summary — persist it to the vault:\n\n5. Write the exact same review (markdown, with a frontmatter block: date, type: weekly-review) to\n   /root/obsidian-vault/5-Admin and Reviews/reviews/weekly/YYYY-Www.md\n   (e.g. 2026-W27.md, using the ISO week of the review date). Overwrite if it exists.\n6. Append one line to /root/obsidian-vault/5-Admin and Reviews/00_log.md under today's date:\n   \"- Weekly review delivered → reviews/weekly/YYYY-Www.md\"",
       "skills": [],
       "skill": null,
       "model": null,
@@ -288,7 +318,7 @@
     {
       "id": "545d4019798c",
       "name": "USMLE Daily Nudge",
-      "prompt": "You are Hermes delivering JT's daily USMLE study nudge, ~30 min before his evening study block. Warm but efficient \u2014 friendly, tight, a well-placed emoji is fine. Not corporate, not bubbly.\n\nDo this:\n1. Read /root/obsidian-vault/2-Areas/Intellectual/Wiki/usmle-cockpit.md\n2. Compute days remaining to the exam dates in the frontmatter (exam_ifom, exam_step1) vs today.\n3. Pull the top 3 weak areas and today's suggested focus subject from the cockpit.\n\nSend a short Telegram message shaped like:\n\n\ud83c\udfaf Step 1 nudge \u2014 [N] days to IFOM \u00b7 [M] to Step 1\nTonight (18:00 block):\n\u2022 Anki due \u2192 clear it\n\u2022 UWorld: 1 timed block + review incorrects\n\u2022 Weak-area focus: [pick one weak subject]\n[one-line encouragement or a sharp reminder if dates D1 still unlocked]\n\nRules:\n- If the cockpit still shows dates unlocked (D1 open), lead with a nudge to LOCK THE TESTING DATES \u2014 that's the blocker.\n- Keep it to ~5 lines. This should feel like a coach texting, not a report.\n- If weak areas are still blank in the cockpit, tell JT to fill them from his last UWorld/NBME breakdown.",
+      "prompt": "You are Hermes delivering JT's daily USMLE study nudge, ~30 min before his evening study block. Warm but efficient — friendly, tight, a well-placed emoji is fine. Not corporate, not bubbly.\n\nDo this:\n1. Read /root/obsidian-vault/2-Areas/Intellectual/Wiki/usmle-cockpit.md\n2. Compute days remaining to the exam dates in the frontmatter (exam_ifom, exam_step1) vs today.\n3. Pull the top 3 weak areas and today's suggested focus subject from the cockpit.\n\nSend a short Telegram message shaped like:\n\n🎯 Step 1 nudge — [N] days to IFOM · [M] to Step 1\nTonight (18:00 block):\n• Anki due → clear it\n• UWorld: 1 timed block + review incorrects\n• Weak-area focus: [pick one weak subject]\n[one-line encouragement or a sharp reminder if dates D1 still unlocked]\n\nRules:\n- If the cockpit still shows dates unlocked (D1 open), lead with a nudge to LOCK THE TESTING DATES — that's the blocker.\n- Keep it to ~5 lines. This should feel like a coach texting, not a report.\n- If weak areas are still blank in the cockpit, tell JT to fill them from his last UWorld/NBME breakdown.",
       "skills": [],
       "skill": null,
       "model": null,
@@ -305,15 +335,15 @@
       "schedule_display": "30 22 * * *",
       "repeat": {
         "times": null,
-        "completed": 64
+        "completed": 65
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-04T15:26:33.125064+00:00",
-      "next_run_at": "2026-09-05T22:30:00+00:00",
-      "last_run_at": "2026-09-04T22:31:24.309757+00:00",
+      "next_run_at": "2026-09-06T22:30:00+00:00",
+      "last_run_at": "2026-09-05T22:30:45.824754+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -322,7 +352,14 @@
       "enabled_toolsets": null,
       "workdir": null,
       "profile": null,
-      "fire_claim": null
+      "fire_claim": null,
+      "last_dispatch": {
+        "scheduled_at": "2026-09-05T22:30:00+00:00",
+        "dispatched_at": "2026-09-05T22:30:23.339839+00:00",
+        "lateness_seconds": 23.3,
+        "kind": "on_time"
+      },
+      "failure_streak": 0
     },
     {
       "id": "f7ed1b7d7b69",
@@ -346,15 +383,15 @@
       "schedule_display": "every 5m",
       "repeat": {
         "times": null,
-        "completed": 7481
+        "completed": 7721
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-04T21:26:20.949312+00:00",
-      "next_run_at": "2026-09-05T03:01:36.024487+00:00",
-      "last_run_at": "2026-09-05T02:56:36.024487+00:00",
+      "next_run_at": "2026-09-06T03:03:05.761267+00:00",
+      "last_run_at": "2026-09-06T02:58:05.761267+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -368,7 +405,14 @@
       },
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null
+      "fire_claim": null,
+      "last_dispatch": {
+        "scheduled_at": "2026-09-06T02:57:07.348727+00:00",
+        "dispatched_at": "2026-09-06T02:57:38.815411+00:00",
+        "lateness_seconds": 31.5,
+        "kind": "on_time"
+      },
+      "failure_streak": 0
     },
     {
       "id": "938e7e4f5493",
@@ -392,15 +436,15 @@
       "schedule_display": "0 3,15,22 * * *",
       "repeat": {
         "times": null,
-        "completed": 88
+        "completed": 91
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-06T02:45:24.849337+00:00",
-      "next_run_at": "2026-09-05T15:00:00+00:00",
-      "last_run_at": "2026-09-04T22:05:15.171952+00:00",
+      "next_run_at": "2026-09-06T15:00:00+00:00",
+      "last_run_at": "2026-09-05T22:04:44.929386+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -414,7 +458,17 @@
       },
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null
+      "fire_claim": {
+        "at": "2026-09-06T03:01:38.974378+00:00",
+        "by": "srv1056157:2790158:1744ad6860f54cec842b7ae44b70e8cf"
+      },
+      "last_dispatch": {
+        "scheduled_at": "2026-09-06T03:00:00+00:00",
+        "dispatched_at": "2026-09-06T03:00:38.885703+00:00",
+        "lateness_seconds": 38.9,
+        "kind": "on_time"
+      },
+      "failure_streak": 0
     },
     {
       "id": "2d57c3c432b3",
@@ -438,15 +492,15 @@
       "schedule_display": "every 30m",
       "repeat": {
         "times": null,
-        "completed": 1046
+        "completed": 1091
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-12T13:59:29.354401+00:00",
-      "next_run_at": "2026-09-05T03:02:52.739650+00:00",
-      "last_run_at": "2026-09-05T02:32:52.739650+00:00",
+      "next_run_at": "2026-09-06T03:04:16.042372+00:00",
+      "last_run_at": "2026-09-06T02:34:16.042372+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -460,12 +514,19 @@
       },
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null
+      "fire_claim": null,
+      "last_dispatch": {
+        "scheduled_at": "2026-09-06T02:32:28.120210+00:00",
+        "dispatched_at": "2026-09-06T02:32:38.225576+00:00",
+        "lateness_seconds": 10.1,
+        "kind": "on_time"
+      },
+      "failure_streak": 0
     },
     {
       "id": "6b470137380c",
-      "name": "Viva \u2014 candidatos diarios de cancelaci\u00f3n",
-      "prompt": "Entrega a JT un reporte diario MUY CONCISO en espa\u00f1ol de vuelos Viva Aerobus que todav\u00eda parecen reservables y tienen mayor riesgo de cancelaci\u00f3n en las pr\u00f3ximas 24\u201372 horas. Objetivo pr\u00e1ctico: indicar cu\u00e1les ameritan APARTAR, cu\u00e1les solo VIGILAR y cu\u00e1ndo no hay ninguno. Antes de reportar: (1) ejecuta `/root/.hermes/scripts/viva_operational_with_weather.py`; (2) lee las \u00faltimas entradas de `/root/.hermes/viva_operational_status/risk_predictions.jsonl`, `observations.jsonl`, `weather_snapshots.jsonl`, `/root/.hermes/irop_monitor_v2/flight_cache.json` y `/root/.hermes/viva_historical_outcomes_consolidated.csv`; (3) consulta clima/TAF vigente, disrupciones aeroportuarias y estado del vuelo entrante si est\u00e1 disponible. Nunca llames 'probabilidad' a un score no calibrado. Categor\u00edas: APARTAR solo si hay al menos dos se\u00f1ales independientes fuertes (por ejemplo irregularidad reciente + vuelo entrante afectado; o clima aeron\u00e1utico severo + disrupci\u00f3n generalizada; o score>=60 con evidencia verificable) y el vuelo sigue a la venta. VIGILAR si hay se\u00f1al parcial (score 30\u201359, retraso fuerte, ruta hist\u00f3ricamente riesgosa o clima adverso sin confirmaci\u00f3n). Si no existe candidato fuerte, di claramente: 'Hoy no recomiendo apartar ninguno'. Para cada vuelo reportado incluye n\u00famero, ruta, fecha/hora, nivel, razones concretas, enlace de estado y enlace de b\u00fasqueda/reserva Viva. Incluye una l\u00ednea breve: si opera, el boleto conserva reglas normales y una predicci\u00f3n no garantiza IROP/reembolso. No compres ni reserves autom\u00e1ticamente, no accedas a reservas del usuario y no programes m\u00e1s cron jobs.",
+      "name": "Viva — candidatos diarios de cancelación",
+      "prompt": "Entrega a JT un reporte diario MUY CONCISO en español de vuelos Viva Aerobus que todavía parecen reservables y tienen mayor riesgo de cancelación en las próximas 24–72 horas. Objetivo práctico: indicar cuáles ameritan APARTAR, cuáles solo VIGILAR y cuándo no hay ninguno. Antes de reportar: (1) ejecuta `/root/.hermes/scripts/viva_operational_with_weather.py`; (2) lee las últimas entradas de `/root/.hermes/viva_operational_status/risk_predictions.jsonl`, `observations.jsonl`, `weather_snapshots.jsonl`, `/root/.hermes/irop_monitor_v2/flight_cache.json` y `/root/.hermes/viva_historical_outcomes_consolidated.csv`; (3) consulta clima/TAF vigente, disrupciones aeroportuarias y estado del vuelo entrante si está disponible. Nunca llames 'probabilidad' a un score no calibrado. Categorías: APARTAR solo si hay al menos dos señales independientes fuertes (por ejemplo irregularidad reciente + vuelo entrante afectado; o clima aeronáutico severo + disrupción generalizada; o score>=60 con evidencia verificable) y el vuelo sigue a la venta. VIGILAR si hay señal parcial (score 30–59, retraso fuerte, ruta históricamente riesgosa o clima adverso sin confirmación). Si no existe candidato fuerte, di claramente: 'Hoy no recomiendo apartar ninguno'. Para cada vuelo reportado incluye número, ruta, fecha/hora, nivel, razones concretas, enlace de estado y enlace de búsqueda/reserva Viva. Incluye una línea breve: si opera, el boleto conserva reglas normales y una predicción no garantiza IROP/reembolso. No compres ni reserves automáticamente, no accedas a reservas del usuario y no programes más cron jobs.",
       "skills": [],
       "skill": null,
       "model": null,
@@ -484,15 +545,15 @@
       "schedule_display": "0 14 * * *",
       "repeat": {
         "times": null,
-        "completed": 22
+        "completed": 23
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-13T20:44:12.374955+00:00",
-      "next_run_at": "2026-09-05T14:00:00+00:00",
-      "last_run_at": "2026-09-04T14:06:59.074088+00:00",
+      "next_run_at": "2026-09-06T14:00:00+00:00",
+      "last_run_at": "2026-09-05T14:08:15.997338+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -510,7 +571,14 @@
         "web"
       ],
       "workdir": null,
-      "fire_claim": null
+      "fire_claim": null,
+      "last_dispatch": {
+        "scheduled_at": "2026-09-05T14:00:00+00:00",
+        "dispatched_at": "2026-09-05T14:00:41.065409+00:00",
+        "lateness_seconds": 41.1,
+        "kind": "on_time"
+      },
+      "failure_streak": 0
     },
     {
       "id": "eb39a57d9f30",
@@ -534,15 +602,15 @@
       "schedule_display": "every 10m",
       "repeat": {
         "times": 1000,
-        "completed": 283
+        "completed": 414
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-09-02T23:05:43.880124+00:00",
-      "next_run_at": "2026-09-05T03:09:08.930397+00:00",
-      "last_run_at": "2026-09-05T02:59:08.930397+00:00",
+      "next_run_at": "2026-09-06T03:10:45.237975+00:00",
+      "last_run_at": "2026-09-06T03:00:45.237975+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -556,8 +624,15 @@
       },
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null
+      "fire_claim": null,
+      "last_dispatch": {
+        "scheduled_at": "2026-09-06T02:59:41.393037+00:00",
+        "dispatched_at": "2026-09-06T03:00:38.885703+00:00",
+        "lateness_seconds": 57.5,
+        "kind": "on_time"
+      },
+      "failure_streak": 0
     }
   ],
-  "updated_at": "2026-09-05T03:00:05.640696+00:00"
+  "updated_at": "2026-09-06T03:01:38.975279+00:00"
 }

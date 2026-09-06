@@ -50,6 +50,7 @@ agent:
   task_completion_guidance: true
   environment_probe: true
   environment_hint: ''
+  verify_on_stop: false
   gateway_timeout_warning: 900
   clarify_timeout: 600
   gateway_notify_interval: 180
@@ -100,7 +101,6 @@ agent:
       technically fluent, so don''t over-explain.'
   reasoning_effort: medium
   verbose: false
-  verify_on_stop: false
 terminal:
   backend: local
   modal_mode: auto
@@ -114,6 +114,7 @@ terminal:
   singularity_image: docker://nikolaik/python-nodejs:python3.11-nodejs20
   modal_image: nikolaik/python-nodejs:python3.11-nodejs20
   daytona_image: nikolaik/python-nodejs:python3.11-nodejs20
+  vercel_runtime: node24
   container_cpu: 1
   container_memory: 5120
   container_disk: 51200
@@ -123,7 +124,6 @@ terminal:
   docker_extra_args: []
   docker_run_as_host_user: false
   persistent_shell: true
-  vercel_runtime: node24
   lifetime_seconds: 300
 web:
   backend: ''
@@ -153,8 +153,8 @@ checkpoints:
   max_file_size_mb: 10
   auto_prune: false
   retention_days: 7
-  delete_orphans: true
   min_interval_hours: 24
+  delete_orphans: true
 file_read_max_chars: 100000
 tool_output:
   max_bytes: 50000
@@ -180,17 +180,6 @@ compression:
   protect_first_n: 3
   abort_on_summary_failure: false
   summary_model: google/gemini-3-flash-preview
-kanban:
-  dispatch_in_gateway: true
-  dispatch_interval_seconds: 60
-  failure_limit: 2
-  worker_log_rotate_bytes: 2097152
-  worker_log_backup_count: 1
-  orchestrator_profile: ''
-  default_assignee: ''
-  auto_decompose: true
-  auto_decompose_per_tick: 3
-  dispatch_stale_timeout_seconds: 14400
 prompt_caching:
   cache_ttl: 5m
 openrouter:
@@ -216,12 +205,6 @@ auxiliary:
     api_key: "__REDACTED_FOR_GITHUB_BACKUP__"
     timeout: 120
     download_timeout: 30
-  web_extract:
-    provider: auto
-    model: ''
-    base_url: ''
-    api_key: "__REDACTED_FOR_GITHUB_BACKUP__"
-    timeout: 360
   compression:
     provider: auto
     model: ''
@@ -276,6 +259,12 @@ auxiliary:
     base_url: ''
     api_key: "__REDACTED_FOR_GITHUB_BACKUP__"
     timeout: 600
+  web_extract:
+    provider: auto
+    model: ''
+    base_url: ''
+    api_key: "__REDACTED_FOR_GITHUB_BACKUP__"
+    timeout: 360
   session_search:
     provider: auto
     model: ''
@@ -299,6 +288,7 @@ display:
   tui_agents_nudge: true
   bell_on_complete: false
   show_reasoning: false
+  background_process_notifications: all
   streaming: true
   timestamps: false
   final_response_markdown: strip
@@ -330,11 +320,12 @@ display:
       - context_pct
       - cwd
   copy_shortcut: auto
-  background_process_notifications: all
   tool_progress: all
 dashboard:
   theme: default
   show_token_analytics: "__REDACTED_FOR_GITHUB_BACKUP__"
+  trusted_proxies:
+    - 172.18.0.6
   oauth:
     client_id: ''
     portal_url: ''
@@ -345,8 +336,6 @@ dashboard:
     secret: "__REDACTED_FOR_GITHUB_BACKUP__"
     session_ttl_seconds: 0
   public_url: https://hermes.srv1056157.hstgr.cloud
-  trusted_proxies:
-    - 172.18.0.6
 privacy:
   redact_pii: false
 tts:
@@ -376,7 +365,6 @@ tts:
     voice: en_US-lessac-medium
 stt:
   enabled: true
-  provider: local
   local:
     model: base
     language: ''
@@ -389,6 +377,7 @@ stt:
     language_code: ''
     tag_audio_events: false
     diarize: false
+  provider: local
 voice:
   record_key: ctrl+b
   max_recording_seconds: 120
@@ -407,11 +396,11 @@ memory:
   user_profile_enabled: true
   memory_char_limit: 2200
   user_char_limit: 1375
+  nudge_interval: 10
   provider: holographic
   flush_min_turns: 6
   holographic:
     path: /root/.hermes/memory.db
-  nudge_interval: 10
 delegation:
   model: ''
   provider: ''
@@ -491,18 +480,19 @@ approvals:
   mcp_reload_confirm: true
   destructive_slash_confirm: true
 command_allowlist:
-  - stop/restart system service
   - docker restart/stop/kill (container lifecycle)
-  - script execution via -e/-c flag
+  - hermes update (restarts gateway, kills running agents)
   - kill process via pgrep/pidof expansion (self-termination)
+  - shell command via -c/-lc flag
+  - overwrite system config
+  - delete in root path
   - stop/restart hermes gateway (kills running agents)
   - recursive delete
-  - shell command via -c/-lc flag
-  - script execution via heredoc
-  - overwrite system config
-  - hermes update (restarts gateway, kills running agents)
   - force kill processes
-  - delete in root path
+  - script execution via heredoc
+  - execute_code
+  - script execution via -e/-c flag
+  - stop/restart system service
 hooks_auto_accept: false
 security:
   allow_private_urls: false
@@ -519,6 +509,17 @@ security:
   allow_lazy_installs: true
 cron:
   wrap_response: true
+kanban:
+  dispatch_in_gateway: true
+  dispatch_interval_seconds: 60
+  failure_limit: 2
+  worker_log_rotate_bytes: 2097152
+  worker_log_backup_count: 1
+  orchestrator_profile: ''
+  default_assignee: ''
+  auto_decompose: true
+  auto_decompose_per_tick: 3
+  dispatch_stale_timeout_seconds: 14400
 code_execution:
   mode: project
   max_tool_calls: 50
@@ -633,3 +634,25 @@ custom_providers:
     key_env: ORCAROUTER_API_KEY
     api_mode: chat_completions
     model: obsidian/Qwen3.8-27B
+
+# ── Fallback Model ────────────────────────────────────────────────────
+# Automatic provider failover when primary is unavailable.
+# Uncomment and configure to enable. Triggers on rate limits (429),
+# overload (529), service errors (503), or connection failures.
+#
+# Supported providers:
+#   openrouter   (OPENROUTER_API_KEY)  — routes to any model
+#   openai-codex (OAuth — hermes auth) — OpenAI Codex
+#   nous         (OAuth — hermes auth) — Nous Portal
+#   zai          (ZAI_API_KEY)         — Z.AI / GLM
+#   kimi-coding  (KIMI_API_KEY)        — Kimi / Moonshot
+#   kimi-coding-cn (KIMI_CN_API_KEY)   — Kimi / Moonshot (China)
+#   minimax      (MINIMAX_API_KEY)     — MiniMax
+#   minimax-cn   (MINIMAX_CN_API_KEY)  — MiniMax (China)
+#   bedrock      (AWS IAM / boto3)     — AWS Bedrock (Converse API)
+#
+# For custom OpenAI-compatible endpoints, add base_url and key_env.
+#
+# fallback_model:
+#   provider: openrouter
+#   model: anthropic/claude-sonnet-4
