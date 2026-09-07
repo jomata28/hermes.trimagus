@@ -191,14 +191,14 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-05T13:55:50.400252+00:00",
-    "last_viewed_at": "2026-09-05T13:55:50.394884+00:00",
+    "last_used_at": "2026-09-06T13:55:31.589095+00:00",
+    "last_viewed_at": "2026-09-06T13:55:31.581289+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 86,
-    "view_count": 86
+    "use_count": 87,
+    "view_count": 87
   },
   "data-science-workflows": {
     "archived_at": null,
@@ -232,14 +232,14 @@
     "created_by": null,
     "last_patched_at": "2026-08-17T07:18:26.052484+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-05T07:00:37.156160+00:00",
-    "last_viewed_at": "2026-09-05T07:00:37.072726+00:00",
+    "last_used_at": "2026-09-06T07:00:49.589740+00:00",
+    "last_viewed_at": "2026-09-06T07:00:49.583624+00:00",
     "patch_count": 31,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 334,
-    "view_count": 183
+    "use_count": 336,
+    "view_count": 184
   },
   "divine-pharma-notion-episodes-fetch": {
     "archived_at": null,
@@ -305,6 +305,21 @@
     "state": "active",
     "use_count": 23,
     "view_count": 23
+  },
+  "github": {
+    "archived_at": null,
+    "created_at": "2026-09-07T03:00:56.255877+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_reused_patch_generation": 0,
+    "last_used_at": "2026-09-07T03:01:00.203091+00:00",
+    "last_viewed_at": "2026-09-07T03:01:00.188123+00:00",
+    "patch_count": 0,
+    "patch_generation": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 3,
+    "view_count": 3
   },
   "github-workflows": {
     "archived_at": null,
@@ -409,14 +424,14 @@
     "created_by": null,
     "last_patched_at": "2026-06-12T02:55:15.569642+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-06T03:00:47.613979+00:00",
-    "last_viewed_at": "2026-09-06T03:00:47.601477+00:00",
+    "last_used_at": "2026-09-07T03:00:56.242382+00:00",
+    "last_viewed_at": "2026-09-07T03:00:56.224627+00:00",
     "patch_count": 1,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 54,
-    "view_count": 54
+    "use_count": 55,
+    "view_count": 55
   },
   "hermes-agent-skill-authoring": {
     "archived_at": null,
@@ -449,13 +464,15 @@
     "created_at": "2026-07-26T19:49:45.292115+00:00",
     "created_by": "agent",
     "last_patched_at": "2026-09-04T21:52:25.638474+00:00",
-    "last_used_at": "2026-09-05T03:51:18.632627+00:00",
-    "last_viewed_at": "2026-09-05T03:51:18.627828+00:00",
+    "last_reused_patch_generation": 0,
+    "last_used_at": "2026-09-07T02:59:25.005558+00:00",
+    "last_viewed_at": "2026-09-07T02:59:24.996371+00:00",
     "patch_count": 25,
+    "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 20,
-    "view_count": 20
+    "use_count": 21,
+    "view_count": 21
   },
   "himalaya": {
     "archived_at": null,
@@ -913,14 +930,29 @@
     "created_by": null,
     "last_patched_at": "2026-09-05T22:53:31.196349+00:00",
     "last_reused_patch_generation": 3,
-    "last_used_at": "2026-09-06T00:29:25.605243+00:00",
-    "last_viewed_at": "2026-09-06T00:29:25.599009+00:00",
+    "last_used_at": "2026-09-07T02:59:25.010942+00:00",
+    "last_viewed_at": "2026-09-07T02:59:24.987786+00:00",
     "patch_count": 11,
     "patch_generation": 3,
     "pinned": false,
     "state": "active",
-    "use_count": 15,
-    "view_count": 15
+    "use_count": 16,
+    "view_count": 16
+  },
+  "software-development:software-development-workflows": {
+    "archived_at": null,
+    "created_at": "2026-09-07T02:59:28.570168+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_reused_patch_generation": 0,
+    "last_used_at": "2026-09-07T02:59:28.573988+00:00",
+    "last_viewed_at": "2026-09-07T02:59:28.570187+00:00",
+    "patch_count": 0,
+    "patch_generation": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 1,
+    "view_count": 1
   },
   "spa-js-reverse-engineering": {
     "archived_at": null,
