@@ -191,14 +191,14 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-06T13:55:31.589095+00:00",
-    "last_viewed_at": "2026-09-06T13:55:31.581289+00:00",
+    "last_used_at": "2026-09-07T13:55:30.467574+00:00",
+    "last_viewed_at": "2026-09-07T13:55:30.459871+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 87,
-    "view_count": 87
+    "use_count": 88,
+    "view_count": 88
   },
   "data-science-workflows": {
     "archived_at": null,
@@ -232,14 +232,14 @@
     "created_by": null,
     "last_patched_at": "2026-08-17T07:18:26.052484+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-06T07:00:49.589740+00:00",
-    "last_viewed_at": "2026-09-06T07:00:49.583624+00:00",
+    "last_used_at": "2026-09-07T07:01:05.773789+00:00",
+    "last_viewed_at": "2026-09-07T07:01:05.766926+00:00",
     "patch_count": 31,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 336,
-    "view_count": 184
+    "use_count": 338,
+    "view_count": 185
   },
   "divine-pharma-notion-episodes-fetch": {
     "archived_at": null,
@@ -327,14 +327,14 @@
     "created_by": null,
     "last_patched_at": "2026-08-24T03:03:24.214562+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-06T03:00:47.625237+00:00",
-    "last_viewed_at": "2026-09-06T03:00:47.620628+00:00",
+    "last_used_at": "2026-09-08T03:00:49.909423+00:00",
+    "last_viewed_at": "2026-09-08T03:00:49.899957+00:00",
     "patch_count": 25,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 116,
-    "view_count": 116
+    "use_count": 117,
+    "view_count": 117
   },
   "github:github-workflows": {
     "archived_at": null,
@@ -1050,13 +1050,15 @@
     "created_at": "2026-07-27T00:32:28.149104+00:00",
     "created_by": "agent",
     "last_patched_at": "2026-09-02T22:28:03.701530+00:00",
-    "last_used_at": "2026-09-02T22:27:50.000127+00:00",
-    "last_viewed_at": "2026-09-02T22:27:49.994098+00:00",
+    "last_reused_patch_generation": 0,
+    "last_used_at": "2026-09-08T02:54:46.560235+00:00",
+    "last_viewed_at": "2026-09-08T02:54:46.554307+00:00",
     "patch_count": 23,
+    "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 34,
-    "view_count": 34
+    "use_count": 35,
+    "view_count": 35
   },
   "webhook-subscriptions": {
     "archived_at": null,
