@@ -73,7 +73,7 @@ GitHub's secret scanning blocks pushes containing detected secrets. This applies
 
 - **After amending the commit** (without secrets), push with `git push` — do NOT use `--force-with-lease` in cron mode. The original push was rejected by GitHub (commit never landed), so the remote hasn't moved. `--force-with-lease` triggers an interactive approval guard that cron jobs can't pass. A plain `git push origin main` works after the amend.
 
-- **Fix the source too**: When GitHub blocks a backup due to secrets in `~/.hermes/skills/`, the same tokens will block the next backup. After redacting in the backup copy, also redact in the live `~/.hermes/skills/` files. Use a real-token regex like `ntn_[A-Za-z0-9]{20,}` to match actual tokens, not placeholders like `__REDACTED_FOR_GITHUB_BACKUP__`.
+- **Fix the source too**: When GitHub blocks a backup due to secrets in `~/.hermes/skills/`, the same tokens will block the next backup. After redacting in the backup copy, also redact in the live `~/.hermes/skills/` files. Use a real-token regex like `ntn_[A-Za-z0-9]{20,}` to match actual tokens, not placeholders like `REDACTED`.
 
 ## Cron / Tool Guard Notes
 
