@@ -191,14 +191,14 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-08T13:55:41.825359+00:00",
-    "last_viewed_at": "2026-09-08T13:55:41.818393+00:00",
+    "last_used_at": "2026-09-09T22:30:33.467024+00:00",
+    "last_viewed_at": "2026-09-09T22:30:33.463368+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 89,
-    "view_count": 89
+    "use_count": 91,
+    "view_count": 91
   },
   "data-science-workflows": {
     "archived_at": null,
@@ -232,14 +232,14 @@
     "created_by": null,
     "last_patched_at": "2026-08-17T07:18:26.052484+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-08T07:00:59.533000+00:00",
-    "last_viewed_at": "2026-09-08T07:00:59.525554+00:00",
+    "last_used_at": "2026-09-09T07:00:18.527243+00:00",
+    "last_viewed_at": "2026-09-09T07:00:18.513705+00:00",
     "patch_count": 31,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 344,
-    "view_count": 190
+    "use_count": 346,
+    "view_count": 191
   },
   "divine-pharma-notion-episodes-fetch": {
     "archived_at": null,
@@ -327,14 +327,14 @@
     "created_by": null,
     "last_patched_at": "2026-08-24T03:03:24.214562+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-08T03:00:49.909423+00:00",
-    "last_viewed_at": "2026-09-08T03:00:49.899957+00:00",
+    "last_used_at": "2026-09-10T03:00:43.000259+00:00",
+    "last_viewed_at": "2026-09-10T03:00:42.986526+00:00",
     "patch_count": 25,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 117,
-    "view_count": 117
+    "use_count": 118,
+    "view_count": 118
   },
   "github:github-workflows": {
     "archived_at": null,
@@ -424,14 +424,14 @@
     "created_by": null,
     "last_patched_at": "2026-06-12T02:55:15.569642+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-07T03:00:56.242382+00:00",
-    "last_viewed_at": "2026-09-07T03:00:56.224627+00:00",
+    "last_used_at": "2026-09-10T03:00:42.991233+00:00",
+    "last_viewed_at": "2026-09-10T03:00:42.978755+00:00",
     "patch_count": 1,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 55,
-    "view_count": 55
+    "use_count": 56,
+    "view_count": 56
   },
   "hermes-agent-skill-authoring": {
     "archived_at": null,
