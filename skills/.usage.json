@@ -161,14 +161,16 @@
     "archived_at": null,
     "created_at": "2026-08-06T23:38:15.218469+00:00",
     "created_by": "agent",
-    "last_patched_at": "2026-09-02T23:07:01.371910+00:00",
-    "last_used_at": "2026-09-04T21:42:20.271568+00:00",
-    "last_viewed_at": "2026-09-04T21:42:20.266620+00:00",
-    "patch_count": 14,
+    "last_patched_at": "2026-09-10T21:31:25.200511+00:00",
+    "last_reused_patch_generation": 0,
+    "last_used_at": "2026-09-10T21:28:36.795328+00:00",
+    "last_viewed_at": "2026-09-10T21:28:36.783731+00:00",
+    "patch_count": 15,
+    "patch_generation": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 18,
-    "view_count": 18
+    "use_count": 19,
+    "view_count": 19
   },
   "daily-briefing": {
     "archived_at": null,
@@ -176,14 +178,14 @@
     "created_by": null,
     "last_patched_at": "2026-08-11T13:55:43.041827+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-05T22:30:30.703692+00:00",
-    "last_viewed_at": "2026-09-05T22:30:30.693739+00:00",
+    "last_used_at": "2026-09-10T22:30:59.105334+00:00",
+    "last_viewed_at": "2026-09-10T22:30:59.098625+00:00",
     "patch_count": 11,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 25,
-    "view_count": 25
+    "use_count": 26,
+    "view_count": 26
   },
   "daily-consciousness-practice": {
     "archived_at": null,
@@ -191,14 +193,14 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-09T22:30:33.467024+00:00",
-    "last_viewed_at": "2026-09-09T22:30:33.463368+00:00",
+    "last_used_at": "2026-09-10T13:55:42.876762+00:00",
+    "last_viewed_at": "2026-09-10T13:55:42.871106+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 91,
-    "view_count": 91
+    "use_count": 92,
+    "view_count": 92
   },
   "data-science-workflows": {
     "archived_at": null,
@@ -232,14 +234,14 @@
     "created_by": null,
     "last_patched_at": "2026-08-17T07:18:26.052484+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-09T07:00:18.527243+00:00",
-    "last_viewed_at": "2026-09-09T07:00:18.513705+00:00",
+    "last_used_at": "2026-09-10T07:00:34.051054+00:00",
+    "last_viewed_at": "2026-09-10T07:00:34.028584+00:00",
     "patch_count": 31,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 346,
-    "view_count": 191
+    "use_count": 351,
+    "view_count": 195
   },
   "divine-pharma-notion-episodes-fetch": {
     "archived_at": null,
@@ -259,13 +261,15 @@
     "created_at": "2026-05-08T07:00:58.663545+00:00",
     "created_by": null,
     "last_patched_at": "2026-07-02T07:14:18.928484+00:00",
-    "last_used_at": "2026-08-06T07:00:17.795738+00:00",
-    "last_viewed_at": "2026-08-06T07:00:17.773475+00:00",
+    "last_reused_patch_generation": 0,
+    "last_used_at": "2026-09-10T07:01:03.706755+00:00",
+    "last_viewed_at": "2026-09-10T07:01:03.699289+00:00",
     "patch_count": 21,
+    "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 57,
-    "view_count": 14
+    "use_count": 61,
+    "view_count": 18
   },
   "divine-pharma-project-automation-approach": {
     "archived_at": null,
@@ -327,14 +331,14 @@
     "created_by": null,
     "last_patched_at": "2026-08-24T03:03:24.214562+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-10T03:00:43.000259+00:00",
-    "last_viewed_at": "2026-09-10T03:00:42.986526+00:00",
+    "last_used_at": "2026-09-11T03:01:04.772221+00:00",
+    "last_viewed_at": "2026-09-11T03:01:04.753086+00:00",
     "patch_count": 25,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 118,
-    "view_count": 118
+    "use_count": 120,
+    "view_count": 120
   },
   "github:github-workflows": {
     "archived_at": null,
@@ -465,14 +469,14 @@
     "created_by": "agent",
     "last_patched_at": "2026-09-04T21:52:25.638474+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-07T02:59:25.005558+00:00",
-    "last_viewed_at": "2026-09-07T02:59:24.996371+00:00",
+    "last_used_at": "2026-09-11T03:00:35.649150+00:00",
+    "last_viewed_at": "2026-09-11T03:00:35.625605+00:00",
     "patch_count": 25,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 21,
-    "view_count": 21
+    "use_count": 22,
+    "view_count": 22
   },
   "himalaya": {
     "archived_at": null,
@@ -930,14 +934,14 @@
     "created_by": null,
     "last_patched_at": "2026-09-05T22:53:31.196349+00:00",
     "last_reused_patch_generation": 3,
-    "last_used_at": "2026-09-07T02:59:25.010942+00:00",
-    "last_viewed_at": "2026-09-07T02:59:24.987786+00:00",
+    "last_used_at": "2026-09-10T21:28:36.771661+00:00",
+    "last_viewed_at": "2026-09-10T21:28:36.764864+00:00",
     "patch_count": 11,
     "patch_generation": 3,
     "pinned": false,
     "state": "active",
-    "use_count": 16,
-    "view_count": 16
+    "use_count": 17,
+    "view_count": 17
   },
   "software-development:software-development-workflows": {
     "archived_at": null,
@@ -959,13 +963,15 @@
     "created_at": "2026-08-04T19:38:15.710302+00:00",
     "created_by": "agent",
     "last_patched_at": "2026-09-03T00:08:46.424782+00:00",
-    "last_used_at": "2026-09-03T00:08:24.456034+00:00",
-    "last_viewed_at": "2026-09-03T00:08:24.442899+00:00",
+    "last_reused_patch_generation": 0,
+    "last_used_at": "2026-09-10T21:20:19.348260+00:00",
+    "last_viewed_at": "2026-09-10T21:20:19.304311+00:00",
     "patch_count": 36,
+    "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 56,
-    "view_count": 56
+    "use_count": 57,
+    "view_count": 57
   },
   "spike": {
     "archived_at": null,
@@ -1024,13 +1030,15 @@
     "created_at": "2026-08-14T02:23:20.901704+00:00",
     "created_by": "agent",
     "last_patched_at": "2026-09-02T22:28:14.854874+00:00",
-    "last_used_at": "2026-09-02T22:28:06.751315+00:00",
-    "last_viewed_at": "2026-09-02T22:28:06.742800+00:00",
+    "last_reused_patch_generation": 0,
+    "last_used_at": "2026-09-10T21:20:19.322888+00:00",
+    "last_viewed_at": "2026-09-10T21:20:19.288960+00:00",
     "patch_count": 12,
+    "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 18,
-    "view_count": 18
+    "use_count": 19,
+    "view_count": 19
   },
   "used-car-due-diligence": {
     "archived_at": null,
@@ -1051,14 +1059,14 @@
     "created_by": "agent",
     "last_patched_at": "2026-09-02T22:28:03.701530+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-08T02:54:46.560235+00:00",
-    "last_viewed_at": "2026-09-08T02:54:46.554307+00:00",
+    "last_used_at": "2026-09-10T21:30:48.410991+00:00",
+    "last_viewed_at": "2026-09-10T21:30:48.402255+00:00",
     "patch_count": 23,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 35,
-    "view_count": 35
+    "use_count": 36,
+    "view_count": 36
   },
   "webhook-subscriptions": {
     "archived_at": null,
