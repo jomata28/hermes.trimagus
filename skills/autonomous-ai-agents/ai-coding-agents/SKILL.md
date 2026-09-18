@@ -145,6 +145,30 @@ Pi auth is separate from merely installing the CLI. Check its live auth/provider
 
 Good for focused coding, debugging, and patch generation. Keep prompts compact and verify every changed file with git diff and tests.
 
+### Sharing Hermes skills with Codex
+
+Codex discovers global user skills under `$HOME/.agents/skills/<skill>/SKILL.md` and follows symlinked skill directories. To share one maintained Hermes skill without copying or creating a stale fork:
+
+```bash
+mkdir -p "$HOME/.agents/skills"
+ln -sfn "$HOME/.hermes/skills/<category>/<skill>" "$HOME/.agents/skills/<alias>"
+```
+
+Verify with a read-only `codex exec --skip-git-repo-check` prompt that names the skill. Codex may read the whole `SKILL.md`; successful filesystem presence alone does not prove discovery.
+
+### Giving Codex CLI a persistent Chrome browser
+
+Codex CLI does not receive ChatGPT Desktop's built-in Browser, even when `codex features list` shows browser flags enabled. Connect it to an existing sandboxed Chrome through Playwright MCP and CDP:
+
+```bash
+codex mcp add project-browser -- /usr/bin/npx --yes @playwright/mcp@latest \
+  --cdp-endpoint http://127.0.0.1:9226 --cdp-timeout 60000 \
+  --caps devtools --snapshot-mode full
+codex mcp list
+```
+
+First verify the Chrome endpoint with `curl http://127.0.0.1:9226/json/version` and `/json/list`; never guess the port. A non-interactive `codex exec --sandbox read-only` run can cancel MCP calls because it cannot approve them. For a tightly scoped read-only smoke test, use `--approve-for-me`; keep transaction, booking, payment, cancellation, and account mutations behind explicit user approval. Prefer a dedicated browser profile because Playwright MCP can see every tab in the connected Chrome instance.
+
 ## OpenCode
 
 Good for implementation and PR review workflows. Use it when configured for the user's environment and return verifiable handles or diffs.

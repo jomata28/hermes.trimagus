@@ -19,6 +19,28 @@ Launch with `DISPLAY=:99` as a tracked long-lived background process, then verif
 
 Tauri/WebKit apps may initially expose only a tiny or unmapped helper window while first-run assets/models download. Do not conclude the launch failed from the first `xwininfo` result. Read the live process log, wait for initialization/download completion, then inspect the X tree and screenshot again. A later child window may be the real full-size UI.
 
+### Electron apps that need a real user DBus session
+
+Do not launch a packaged Electron app with plain `runuser` when it needs desktop services. The child can inherit root's `DBUS_SESSION_BUS_ADDRESS` or create a temporary bus that disappears during startup, causing an immediate abort even though the package and X display are valid.
+
+Start the persistent user manager, then launch through a tracked systemd unit with the user's runtime bus explicitly set:
+
+```bash
+loginctl enable-linger jt
+systemctl start user@1001.service
+DISPLAY=:99 xhost +SI:localuser:jt
+
+systemd-run --unit=<app>-vps --collect \
+  --uid=jt --gid=jt --property=PAMName=login \
+  --setenv=HOME=/home/jt \
+  --setenv=DISPLAY=:99 \
+  --setenv=XDG_RUNTIME_DIR=/run/user/1001 \
+  --setenv=DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1001/bus \
+  /usr/bin/<app> --disable-gpu
+```
+
+Verify `systemctl status <app>-vps.service`, the real application process, an X window, and the rendered first-run screen. If the first screen is authentication, stop there for JT rather than treating the visible window as an operational app.
+
 ## First-run secrets and privacy
 
 Onboarding screens may display recovery phrases, Nostr private keys, API keys, QR codes, or device codes.

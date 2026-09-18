@@ -56,6 +56,7 @@ JT prefers fast, concise operation. Do not narrate every screenshot, click, or h
 
 - Batch independent readiness checks, launch, and capture where safe.
 - After each state-changing click, verify once; after **two failed coordinate attempts**, change strategy rather than repeating pixels.
+- Before coordinate-clicking a partly covered app, enumerate **visible** windows, minimize/raise overlapping windows, and target the `xdotool search --onlyvisible` ID. A stale hidden window can share the same title, while an overlapping window receives clicks even though the intended control is visible elsewhere in a screenshot.
 - If the visible browser is not present in X11 window discovery, focus is ambiguous, or events land in another window, launch a dedicated CDP-controlled Chromium profile instead of continuing `xdotool` trial-and-error.
 - Give the user only meaningful checkpoints: human action required, verified result, or real blocker. Keep low-level diagnostics internal unless requested.
 - For agent/chat round-trip tests, use a short fixed timeout and one controlled restart before deeper diagnosis; report measured latency separately from relay/network latency.
@@ -69,6 +70,8 @@ For long-lived GUI apps, do not attach broad watch patterns such as `error|faile
 Always distinguish **installed**, **launched**, and **operational**. A GUI client may be correctly installed and visible while its required relay/backend is still offline.
 
 For packaged-app OAuth flows that say they will open a browser, use `references/gui-oauth-browser-handoff.md`. It separates desktop/app health, external-browser launch, and relay/callback connectivity; includes a known-good Snap Chromium desktop launcher for a root-run VPS; and preserves the boundary that JT enters passwords and 2FA directly in noVNC.
+
+For the ChatGPT/Codex desktop app, local skill installation, `@Browser` startup, and browser-permission handling, follow `references/codex-desktop-skills-browser.md`. Verify a local skill in **Plugins → Skills → Installed** before invoking it as `$skill-name`; a copied file alone is not proof that the app loaded it.
 
 ## Screenshots of the desktop
 
@@ -114,7 +117,7 @@ When JT explicitly authorizes entering an API key or token into a GUI, treat suc
 
 ## noVNC Basic Auth password management
 
-The noVNC URL is fronted by a Traefik reverse proxy (`vps-screen-proxy` Docker container running `alpine/socat`) that enforces HTTP Basic Auth via Traefik labels. The auth credentials are NOT in a file — they're baked into the container's Traefik labels.
+The noVNC URL is fronted by a Traefik reverse proxy (`vps-screen-proxy` Docker container running `alpine/socat`) that enforces HTTP Basic Auth via Traefik labels. The **enforcement hash** is baked into the container's Traefik labels; the current user-enterable plaintext is mirrored at `/root/.vps-screen/basic-auth-password.txt` for controlled handoff and verification. Read the plaintext file when JT needs access, but inspect/recreate the container labels when changing the enforced credential.
 
 **The socat container forwards Traefik → host's websockify on `172.18.0.1:6080`.** The container must use `TCP:172.18.0.1:6080` as the socat target (NOT `host.docker.internal` — that doesn't resolve without `--add-host`).
 
@@ -210,3 +213,5 @@ This is the rendering path for target-slide/vision-slide HTML→PNG pipelines.
 - Termius (Android) = SSH shell from phone.
 - noVNC URL = the actual visual desktop.
 - Herdr = terminal multiplexer that runs inside any of those shells.
+- ChatGPT desktop **Work `@Browser`** = an app-owned browser/profile/network path; it is not automatically available to Codex CLI.
+- Codex CLI browser access = only the browser/MCP actually exposed and proven in that CLI run. Test one harmless browser call before promising it can operate the same site as Work.
