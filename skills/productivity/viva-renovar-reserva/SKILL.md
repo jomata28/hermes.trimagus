@@ -73,3 +73,5 @@ Never output the PNR, passenger identity, email, itinerary, payment reference, t
 ## Known environment distinction
 
 Codex CLI and Hermes' VPS Chrome use VPS egress and may reach the Viva shell while sensitive booking endpoints return `403` or “booking service unavailable.” Codex **Work** inside the ChatGPT/Codex desktop app has its own `@Browser` and may succeed where the VPS browser fails. Do not confuse model/provider identity with browser egress.
+
+The canonical Browser Harness is `https://github.com/browser-use/browser-harness`. Local Browser Harness control can attach to JT's persistent Chrome at `127.0.0.1:9226`, but this still uses Hostinger egress and does not bypass Viva's network block. Browser Use Cloud requires a stored Cloud API key **and positive account credits**; with `$0.00` credits, remote browser creation returns HTTP `402 Payment Required`. Never add credits or initiate checkout without JT's explicit approval.

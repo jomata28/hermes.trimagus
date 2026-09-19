@@ -60,6 +60,22 @@ Invoke an installed skill explicitly in the prompt as `$skill-name`. If the task
 4. Monitor at meaningful intervals. Report only: browser permission needed, login/CAPTCHA/2FA needed, verified completion, or a real blocker.
 5. Treat the app-owned browser panel as a distinct profile and network path. Existing cookies from VPS Chrome do not imply that `@Browser` is authenticated.
 
+### Safe prompt entry
+
+- Do not feed a multiline prompt to `xdotool type --file`: newline characters can submit the first line before the rest is entered. Prefer a real clipboard paste; if clipboard tooling is unavailable, convert the prompt to one line, type it, capture the screen, and click the visible Send control explicitly.
+- Re-capture the screen after `@Browser` opens. The split panel changes coordinates and can move focus from the Cowork composer into a website login or verification field.
+- Before typing a long prompt, click the visible composer and verify that its caret or placeholder changed. After typing, capture again and confirm the text is in the composer before sending.
+- If text lands in a website field, clear that field immediately with Select All + Backspace, verify it is empty, then refocus the composer. Never leave agent instructions in a username, OTP, payment, or other site field.
+
+### Frozen desktop recovery
+
+Before restarting the whole VPS, diagnose resource pressure with `uptime`, `free -h`, and a process list sorted by CPU and memory. Low available RAM with a large browser renderer can make noVNC and Electron appear frozen even when their services are healthy.
+
+1. Capture the actual X11 screen so the visible failure is known.
+2. Stop only the memory-heavy browser/app process, preserving its on-disk profile and cookies; avoid restarting unrelated gateway or dashboard services.
+3. Relaunch Codex through the tracked `chatgpt-vps` user-session unit.
+4. Verify recovered memory, active unit state, and a fresh screenshot showing the usable UI rather than the loading splash.
+
 ## Permission dialogs
 
 Browser access can require two confirmations: the domain-access choice and a second elevated confirmation. Obtain the user's choice before clicking either; after approval, complete both matching confirmations and verify the browser actually navigates.
