@@ -231,14 +231,14 @@
     "created_by": null,
     "last_patched_at": "2026-08-11T13:55:43.041827+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-18T22:30:38.408974+00:00",
-    "last_viewed_at": "2026-09-18T22:30:38.400126+00:00",
+    "last_used_at": "2026-09-19T22:30:40.882634+00:00",
+    "last_viewed_at": "2026-09-19T22:30:40.875352+00:00",
     "patch_count": 11,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 31,
-    "view_count": 31
+    "use_count": 32,
+    "view_count": 32
   },
   "daily-consciousness-practice": {
     "archived_at": null,
@@ -246,14 +246,14 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-18T13:55:16.052708+00:00",
-    "last_viewed_at": "2026-09-18T13:55:16.040221+00:00",
+    "last_used_at": "2026-09-19T13:55:20.580212+00:00",
+    "last_viewed_at": "2026-09-19T13:55:20.573733+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 100,
-    "view_count": 100
+    "use_count": 101,
+    "view_count": 101
   },
   "data-science-workflows": {
     "archived_at": null,
@@ -287,14 +287,14 @@
     "created_by": null,
     "last_patched_at": "2026-08-17T07:18:26.052484+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-18T07:00:31.636389+00:00",
-    "last_viewed_at": "2026-09-18T07:00:31.607808+00:00",
+    "last_used_at": "2026-09-19T07:00:27.864637+00:00",
+    "last_viewed_at": "2026-09-19T07:00:27.851859+00:00",
     "patch_count": 31,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 380,
-    "view_count": 216
+    "use_count": 385,
+    "view_count": 220
   },
   "divine-pharma-notion-episodes-fetch": {
     "archived_at": null,
@@ -431,14 +431,14 @@
     "created_by": null,
     "last_patched_at": "2026-08-24T03:03:24.214562+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-19T03:00:53.282091+00:00",
-    "last_viewed_at": "2026-09-19T03:00:53.262291+00:00",
+    "last_used_at": "2026-09-20T03:00:14.907110+00:00",
+    "last_viewed_at": "2026-09-20T03:00:14.758836+00:00",
     "patch_count": 25,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 128,
-    "view_count": 128
+    "use_count": 129,
+    "view_count": 129
   },
   "github:github-workflows": {
     "archived_at": null,
@@ -528,14 +528,14 @@
     "created_by": null,
     "last_patched_at": "2026-06-12T02:55:15.569642+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-18T16:50:20.475090+00:00",
-    "last_viewed_at": "2026-09-18T16:50:20.462228+00:00",
+    "last_used_at": "2026-09-20T03:00:14.920402+00:00",
+    "last_viewed_at": "2026-09-20T03:00:14.898898+00:00",
     "patch_count": 1,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 65,
-    "view_count": 65
+    "use_count": 67,
+    "view_count": 67
   },
   "hermes-agent-skill-authoring": {
     "archived_at": null,
@@ -708,13 +708,15 @@
     "created_at": "2026-06-12T02:54:30.636439+00:00",
     "created_by": null,
     "last_patched_at": "2026-06-12T02:54:30.636463+00:00",
-    "last_used_at": null,
-    "last_viewed_at": null,
+    "last_reused_patch_generation": 0,
+    "last_used_at": "2026-09-20T01:08:46.947344+00:00",
+    "last_viewed_at": "2026-09-20T01:08:46.935887+00:00",
     "patch_count": 1,
+    "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 0,
-    "view_count": 0
+    "use_count": 1,
+    "view_count": 1
   },
   "manim-video": {
     "archived_at": null,
@@ -1106,14 +1108,14 @@
     "created_by": null,
     "last_patched_at": "2026-09-04T13:09:29.510846+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-11T12:53:46.026891+00:00",
-    "last_viewed_at": "2026-09-11T12:53:46.018945+00:00",
+    "last_used_at": "2026-09-20T01:08:46.915699+00:00",
+    "last_viewed_at": "2026-09-20T01:08:46.908811+00:00",
     "patch_count": 26,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 73,
-    "view_count": 73
+    "use_count": 75,
+    "view_count": 75
   },
   "research:research-workflows": {
     "archived_at": null,
@@ -1192,14 +1194,14 @@
     "created_by": null,
     "last_patched_at": "2026-09-05T22:53:31.196349+00:00",
     "last_reused_patch_generation": 3,
-    "last_used_at": "2026-09-10T21:28:36.771661+00:00",
-    "last_viewed_at": "2026-09-10T21:28:36.764864+00:00",
+    "last_used_at": "2026-09-20T01:08:46.926890+00:00",
+    "last_viewed_at": "2026-09-20T01:08:46.899634+00:00",
     "patch_count": 11,
     "patch_generation": 3,
     "pinned": false,
     "state": "active",
-    "use_count": 17,
-    "view_count": 17
+    "use_count": 19,
+    "view_count": 19
   },
   "software-development:github": {
     "archived_at": null,
@@ -1312,6 +1314,21 @@
     "state": "active",
     "use_count": 19,
     "view_count": 19
+  },
+  "typesafe-ai": {
+    "archived_at": null,
+    "created_at": "2026-09-20T01:06:54.894046+00:00",
+    "created_by": "installed",
+    "last_patched_at": null,
+    "last_reused_patch_generation": 0,
+    "last_used_at": "2026-09-20T01:07:00.647868+00:00",
+    "last_viewed_at": "2026-09-20T01:07:00.636627+00:00",
+    "patch_count": 0,
+    "patch_generation": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 1,
+    "view_count": 1
   },
   "used-car-due-diligence": {
     "archived_at": null,

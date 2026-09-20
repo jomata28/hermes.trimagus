@@ -324,7 +324,7 @@ display:
   tool_progress: all
 dashboard:
   theme: default
-  show_token_analytics: "__REDACTED_FOR_GITHUB_BACKUP__"
+  show_token_analytics: false
   trusted_proxies:
     - 172.18.0.6
   oauth:
@@ -456,7 +456,7 @@ discord:
   history_backfill: true
   history_backfill_limit: 50
   reactions: true
-  dm_role_auth_guild: "__REDACTED_FOR_GITHUB_BACKUP__"
+  dm_role_auth_guild: ''
   server_actions: ''
   allow_any_attachment: false
   max_attachment_bytes: 33554432
@@ -497,7 +497,7 @@ command_allowlist:
 hooks_auto_accept: false
 security:
   allow_private_urls: false
-  redact_secrets: "__REDACTED_FOR_GITHUB_BACKUP__"
+  redact_secrets: false
   tirith_enabled: true
   tirith_path: tirith
   tirith_timeout: 5
@@ -578,7 +578,7 @@ x_search:
 secrets:
   bitwarden:
     enabled: false
-    access_token_env: "__REDACTED_FOR_GITHUB_BACKUP__"
+    access_token_env: BWS_ACCESS_TOKEN
     project_id: ''
     cache_ttl_seconds: 300
     override_existing: true

@@ -1,1 +1,36 @@
-{"version": 1, "installed": {}}
+{
+  "version": 1,
+  "installed": {
+    "typesafe-ai": {
+      "source": "url",
+      "identifier": "https://raw.githubusercontent.com/typesafe-ai/skills/main/skills/typesafe-ai/SKILL.md",
+      "trust_level": "community",
+      "scan_verdict": "safe",
+      "content_hash": "sha256:7203ef97900058c2",
+      "install_path": "typesafe-ai",
+      "files": [
+        "SKILL.md"
+      ],
+      "metadata": {
+        "url": "https://raw.githubusercontent.com/typesafe-ai/skills/main/skills/typesafe-ai/SKILL.md",
+        "source_url": "https://raw.githubusercontent.com/typesafe-ai/skills/main/skills/typesafe-ai/SKILL.md",
+        "awaiting_name": false
+      },
+      "scan_provenance": {
+        "bundle_hash": "sha256:7203ef97900058c2073e7deb7c4087b8ed0b0bac80bd54de4b4298cb4e2e1e1d",
+        "scanner_version": "skills-guard-v2",
+        "source": "https://raw.githubusercontent.com/typesafe-ai/skills/main/skills/typesafe-ai/SKILL.md",
+        "source_url": "https://raw.githubusercontent.com/typesafe-ai/skills/main/skills/typesafe-ai/SKILL.md",
+        "verdict": "safe",
+        "trust_level": "community",
+        "findings": [],
+        "rules": [],
+        "scanned_at": "2026-09-20T01:06:12.282968+00:00",
+        "summary": "typesafe-ai: clean scan, no threats detected",
+        "fresh": false
+      },
+      "installed_at": "2026-09-20T01:06:54.890090+00:00",
+      "updated_at": "2026-09-20T01:06:54.890090+00:00"
+    }
+  }
+}
