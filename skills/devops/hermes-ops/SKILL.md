@@ -56,6 +56,16 @@ Operating procedures for THIS Hermes instance (Hostinger VPS). For generic Herme
 - Reliability guard: `hermes-dashboard-healthcheck.timer` runs `/root/.hermes/scripts/hermes_dashboard_healthcheck.sh` every two minutes. Two consecutive failed local status checks restart `hermes-dashboard.service`; one miss is tolerated because startup recompiles the web UI. Verify the timer is active and `/run/hermes-dashboard-watchdog.failures` is absent on a healthy system.
 - **Pitfall — `write_file` refuses `/etc/systemd/system/*`.** Stage the unit in `/tmp`, install with `bash -c 'cat /tmp/x.service > /etc/systemd/system/x.service'` (shell redirect passes the scan; `cp` does not), then `daemon-reload` + `enable --now`.
 
+## Hermes Desktop and Kanban on noVNC
+
+Use the native Hermes Desktop app when JT asks for the “main app” or needs the Kanban UI; the Chromium dashboard and native Desktop are different surfaces.
+
+1. Prove the backend board first with `hermes kanban boards list`, the active-board marker, SQLite counts, and attachment row/file parity.
+2. Build the current Desktop package before diagnosing missing UI: `hermes desktop --build-only --force-build`. A stale renderer can hide a valid Kanban plugin and intact board.
+3. Do not run Electron as root on this VPS. Copy the packaged `linux-unpacked` release into the `jt` user's home, grant that user X11 access, and launch under the real `jt` login session on `DISPLAY=:99`.
+4. Connect Desktop to the existing root-owned loopback backend rather than spawning a second user-owned Hermes home. Set a restart-stable `HERMES_DASHBOARD_SESSION_TOKEN` on `hermes-dashboard.service` and pass the same value as `HERMES_DESKTOP_REMOTE_TOKEN` with `HERMES_DESKTOP_REMOTE_URL=http://127.0.0.1:9119`. Use this internal session token—not Google Workspace/OIDC credentials or dashboard login cookies—because Desktop token mode authenticates REST and WebSocket traffic with the server's internal token.
+5. Verify the visible app, not only process state: sidebar contains **Kanban**, the selected board/card count matches the backend, and a known attached card shows its filename under the drawer's **Attachments** section after scrolling. Attachments are per-card; they are not expected in a global Files page.
+
 ## Private-login browser sessions (JT logs in himself)
 
 1. `systemctl start vps-screen.service` (Xvfb :99 + x11vnc 5901 + noVNC proxy 6080).

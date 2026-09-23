@@ -336,7 +336,7 @@ dashboard:
     password: "__REDACTED_FOR_GITHUB_BACKUP__"
     secret: "__REDACTED_FOR_GITHUB_BACKUP__"
     session_ttl_seconds: 0
-  public_url: https://hermes.srv1056157.hstgr.cloud
+  public_url: http://127.0.0.1:9119
 privacy:
   redact_pii: false
 tts:

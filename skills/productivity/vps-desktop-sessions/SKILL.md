@@ -213,5 +213,7 @@ This is the rendering path for target-slide/vision-slide HTML→PNG pipelines.
 - Termius (Android) = SSH shell from phone.
 - noVNC URL = the actual visual desktop.
 - Herdr = terminal multiplexer that runs inside any of those shells.
+- The Hermes web dashboard in Chromium is **not** the main Hermes app. When JT says “open the main app,” launch and foreground the native Electron window titled **Hermes**; do not substitute the browser dashboard.
+- Before saying an app or requested view is open, raise that exact X11 window and inspect a fresh screenshot of its rendered body. A running service, process, window title, or background dashboard is not proof that the user can see the requested surface.
 - ChatGPT desktop **Work `@Browser`** = an app-owned browser/profile/network path; it is not automatically available to Codex CLI.
 - Codex CLI browser access = only the browser/MCP actually exposed and proven in that CLI run. Test one harmless browser call before promising it can operate the same site as Work.
