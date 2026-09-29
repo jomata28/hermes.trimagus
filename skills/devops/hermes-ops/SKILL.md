@@ -20,6 +20,7 @@ Operating procedures for THIS Hermes instance (Hostinger VPS). For generic Herme
 - Gateway restart/status is needed
 - JT needs a private-login browser session (he logs into his own accounts; agent reads after)
 - Exposing a host service (dashboard or other) publicly via the existing Traefik / wildcard DNS, or debugging `hermes.srv1056157.hstgr.cloud`
+- Creating, monitoring, validating, or restoring a full VPS backup to Google Drive
 
 ## Model / provider switching
 
@@ -74,6 +75,22 @@ Use the native Hermes Desktop app when JT asks for the “main app” or needs t
 4. JT logs in (Claude.ai, ORA, etc.) and tells you when done; then read the screen (`DISPLAY=:99 xwd -root -out /tmp/screen.xwd`) or drive the page.
 5. Setup details live in bundled `hermes-agent` skill → `references/persistent-vps-screen.md`.
 
+## Full VPS backup to Google Drive
+
+Use Restic over the authenticated `drive-hermes:` rclone remote for whole-server backups. This is separate from the small redacted GitHub backup: it preserves system files, application state, Docker volumes, credentials, and recovery inventory in an encrypted, resumable, deduplicated repository.
+
+Always follow these gates:
+
+1. Measure the source filesystem and confirm Drive quota before writing.
+2. Create WAL-safe logical snapshots of live SQLite databases before the filesystem pass. Identify SQLite by its 16-byte `SQLite format 3\0` header, not by `.db`/`.sqlite` extension; Docker metadata can use `.db` without being SQLite.
+3. Store the Restic password in a root-only file, create a human-readable recovery note, copy that note to a separate Drive recovery folder, and verify the exact remote object before starting the long run.
+4. Back up `/`, `/boot`, and `/boot/efi` with `--one-file-system`; exclude virtual/transient mounts and Restic's local cache to avoid recursive growth.
+5. Save restore inventory (packages, systemd units, root crontab, Docker containers/volumes/inspect output) alongside logical database copies.
+6. Run the transfer in a notified background process, but never report completion from process start. On exit, inspect the real log/status and retry only after correcting the exact failing gate.
+7. Completion requires all three: a Restic snapshot exists, `restic check` succeeds (including a data subset or full-data pass), and selected critical files restore to a temporary directory and compare byte-for-byte with the source.
+
+Detailed recipe: `references/full-vps-backup-to-drive.md`.
+
 ## Daily backup to GitHub
 
 A cron job backs up `~/.hermes` to `git@github.com:jomata28/hermes.trimagus.git` (local clone at `/root/backups/hermes.trimagus`). The pushed commit is visible in `git log` after push.
@@ -119,5 +136,6 @@ A cron job backs up `~/.hermes` to `git@github.com:jomata28/hermes.trimagus.git`
 
 - `references/gateway-model-ops.md` — session-derived detail: Kimi K3 switch (2026-07-25), restart-block behavior, PM2_HOME pitfall, observed env/config values.
 - `references/dashboard-traefik-exposure.md` — 2026-09-03 session: exposing the loopback dashboard at `hermes.srv1056157.hstgr.cloud` (socat bridge + labeled edge container + edge basic auth); general recipe for any host service on the wildcard domain; bind-host auth-gate rationale.
+- `references/full-vps-backup-to-drive.md` — encrypted Restic-over-rclone whole-server backup, live SQLite snapshots, recovery-key handling, integrity checks, and test restores.
 - `references/backup-github-push-protection.md` — 2026-08-05/06 sessions: GitHub push-protection secret redaction, cron-mode `cp` bypass (`write_file` tool or `cat >`), memory.db/memory_store.db duality, HTTPS-403-despite-API-push-permission → SSH fallback.
 - `references/backup-cron-2026-09-03-run.md` — clean end-to-end cron run: `execute_code` cron block + `/tmp` script workaround, repo-resident redaction helper scripts, clean-mirror skills copy, SSH push, three-way SHA verification.
