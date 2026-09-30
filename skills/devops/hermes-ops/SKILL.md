@@ -127,6 +127,18 @@ A cron job backs up `~/.hermes` to `git@github.com:jomata28/hermes.trimagus.git`
 - **Local clone selection**: if multiple clones exist, prefer the clean, already-tracking clone under `/root/backups/<repo>` over a stale clone under `/tmp`; inspect both before selecting, then pull the chosen clone before copying.
 - **Skills dir**: `rsync -a --delete` ensures deleted skills are removed from the backup. The gitignore excludes `skills/.curator_backups/` but not the skills themselves.
 
+## Full VPS backup to Google Drive
+
+Use this when Hostinger/VPS expiry or migration requires a restorable server-level backup, not just the daily Hermes GitHub copy.
+
+- Use an encrypted restic repository over the configured `drive-hermes` rclone remote. Current repository: `rclone:drive-hermes:VPS-Backups/Hostinger-srv1056157/restic`.
+- Store the restic password at `/root/.config/restic/hostinger-vps-password` with mode 600. Keep a recovery note outside the repository and verify it independently at `drive-hermes:VPS-Backups/Recovery/HOSTINGER-VPS-RECOVERY-KEY.txt`; never print the password in chat or logs.
+- Before the filesystem snapshot, create WAL-safe logical copies of live SQLite databases with Python's `sqlite3.backup()`. Check the first 16 bytes for `SQLite format 3\0` before opening: Docker's `/var/lib/docker/volumes/metadata.db` is not SQLite despite its extension and must be skipped rather than treated as corruption.
+- Back up `/`, `/boot`, and `/boot/efi` with `--one-file-system`; exclude virtual/runtime mounts, restic's cache, Docker merged overlay mounts, and transient SQLite `*-wal`/`*-shm` files. The logical SQLite copies are the consistent database recovery source.
+- Restic exit code 3 can still mean a snapshot was saved when a live transient file disappeared. Inspect the exact errors; after excluding only confirmed transient WAL/SHM paths, rerun incrementally against the saved parent rather than discarding it.
+- Completion requires all three: `restic check --read-data-subset=5%` with no errors, an actual `restic restore` of critical files, and byte comparison (`cmp`) against the originals. Record the final snapshot ID and verify both repository objects and the separate recovery-key file on Drive.
+- Installed scripts: `/root/.local/sbin/hostinger-full-backup.sh`, `/root/.local/sbin/hostinger-sqlite-snapshot.py`, and `/root/.local/sbin/hostinger-make-recovery-note.py`. Status: `/root/backups/hostinger-backup-status.txt`; logs: `/root/backups/hostinger-logs/`.
+
 ## Security rules
 
 - Never echo API keys/secrets back in chat, files, or memory — redact as `[REDACTED]`.
