@@ -183,8 +183,10 @@ def live_candidates() -> list[dict]:
             continue
         if href.rstrip("/") == "https://divineinterventionpodcasts.com" or not REAL_EPISODE_RE.search(text):
             continue
-        if ANNOUNCEMENT_RE.search(text):
-            continue
+        # A numbered DIP episode is authoritative even when its title contains
+        # words such as "course" (for example the Pharm Crash Course series).
+        # Announcement filtering belongs to non-episode posts, which have
+        # already failed REAL_EPISODE_RE above.
         key = href.rstrip("/")
         if key in seen:
             continue
