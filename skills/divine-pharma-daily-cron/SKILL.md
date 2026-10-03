@@ -114,11 +114,13 @@ This skill is designed to be run via Hermes cron job:
 - Preserve the raw cleaned caption transcript separately, synthesize the medically corrected Daily-Session note, and only then write processed markers.
 - The helper's `video_fallback_required` JSON is a handoff, not a completed run; continue the workflow rather than returning that JSON to the user.
 
-### Whisper on CPU is effectively unusable for full episodes
-- Even with `tiny` model and 8-minute chunks, each chunk takes ~40-50 minutes on CPU. A 52-minute episode split into 7 chunks would take 5+ hours.
-- If the cron environment has no GPU, **do not attempt Whisper** unless the episode is very short (<5 min). Fall back to structure-from-title extraction immediately.
-- Even when skipping transcription, still download the MP3, verify duration with `ffprobe`, create a transcript placeholder in `Transcripts/`, and include the fallback status in frontmatter so later GPU/manual transcription has a clean handoff.
-- If a prior successful transcript already exists for the episode (check `Transcripts/` or referenced in an existing note's frontmatter), reuse it instead of re-transcribing.
+### Prefer faster-whisper CPU before creating a placeholder
+- The legacy `openai-whisper` CLI can be effectively unusable on CPU, but `faster_whisper` with `WhisperModel("base", device="cpu", compute_type="int8")` is proven in this environment: a 23-minute episode completed in ~358-390 seconds, and 30-35 minute episodes have completed inside a 600-second window.
+- For episodes up to about 35 minutes, reuse the downloaded audio and attempt `faster_whisper` base CPU/int8 with a 600-second timeout, `language="en"`, and a USMLE/pharmacology `initial_prompt`. Preserve raw `.txt` plus timestamped `.tsv` output.
+- If `faster_whisper` is absent, `uv run --with faster-whisper python SCRIPT.py` is a working ephemeral path; do not install into the system Python.
+- Only create a no-transcript placeholder after the faster-whisper attempt genuinely fails or the episode is too long for the cron window. If a placeholder was created earlier in the same run, replace it in place after successful CPU transcription and set `processing_status: completed` plus `transcription_status: completed_faster_whisper_base_cpu`.
+- A processed marker does not make a placeholder complete. Before returning `[SILENT]`, inspect the matching Daily-Session and transcript for placeholder statuses and finish them when viable.
+- If a prior successful transcript already exists for the episode, reuse it instead of re-transcribing.
 
 ### Minimal dependencies in cron
 - Do not assume `bs4`/BeautifulSoup is installed in the cron environment. If it is missing, use Python stdlib `html.parser` for homepage and episode-page link extraction rather than stopping or installing dependencies mid-cron.

@@ -45,13 +45,14 @@ for href, text in p.links:
 
 ## Long episode/no-GPU fallback checklist
 
-When `nvidia-smi` shows no CUDA GPU and duration is >5 minutes:
+When `nvidia-smi` shows no CUDA GPU:
 
-1. Still download the MP3 with `curl -L --retry 3 --fail` so the artifact is available for later manual/GPU transcription.
-2. Verify duration with `ffprobe` and include `duration_seconds` in note frontmatter.
-3. Create a transcript placeholder under `Transcripts/YYYY-MM-DD-...-Transcript.md` explaining Whisper was skipped and pointing to the downloaded audio path.
-4. In the Daily-Sessions note, set `processing_status: "structured_fallback_no_transcript"`, `transcription_status: "skipped_no_gpu_episode_..."`, and `transcript_note: ...`.
-5. Append both `live:<sha256(page_url)[:16]>` and the page URL to `~/.divine_pharma_processed`.
+1. Still download the MP3 with `curl -L --retry 3 --fail` and verify duration with `ffprobe`.
+2. For episodes up to about 35 minutes, attempt CPU transcription with `faster_whisper` base/int8 and a 600-second timeout before creating a placeholder. This path completed a 23:26 episode in 358 seconds in the cron environment.
+3. If the package is absent, run the transcription script with `uv run --with faster-whisper python SCRIPT.py`; preserve raw `.txt` and timestamped `.tsv` outputs.
+4. After success, write a complete transcript note, replace any placeholder Daily-Session in place, and set `processing_status: completed` plus `transcription_status: completed_faster_whisper_base_cpu`.
+5. Only if transcription genuinely fails or the episode is too long for the execution window, create a transcript placeholder with `processing_status: structured_fallback_no_transcript` and `transcription_status: skipped_no_gpu_episode_...`.
+6. Append both `live:<sha256(page_url)[:16]>` and the page URL to `~/.divine_pharma_processed`, but do not treat those markers as proof that a placeholder is complete.
 
 ## Verification
 
