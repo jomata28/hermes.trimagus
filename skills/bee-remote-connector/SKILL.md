@@ -19,4 +19,6 @@ Claude browser/Desktop/mobile remote connector:
 - Test /root/bee-remote/.venv/bin/python /root/bee-remote/verify.py verifies public TLS, 401, initialize, exact tool list and a live read without printing personal data.
 - Pin mcp<2 (currently 1.30.0) for FastMCP import; mcp 2 renamed that API.
 
+For reading and organizing Bee history into Tasks/Calendar/Bitácora, follow `references/bee-digestion.md`.
+
 Keep all credentials and personal Bee data out of public GitHub. Full encrypted Restic script /root/.local/sbin/hostinger-full-backup.sh includes Bee filesystem and restore comparisons of server.py, bearer token, Bee token and service unit. Inspect final status plus integrity and restore output before claiming backup complete.
