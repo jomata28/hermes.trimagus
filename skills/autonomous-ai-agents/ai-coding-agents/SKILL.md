@@ -118,6 +118,10 @@ claude --version
 
 Tell the user to exit/reopen any existing tmux Claude session so the running shell picks up the updated CLI.
 
+### Repeated workspace-trust exits
+
+When a fresh Claude launch exits on Enter, inspect the trust prompt selection; some builds default to `No, exit`. Do not claim trust persisted merely because the UI reached the main prompt. Verify the exact project's `hasTrustDialogAccepted` in the user's `.claude.json`, and test a second fresh launch. If approval fails to persist, back up the config and correct only the explicitly approved folder's trust field, preserving ownership and mode. Never mark unrelated directories trusted. Server-side startup is not proof that the phone terminal attached successfully.
+
 ### Mobile/VPS access pattern
 
 When the user wants to access Claude Code on a VPS from a phone, do **not** imply the Claude mobile app can attach to the terminal session directly. Use a persistent `tmux` session on the VPS and have the phone connect via SSH/Mosh, then attach to tmux. See `references/mobile-claude-code-tmux.md` for setup commands, Mosh firewall ports, Android client recommendations, and the root-password-login pitfall.

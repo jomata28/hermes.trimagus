@@ -11,3 +11,9 @@ Route confirmed actions to Tasks, agreed timed commitments to Calendar, context/
 Discover the real Drive root/folder using API metadata/listing if an injected root ID returns 404; never silently normalize the identifier. The verified bitacora root in this environment ends in Gq, not Gg. Use direct Drive writes and read back each exact file and Tasks write before claiming success. Do not use a local vault mirror as canonical state.
 
 Each checkpoint records fetched IDs, fully reviewed IDs, open conversations, exact backward cursor, destinations/remote IDs, verification state, open questions, and incomplete day boundary. Save one checkpoint per batch. No daemon/cron/recurring execution claim unless explicitly configured. Present 3–5 high-value questions at a time, and distinguish first batch complete from whole history complete.
+
+## Bee Steward continuous mode
+
+Use `/root/.hermes/scripts/bee_steward_monitor.py` as the stdlib-only deterministic collector and `/root/.hermes/bee-steward/` as its state root. The collector emits a fingerprint with no timestamps or transcript text, so Hermes cron monitor mode wakes an agent only when Bee changes. Keep live change processing and historical backfill as separate jobs; bound each reasoning run to at most five full conversations and preserve CAPTURING conversations for re-read.
+
+Before JT approves urgency behavior, run in shadow mode: record proposed `P0`, `P1`, `P2`, `CONTEXT`, or `REVIEW` plus source ID, matched reasons, confidence, owner, and proposed destination, but send no priority alerts and make no Tasks/Calendar/Drive writes. The editable policy is `/root/.hermes/bee-steward/priority_policy.json`. Test the collector with bare system Python and verify identical source input produces byte-identical stdout; any timestamp or random ordering defeats monitor gating.

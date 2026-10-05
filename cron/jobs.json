@@ -18,15 +18,15 @@
       "schedule_display": "55 13 * * *",
       "repeat": {
         "times": null,
-        "completed": 173
+        "completed": 174
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-13T21:12:49.081621+00:00",
-      "next_run_at": "2026-10-04T13:55:00+00:00",
-      "last_run_at": "2026-10-03T13:55:49.881749+00:00",
+      "next_run_at": "2026-10-05T13:55:00+00:00",
+      "last_run_at": "2026-10-04T13:56:25.466494+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "origin",
@@ -39,9 +39,9 @@
       "last_delivery_error": null,
       "fire_claim": null,
       "last_dispatch": {
-        "scheduled_at": "2026-10-03T13:55:00+00:00",
-        "dispatched_at": "2026-10-03T13:55:36.299663+00:00",
-        "lateness_seconds": 36.3,
+        "scheduled_at": "2026-10-04T13:55:00+00:00",
+        "dispatched_at": "2026-10-04T13:55:58.622396+00:00",
+        "lateness_seconds": 58.6,
         "kind": "on_time"
       },
       "failure_streak": 0
@@ -101,15 +101,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 171
+        "completed": 172
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-15T21:39:46.829937+00:00",
-      "next_run_at": "2026-10-04T07:00:00+00:00",
-      "last_run_at": "2026-10-03T07:17:59.546105+00:00",
+      "next_run_at": "2026-10-05T07:00:00+00:00",
+      "last_run_at": "2026-10-04T07:18:08.344855+00:00",
       "last_status": "ok",
       "last_error": null,
       "deliver": "telegram",
@@ -122,9 +122,9 @@
       "last_delivery_error": null,
       "fire_claim": null,
       "last_dispatch": {
-        "scheduled_at": "2026-10-03T07:00:00+00:00",
-        "dispatched_at": "2026-10-03T07:00:53.438651+00:00",
-        "lateness_seconds": 53.4,
+        "scheduled_at": "2026-10-04T07:00:00+00:00",
+        "dispatched_at": "2026-10-04T07:00:38.160314+00:00",
+        "lateness_seconds": 38.2,
         "kind": "on_time"
       },
       "failure_streak": 0
@@ -189,15 +189,15 @@
       "schedule_display": "0 3 * * *",
       "repeat": {
         "times": null,
-        "completed": 148
+        "completed": 149
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-08T18:09:30.722153+00:00",
-      "next_run_at": "2026-10-05T03:00:00+00:00",
-      "last_run_at": "2026-10-03T03:03:17.961278+00:00",
+      "next_run_at": "2026-10-06T03:00:00+00:00",
+      "last_run_at": "2026-10-04T03:03:22.836573+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -206,13 +206,13 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": {
-        "at": "2026-10-04T03:02:27.571468+00:00",
-        "by": "srv1056157:2351801:6c832f3eb8c745efbbc5f699fefd502c"
+        "at": "2026-10-05T03:00:24.673941+00:00",
+        "by": "srv1056157:2351801:6c8697a9caad4bd8881a96961c305baf"
       },
       "last_dispatch": {
-        "scheduled_at": "2026-10-04T03:00:00+00:00",
-        "dispatched_at": "2026-10-04T03:00:27.479293+00:00",
-        "lateness_seconds": 27.5,
+        "scheduled_at": "2026-10-05T03:00:00+00:00",
+        "dispatched_at": "2026-10-05T03:00:24.563797+00:00",
+        "lateness_seconds": 24.6,
         "kind": "on_time"
       },
       "failure_streak": 0
@@ -237,15 +237,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 131
+        "completed": 132
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-25T19:56:44.909253+00:00",
-      "next_run_at": "2026-10-04T07:00:00+00:00",
-      "last_run_at": "2026-10-03T07:02:05.552163+00:00",
+      "next_run_at": "2026-10-05T07:00:00+00:00",
+      "last_run_at": "2026-10-04T07:02:04.693720+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -263,9 +263,9 @@
       "workdir": null,
       "fire_claim": null,
       "last_dispatch": {
-        "scheduled_at": "2026-10-03T07:00:00+00:00",
-        "dispatched_at": "2026-10-03T07:00:53.438651+00:00",
-        "lateness_seconds": 53.4,
+        "scheduled_at": "2026-10-04T07:00:00+00:00",
+        "dispatched_at": "2026-10-04T07:00:38.160314+00:00",
+        "lateness_seconds": 38.2,
         "kind": "on_time"
       },
       "failure_streak": 0
@@ -290,15 +290,15 @@
       "schedule_display": "0 20 * * 0",
       "repeat": {
         "times": null,
-        "completed": 18
+        "completed": 19
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-25T20:28:23.702076+00:00",
-      "next_run_at": "2026-10-04T20:00:00+00:00",
-      "last_run_at": "2026-09-27T20:02:51.553323+00:00",
+      "next_run_at": "2026-10-11T20:00:00+00:00",
+      "last_run_at": "2026-10-04T20:02:31.035842+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -316,9 +316,9 @@
       "workdir": null,
       "fire_claim": null,
       "last_dispatch": {
-        "scheduled_at": "2026-09-27T20:00:00+00:00",
-        "dispatched_at": "2026-09-27T20:00:58.312440+00:00",
-        "lateness_seconds": 58.3,
+        "scheduled_at": "2026-10-04T20:00:00+00:00",
+        "dispatched_at": "2026-10-04T20:00:31.769445+00:00",
+        "lateness_seconds": 31.8,
         "kind": "on_time"
       },
       "failure_streak": 0
@@ -343,15 +343,15 @@
       "schedule_display": "30 22 * * *",
       "repeat": {
         "times": null,
-        "completed": 93
+        "completed": 94
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-04T15:26:33.125064+00:00",
-      "next_run_at": "2026-10-04T22:30:00+00:00",
-      "last_run_at": "2026-10-03T22:31:19.729672+00:00",
+      "next_run_at": "2026-10-05T22:30:00+00:00",
+      "last_run_at": "2026-10-04T22:31:04.562465+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -362,9 +362,9 @@
       "profile": null,
       "fire_claim": null,
       "last_dispatch": {
-        "scheduled_at": "2026-10-03T22:30:00+00:00",
-        "dispatched_at": "2026-10-03T22:30:58.790273+00:00",
-        "lateness_seconds": 58.8,
+        "scheduled_at": "2026-10-04T22:30:00+00:00",
+        "dispatched_at": "2026-10-04T22:30:43.807688+00:00",
+        "lateness_seconds": 43.8,
         "kind": "on_time"
       },
       "failure_streak": 0
@@ -391,15 +391,15 @@
       "schedule_display": "every 5m",
       "repeat": {
         "times": null,
-        "completed": 14419
+        "completed": 14658
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-04T21:26:20.949312+00:00",
-      "next_run_at": "2026-10-04T03:06:04.578562+00:00",
-      "last_run_at": "2026-10-04T03:01:04.578562+00:00",
+      "next_run_at": "2026-10-05T03:01:57.901613+00:00",
+      "last_run_at": "2026-10-05T02:56:57.901613+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -415,9 +415,9 @@
       "workdir": null,
       "fire_claim": null,
       "last_dispatch": {
-        "scheduled_at": "2026-10-04T03:00:02.162948+00:00",
-        "dispatched_at": "2026-10-04T03:00:27.479293+00:00",
-        "lateness_seconds": 25.3,
+        "scheduled_at": "2026-10-05T02:55:56.778256+00:00",
+        "dispatched_at": "2026-10-05T02:56:23.383031+00:00",
+        "lateness_seconds": 26.6,
         "kind": "on_time"
       },
       "failure_streak": 0
@@ -444,15 +444,15 @@
       "schedule_display": "0 3,15,22 * * *",
       "repeat": {
         "times": null,
-        "completed": 175
+        "completed": 178
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-06T02:45:24.849337+00:00",
-      "next_run_at": "2026-10-04T15:00:00+00:00",
-      "last_run_at": "2026-10-03T22:05:18.529233+00:00",
+      "next_run_at": "2026-10-05T15:00:00+00:00",
+      "last_run_at": "2026-10-04T22:05:10.763648+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -467,13 +467,13 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": {
-        "at": "2026-10-04T03:02:27.710185+00:00",
-        "by": "srv1056157:2351801:68267a1c5652458481c791b00277f94f"
+        "at": "2026-10-05T03:00:24.778080+00:00",
+        "by": "srv1056157:2351801:4145749b56404428af6e8769dcce3129"
       },
       "last_dispatch": {
-        "scheduled_at": "2026-10-04T03:00:00+00:00",
-        "dispatched_at": "2026-10-04T03:00:27.479293+00:00",
-        "lateness_seconds": 27.5,
+        "scheduled_at": "2026-10-05T03:00:00+00:00",
+        "dispatched_at": "2026-10-05T03:00:24.563797+00:00",
+        "lateness_seconds": 24.6,
         "kind": "on_time"
       },
       "failure_streak": 0
@@ -500,15 +500,15 @@
       "schedule_display": "every 30m",
       "repeat": {
         "times": null,
-        "completed": 2348
+        "completed": 2393
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-12T13:59:29.354401+00:00",
-      "next_run_at": "2026-10-04T03:25:03.829773+00:00",
-      "last_run_at": "2026-10-04T02:55:03.829773+00:00",
+      "next_run_at": "2026-10-05T03:26:02.538208+00:00",
+      "last_run_at": "2026-10-05T02:56:02.538208+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -524,9 +524,9 @@
       "workdir": null,
       "fire_claim": null,
       "last_dispatch": {
-        "scheduled_at": "2026-10-04T02:53:24.268733+00:00",
-        "dispatched_at": "2026-10-04T02:53:27.283306+00:00",
-        "lateness_seconds": 3.0,
+        "scheduled_at": "2026-10-05T02:53:47.542272+00:00",
+        "dispatched_at": "2026-10-05T02:54:22.902166+00:00",
+        "lateness_seconds": 35.4,
         "kind": "on_time"
       },
       "failure_streak": 0
@@ -553,15 +553,15 @@
       "schedule_display": "0 14 * * *",
       "repeat": {
         "times": null,
-        "completed": 51
+        "completed": 52
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-13T20:44:12.374955+00:00",
-      "next_run_at": "2026-10-04T14:00:00+00:00",
-      "last_run_at": "2026-10-03T14:10:16.447496+00:00",
+      "next_run_at": "2026-10-05T14:00:00+00:00",
+      "last_run_at": "2026-10-04T14:05:56.971334+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -581,9 +581,9 @@
       "workdir": null,
       "fire_claim": null,
       "last_dispatch": {
-        "scheduled_at": "2026-10-03T14:00:00+00:00",
-        "dispatched_at": "2026-10-03T14:00:36.448524+00:00",
-        "lateness_seconds": 36.4,
+        "scheduled_at": "2026-10-04T14:00:00+00:00",
+        "dispatched_at": "2026-10-04T14:00:58.734503+00:00",
+        "lateness_seconds": 58.7,
         "kind": "on_time"
       },
       "failure_streak": 0
@@ -640,7 +640,135 @@
         "kind": "on_time"
       },
       "failure_streak": 0
+    },
+    {
+      "id": "f804e6a9a588",
+      "name": "Bee Steward — Shadow Librarian",
+      "prompt": "You are JT's Bee Steward running in SHADOW MODE. The monitor has detected a changed Bee snapshot. Read /root/.hermes/bee-steward/README.md, /root/.hermes/bee-steward/priority_policy.json, /root/.hermes/bee-steward/inbox/latest.json, and /root/.hermes/bee-steward/state/librarian_checkpoint.json if it exists. Follow the bee-remote-connector skill and its Bee digestion reference.\n\nProcess only new or updated source refs relative to the librarian checkpoint, in bounded batches of at most 5 complete conversations plus associated new voice notes/todos. For each conversation selected, fetch the FULL record with `BEE_FORCE_FILE_STORE=1 bee conversations get ID --json`; a summary alone is insufficient. Save raw fetched JSON locally under /root/.hermes/bee-steward/raw/ and never copy full sensitive transcripts to Drive.\n\nSeparate JT speech/commitments from other speakers, media/tutorial audio, and assistant output heard by Bee. Keep CAPTURING conversations open for re-read. Propose a priority using the DRAFT policy only: P0, P1, P2, CONTEXT, or REVIEW. Every candidate must include source kind/ID, exact source wording or a short provenance-preserving excerpt, proposed priority, matched rule/reasons, confidence, owner, proposed destination, and whether human approval is required.\n\nWrite a dated JSON and concise Markdown review under /root/.hermes/bee-steward/shadow/. Update /root/.hermes/bee-steward/state/librarian_checkpoint.json atomically with processed signatures, open conversation IDs, remaining backlog, and output paths. If more than 5 conversations remain, leave them in backlog for the separate backfill pass; do not claim full coverage.\n\nHARD SHADOW BOUNDARY: do NOT modify Google Tasks, Google Calendar, Google Drive, Bitácora, email, messages, purchases, bookings, or any external system. Do NOT deliver priority alerts. Do NOT turn medical discussion into treatment advice. This run is evidence collection for JT to review the priority system. Your final response must be a short local audit summary with counts, output paths, unresolved questions, and explicit confirmation that external writes were zero.",
+      "skills": [
+        "bee-remote-connector"
+      ],
+      "skill": "bee-remote-connector",
+      "model": null,
+      "provider": null,
+      "provider_snapshot": "openai-codex",
+      "model_snapshot": "gpt-5.6-sol",
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "monitor_script": "bee_steward_monitor.py",
+      "monitor_url": null,
+      "monitor_state": {
+        "last_output_hash": "0231676688b8ee40afb8a842f3ec9390b97bebff1a5429d127539ab941632ddc",
+        "last_changed_at": "2026-10-05T01:09:56.590948+00:00"
+      },
+      "context_from": [
+        "self"
+      ],
+      "schedule": {
+        "kind": "interval",
+        "minutes": 15,
+        "display": "every 15m"
+      },
+      "schedule_display": "every 15m",
+      "repeat": {
+        "times": null,
+        "completed": 39
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-10-04T16:40:35.056045+00:00",
+      "next_run_at": "2026-10-05T03:12:26.774712+00:00",
+      "last_run_at": "2026-10-05T02:57:26.774712+00:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "last_delivery_unverified": null,
+      "failure_streak": 0,
+      "deliver": "local",
+      "origin": {
+        "platform": "telegram",
+        "chat_id": "1585113960",
+        "chat_name": "JT .",
+        "thread_id": null,
+        "user_id": "1585113960",
+        "scope_id": null
+      },
+      "enabled_toolsets": [
+        "terminal",
+        "file"
+      ],
+      "workdir": "/root/.hermes/bee-steward",
+      "failure_deliver": "origin",
+      "fire_claim": null,
+      "last_dispatch": {
+        "scheduled_at": "2026-10-05T02:57:22.271748+00:00",
+        "dispatched_at": "2026-10-05T02:57:23.702400+00:00",
+        "lateness_seconds": 1.4,
+        "kind": "on_time"
+      }
+    },
+    {
+      "id": "2f7a78046c42",
+      "name": "Bee Steward — Shadow Backfill",
+      "prompt": "You are JT's Bee Steward historical BACKFILL worker in SHADOW MODE. Read /root/.hermes/bee-steward/README.md, /root/.hermes/bee-steward/priority_policy.json, /root/.hermes/bee-steward/inbox/latest.json, and /root/.hermes/bee-steward/state/librarian_checkpoint.json if present. Follow the bee-remote-connector skill and its digestion reference.\n\nContinue the oldest unreviewed Bee backlog in a bounded batch of at most 5 complete conversations. Fetch each full record with `BEE_FORCE_FILE_STORE=1 bee conversations get ID --json`, save raw JSON locally under /root/.hermes/bee-steward/raw/, and preserve source IDs. If the latest snapshot does not contain enough backlog, use `bee conversations list --limit N --cursor CURSOR --json` and persist the exact backward cursor. Never claim all history is complete unless the endpoint is exhausted and every fetched item is checkpointed.\n\nClassify candidate items only under the DRAFT shadow policy as P0/P1/P2/CONTEXT/REVIEW with reasons, confidence, owner, proposed destination, and approval requirement. Write dated JSON + Markdown under /root/.hermes/bee-steward/shadow/ and update the checkpoint atomically.\n\nHARD SHADOW BOUNDARY: do NOT modify Tasks, Calendar, Drive, Bitácora, messages, email, purchases, bookings, or any external system; do not send alerts. Medical discussion is context to verify, not treatment advice. Final response: concise local audit with batch coverage, remaining backlog/cursor, output paths, questions, and external writes = 0.",
+      "skills": [
+        "bee-remote-connector"
+      ],
+      "skill": "bee-remote-connector",
+      "model": null,
+      "provider": null,
+      "provider_snapshot": "openai-codex",
+      "model_snapshot": "gpt-5.6-sol",
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "monitor_script": null,
+      "monitor_url": null,
+      "monitor_state": null,
+      "context_from": [
+        "self"
+      ],
+      "schedule": {
+        "kind": "cron",
+        "expr": "15 7 * * *",
+        "display": "15 7 * * *"
+      },
+      "schedule_display": "15 7 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 0
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-10-04T16:40:48.418162+00:00",
+      "next_run_at": "2026-10-05T07:15:00+00:00",
+      "last_run_at": null,
+      "last_status": null,
+      "last_error": null,
+      "last_delivery_error": null,
+      "last_delivery_unverified": null,
+      "failure_streak": 0,
+      "deliver": "local",
+      "origin": {
+        "platform": "telegram",
+        "chat_id": "1585113960",
+        "chat_name": "JT .",
+        "thread_id": null,
+        "user_id": "1585113960",
+        "scope_id": null
+      },
+      "enabled_toolsets": [
+        "terminal",
+        "file"
+      ],
+      "workdir": "/root/.hermes/bee-steward",
+      "failure_deliver": "origin"
     }
   ],
-  "updated_at": "2026-10-04T03:02:27.710957+00:00"
+  "updated_at": "2026-10-05T03:00:24.782952+00:00"
 }
