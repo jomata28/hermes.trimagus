@@ -22,3 +22,5 @@ Claude browser/Desktop/mobile remote connector:
 For reading and organizing Bee history into Tasks/Calendar/Bitácora, follow `references/bee-digestion.md`.
 
 Keep all credentials and personal Bee data out of public GitHub. Full encrypted Restic script /root/.local/sbin/hostinger-full-backup.sh includes Bee filesystem and restore comparisons of server.py, bearer token, Bee token and service unit. Inspect final status plus integrity and restore output before claiming backup complete.
+
+The private Drive handoff package for the renamed agent **Stuart B 🐝** is under Bitácora `3-Resources/Stuart B 🐝`, folder ID `1wb7VNBIeZ3WZiLkDV0KMIkw9CxPjD_Yg`. It contains the identity, master prompt, architecture, operating manual, policy, schemas, current state, activation plan, security rules, sanitized cron definitions, code/tests, skills, compiled exports, latest conversation, and a private raw-source archive. Treat it as a consultation/transfer snapshot; the live source remains `/root/.hermes/bee-steward/`. Never include credentials, and verify every Drive upload by remote size + MD5 plus absence of public permissions.
