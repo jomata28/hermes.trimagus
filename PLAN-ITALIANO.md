@@ -41,11 +41,12 @@ Sources (all linked inside the app): Pimsleur folder on Drive (90 lessons) ·
 Anki ITALIAN CORE by Frequency [1k] · 5000 Highest Frequency Italian Words ·
 Podcast Italiano / Coffee Break Italian / Easy Italian · 4 reading PDFs.
 
-## Calendar (scheduled 2026-10-12)
+## Calendar (scheduled 2026-10-12, moved earlier same day)
 
-- **Daily 20:00–21:15 — 🇮🇹 Italiano**: Pimsleur/podcast 30 · Anki 15 ·
+- **Mon–Sat 18:30–19:45 — 🇮🇹 Italiano**: Pimsleur/podcast 30 · Anki 15 ·
   immersion 30. If either of you has a commute or a walk, do the audio there
   and the evening block shrinks to 45 min.
+- **Sunday 16:30–17:45 — 🇮🇹 Italiano** (MISA is 18:00–20:00).
 - **Sunday 11:00–11:15 — 🇮🇹 Revisione**: right after the 师父 review.
 - **One-offs:** Sfida 2 on 2026-11-25, Sfida 3 on 2027-01-24.
 

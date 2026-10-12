@@ -19,3 +19,4 @@
 
 ## LOG
 - 2026-10-12: Italian program set up as a separate plan alongside SHIFU (Chinese untouched). Read the app artifact in full and the tracker sheet. Calendar: daily 20:00–21:15 block, Sunday 11:00 review, Sfida 2 and Sfida 3 one-offs. Noted that the SHIFU PM block (20:00–21:30) had already been deleted from the calendar before this session, so the 20:00 slot was free.
+- 2026-10-12 (b): Moved earlier at operator's request: Mon–Sat 18:30–19:45, Sunday 16:30–17:45 (MISA 18:00). Sfida 2 moved to 18:30, Sfida 3 to 16:30.
